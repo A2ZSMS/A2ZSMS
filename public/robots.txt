@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /404
+Disallow: /admin
+
+# Host
+Host: https://www.a2zsms.in
+
+# Sitemaps
+Sitemap: https://www.a2zsms.in/sitemap.xml
