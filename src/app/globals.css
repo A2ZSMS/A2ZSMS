@@ -1,81 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 body {
-    font-family: 'Jost', sans-serif;
- 
+  font-family: "Jost", sans-serif;
+} */
+/* Import only Inter font (remove unused fonts if not needed) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif !important;
 }
+
 .fw-bold {
   font-weight: 700 !important;
 }
-*{
-    padding: 0;
-    margin: 0;
-    
+* {
+  padding: 0;
+  margin: 0;
 }
-.place-center{
+.place-center {
   place-content: center;
 }
 
 @media (max-width: 768px) {
-.collapse{
-  background-color: rgb(20, 131, 206);
-}
-.gap{
-  gap: 10px;
-}
+  .collapse {
+    background-color: rgb(20, 131, 206);
+  }
+  .gap {
+    gap: 10px;
+  }
 }
 
-.head{
+.head {
   font-family: EB Garamond, serif;
   font-size: 50px;
   font-weight: 700;
   text-shadow: 6px 7px 6px #000;
 }
-.head1{
+.head1 {
   font-family: EB Garamond, serif;
   font-size: 35px;
   font-weight: 700;
 }
-.aos{
+.aos {
   overflow: hidden;
 }
 
-.bg{
-  background-image: url('/image/breadcrumb-1.jpg');
+.bg {
+  background-image: url("/image/breadcrumb-1.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
-.para-color1{
+.para-color1 {
   font-size: 16px;
   font-weight: 500;
-  font-family: 'inter' !important;
+  font-family: "inter" !important;
   line-height: 30px;
 }
-.para-blog{
+.para-blog {
   font-size: 16px;
   font-weight: 500;
-  font-family: 'inter' !important;
+  font-family: "inter" !important;
   /* line-height: 30px; */
 }
-.para-color{
+.para-color {
   font-size: 15px;
   font-weight: 500;
-  font-family: 'inter' !important;
+  font-family: "inter" !important;
   line-height: 26px;
 }
 
-.para-color2{
+.para-color2 {
   font-size: 15px;
   font-weight: 500;
-  font-family: 'inter' !important;
+  font-family: "inter" !important;
   line-height: 40px;
 }
-.para-color3{
+.para-color3 {
   font-size: 18px;
   font-weight: 500;
-  font-family: 'Open Sans' !important;
+  font-family: "Open Sans" !important;
   line-height: 32px;
 }
 .font2 {
@@ -83,47 +88,51 @@ body {
   font-size: 32px;
   font-weight: 700;
 }
-.price-bg{
-  background-image: url('/image/pricing-bg.jpg');
+.price-bg {
+  background-image: url("/image/pricing-bg.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
-.bg1{
+.bg1 {
   background-color: rgb(243, 247, 251);
 }
 
-.bg2{
-  background: linear-gradient(120deg, #E0F7FA, #FFF9E7, #FFECE6);
+.bg2 {
+  background: linear-gradient(120deg, #d9f3f7, #f3eddb, #d6f4d9);
   /* background: linear-gradient(120deg, #cfeefa, #fcf8df, #fff3e6); */
 }
-.bg3{
-  background: linear-gradient(120deg,#FFECE6, #FFF9E7,  #E0F7FA);
+.bg3 {
+  background: linear-gradient(120deg, #ffece6, #fff9e7, #e0f7fa);
 }
 .iconcolor {
-  background: linear-gradient(100deg, #03bff8, #dac342, #f5a03e); /* Gradient background */
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  font-weight: bold; 
+  background: linear-gradient(
+    100deg,
+    #03bff8,
+    #dac342,
+    #f5a03e
+  ); /* Gradient background */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
-.text1{
-  font-family: '__Poppins_e16692', sans-serif;
+.text1 {
+  font-family: "__Poppins_e16692", sans-serif;
   color: #5f6880;
   line-height: 24px;
   font-size: 16px;
 }
-.para{
-    font-size: 15px;
-    font-weight: 400;
-    font-family: 'inter' !important;
-    line-height: 24px;
-    color: #5f6880;
+.para {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "inter" !important;
+  line-height: 24px;
+  color: #5f6880;
 }
-.para-head{
+.para-head {
   font-size: 20px;
   font-weight: 600;
-  font-family: 'inter' !important;
+  font-family: "inter" !important;
   line-height: 24px;
   color: #3f3f3f !important;
 }
-

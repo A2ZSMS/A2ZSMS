@@ -13,17 +13,17 @@ const Home = () => {
     });
   }, []);
 
-
   return (
     <section
-      style={{
-        backgroundColor: "#f9f9f9",
-        padding: "50px 0",
-      }}
+      className="bg2"
+      // style={{
+      //   backgroundColor: "#f9f9f9",
+      //   padding: "50px 0",
+      // }}
     >
       <div className="container">
         <div className="row align-items-center aos">
-        <div className="col-md-6 para-color" data-aos="fade-right">
+          <div className="col-md-6 para-color" data-aos="fade-right">
             <h1 className="fw-bold mb-2">
               Improve Your Business with{" "}
               <span className="text-info">RCS Messaging Solutions</span>
@@ -59,7 +59,7 @@ const Home = () => {
             </ul>
           </div>
           <div className="col-md-6 text-center" data-aos="fade-left">
-          <img
+            <img
               className="img-fluid rounded"
               src="/image/product/rcs1.png"
               alt="Image"

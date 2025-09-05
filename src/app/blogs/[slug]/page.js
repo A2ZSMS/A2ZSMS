@@ -32,7 +32,9 @@ import Mar19 from "@/app/Component/Blogs/March/Mar19";
 import Mar25 from "@/app/Component/Blogs/March/Mar25";
 import Mar24 from "@/app/Component/Blogs/March/Mar24";
 import Aug26 from "@/app/Component/Blogs/Aug2025/Aug26";
+import Sep2 from "@/app/Component/Blogs/Sep2025/Sep2";
 // Simple component mapping
+
 const BlogComponents = {
   dec13: Dec13,
   dec14: Dec14,
@@ -63,6 +65,7 @@ const BlogComponents = {
   mar24: Mar24,
   mar25: Mar25,
   aug26: Aug26,
+  sep02: Sep2,
 };
 
 // ✅ Add this function to generate static pages
@@ -72,10 +75,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  if (!params || !params.slug) return {};
+export async function generateMetadata({ params }) {
+  const { slug } = await params; // ✅ Await params
 
-  const blog = meta.find((post) => post.slug === params.slug);
+  const blog = meta.find((post) => post.slug === slug);
+  if (!blog) return {};
+
   return {
     title: blog.title,
     description: blog.description,

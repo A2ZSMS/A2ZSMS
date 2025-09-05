@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; // Use this import for App Router
-import { FaArrowUp } from 'react-icons/fa';
-import './Anime.css';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // Use this import for App Router
+import { FaArrowUp } from "react-icons/fa";
+import "./Anime.css";
 
 const ScrollToTop = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -13,7 +13,7 @@ const ScrollToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -27,10 +27,10 @@ const ScrollToTop = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

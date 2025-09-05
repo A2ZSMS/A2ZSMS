@@ -62,25 +62,27 @@ const Services = () => {
   return (
     <section
       className="py-5 mb-2 bg2"
-      style={{
-        // backgroundColor: "#F3F7FB",
-      }}
+      style={
+        {
+          // backgroundColor: "#F3F7FB",
+        }
+      }
     >
       <div className="container">
         <div className="row aos">
           {/* Left Image Section */}
           <div className="col-md-6" data-aos="zoom-in-right">
-          <Image
-  src="/image/feature-icon/hero-girl.png"
-  alt="Bulk SMS Services"
-  width={450}
-  height={640}
-  style={{ borderRadius: "10px" }}
-/>
+            <Image
+              src="/image/feature-icon/hero-girl.png"
+              alt="Bulk SMS Services"
+              width={450}
+              height={640}
+              style={{ borderRadius: "10px" }}
+            />
           </div>
 
           {/* Right Content Section */}
-          <div className="col-md-6 col-12"  data-aos="zoom-in-left">
+          <div className="col-md-6 col-12" data-aos="zoom-in-left">
             <h5 className="text-primary mb-2">Bulk SMS</h5>
             <h2 className="fw-bold mb-4">Our Bulk SMS Services</h2>
             {/* Tabs with Custom Icons */}
@@ -103,9 +105,10 @@ const Services = () => {
                 >
                   <img
                     src={service.icon}
-                    alt={service.title} width="24px" height={"24px"}
+                    alt={service.title}
+                    width="24px"
+                    height={"24px"}
                     style={{
-                     
                       marginRight: "10px",
                     }}
                   />
@@ -123,10 +126,7 @@ const Services = () => {
               <p className="text-muted">{selectedService.description}</p>
               <ul>
                 {selectedService.points.map((point, index) => (
-                  <li
-                    key={index}
-                    className="text-muted para-color2"
-                  >
+                  <li key={index} className="text-muted para-color2">
                     <i
                       className="fas fa-check me-2"
                       style={{ color: "#007bff" }}
@@ -136,7 +136,6 @@ const Services = () => {
                 ))}
               </ul>
             </div>
-
           </div>
         </div>
       </div>

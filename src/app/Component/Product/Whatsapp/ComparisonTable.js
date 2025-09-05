@@ -1,12 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckCircle,
+  faTimesCircle,
+} from "@fortawesome/free-solid-svg-icons";
 // import Try1 from "../../image/Whats.png";
 
 // JSON Data
 const tableData = {
   title: "Compare WhatsApp Business Options",
-  subtitle: "Understand the benefits of WhatsApp Business App vs API for scaling your business.",
+  subtitle:
+    "Understand the benefits of WhatsApp Business App vs API for scaling your business.",
   headers: ["Feature", "WhatsApp Business App", "WhatsApp Business API"],
   rows: [
     {
@@ -14,80 +18,80 @@ const tableData = {
       app: {
         icon: "times",
         color: "red",
-        text: "Limited to auto-replies only"
+        text: "Limited to auto-replies only",
       },
       api: {
         icon: "check",
         color: "green",
-        text: "Automate workflows with custom triggers and templates"
-      }
+        text: "Automate workflows with custom triggers and templates",
+      },
     },
     {
       feature: "Scalability",
       app: {
         icon: "times",
         color: "red",
-        text: "Restricted to 256 contacts per group"
+        text: "Restricted to 256 contacts per group",
       },
       api: {
         icon: "check",
         color: "green",
-        text: "Unlimited outreach with bulk messaging"
-      }
+        text: "Unlimited outreach with bulk messaging",
+      },
     },
     {
       feature: "Multi-User Support",
       app: {
         icon: "times",
         color: "red",
-        text: "Single-device access only"
+        text: "Single-device access only",
       },
       api: {
         icon: "check",
         color: "green",
-        text: "Allow multiple agents to manage conversations simultaneously"
-      }
+        text: "Allow multiple agents to manage conversations simultaneously",
+      },
     },
     {
       feature: "Integrations",
       app: {
         icon: "times",
         color: "red",
-        text: "No third-party integrations supported"
+        text: "No third-party integrations supported",
       },
       api: {
         icon: "check",
         color: "green",
-        text: "Integrates with CRM, ERP, and marketing tools"
-      }
+        text: "Integrates with CRM, ERP, and marketing tools",
+      },
     },
     {
       feature: "Performance Insights",
       app: {
         icon: "times",
         color: "red",
-        text: "No analytics available"
+        text: "No analytics available",
       },
       api: {
         icon: "check",
         color: "green",
-        text: "Track delivery, open rates, and agent performance"
-      }
+        text: "Track delivery, open rates, and agent performance",
+      },
     },
     {
       feature: "Customization",
       app: {
         icon: "times",
         color: "red",
-        text: "Basic templates only"
+        text: "Basic templates only",
       },
       api: {
         icon: "check",
         color: "green",
-        text: "Personalized messages with dynamic fields"
-      }
-    }
-  ]
+        text: "Personalized messages with dynamic fields",
+      },
+    },
+  ],
 };
 
 // Component
@@ -95,7 +99,7 @@ const ComparisonTable = () => {
   const getIcon = (icon, color) => {
     const iconMap = {
       check: faCheckCircle,
-      times: faTimesCircle
+      times: faTimesCircle,
     };
 
     return (
@@ -109,7 +113,7 @@ const ComparisonTable = () => {
 
   return (
     <>
-      <div className="bg2">
+      <div className="bg-light">
         <div className="container py-5 aos">
           <h2 className="text-center fw-bold mb-3" style={{ color: "#203239" }}>
             {tableData.title}
@@ -135,7 +139,7 @@ const ComparisonTable = () => {
                         backgroundColor: index === 0 ? "#f8f9fa" : "#008060",
                         color: index === 0 ? "#000000" : "#ffffff",
                         fontWeight: "600",
-                        fontSize: "1rem"
+                        fontSize: "1rem",
                       }}
                     >
                       {header}
@@ -164,18 +168,23 @@ const ComparisonTable = () => {
       </div>
 
       {/* API Template Section */}
-     <div className="bg-light">
-       <div className="container pt-5">
-         <div className="row aos">
-           {/* <h2 className="head1 text-center ">Explore Our WhatsApp API Template</h2> */}
-      
-           <div className="col-12" data-aos="zoom-in">
-             <img src="/image/product/Whatsapp2.png"  alt="WhatsApp Template" width="px" height={"px"} className="img-fluid " />
-           </div>
-           
-         </div>
-       </div>
-     </div>
+      <div className="">
+        <div className="container py-5">
+          <div className="row aos">
+            {/* <h2 className="head1 text-center ">Explore Our WhatsApp API Template</h2> */}
+
+            <div className="col-12" data-aos="zoom-in">
+              <img
+                src="/image/product/Whatsapp2.png"
+                alt="WhatsApp Template"
+                width="px"
+                height={"px"}
+                className="img-fluid "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

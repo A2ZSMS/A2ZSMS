@@ -1,4 +1,4 @@
-"use client"; // Important for Next.js app directory
+"use client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="py-5 bg-light">
+    <section className="py-5 bg2">
       <div className="container">
         <div className="row align-items-center">
           {/* Left Content */}
@@ -31,7 +31,9 @@ const Home = () => {
             <ul className="list-unstyled  mt-4">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-success me-3"></i>
-                <span>Automate customer support with intelligent chatbots.</span>
+                <span>
+                  Automate customer support with intelligent chatbots.
+                </span>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-success me-3"></i>
@@ -39,15 +41,21 @@ const Home = () => {
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-success me-3"></i>
-                <span>Provide secure and instant OTP verification services.</span>
+                <span>
+                  Provide secure and instant OTP verification services.
+                </span>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-success me-3"></i>
-                <span>Deliver real-time notifications for orders and updates.</span>
+                <span>
+                  Deliver real-time notifications for orders and updates.
+                </span>
               </li>
               <li className="d-flex align-items-start">
                 <i className="bi bi-check-circle-fill text-success me-3"></i>
-                <span>Integrate seamlessly with CRMs for unified workflows.</span>
+                <span>
+                  Integrate seamlessly with CRMs for unified workflows.
+                </span>
               </li>
             </ul>
           </div>

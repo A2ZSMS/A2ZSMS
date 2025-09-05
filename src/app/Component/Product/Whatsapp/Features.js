@@ -14,21 +14,21 @@ const featuresData = {
       id: 2,
       title: "24/7 Automated Responses",
       description:
-       "Leverage chatbots to manage customer queries automatically, ensuring uninterrupted communication even outside business hours. Chatbots can handle frequently asked questions, freeing up your team to focus on complex issues. They improve response time and ensure consistent communication, resulting in better customer satisfaction and higher retention rates.",
+        "Leverage chatbots to manage customer queries automatically, ensuring uninterrupted communication even outside business hours. Chatbots can handle frequently asked questions, freeing up your team to focus on complex issues. They improve response time and ensure consistent communication, resulting in better customer satisfaction and higher retention rates.",
       icon: "/image/feature-icon/support-icon.png",
     },
     {
       id: 3,
       title: "Real-Time Notifications",
       description:
-      "Send real-time alerts, reminders, and updates to customers instantly. Perfect for order confirmations, appointment reminders, and payment updates. WhatsApp’s reliable infrastructure ensures your messages are delivered instantly, even during high-traffic periods. Real-time notifications keep customers informed, improving transparency and reducing missed engagements.",
+        "Send real-time alerts, reminders, and updates to customers instantly. Perfect for order confirmations, appointment reminders, and payment updates. WhatsApp’s reliable infrastructure ensures your messages are delivered instantly, even during high-traffic periods. Real-time notifications keep customers informed, improving transparency and reducing missed engagements.",
       icon: "/image/feature-icon/security.png",
     },
     {
       id: 4,
       title: "End-to-End Encryption",
       description:
-      "Ensure secure communication with end-to-end encryption, protecting your customers' data and maintaining compliance with global privacy standards. WhatsApp’s encryption protocols safeguard sensitive information, making it ideal for industries like banking, healthcare, and e-commerce. Security is a priority, so businesses and customers can communicate with peace of mind.",
+        "Ensure secure communication with end-to-end encryption, protecting your customers' data and maintaining compliance with global privacy standards. WhatsApp’s encryption protocols safeguard sensitive information, making it ideal for industries like banking, healthcare, and e-commerce. Security is a priority, so businesses and customers can communicate with peace of mind.",
       icon: "/image/feature-icon/icon-8.png",
     },
   ],
@@ -47,7 +47,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={feature.id}
-              className="col-md-12 mb-4 shadow bg2"
+              className="col-md-12 mb-4 shadow bg-light"
               data-aos={index % 2 === 0 ? "zoom-in-right" : "zoom-in-left"}
               data-aos-duration="2000"
               style={{

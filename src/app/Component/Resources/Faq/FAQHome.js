@@ -17,7 +17,7 @@ const FAQHome = ({ data }) => {
   const { title, subtitle, faqs } = data;
 
   return (
-    <div className="bg2">
+    <div className="bg-light">
       <div className="container py-5 aos">
         {/* Title Section */}
         <div className="text-center mb-4">
@@ -26,11 +26,23 @@ const FAQHome = ({ data }) => {
         </div>
 
         {/* Accordion Section */}
-        <div className="accordion aos" id="faqAccordion">
+        <div
+          className="accordion aos"
+          data-aos="zoom-in-right"
+          id="faqAccordion"
+        >
           {faqs && faqs.length > 0 ? (
             faqs.map((faq) => (
-              <div className="accordion-item mb-1" data-aos="zoom-in-right" key={faq.id}>
-                <h2 className="accordion-header" data-aos="zoom-in-up" id={`heading${faq.id}`}>
+              <div
+                className="accordion-item mb-1"
+                //
+                key={faq.id}
+              >
+                <h2
+                  className="accordion-header"
+                  // data-aos="zoom-in-up"
+                  id={`heading${faq.id}`}
+                >
                   <button
                     className="accordion-button fw-bold text-dark bg-white border-0 py-4"
                     type="button"
@@ -39,17 +51,25 @@ const FAQHome = ({ data }) => {
                     aria-expanded={faq.id === 1 ? "true" : "false"}
                     aria-controls={`collapse${faq.id}`}
                   >
-                   <i className={`me-2 ${faq.icon}`} style={{ color: "#007bff" }}></i>
+                    <i
+                      className={`me-2 ${faq.icon}`}
+                      style={{ color: "#007bff" }}
+                    ></i>
                     {faq.question}
                   </button>
                 </h2>
                 <div
                   id={`collapse${faq.id}`}
-                  className={`accordion-collapse collapse ${faq.id === 1 ? "show" : ""}`}
+                  className={`accordion-collapse collapse ${
+                    faq.id === 1 ? "show" : ""
+                  }`}
                   aria-labelledby={`heading${faq.id}`}
                   data-bs-parent="#faqAccordion"
                 >
-                  <div className="accordion-body para-color" style={{ color: "#333" }}>
+                  <div
+                    className="accordion-body para-color"
+                    style={{ color: "#333" }}
+                  >
                     {faq.answer}
                   </div>
                 </div>
@@ -61,7 +81,6 @@ const FAQHome = ({ data }) => {
         </div>
       </div>
     </div>
-
   );
 };
 

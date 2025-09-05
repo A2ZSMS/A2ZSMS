@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           {/* Center - Company Links */}
-          <div className="col-5 col-md-2 mx-3 mb-4">
+          <div className="col-12 col-md-2 mx-3 mb-4">
             <h5 className="fw-bold">Company</h5>
             <ul className="list-unstyled" id="line-space1">
               <li>
@@ -100,7 +100,7 @@ const Footer = () => {
           </div>
 
           {/* SMS Plans Links */}
-          <div className="col-5 col-md-2 mx-3 mb-4">
+          <div className="col-12 col-md-2 mx-3 mb-4">
             <h5 className="fw-bold">SMS Plans</h5>
             <ul className="list-unstyled" id="line-space1">
               <li>

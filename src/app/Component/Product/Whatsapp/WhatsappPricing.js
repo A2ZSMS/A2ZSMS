@@ -61,7 +61,7 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="py-5" style={{ backgroundColor: "#f1f5f9" }}>
+    <div className="py-5 bg-light">
       <div className="container pt-2">
         <h2
           className="text-center py-3 head1"

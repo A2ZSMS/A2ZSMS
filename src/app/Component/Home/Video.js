@@ -7,14 +7,14 @@ const Video = () => {
     <div className="video-container position-relative">
       {/* <div className="videoWrapper"> */}
       <video autoPlay muted loop playsInline className="videoBackground">
-        <source src="/video/video.mp4" type="video/mp4" />
+        <source src="/video/A2ZSMS.mp4" type="video/mp4" />
       </video>
       {/* </div> */}
 
       <div className="video-overlay"></div>
 
       <div className="container">
-        <div className="video-content text-white">
+        <div className="video-content text-white ">
           <h1 className="fw-bold">
             Boost Your Business Revenue by{" "}
             <span className="highlight">5X with WhatsApp Marketing</span>
@@ -27,12 +27,12 @@ const Video = () => {
             results.
           </p>
           <div className="action-buttons gap-3 w-100">
-            <Link href="/whatsapp-api">
+            <Link href="/whatsapp-api/">
               <button className="btn btn-outline-light px-4 me-2 mb-2">
                 Learn More
               </button>
             </Link>
-            <Link href="/tryforfree">
+            <Link href="/try-for-free/">
               <button className="btn btn-primary px-4 ms-2">
                 Set Up Discovery Call
               </button>
@@ -47,7 +47,7 @@ const Video = () => {
           <div className="dflex" style={{ justifyContent: "space-around" }}>
             <img
               className="m-2  logo-img"
-              src="/image/motherhood.png"
+              src="/image/ping4sms-client3.webp"
               alt="Background Image"
             />
             <img

@@ -225,7 +225,7 @@ const PricingTabs = () => {
   };
 
   return (
-    <div className="py-5 bg2">
+    <div className="py-5 bg-light">
       <h2 className="text-center text-dark py-2 head1">
         Choose Awesome Plan for Your Needs
       </h2>

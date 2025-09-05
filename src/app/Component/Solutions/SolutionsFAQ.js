@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import React, { useState } from "react";
 
@@ -10,20 +10,28 @@ const SolutionFaq = ({ data }) => {
   };
 
   return (
-    <div className="bg2">
+    <div className="bg-light">
       <div className="container py-5">
         {/* Title */}
         <h2 className="text-center fw-bold mb-4">{data?.title || "FAQs"}</h2>
 
         {/* Accordion Section */}
-        <div className="accordion aos">
+        <div className="accordion aos" data-aos="zoom-in-up">
           {data?.faqs?.length > 0 ? (
             data.faqs.map((faq, index) => (
-              <div key={faq.id || index} className="accordion-item border-0 shadow-sm mb-2 py-2" data-aos="zoom-in-up">
+              <div
+                key={faq.id || index}
+                className="accordion-item border-0 shadow-sm mb-2 py-2"
+              >
                 {/* Question */}
-                <h2 className="accordion-header" id={`heading-${faq.id || index}`}>
+                <h2
+                  className="accordion-header"
+                  id={`heading-${faq.id || index}`}
+                >
                   <button
-                    className={`accordion-button ${activeId === faq.id ? "" : "collapsed"} fw-bold`}
+                    className={`accordion-button ${
+                      activeId === faq.id ? "" : "collapsed"
+                    } fw-bold`}
                     onClick={() => toggleFAQ(faq.id)}
                   >
                     {faq.question}
@@ -33,7 +41,9 @@ const SolutionFaq = ({ data }) => {
                 {/* Answer */}
                 <div
                   id={`collapse-${faq.id || index}`}
-                  className={`accordion-collapse collapse ${activeId === faq.id ? "show" : ""}`}
+                  className={`accordion-collapse collapse ${
+                    activeId === faq.id ? "show" : ""
+                  }`}
                 >
                   <div className="accordion-body">
                     <p className="mb-0">{faq.answer}</p>

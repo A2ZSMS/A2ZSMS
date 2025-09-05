@@ -5,7 +5,7 @@ const BulkSmsHome = () => {
     <>
       {/* Transactional SMS Section */}
       <section
-        className="bg2 mt-2"
+        className="bg-light mt-2"
         style={{
           // backgroundColor: "#f9f9f9",
           padding: "50px 0",
@@ -135,7 +135,7 @@ const BulkSmsHome = () => {
 
       {/* OTP SMS Section */}
       <section
-        className="bg3"
+        className="bg-light"
         style={{
           // backgroundColor: "#f9f9f9",
           padding: "50px 0",

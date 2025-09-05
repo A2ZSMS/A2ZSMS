@@ -1,10 +1,20 @@
 [
   {
+    "id": 30,
+    "title": "WhatsApp Marketing Secrets for Business Growth",
+    "componentKey": "Sep02",
+    "slug": "whatsapp-marketing-secrets",
+    "category": "WhatsApp Service",
+    "date": "2025-09-02",
+    "description": "Unlock powerful WhatsApp marketing secrets in 2025. Learn strategies, tips, and tools to boost engagement, sales, and customer trust effectively.",
+    "image": "/Images/11.png"
+  },
+  {
     "id": 29,
     "title": "Best WhatsApp Business API Service Provider in India – Complete Guide 2025",
     "componentKey": "Aug26",
     "slug": "best-whatsapp-business-api-service-provider",
-    "category": "WhatsApp API",
+    "category": "WhatsApp Service",
     "date": "2025-04-25",
     "description": "Discover the best WhatsApp Business API service provider in India. Learn about features, benefits, use cases, and why A2ZSMS is the trusted partner for businesses in 2025.",
     "image": "/Images/Aug26.png"

@@ -1,11 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckCircle,
+  faTimesCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 // JSON Data
 const tableData = {
   title: "Compare RCS Messaging Options",
-  subtitle: "Discover how RCS Messaging outshines traditional SMS for businesses.",
+  subtitle:
+    "Discover how RCS Messaging outshines traditional SMS for businesses.",
   headers: ["Feature", "SMS", "RCS Messaging"],
   rows: [
     {
@@ -13,93 +17,92 @@ const tableData = {
       sms: {
         icon: "times",
         color: "red",
-        text: "Plain text with limited functionality"
+        text: "Plain text with limited functionality",
       },
       rcs: {
         icon: "check",
         color: "green",
-        text: "Share stunning images, videos, and dynamic carousels"
-      }
+        text: "Share stunning images, videos, and dynamic carousels",
+      },
     },
     {
       feature: "Verified Sender",
       sms: {
         icon: "times",
         color: "red",
-        text: "No brand identification"
+        text: "No brand identification",
       },
       rcs: {
         icon: "check",
         color: "green",
-        text: "Showcase your brand with verified sender IDs and logos"
-      }
+        text: "Showcase your brand with verified sender IDs and logos",
+      },
     },
     {
       feature: "Interactive Messaging",
       sms: {
         icon: "times",
         color: "red",
-        text: "Limited to basic replies"
+        text: "Limited to basic replies",
       },
       rcs: {
         icon: "check",
         color: "green",
-        text: "Engage customers with quick replies and actionable buttons"
-      }
+        text: "Engage customers with quick replies and actionable buttons",
+      },
     },
     {
       feature: "Delivery and Read Receipts",
       sms: {
         icon: "times",
         color: "red",
-        text: "No tracking available"
+        text: "No tracking available",
       },
       rcs: {
         icon: "check",
         color: "green",
-        text: "Track delivery status and message reads in real-time"
-      }
+        text: "Track delivery status and message reads in real-time",
+      },
     },
     {
       feature: "Two-Way Communication",
       sms: {
         icon: "check",
         color: "green",
-        text: "Supports basic replies"
+        text: "Supports basic replies",
       },
       rcs: {
         icon: "check",
         color: "green",
-        text: "Foster real-time conversations with seamless interaction"
-      }
+        text: "Foster real-time conversations with seamless interaction",
+      },
     },
     {
       feature: "Custom Branding",
       sms: {
         icon: "times",
         color: "red",
-        text: "Lacks personalization"
+        text: "Lacks personalization",
       },
       rcs: {
         icon: "check",
         color: "green",
-        text: "Enhance messages with brand colors, fonts, and styles"
-      }
-    }
-  ]
+        text: "Enhance messages with brand colors, fonts, and styles",
+      },
+    },
+  ],
 };
-
 
 // Component
 const ComparisonTable = () => {
   const getIcon = (icon, color) => {
     const iconMap = {
       check: faCheckCircle,
-      times: faTimesCircle
+      times: faTimesCircle,
     };
 
     return (
-        <FontAwesomeIcon
+      <FontAwesomeIcon
         icon={iconMap[icon]}
         className="me-2"
         style={{ color, fontSize: "1.4rem", width: "20px", height: "20px" }}
@@ -108,7 +111,7 @@ const ComparisonTable = () => {
   };
 
   return (
-    <div className="bg2">
+    <div className="">
       <div className="container py-5 aos">
         <h2 className="text-center fw-bold mb-3" style={{ color: "#203239" }}>
           {tableData.title}
@@ -134,7 +137,7 @@ const ComparisonTable = () => {
                       backgroundColor: index === 0 ? "#f8f9fa" : "#008060",
                       color: index === 0 ? "#000000" : "#ffffff",
                       fontWeight: "600",
-                      fontSize: "1rem"
+                      fontSize: "1rem",
                     }}
                   >
                     {header}
@@ -159,7 +162,6 @@ const ComparisonTable = () => {
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   );

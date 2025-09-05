@@ -45,16 +45,16 @@ export default function RootLayout({ children }) {
     });
 
     // Dynamically Load WhatsApp Script
-    const script = document.createElement("script");
-    script.src =
-      "https://cdn.msgmaker.in/es.chat.min.js?t=b8e8dc1e-6a0b-42ac-883f-a6ee4dc0069f";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    // const script = document.createElement("script");
+    // script.src =
+    //   "https://cdn.msgmaker.in/es.chat.min.js?t=b8e8dc1e-6a0b-42ac-883f-a6ee4dc0069f";
+    // script.async = true;
+    // script.defer = true;
+    // document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
+    // return () => {
+    //   document.body.removeChild(script);
+    // };
   }, []);
 
   return (

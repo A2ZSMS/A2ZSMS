@@ -5,39 +5,46 @@ const stepsData = [
   {
     number: 1,
     title: "Step 1",
-    description: "Login to your Facebook Business Manager account to get started."
+    description:
+      "Login to your Facebook Business Manager account to get started.",
   },
   {
     number: 2,
     title: "Step 2",
-    description: "Set up your WhatsApp Business API on the cloud platform."
+    description: "Set up your WhatsApp Business API on the cloud platform.",
   },
   {
     number: 3,
     title: "Step 3",
-    description: "Verify your WhatsApp business number to enable cloud messaging."
+    description:
+      "Verify your WhatsApp business number to enable cloud messaging.",
   },
   {
     number: 4,
     title: "Step 4",
-    description: "Integrate the API with your existing systems for seamless communication."
+    description:
+      "Integrate the API with your existing systems for seamless communication.",
   },
   {
     number: 5,
     title: "Step 5",
-    description: "Start sending messages and engage with your customers effortlessly."
-  }
+    description:
+      "Start sending messages and engage with your customers effortlessly.",
+  },
 ];
 
 const StepsSection = () => {
   return (
-    <div className="bg2 py-5 text-dark">
+    <div className="bg-light py-5 text-dark">
       <div className="container aos">
         <div className="row align-items-center">
           {/* Image Section */}
-          <div className="col-md-6 text-center mb-md-0" data-aos="zoom-in-right">
+          <div
+            className="col-md-6 text-center mb-md-0"
+            data-aos="zoom-in-right"
+          >
             <img
-              src="/image/product/whatsapp.png"  // Correct path to the image in the public folder
+              src="/image/product/whatsapp.png" // Correct path to the image in the public folder
               alt="How to sign up"
               width="100"
               height="auto"
@@ -68,12 +75,8 @@ const StepsSection = () => {
 
                   {/* Step Content */}
                   <div className="ms-3">
-                    <p className="mb-1 fw-bold">
-                      {step.title}
-                    </p>
-                    <p className="mb-0 para-color">
-                      {step.description}
-                    </p>
+                    <p className="mb-1 fw-bold">{step.title}</p>
+                    <p className="mb-0 para-color">{step.description}</p>
                   </div>
                 </div>
               ))}
