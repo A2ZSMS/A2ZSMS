@@ -53,7 +53,7 @@ const SocialMedia = () => {
         Connect with us on Social Media
       </p>
 
-      <div className="row justify-content-center" data-aos="zoom-in-up">
+      <div className="row justify-content-center" data-aos="fade-in">
         {socialMediaData.map((item) => (
           <div key={item.id} className="col-6 col-md-2 text-center mb-3">
             <div style={{ fontSize: "3rem", marginBottom: "0.5rem" }}>

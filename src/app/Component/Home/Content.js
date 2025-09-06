@@ -14,7 +14,7 @@ const ContentHome = ({ data }) => {
           <div key={item.id || `content-${index}`} className={item.bg}>
             {" "}
             {/* ✅ Ensuring unique key */}
-            <div className="container py-5">
+            <div className="container aos ">
               <div
                 className={`row g-0 g-md-5 align-items-center mb-5 aos ${
                   index % 2 === 1 ? "" : "flex-row-reverse"
@@ -39,7 +39,7 @@ const ContentHome = ({ data }) => {
                   </ul>
 
                   {/* Button Section */}
-                  <div className="mt-4">
+                  <div className="my-4">
                     <a
                       href={item.link}
                       className="btn btn-primary px-4 py-2 fw-bold"
@@ -50,7 +50,10 @@ const ContentHome = ({ data }) => {
                 </div>
 
                 {/* Image Section */}
-                <div className="col-md-6 text-center" data-aos="zoom-in-left">
+                <div
+                  className="col-md-6 text-center py-4"
+                  data-aos="zoom-in-left"
+                >
                   <img src={item.image} alt={item.title} className="w-100" />
                 </div>
               </div>
@@ -58,7 +61,7 @@ const ContentHome = ({ data }) => {
           </div>
         );
       })}
-      <Reviews />
+      {/* <Reviews /> */}
     </div>
   );
 };

@@ -58,7 +58,7 @@ const Reviews = () => {
 
   return (
     <section className="py-5 aos">
-      <div className="container" data-aos="zoom-in">
+      <div className="container" data-aos="fade-in">
         <h2 className="text-center mb-5 head1">Trusted By These Brands</h2>
         <Slider {...sliderSettings}>
           {reviewImages.map((image, index) => (

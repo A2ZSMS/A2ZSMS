@@ -2,7 +2,7 @@ import React from "react";
 const Aboutus = () => {
   return (
     <div className="bg-light py-5">
-      <div className="container py-5 fw-bold">
+      <div className="container py-5 aos fw-bold">
         <div className="row align-items-center para-color aos">
           {/* Left Section */}
           <div className="col-12 col-md-6" data-aos="zoom-in-right">
@@ -58,7 +58,7 @@ const Aboutus = () => {
               </div>
             </ul>
 
-            <div className="mt-3 p-3 border rounded text-center w-75 bg-info">
+            <div className="mt-3 p-3 border rounded text-center w-100 bg-info">
               <i className="bi bi-telephone-fill me-2"></i>
               <span>
                 Call us anytime :{" "}
@@ -76,7 +76,10 @@ const Aboutus = () => {
           </div>
 
           {/* Right Section */}
-          <div className="col-12 col-md-6 text-center" data-aos="zoom-in-left">
+          <div
+            className="col-12 col-md-6 py-3 text-center"
+            data-aos="zoom-in-left"
+          >
             <div>
               <img
                 className="img-fluid rounded"

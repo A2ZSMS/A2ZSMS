@@ -2,7 +2,7 @@ const Home = () => {
   return (
     <section className="bg-gradient position-relative overflow-hidden">
       <div className="container-fluid p-0 position-relative">
-        <div className="row align-items-center min-vh-100 g-0">
+        <div className="row align-items-center g-0">
           {/* Hero Image with Overlay */}
           <div className="col-12 position-relative">
             <div className="hero-image-container position-relative">

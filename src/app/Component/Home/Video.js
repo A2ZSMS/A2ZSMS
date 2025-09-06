@@ -13,7 +13,7 @@ const Video = () => {
 
       <div className="video-overlay"></div>
 
-      <div className="container">
+      <div className="container aos">
         <div className="video-content text-white ">
           <h1 className="fw-bold">
             Boost Your Business Revenue by{" "}

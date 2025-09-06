@@ -127,9 +127,9 @@ const ComparisonTable = () => {
           <div className="table-responsive aos">
             <table
               className="table table-bordered table-striped align-middle"
-              data-aos="fade-up"
+              data-aos="fade-in"
             >
-              <thead data-aos="fade-right" data-aos-duration="2000">
+              <thead>
                 <tr>
                   {tableData.headers.map((header, index) => (
                     <th
@@ -147,7 +147,7 @@ const ComparisonTable = () => {
                   ))}
                 </tr>
               </thead>
-              <tbody data-aos="fade-left" data-aos-duration="2000">
+              <tbody>
                 {tableData.rows.map((row, rowIndex) => (
                   <tr key={rowIndex}>
                     <td className="p-3">{row.feature}</td>
@@ -173,7 +173,7 @@ const ComparisonTable = () => {
           <div className="row aos">
             {/* <h2 className="head1 text-center ">Explore Our WhatsApp API Template</h2> */}
 
-            <div className="col-12" data-aos="zoom-in">
+            <div className="col-12" data-aos="fade-in">
               <img
                 src="/image/product/Whatsapp2.png"
                 alt="WhatsApp Template"

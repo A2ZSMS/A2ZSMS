@@ -85,10 +85,10 @@ const Responsivedesign = () => {
 
   return (
     <section className="py-5 bg-light shadow border-top position-relative">
-      <div className="container">
-        <div className="row align-items-center mb-5">
+      <div className="container aos">
+        <div className="row align-items-center mb-5 aos">
           {/* Content Section */}
-          <div className="col-lg-6 order-lg-1 order-2">
+          <div className="col-lg-6 order-lg-1 order-2" data-aos="fade-right">
             <span className="badge bg-info-subtle text-info px-4 py-2 rounded-pill mb-3 fs-6">
               Responsive Excellence
             </span>
@@ -156,7 +156,10 @@ const Responsivedesign = () => {
           </div>
 
           {/* Image Section with Device Mockups */}
-          <div className="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0">
+          <div
+            className="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0"
+            data-aos="fade-left"
+          >
             <div className="position-relative">
               <img
                 src="/image/product/web-speed1.jpg"
@@ -189,9 +192,9 @@ const Responsivedesign = () => {
         </div>
 
         {/* Responsive Features */}
-        <div className="row g-4 mb-5">
+        <div className="row g-4 mb-5 aos">
           {responsiveFeatures.map((feature, index) => (
-            <div key={index} className="col-lg-6">
+            <div key={index} className="col-lg-6" data-aos="fade-in">
               <div className="card border-0 shadow-sm h-100 hover-card bg-white">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-start mb-3">
@@ -221,8 +224,8 @@ const Responsivedesign = () => {
         </div>
 
         {/* Maintenance Services */}
-        <div className="row justify-content-center">
-          <div className="col-lg-10">
+        <div className="row justify-content-center aos">
+          <div className="col-lg-10" data-aos="fade-in">
             <div className="bg-dark rounded-4 p-5 text-white">
               <div className="text-center mb-5">
                 <h3 className="fw-bold mb-3">

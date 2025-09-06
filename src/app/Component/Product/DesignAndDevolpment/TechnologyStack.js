@@ -128,7 +128,7 @@ const TechnologyStack = () => {
 
   return (
     <section className="py-5 pattern-dots position-relative">
-      <div className="container">
+      <div className="container aos">
         {/* Header */}
         <div className="row justify-content-center mb-5">
           <div className="col-lg-8 text-center text-black">
@@ -150,8 +150,8 @@ const TechnologyStack = () => {
         {/* Technology Categories */}
         {technologies.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-5">
-            <div className="row justify-content-center mb-4">
-              <div className="col-lg-8 text-center">
+            <div className="row justify-content-center mb-4 aos">
+              <div className="col-lg-8 text-center" data-aos="fade-in">
                 <div className="d-flex align-items-center justify-content-center mb-3">
                   <div
                     className={`bg-${category.color} rounded-circle d-flex align-items-center justify-content-center me-3`}
@@ -166,10 +166,14 @@ const TechnologyStack = () => {
               </div>
             </div>
 
-            <div className="row g-4">
+            <div className="row g-4 aos">
               {category.techs.map((tech, techIndex) => (
-                <div key={techIndex} className="col-lg-3 col-md-6">
-                  <div className="card bg-light border-0 tech-card shadow">
+                <div
+                  key={techIndex}
+                  className="col-lg-3 col-md-6"
+                  data-aos="fade-in"
+                >
+                  <div className="card border-0 tech-card shadow">
                     <div className="card-body p-4 text-center">
                       <div
                         className={`bg-${category.color}-subtle rounded-circle d-inline-flex align-items-center justify-content-center mb-3`}
@@ -193,8 +197,8 @@ const TechnologyStack = () => {
         ))}
 
         {/* Why Our Tech Choices Matter */}
-        <div className="row justify-content-center">
-          <div className="col-lg-10">
+        <div className="row justify-content-center aos">
+          <div className="col-lg-10" data-aos="fade-out">
             <div className="bg-dark rounded-4 p-5 shadow-lg">
               <h3 className="fw-bold text-center text-light mb-5">
                 Why Our Technology Choices Drive Your Success

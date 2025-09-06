@@ -125,9 +125,9 @@ const ComparisonTable = () => {
         <div className="table-responsive aos">
           <table
             className="table table-bordered table-striped align-middle"
-            data-aos="fade-up"
+            data-aos="fade-out"
           >
-            <thead data-aos="fade-right" data-aos-duration="2000">
+            <thead>
               <tr>
                 {tableData.headers.map((header, index) => (
                   <th
@@ -145,7 +145,7 @@ const ComparisonTable = () => {
                 ))}
               </tr>
             </thead>
-            <tbody data-aos="fade-left" data-aos-duration="2000">
+            <tbody>
               {tableData.rows.map((row, rowIndex) => (
                 <tr key={rowIndex}>
                   <td className="p-3">{row.feature}</td>

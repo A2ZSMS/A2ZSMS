@@ -87,9 +87,9 @@ const Industries = () => {
 
   return (
     <section className="py-5 bg-light">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 text-center">
+      <div className="container aos">
+        <div className="row justify-content-center aos">
+          <div className="col-lg-8 text-center" data-aos="fade-in">
             <h2 className="mb-3 head1">Industries We Serve</h2>
             <p className="para-color1">
               Successfully delivered OTP, Billing, Offers, Alerts, and Wishes to
@@ -98,9 +98,13 @@ const Industries = () => {
           </div>
         </div>
 
-        <div className="row mt-4">
+        <div className="row mt-4 aos">
           {industryData.map((industry, index) => (
-            <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" key={index}>
+            <div
+              className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4"
+              data-aos="fade-in"
+              key={index}
+            >
               <Link href={industry.path} className="text-decoration-none">
                 <div className="text-center shadow-sm p-4 industry-card d-flex">
                   <img

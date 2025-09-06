@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Clients.css'
+import "./Clients.css";
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 const sliderSettings = {
@@ -36,14 +36,15 @@ const images = [
   "/image/ping4sms-client1.webp",
   "/image/saishishirtours.png",
   "/image/Groavy.png",
+  "/image/isk.png",
 ];
 
 const Client = () => (
-  <div className="container py-5">
+  <div className="container py-5 aos">
     <h2 className="text-center mb-4 fw-bold py-3">Our Trusted Clients</h2>
     <Slider {...sliderSettings}>
       {images.map((image, index) => (
-        <div key={index} className="px-4">
+        <div key={index} className="px-4" data-aos="fade-in">
           <div className="d-flex justify-content-center align-items-center rounded">
             <img
               src={image}

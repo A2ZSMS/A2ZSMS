@@ -46,7 +46,7 @@ const Pricing = () => {
 
   return (
     <div className="py-5 bg-light">
-      <div className="container">
+      <div className="container aos">
         <h2 className="text-center py-3">
           Unlock the Power of WhatsApp Business API for Your Business
         </h2>
@@ -58,9 +58,9 @@ const Pricing = () => {
 
         <h3 className="text-center py-3">Our Pricing Plans</h3>
 
-        <div className="row justify-content-center">
+        <div className="row justify-content-center aos">
           {pricingData.map((category, index) => (
-            <div key={index} className="col-md-12 text-center mb-4">
+            <div key={index} className="col-md-12 text-center mb-4" data-aos="fade-in">
               <h4 className="mb-4">{category.package}</h4>
               <div className="row justify-content-center">
                 {category.plans.map((item, i) => (

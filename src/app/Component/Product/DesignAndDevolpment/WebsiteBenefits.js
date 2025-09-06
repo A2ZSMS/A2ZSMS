@@ -48,10 +48,10 @@ const WebsiteBenefits = () => {
 
   return (
     <section className="py-5 bg-light position-relative">
-      <div className="container">
+      <div className="container aos">
         {/* Header Section */}
-        <div className="row justify-content-center mb-5">
-          <div className="col-lg-8 text-center">
+        <div className="row justify-content-center mb-5 aos">
+          <div className="col-lg-8 text-center" data-aos="fade-in">
             <span className="badge bg-primary-subtle text-primary px-4 py-2 rounded-pill mb-3 fs-6">
               Digital Success Awaits
             </span>
@@ -68,7 +68,7 @@ const WebsiteBenefits = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="row g-4 mb-5">
+        <div className="row g-4 mb-5" data-aos="fade-in">
           {benefits.map((benefit, index) => (
             <div key={index} className="col-lg-4 col-md-6">
               <div className="card border-0 shadow-sm h-100 hover-lift transition-smooth">
@@ -90,8 +90,8 @@ const WebsiteBenefits = () => {
         </div>
 
         {/* Reality Check Section */}
-        <div className="row justify-content-center">
-          <div className="col-lg-10">
+        <div className="row justify-content-center aos">
+          <div className="col-lg-10" data-aos="fade-in">
             <div className="bg-gradient-primary rounded-4 p-5 text-white text-center shadow-lg">
               <h3 className="fw-bold mb-4">
                 The Hard Truth About Today's Market

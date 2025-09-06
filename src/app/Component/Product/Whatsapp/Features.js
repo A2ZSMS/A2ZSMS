@@ -48,8 +48,9 @@ const Features = () => {
             <div
               key={feature.id}
               className="col-md-12 mb-4 shadow bg-light"
-              data-aos={index % 2 === 0 ? "zoom-in-right" : "zoom-in-left"}
-              data-aos-duration="2000"
+              data-aos="fade-in"
+              // data-aos={index % 2 === 0 ? "zoom-in-right" : "zoom-in-left"}
+              // data-aos-duration="2000"
               style={{
                 borderRadius: "10px",
                 padding: "20px",

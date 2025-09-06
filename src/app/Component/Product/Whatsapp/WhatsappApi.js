@@ -1,6 +1,6 @@
 
 import Home from './Home'
-import Client from './Clients'
+// import Client from './Clients'
 import ComparisonTable from './ComparisonTable'
 import WhatsappPricing from './WhatsappPricing'
 import Apisupport from './Apisupport'
@@ -9,12 +9,14 @@ import Features from './Features'
 import SocialMedia from './SocialMedia'
 import FAQHome from '../../Resources/Faq/FAQHome'
 import { Whatsapp } from '../../Resources/Faq/FaqData'
+import Trustedbrand from '../../Home/Trustedbrand'
 
 const WhatsappApi = () => {
   return (
     <div>
         <Home/>
-        <Client/>
+        {/* <Client/> */}
+        <Trustedbrand/>
         <ComparisonTable/>
         <WhatsappPricing/>
         <Apisupport/>

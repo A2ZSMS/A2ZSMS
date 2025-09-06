@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Testimonials.css";
 
-
 const testimonials = [
   {
     name: "Rahul Sharma",
@@ -59,7 +58,6 @@ const testimonials = [
   },
 ];
 
-
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 const Testimonials = () => {
@@ -80,7 +78,9 @@ const Testimonials = () => {
   return (
     <div className="py-5 bg-light">
       <div className="container py-3">
-        <h2 className="text-center fw-bold mb-4">What Our Clients Say About Us</h2>
+        <h2 className="text-center fw-bold mb-4">
+          What Our Clients Say About Us
+        </h2>
         <Slider {...settings}>
           {groupedTestimonials.map((group, index) => (
             <div key={index}>

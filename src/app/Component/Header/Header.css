@@ -168,4 +168,7 @@ header.sticky-top.scrolled {
     width: 70%;
     margin: 10px auto;
   }
+  .dropdown {
+    width: 100% !important;
+  }
 }

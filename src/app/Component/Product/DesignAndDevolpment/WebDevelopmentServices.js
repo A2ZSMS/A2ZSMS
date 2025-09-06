@@ -61,10 +61,13 @@ const WebDevelopmentServices = () => {
         </div>
       </div>
 
-      <div className="container position-relative">
-        <div className="row align-items-center mb-5">
+      <div className="container position-relative aos">
+        <div className="row align-items-center mb-5 aos">
           {/* Image Section */}
-          <div className="col-lg-6 order-lg-1 order-2 text-center mb-4 mb-lg-0">
+          <div
+            className="col-lg-6 order-lg-1 order-2 text-center mb-4 mb-lg-0"
+            data-aos="fade-right"
+          >
             <div className="position-relative">
               <img
                 src="/image/product/designs.jpg"
@@ -94,7 +97,7 @@ const WebDevelopmentServices = () => {
           </div>
 
           {/* Content Section */}
-          <div className="col-lg-6 order-lg-2 order-1">
+          <div className="col-lg-6 order-lg-2 order-1" data-aos="fade-left">
             <span className="badge bg-warning text-dark px-4 py-2 rounded-pill mb-3 fs-6">
               Advanced Technology
             </span>
@@ -139,9 +142,9 @@ const WebDevelopmentServices = () => {
         </div>
 
         {/* Development Services Grid */}
-        <div className="row g-4">
+        <div className="row g-4 aos">
           {developmentServices.map((service, index) => (
-            <div key={index} className="col-lg-6">
+            <div key={index} className="col-lg-6" data-aos="fade-in">
               <div className="card bg-dark border-0 h-100 hover-glow">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-start mb-3">
@@ -190,7 +193,10 @@ const WebDevelopmentServices = () => {
         </div>
 
         {/* Why Choose Our Development */}
-        <div className="row justify-content-center mt-5 py-4">
+        <div
+          className="row justify-content-center mt-5 py-4 "
+          data-aos="fade-in"
+        >
           <div className="col-lg-10">
             <div className="text-center">
               <h3 className="fw-bold text-dark mb-4">

@@ -44,7 +44,7 @@ const StepsSection = () => {
             data-aos="zoom-in-right"
           >
             <img
-              src="/image/product/whatsapp.png" // Correct path to the image in the public folder
+              src="/image/product/whatsapp1.png" // Correct path to the image in the public folder
               alt="How to sign up"
               width="100"
               height="auto"

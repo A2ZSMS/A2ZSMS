@@ -106,10 +106,10 @@ const Faq = () => {
 
   return (
     <section className="py-5 pattern-dots">
-      <div className="container">
+      <div className="container aos">
         {/* Header */}
-        <div className="row justify-content-center mb-5">
-          <div className="col-lg-8 text-center">
+        <div className="row justify-content-center mb-5 aos">
+          <div className="col-lg-8 text-center" data-aos="fade-in">
             <span className="badge bg-primary-subtle text-primary px-4 py-2 rounded-pill mb-3 fs-6">
               Get Answers
             </span>
@@ -125,8 +125,8 @@ const Faq = () => {
         </div>
 
         {/* Category Tabs */}
-        <div className="row justify-content-center mb-5">
-          <div className="col-lg-8">
+        <div className="row justify-content-center mb-5 aos">
+          <div className="col-lg-8" data-aos="fade-in">
             <div className="nav nav-pills justify-content-center bg-white rounded-pill p-2 shadow-sm">
               {Object.entries(faqCategories).map(([key, category]) => (
                 <button
@@ -147,8 +147,8 @@ const Faq = () => {
         </div>
 
         {/* FAQ Content */}
-        <div className="row justify-content-center">
-          <div className="col-lg-10">
+        <div className="row justify-content-center aos">
+          <div className="col-lg-10" data-aos="fade-in">
             <div className="text-center mb-4">
               <div
                 className={`bg-${currentCategory.color}-subtle rounded-circle d-inline-flex align-items-center justify-content-center mb-3`}
@@ -205,8 +205,8 @@ const Faq = () => {
         </div>
 
         {/* Still Have Questions CTA */}
-        <div className="row justify-content-center mt-5">
-          <div className="col-lg-8 text-center">
+        <div className="row justify-content-center mt-5 aos">
+          <div className="col-lg-8 text-center" data-aos="fade-in">
             <div className="bg-white rounded-4 p-5 shadow-lg border border-primary border-opacity-25">
               <h4 className="fw-bold text-dark mb-3">Still Have Questions?</h4>
               <p className="text-muted mb-4">

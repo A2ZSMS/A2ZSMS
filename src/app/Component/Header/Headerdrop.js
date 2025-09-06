@@ -116,7 +116,7 @@ const HeaderDrop = () => {
 
               <div className="offcanvas-body">
                 <div className="navbar-nav ms-4">
-                  <ul className="nav d-flex gap-3">
+                  <ul className="nav  gap-3">
                     {/* Your existing navigation items */}
                     <li
                       className={`nav-item dropdown ${
@@ -504,7 +504,7 @@ const HeaderDrop = () => {
                   </Link>
                   <Link
                     href="/request-demo"
-                    className="action btn btn-outline-primary px-4 buton fw-bold pt-2"
+                    className="action btn btn-outline-primary px-4 buton fw-bold pt-2 "
                     onClick={() => {
                       closeDropdown();
                       document

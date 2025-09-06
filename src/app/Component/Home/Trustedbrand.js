@@ -48,13 +48,25 @@ const Trustedbrand = () => {
       src: "/image/ping4sms-client2.webp",
       alt: "Ping4SMS Client - Financial Services",
     },
+    {
+      src: "/image/naidum.jpeg",
+      alt: "Naidum Client -  Services",
+    },
+    {
+      src: "/image/nite.png",
+      alt: "Nite Client -  Services",
+    },
+    {
+      src: "/image/vpa.jpg",
+      alt: "Nite Client -  Services",
+    },
   ];
 
   return (
     <section className="py-5 ">
-      <div className="container">
+      <div className="container aos">
         {/* Header */}
-        <div className="text-center mb-5">
+        <div className="text-center mb-5" data-aos="fade-out">
           <span className="badge bg-primary bg-opacity-10 text-primary fs-6 mb-3">
             Trusted Partners
           </span>
@@ -87,7 +99,10 @@ const Trustedbrand = () => {
           >
             {brands.map((brand, index) => (
               <SwiperSlide key={index}>
-                <div className="card h-100 border-0 shadow-sm">
+                <div
+                  className="card h-100 border-0 shadow-sm"
+                  data-aos="fade-in"
+                >
                   <div
                     className="card-body d-flex align-items-center justify-content-center"
                     style={{ height: "100px" }}

@@ -48,7 +48,7 @@ export const Contents = {
     },
     {
       title: "Custom Website Design & Development",
-      bg: "bg-light",
+      bg: "bg-white",
       description: [
         "Craft conversion-optimized websites with cutting-edge design principles that captivate visitors and transform them into customers through strategic user experience architecture.",
         "Build lightning-fast, mobile-first responsive websites using modern frameworks like React, Next.js, and Progressive Web App technologies for superior performance.",
@@ -63,7 +63,7 @@ export const Contents = {
     },
     {
       title: "Premium Voice Broadcasting",
-      bg: "bg-white",
+      bg: "bg-light",
       description: [
         "Amplify your message impact with crystal-clear voice campaigns that combine human authenticity with automated efficiency for unprecedented reach.",
         "Deploy interactive voice response systems, call scheduling, and personalized audio content that creates memorable brand experiences and drives action.",

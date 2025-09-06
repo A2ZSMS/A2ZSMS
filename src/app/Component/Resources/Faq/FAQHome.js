@@ -17,7 +17,7 @@ const FAQHome = ({ data }) => {
   const { title, subtitle, faqs } = data;
 
   return (
-    <div className="bg-light">
+    <div className="bg-white">
       <div className="container py-5 aos">
         {/* Title Section */}
         <div className="text-center mb-4">
@@ -26,16 +26,12 @@ const FAQHome = ({ data }) => {
         </div>
 
         {/* Accordion Section */}
-        <div
-          className="accordion aos"
-          data-aos="zoom-in-right"
-          id="faqAccordion"
-        >
+        <div className="accordion aos" data-aos="fade-in" id="faqAccordion">
           {faqs && faqs.length > 0 ? (
             faqs.map((faq) => (
               <div
                 className="accordion-item mb-1"
-                //
+                data-aos="fade-in"
                 key={faq.id}
               >
                 <h2
@@ -44,7 +40,7 @@ const FAQHome = ({ data }) => {
                   id={`heading${faq.id}`}
                 >
                   <button
-                    className="accordion-button fw-bold text-dark bg-white border-0 py-4"
+                    className="accordion-button fw-bold text-dark bg-light border-0 py-4"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target={`#collapse${faq.id}`}

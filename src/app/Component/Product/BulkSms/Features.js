@@ -111,6 +111,7 @@ const Features = () => {
               <div
                 key={feature.id}
                 className="col-md-12 mb-3 bg-light"
+                data-aos="fade-in"
                 style={{
                   borderRadius: "10px",
                   padding: "20px",

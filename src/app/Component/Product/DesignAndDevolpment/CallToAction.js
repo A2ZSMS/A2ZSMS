@@ -54,10 +54,10 @@ const CallToAction = () => {
         </div>
       </div>
 
-      <div className="container position-relative">
+      <div className="container position-relative aos">
         {/* Main CTA Section */}
-        <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-10">
+        <div className="row justify-content-center text-center mb-5 aos">
+          <div className="col-lg-10" data-aos="fade-in">
             <h2 className="display-5 fw-bold mb-4">
               Stop Losing Customers to{" "}
               <span className="text-success">
@@ -72,7 +72,7 @@ const CallToAction = () => {
             </p>
 
             {/* Urgency Factors */}
-            <div className="row g-4 mb-5">
+            <div className="row g-4 mb-5 aos">
               {urgencyFactors.map((factor, index) => (
                 <div key={index} className="col-lg-4">
                   <div className="bg-light shadow bg-opacity-10 rounded-4 p-4 backdrop-blur hover-lift">
@@ -89,8 +89,8 @@ const CallToAction = () => {
         </div>
 
         {/* Action Section */}
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
+        <div className="row justify-content-center aos">
+          <div className="col-lg-8" data-aos="fade-in">
             <div className="bg-light rounded-4 p-5 shadow-lg text-dark text-center">
               <h3 className="fw-bold mb-4">Get Started Today - Risk Free</h3>
 
@@ -108,8 +108,8 @@ const CallToAction = () => {
 
               {/* Pricing Teaser */}
               <div className="bg-light rounded-3 p-4 mb-4">
-                <div className="row align-items-center">
-                  <div className="col-md-8 text-start">
+                <div className="row align-items-center aos">
+                  <div className="col-md-8 text-start" data-aos="fade-out">
                     <h5 className="fw-bold mb-2">
                       Limited Time: Free Strategy Session
                     </h5>
@@ -140,7 +140,7 @@ const CallToAction = () => {
               </div>
 
               {/* Contact Information */}
-              <div className="row g-3 text-center">
+              <div className="row g-3 text-center" data-aos="fade-in">
                 <div className="col-md-4">
                   <div className="d-flex align-items-center justify-content-center">
                     <i className="bi bi-telephone-fill text-primary me-2"></i>
@@ -167,8 +167,8 @@ const CallToAction = () => {
         </div>
 
         {/* Social Proof */}
-        <div className="row justify-content-center mt-5">
-          <div className="col-lg-10 text-center">
+        <div className="row justify-content-center mt-5 aos">
+          <div className="col-lg-10 text-center" data-aos="fade-in">
             <h4 className="fw-bold text-secondary mb-4">
               Join Hundreds of Successful Businesses
             </h4>
@@ -202,8 +202,8 @@ const CallToAction = () => {
         </div>
 
         {/* Final Urgency Message */}
-        <div className="row justify-content-center mt-5">
-          <div className="col-lg-8 text-center">
+        <div className="row justify-content-center mt-5 aos">
+          <div className="col-lg-8 text-center" data-aos="zoom-in">
             <div className="alert alert-success border-0 shadow-lg">
               <div className="d-flex align-items-center justify-content-center">
                 <i className="bi bi-exclamation-triangle-fill text-success fs-3 me-3"></i>

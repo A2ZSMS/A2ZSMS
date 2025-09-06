@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +11,7 @@ import "./pricing.css";
 import Link from "next/link";
 
 const PricingTabs = () => {
-  const [activeTab, setActiveTab] = useState("promotional");
+  const [activeTab, setActiveTab] = useState("transactional");
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -33,7 +31,7 @@ const PricingTabs = () => {
         finalPrice: "₹3000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "DND Refund",
           "API Available",
           "Lifetime Validity",
@@ -49,7 +47,7 @@ const PricingTabs = () => {
         finalPrice: "₹5000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "DND Refund",
           "API Available",
           "Lifetime Validity",
@@ -65,7 +63,7 @@ const PricingTabs = () => {
         finalPrice: "₹7000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "DND Refund",
           "API Available",
           "Lifetime Validity",
@@ -81,7 +79,7 @@ const PricingTabs = () => {
         finalPrice: "₹14,000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "DND Refund",
           "API Available",
           "Lifetime Validity",
@@ -99,7 +97,7 @@ const PricingTabs = () => {
         finalPrice: "₹3500",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 5 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -115,7 +113,7 @@ const PricingTabs = () => {
         finalPrice: "₹6000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 5 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -131,7 +129,7 @@ const PricingTabs = () => {
         finalPrice: "₹8000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 5 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -144,10 +142,10 @@ const PricingTabs = () => {
         sms: "100,000 SMS",
         originalPrice: "₹21000",
         discount: "50%",
-        finalPrice: "₹14000",
+        finalPrice: "₹15000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 5 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -165,7 +163,7 @@ const PricingTabs = () => {
         finalPrice: "₹3500",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 3 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -181,7 +179,7 @@ const PricingTabs = () => {
         finalPrice: "₹6500",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 3 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -197,7 +195,7 @@ const PricingTabs = () => {
         finalPrice: "₹8500",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 3 Sec Delivery",
           "API Available",
           "Lifetime Validity",
@@ -213,7 +211,7 @@ const PricingTabs = () => {
         finalPrice: "₹15,000",
         color: "primary",
         features: [
-          "100% Delivery",
+          "Good Delivery Ratio",
           "Less than 3 Sec Delivery",
           "API Available",
           "Lifetime Validity",

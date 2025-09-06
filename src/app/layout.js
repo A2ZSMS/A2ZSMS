@@ -13,6 +13,7 @@ import ScrollToTop from "./Component/Scroll/ScrollToTop";
 import GoogleTracking from "./GoogleTracking";
 import Head from "next/head";
 import SchemaMarkup from "./Component/schemaMarkup";
+import WhatsAppButton from "./Component/Scroll/WhatsappButton";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -39,9 +40,9 @@ export default function RootLayout({ children }) {
       .catch((err) => console.error("Error loading Bootstrap JS:", err));
 
     AOS.init({
-      duration: 1000,
+      duration: 800,
       once: true,
-      easing: "ease-in-out",
+      // easing: "ease-in-out",
     });
 
     // Dynamically Load WhatsApp Script
@@ -67,6 +68,7 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <body>
+        <WhatsAppButton />
         <GoogleTracking />
         <Headerdrop />
         <ScrollToTop />

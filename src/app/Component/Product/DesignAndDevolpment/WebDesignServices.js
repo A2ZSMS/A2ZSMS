@@ -48,10 +48,10 @@ const WebDesignServices = () => {
         <div className="pattern-dots"></div>
       </div>
 
-      <div className="container position-relative">
+      <div className="container position-relative aos">
         <div className="row align-items-center mb-5">
           {/* Content Section */}
-          <div className="col-lg-6 order-lg-1 order-2">
+          <div className="col-lg-6 order-lg-1 order-2" data-aos="fade-right">
             <span className="badge bg-success-subtle text-success px-4 py-2 rounded-pill mb-3 fs-6">
               Design Excellence
             </span>
@@ -103,7 +103,10 @@ const WebDesignServices = () => {
           </div>
 
           {/* Image Section */}
-          <div className="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0">
+          <div
+            className="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0"
+            data-aos="fade-left"
+          >
             <div className="position-relative">
               <img
                 src="/image/product/website.png"
@@ -117,9 +120,9 @@ const WebDesignServices = () => {
         </div>
 
         {/* Website Types Section */}
-        <div className="row g-4 py-5">
+        <div className="row g-4 py-5 aos">
           {designTypes.map((type, index) => (
-            <div key={index} className="col-lg-4">
+            <div key={index} className="col-lg-4" data-aos="zoom-out">
               <div className="card border-0 shadow h-100 hover-card">
                 <div className="card-body p-4">
                   <div className="text-center mb-4">
@@ -158,8 +161,8 @@ const WebDesignServices = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="row justify-content-center mt-5">
-          <div className="col-lg-8 text-center">
+        <div className="row justify-content-center mt-5 oas">
+          <div className="col-lg-8 text-center" data-aos="fade-in">
             <div className="bg-light rounded-4 p-5">
               <h3 className="fw-bold text-dark mb-3">
                 Ready to Stand Out Online?
