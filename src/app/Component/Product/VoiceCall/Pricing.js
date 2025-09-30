@@ -1,7 +1,7 @@
 "use client"; // Required for Next.js App Router
 
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "bootstrap-icons/font/bootstrap-icons.css"; // Ensure Bootstrap Icons are loaded
 import Link from "next/link";
 
@@ -60,7 +60,11 @@ const Pricing = () => {
 
         <div className="row justify-content-center aos">
           {pricingData.map((category, index) => (
-            <div key={index} className="col-md-12 text-center mb-4" data-aos="fade-in">
+            <div
+              key={index}
+              className="col-md-12 text-center mb-4"
+              data-aos="fade-in"
+            >
               <h4 className="mb-4">{category.package}</h4>
               <div className="row justify-content-center">
                 {category.plans.map((item, i) => (

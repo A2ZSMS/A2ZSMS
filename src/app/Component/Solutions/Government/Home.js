@@ -1,6 +1,5 @@
 "use client"; // Important for Next.js app directory
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -24,24 +23,35 @@ const Home = () => {
             </h1>
             <p className="text-muted">
               Enhance public services and communication by utilizing WhatsApp
-              for instant notifications, citizen engagement, and streamlined operations.
+              for instant notifications, citizen engagement, and streamlined
+              operations.
             </p>
             <ul className="list-unstyled mt-4">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Notify citizens with real-time updates on policies and schemes.</span>
+                <span>
+                  Notify citizens with real-time updates on policies and
+                  schemes.
+                </span>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Send reminders for bill payments, tax deadlines, or registrations.</span>
+                <span>
+                  Send reminders for bill payments, tax deadlines, or
+                  registrations.
+                </span>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Provide seamless OTP-based authentication for secure access.</span>
+                <span>
+                  Provide seamless OTP-based authentication for secure access.
+                </span>
               </li>
               <li className="d-flex align-items-start">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Facilitate citizen queries with WhatsApp chatbots and support.</span>
+                <span>
+                  Facilitate citizen queries with WhatsApp chatbots and support.
+                </span>
               </li>
             </ul>
             <button className="btn btn-primary mt-4 px-4 py-2 fw-bold">

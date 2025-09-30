@@ -1,6 +1,5 @@
 "use client"; // Important for Next.js app directory
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -23,7 +22,9 @@ const Home = () => {
               <span className="text-primary">WhatsApp Solutions</span>
             </h1>
             <p className="text-muted">
-              Transform the gaming experience by leveraging WhatsApp for real-time updates, personalized communication, and player engagement like never before.
+              Transform the gaming experience by leveraging WhatsApp for
+              real-time updates, personalized communication, and player
+              engagement like never before.
             </p>
             <ul className="list-unstyled mt-4">
               <li className="d-flex align-items-start mb-3">
@@ -32,11 +33,15 @@ const Home = () => {
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Share tournament schedules, live results, and updates.</span>
+                <span>
+                  Share tournament schedules, live results, and updates.
+                </span>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Provide seamless account recovery with OTPs on WhatsApp.</span>
+                <span>
+                  Provide seamless account recovery with OTPs on WhatsApp.
+                </span>
               </li>
               <li className="d-flex align-items-start">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
@@ -52,7 +57,9 @@ const Home = () => {
           <div className="col-md-6 text-center aos" data-aos="fade-left">
             <img
               src="/image/Solutions/game.png"
-              alt="Gaming WhatsApp Services" width="px" height={"px"}
+              alt="Gaming WhatsApp Services"
+              width="px"
+              height={"px"}
               className="img-fluid rounded"
             />
           </div>

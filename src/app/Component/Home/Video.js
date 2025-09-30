@@ -7,7 +7,7 @@ const Video = () => {
     <div className="video-container position-relative">
       {/* <div className="videoWrapper"> */}
       <video autoPlay muted loop playsInline className="videoBackground">
-        <source src="/video/A2ZSMS.mp4" type="video/mp4" />
+        <source src="/video/video.mp4" type="video/mp4" />
       </video>
       {/* </div> */}
 

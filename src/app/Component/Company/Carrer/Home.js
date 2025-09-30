@@ -1,6 +1,5 @@
 "use client"; // Important for Next.js app directory
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -42,58 +41,71 @@ const Home = () => {
 
   return (
     <div>
-    
-
       {/* Why Join Us Section */}
       <section className="py-5 ">
-      <div className="container">
-        <div className="row align-items-center aos">
-          {/* Left Content */}
-          <div className="col-md-6 para-color" data-aos="fade-right">
-            <h1 className="fw-bold mb-4">
-              Join Our{" "}
-              <span className="text-primary">Dynamic Team</span>
-            </h1>
-            <p>
-              Be a part of an organization that values creativity, collaboration, and innovation. At our company, we focus on fostering a positive work environment where every individual can thrive.
-            </p>
-            <ul className="list-unstyled mt-4 text-muted">
-              <li className="d-flex align-items-start mb-3">
-                <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Flexible work environment with remote options available.</span>
-              </li>
-              <li className="d-flex align-items-start mb-3">
-                <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Professional development and career growth opportunities.</span>
-              </li>
-              <li className="d-flex align-items-start mb-3">
-                <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Comprehensive health and wellness benefits for all employees.</span>
-              </li>
-              <li className="d-flex align-items-start mb-3">
-                <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Work alongside experienced professionals in the industry.</span>
-              </li>
-              <li className="d-flex align-items-start mb-3">
-                <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Contribute to impactful projects that make a difference.</span>
-              </li>
-            </ul>
-          </div>
+        <div className="container">
+          <div className="row align-items-center aos">
+            {/* Left Content */}
+            <div className="col-md-6 para-color" data-aos="fade-right">
+              <h1 className="fw-bold mb-4">
+                Join Our <span className="text-primary">Dynamic Team</span>
+              </h1>
+              <p>
+                Be a part of an organization that values creativity,
+                collaboration, and innovation. At our company, we focus on
+                fostering a positive work environment where every individual can
+                thrive.
+              </p>
+              <ul className="list-unstyled mt-4 text-muted">
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Flexible work environment with remote options available.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Professional development and career growth opportunities.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Comprehensive health and wellness benefits for all
+                    employees.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Work alongside experienced professionals in the industry.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Contribute to impactful projects that make a difference.
+                  </span>
+                </li>
+              </ul>
+            </div>
 
-          {/* Right Image Section */}
-          <div className="col-md-6 text-center aos" data-aos="fade-left">
-            <img
-              src="/image/Career.png"
-              alt="Why Join Us" width="px" height={"px"}
-              className="img-fluid rounded "
-            />
+            {/* Right Image Section */}
+            <div className="col-md-6 text-center aos" data-aos="fade-left">
+              <img
+                src="/image/Career.png"
+                alt="Why Join Us"
+                width="px"
+                height={"px"}
+                className="img-fluid rounded "
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <Testimonials/>
+      <Testimonials />
 
       {/* Open Positions Section */}
       <div className="container py-5">

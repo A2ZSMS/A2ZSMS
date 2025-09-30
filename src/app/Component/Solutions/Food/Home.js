@@ -1,6 +1,5 @@
 "use client"; // Important for Next.js app directory
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -30,22 +29,28 @@ const Home = () => {
             <ul className="list-unstyled mt-4">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Send personalized offers and promotional deals instantly.</span>
-              </li>
-              <li className="d-flex align-items-start mb-3">
-                <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
-                  Provide real-time updates on order confirmations and delivery statuses.
+                  Send personalized offers and promotional deals instantly.
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span>Share digital menus and payment receipts effortlessly.</span>
+                <span>
+                  Provide real-time updates on order confirmations and delivery
+                  statuses.
+                </span>
+              </li>
+              <li className="d-flex align-items-start mb-3">
+                <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                <span>
+                  Share digital menus and payment receipts effortlessly.
+                </span>
               </li>
               <li className="d-flex align-items-start">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
-                  Engage customers with location-based offers and loyalty programs.
+                  Engage customers with location-based offers and loyalty
+                  programs.
                 </span>
               </li>
             </ul>
@@ -58,7 +63,9 @@ const Home = () => {
           <div className="col-md-6 text-center aos" data-aos="fade-left">
             <img
               src="/image/Solutions/Food.png"
-              alt="Food & Beverage Messaging Services" width="px" height={"px"}
+              alt="Food & Beverage Messaging Services"
+              width="px"
+              height={"px"}
               className="img-fluid rounded "
             />
           </div>

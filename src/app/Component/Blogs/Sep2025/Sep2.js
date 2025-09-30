@@ -7,7 +7,7 @@ const Sep2 = () => {
       <div className="container aos para-color py-4">
         <h1 className="text-primary mt-3">
           WhatsApp Marketing Secrets: Unlock the Hidden Strategies That Drive
-          10X Business Growth in 2025
+          10X Business Growth
         </h1>
 
         {/* Introduction */}
