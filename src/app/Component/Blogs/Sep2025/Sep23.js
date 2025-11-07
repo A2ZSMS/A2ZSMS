@@ -5,12 +5,12 @@ const Sep23 = () => {
   return (
     <>
       <div className="container aos para-color py-4">
-        <h1 className="text-primary py-4">
+        <h1 className="text-primary py-4 ">
           The Power of Voice Call Alert: Revolutionizing Business Communication
         </h1>
 
         {/* Introduction */}
-        <h2 className="fw-bold">Understanding Voice Call Alert Systems</h2>
+        <h2 className="">Understanding Voice Call Alert Systems</h2>
         <p>
           Voice call alert systems represent a powerful evolution in business
           communication, enabling companies to deliver critical messages

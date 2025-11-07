@@ -15,9 +15,7 @@ export default function BlogList() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 9;
-
   const categories = ["All", "WhatsApp Service", "Bulk SMS Service", "OTP Service", "Voice Call"];
-
   // ✅ Fetch blogs dynamically from `public/data/blog.json`
   useEffect(() => {
     fetch("/data/blog.json")

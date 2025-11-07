@@ -48,7 +48,7 @@ const WebDesignServices = () => {
         <div className="pattern-dots"></div>
       </div>
 
-      <div className="container position-relative aos">
+      <div className="container position-relative aos para-color">
         <div className="row align-items-center mb-5">
           {/* Content Section */}
           <div className="col-lg-6 order-lg-1 order-2" data-aos="fade-right">
@@ -59,7 +59,7 @@ const WebDesignServices = () => {
               Comprehensive Website Design for
               <span className="text-success d-block">Every Business Need</span>
             </h2>
-            <p className="lead text-muted mb-4">
+            <p className=" text-muted mb-4">
               At A2Z SMS, we understand that every business is unique. That's
               why we offer three distinct website categories, each designed to
               solve specific business challenges and maximize your online
@@ -78,25 +78,25 @@ const WebDesignServices = () => {
               <div className="col-6">
                 <div className="d-flex align-items-center">
                   <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  <span className="fw-semibold">100% Custom Design</span>
+                  <span className="para-color">100% Custom Design</span>
                 </div>
               </div>
               <div className="col-6">
                 <div className="d-flex align-items-center">
                   <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  <span className="fw-semibold">Fast Delivery</span>
+                  <span className="para-color">Fast Delivery</span>
                 </div>
               </div>
               <div className="col-6">
                 <div className="d-flex align-items-center">
                   <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  <span className="fw-semibold">SEO Optimized</span>
+                  <span className="para-color">SEO Optimized</span>
                 </div>
               </div>
               <div className="col-6">
                 <div className="d-flex align-items-center">
                   <i className="bi bi-check-circle-fill text-success me-2"></i>
-                  <span className="fw-semibold">Lifetime Support</span>
+                  <span className="para-color">Lifetime Support</span>
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@ const WebDesignServices = () => {
         </div>
 
         {/* Website Types Section */}
-        <div className="row g-4 py-5 aos">
+        <div className="row g-4 py-5 aos para-color">
           {designTypes.map((type, index) => (
             <div key={index} className="col-lg-4" data-aos="zoom-out">
               <div className="card border-0 shadow h-100 hover-card">

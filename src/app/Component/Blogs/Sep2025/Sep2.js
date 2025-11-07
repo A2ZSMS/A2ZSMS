@@ -5,13 +5,13 @@ const Sep2 = () => {
   return (
     <>
       <div className="container aos para-color py-4">
-        <h1 className="text-primary mt-3">
+        <h1 className="text-primary py-4 ">
           WhatsApp Marketing Secrets: Unlock the Hidden Strategies That Drive
           10X Business Growth
         </h1>
 
         {/* Introduction */}
-        <h2 className="fw-bold">The WhatsApp Marketing Revolution</h2>
+        <h2 className="">The WhatsApp Marketing Revolution</h2>
         <p>
           WhatsApp has evolved from a simple messaging app into the most
           powerful marketing channel of the digital age. With over 2.7 billion

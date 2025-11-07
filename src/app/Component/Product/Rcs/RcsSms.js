@@ -7,6 +7,7 @@ import SocialMedia from "../Whatsapp/SocialMedia";
 import FAQHome from "../../Resources/Faq/FAQHome";
 import { RcsData } from "../../Resources/Faq/FaqData";
 import Trustedbrand from "../../Home/Trustedbrand";
+import PopupForm from "../PopUp";
 
 const RcsSms = () => {
   return (
@@ -14,7 +15,7 @@ const RcsSms = () => {
       <Homercs />
       <ComparisonTable />
       {/* <Client/> */}
-
+      <PopupForm />
       <Trustedbrand />
       <RcsMessagingSection />
       <SocialMedia />

@@ -86,7 +86,7 @@ const Industries = () => {
   ];
 
   return (
-    <section className="py-5 bg-light">
+    <section className="py-5 ">
       <div className="container aos">
         <div className="row justify-content-center aos">
           <div className="col-lg-8 text-center" data-aos="fade-in">

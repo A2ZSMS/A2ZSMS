@@ -11,6 +11,7 @@ import Features from "./Features";
 import FAQHome from "../../Resources/Faq/FAQHome";
 import { bulkSmsData } from "../../Resources/Faq/FaqData";
 import Trustedbrand from "../../Home/Trustedbrand";
+import PopupForm from "../PopUp";
 
 const BulkSms = () => {
   return (
@@ -22,6 +23,7 @@ const BulkSms = () => {
       <Reviews />
       <BulkSmsHome />
       <SocialMedia />
+      <PopupForm />
       <Industries />
       <Features />
       <FAQHome data={bulkSmsData} />

@@ -5,12 +5,13 @@ const Sep9 = () => {
   return (
     <>
       <div className="container aos para-color py-4">
-        <h1 className="text-primary py-3">
-          Top 10 Bulk SMS Secrets: Professional Strategies for Effective Communication
+        <h1 className="text-primary py-4 ">
+          Top 10 Bulk SMS Secrets: Professional Strategies for Effective
+          Communication
         </h1>
 
         {/* Introduction */}
-        <h2 className="fw-bold">
+        <h2 className="">
           Understanding Professional Bulk SMS Marketing
         </h2>
         <p>

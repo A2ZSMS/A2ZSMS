@@ -51,7 +51,7 @@ const achievements = [
 
 const Achievements = () => {
   return (
-    <section className="py-5">
+    <section className="py-5 bg-light">
       <div className="container">
         <div className="text-center mb-5">
           <h2 className="fw-bold">Our Achievements</h2>

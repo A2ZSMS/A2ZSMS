@@ -2,7 +2,7 @@ import React from "react";
 // import Industries from "../../Product/BulkSms/Industries";
 // import Reviews from "../../Product/BulkSms/Reviews";2
 import SocialMedia from "../../Product/Whatsapp/SocialMedia";
-import Client from "../../Product/Whatsapp/Clients";
+// import Client from "../../Product/Whatsapp/Clients";
 // import Testimonials from "../Carrer/Testimonials";
 
 const AboutHome = () => {
@@ -47,7 +47,7 @@ const AboutHome = () => {
           </div>
         </div>
       </div>
-      <Client/>
+      {/* <Client/> */}
 
 
       {/* Our Journey */}

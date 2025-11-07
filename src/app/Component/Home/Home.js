@@ -1,7 +1,7 @@
 import React from "react";
 import Video from "./Video";
 import Aboutus from "./Aboutus";
-import Trustedbrand from "./Trustedbrand";
+// import Trustedbrand from "./Trustedbrand";
 import SocialMedia from "../Product/Whatsapp/SocialMedia";
 import Testimonials from "../Company/Carrer/Testimonials";
 import { Contents } from "./Contents";
@@ -9,7 +9,7 @@ import ContentHome from "./Content";
 import FAQHome from "../Resources/Faq/FAQHome";
 import { Whatsapp } from "../Resources/Faq/FaqData";
 import Industries from "../Product/BulkSms/Industries";
-import Reviews from "../Product/BulkSms/Reviews";
+// import Reviews from "../Product/BulkSms/Reviews";
 
 const Home = () => {
   return (
@@ -17,11 +17,12 @@ const Home = () => {
       {/* Home Page Components */}
       <Video />
       <Aboutus />
-      <Trustedbrand />
+      {/* <Trustedbrand /> */}
+      <Industries />
+
       <ContentHome data={Contents} />
       <SocialMedia />
-      <Industries />
-      <Reviews />
+      {/* <Reviews /> */}
       <Testimonials />
       <FAQHome data={Whatsapp} />
     </>

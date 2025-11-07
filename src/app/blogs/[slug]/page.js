@@ -36,8 +36,13 @@ import Sep2 from "@/app/Component/Blogs/Sep2025/Sep2";
 import Sep9 from "@/app/Component/Blogs/Sep2025/Sep9";
 import Sep16 from "@/app/Component/Blogs/Sep2025/Sep16";
 import Sep23 from "@/app/Component/Blogs/Sep2025/Sep23";
+import Sep30 from "@/app/Component/Blogs/Sep2025/Sep30";
+import Oct6 from "@/app/Component/Blogs/Oct2025/Oct6";
+import Oct7 from "@/app/Component/Blogs/Oct2025/Oct7";
+import Oct1425 from "@/app/Component/Blogs/Oct2025/Oct14";
+import Oct23 from "@/app/Component/Blogs/Oct2025/Oct23";
+import Oct29 from "@/app/Component/Blogs/Oct2025/Oct29";
 // Simple component mapping
-
 const BlogComponents = {
   dec13: Dec13,
   dec14: Dec14,
@@ -72,6 +77,12 @@ const BlogComponents = {
   sep09: Sep9,
   sep16: Sep16,
   sep23: Sep23,
+  sep30: Sep30,
+  oct06: Oct6,
+  oct07: Oct7,
+  oct14: Oct1425,
+  oct23: Oct23,
+  oct29: Oct29,
 };
 
 // ✅ Add this function to generate static pages

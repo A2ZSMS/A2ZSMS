@@ -434,9 +434,28 @@ const HeaderDrop = () => {
                         </li>
                       </ul>
                     </li>
-
+                    <li className="nav-item">
+                      <Link
+                        className={`nav-link  fw-bold poda ${
+                          isHomePage && !isScrolled ? "text-white" : "text-dark"
+                        }`}
+                        href="/about/"
+                      >
+                        About Us
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className={`nav-link  fw-bold poda ${
+                          isHomePage && !isScrolled ? "text-white" : "text-dark"
+                        }`}
+                        href="/contact/"
+                      >
+                        Contact Us
+                      </Link>
+                    </li>
                     {/* Company Dropdown */}
-                    <li className="nav-item dropdown">
+                    {/* <li className="nav-item dropdown">
                       <a className={getLinkClass()} href="#">
                         Company
                       </a>
@@ -469,7 +488,7 @@ const HeaderDrop = () => {
                             📞 Contact
                           </Link>
                         </li>
-                        <li>
+                         <li>
                           <Link
                             className="dropdown-item"
                             href="/career/"
@@ -482,9 +501,9 @@ const HeaderDrop = () => {
                           >
                             💼 Career
                           </Link>
-                        </li>
+                        </li> 
                       </ul>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
 

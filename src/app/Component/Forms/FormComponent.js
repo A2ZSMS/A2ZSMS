@@ -18,63 +18,51 @@ const { Option } = Select;
 const FormComponent = ({ title, buttonText }) => {
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onFinish = async (values) => {
+    setIsSubmitting(true);
+
     try {
+      // Data for Web3Forms
       const web3Data = {
         ...values,
-        access_key: "0c511151-8204-4f6f-8485-932700f9e589", // Web3Forms Access Key
+        services: values.services ? values.services.join(", ") : "",
+        access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530", // Web3Forms Access Key
       };
 
-      const telecrmData = {
-        fields: {
-          name: values.name || "",
-          company: values.company || "",
-          email: values.email || "",
-          phone: values.phone || "",
-          industry: values.industry || "",
-          services: values.services ? values.services.join(", ") : "",
-        },
-        actions: [
-          {
-            type: "SYSTEM_NOTE",
-            text: `Lead Source: Form Submission - ${values.name}`,
-          },
-          {
-            type: "SYSTEM_NOTE",
-            text: `Services Interested: ${
-              values.services ? values.services.join(", ") : "None"
-            }`,
-          },
-        ],
+      // Data for Make.com webhook
+      const makeWebhookData = {
+        name: values.name || "",
+        company: values.company || "",
+        email: values.email || "",
+        phone: values.phone || "",
+        message: values.industry || "",
+        services: values.services ? values.services.join(", ") : "",
+        // terms: values.terms || false,
+        timestamp: new Date().toISOString(),
       };
 
-      // Configuration for TeleCRM API
-      const telecrmConfig = {
-        method: "post",
-        url: "https://022os10kr2.execute-api.ap-south-1.amazonaws.com/enterprise/6794762dcb5f0836bb9c5783/autoupdatelead",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer 00b0060e-214f-4703-b4a0-c7463de555d21741173149873:81e068f2-f877-4f2f-a077-d84447dca9ac",
-        },
-        data: telecrmData,
-      };
-
-      // Submit data to Web3Forms
-      const web3FormsResponse = await axios.post(
-        "https://api.web3forms.com/submit",
-        web3Data,
-        {
+      // Submit data to both webhooks simultaneously
+      const [web3FormsResponse, makeWebhookResponse] = await Promise.all([
+        axios.post("https://api.web3forms.com/submit", web3Data, {
           headers: { "Content-Type": "application/json" },
-        }
-      );
+        }),
+        axios.post(
+          "https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6",
+          makeWebhookData,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        ),
+      ]);
 
-      // Submit data to TeleCRM
-      const telecrmResponse = await axios(telecrmConfig);
-
-      // Success modal
-      if (web3FormsResponse.status === 200 && telecrmResponse.status === 200) {
+      // Success modal - show only if both webhooks succeed
+      if (
+        web3FormsResponse.status === 200 &&
+        (makeWebhookResponse.status === 200 ||
+          makeWebhookResponse.status === 201)
+      ) {
         setIsModalVisible(true);
         form.resetFields();
       }
@@ -85,6 +73,8 @@ const FormComponent = ({ title, buttonText }) => {
         description:
           "There was an error submitting the form. Please try again later.",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -157,7 +147,7 @@ const FormComponent = ({ title, buttonText }) => {
               <Option value="RCS Service">RCS Service</Option>
               <Option value="Bulk SMS Service">Bulk SMS Service</Option>
               <Option value="Voice Call Service">Voice Call Service</Option>
-              <Option value="OTP Service">OTP Service</Option>
+              <Option value="OTP Services">OTP Services</Option>
             </Select>
           </Form.Item>
 
@@ -202,7 +192,12 @@ const FormComponent = ({ title, buttonText }) => {
 
           {/* Submit Button */}
           <Form.Item>
-            <Button type="primary" htmlType="submit" block>
+            <Button
+              type="primary"
+              htmlType="submit"
+              block
+              loading={isSubmitting}
+            >
               {buttonText}
             </Button>
           </Form.Item>

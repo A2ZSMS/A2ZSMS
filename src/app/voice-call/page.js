@@ -1,47 +1,52 @@
-import React from 'react'
-import VoiceCall from '../Component/Product/VoiceCall/VoiceCall'
-
+import React from "react";
+import VoiceCall from "../Component/Product/VoiceCall/VoiceCall";
 export const metadata = {
-  title: 'Promotional Voice Service in Bangalore',
-  description: 'Get the best Voice Call Services in Bangalore with our Promotional Voice Service in Bangalore, Bulk Voice Calls, and reliable Bulk Voice Call Service Provider in India',
-  keywords: "Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore, Bulk Voice Call Service Provider in Bangalore",
-  authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/voice-call/" }],
+  title: "Best Bulk Voice Call Service Provider in Bangalore | India",
+  description:
+    "Top Bulk Voice Call service provider in Bangalore, India. Reliable promotional, transactional, and business voice call solutions for enterprises and marketing campaigns.",
+  keywords:
+    "Best Bulk Voice Call Service Provider Bangalore, Bulk Voice Call Services India, Promotional Voice Calls Bangalore, Transactional Voice Call Provider Bangalore, Business Voice Call Services India",
+  authors: [
+    { name: "Voice Services Team", url: "https://www.a2zsms.in/voice-call/" },
+  ],
   openGraph: {
-    title: 'Promotional Voice Service in Bangalore',
-    description: 'Get the best Voice Call Services in Bangalore with our Promotional Voice Service in Bangalore, Bulk Voice Calls, and reliable Bulk Voice Call Service Provider in India.',
+    title: "Best Bulk Voice Call Service Provider in Bangalore | India",
+    description:
+      "Looking for the best Bulk Voice Call service provider in Bangalore, India? Get reliable promotional, transactional, and business voice call solutions.",
     url: "https://www.a2zsms.in/voice-call/",
-    siteName: "A2ZSMS",
+    siteName: "Bulk Voice Call Services",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/images/3.png",
         width: 1200,
         height: 630,
-        alt: "A2ZSMS Bulk WhatsApp & Voice Call Services",
+        alt: "Best Bulk Voice Call Service Provider in Bangalore | India",
       },
     ],
     type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: 'Promotional Voice Service in Bangalore',
-    description: 'Get the best Voice Call Services in Bangalore with our Promotional Voice Service in Bangalore, Bulk Voice Calls, and reliable Bulk Voice Call Service Provider in India.',
-    images: ["/images/meta-image.jpg"],
+    title: "Best Bulk Voice Call Service Provider in Bangalore | India",
+    description:
+      "Top Bulk Voice Call provider in Bangalore, India. Services include promotional, transactional, and business voice calls for enterprises and marketing campaigns.",
+    images: ["/images/3.png"],
     site: "@yourtwitterhandle",
   },
-  robots: "index, follow",
-  
+  robots:
+    "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   alternates: {
     canonical: "https://www.a2zsms.in/voice-call/",
   },
 };
 
-
 const page = () => {
   return (
     <div>
-        <VoiceCall/>
+      <VoiceCall />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

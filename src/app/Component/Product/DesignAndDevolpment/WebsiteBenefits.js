@@ -48,7 +48,7 @@ const WebsiteBenefits = () => {
 
   return (
     <section className="py-5 bg-light position-relative">
-      <div className="container aos">
+      <div className="container aos para-color">
         {/* Header Section */}
         <div className="row justify-content-center mb-5 aos">
           <div className="col-lg-8 text-center" data-aos="fade-in">

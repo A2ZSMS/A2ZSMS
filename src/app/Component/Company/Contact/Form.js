@@ -60,10 +60,6 @@ const ContactForm = () => {
       newErrors.subject = "Subject is required";
     }
 
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-
     if (!formData.consent) {
       newErrors.consent = "You must agree to the terms and conditions";
     }
@@ -83,23 +79,56 @@ const ContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const web3FormsData = {
-        ...formData,
-        access_key: "0c511151-8204-4f6f-8485-932700f9e589",
-        subject: `Contact Form: ${formData.subject}`,
+      // Prepare data for both webhooks
+      const timestamp = new Date().toISOString();
+
+      // Data for Make.com webhook
+      const makeWebhookData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        service: formData.subject,
+        message: formData.message,
+        // consent: formData.consent,
+        timestamp: timestamp,
       };
 
-      const response = await axios.post(
-        "https://api.web3forms.com/submit",
-        web3FormsData,
-        {
+      // Data for Web3Forms
+      const web3FormsData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        service: formData.subject,
+        message: formData.message,
+        // consent: formData.consent,
+        access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
+      };
+
+      // Send to both webhooks simultaneously
+      const [makeResponse, web3Response] = await Promise.all([
+        axios.post(
+          "https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6",
+          makeWebhookData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ),
+        axios.post("https://api.web3forms.com/submit", web3FormsData, {
           headers: {
             "Content-Type": "application/json",
           },
-        }
-      );
+        }),
+      ]);
 
-      if (response.status === 200) {
+      // Check if both requests were successful
+      if (
+        (makeResponse.status === 200 || makeResponse.status === 201) &&
+        web3Response.status === 200
+      ) {
         setSubmitStatus("success");
         setShowModal(true);
 
@@ -280,11 +309,11 @@ const ContactForm = () => {
                 }}
               >
                 <option value="">Choose a subject</option>
-                <option value="General Inquiry">General Inquiry</option>
-                <option value="SMS Services">SMS Services</option>
-                <option value="Support">Technical Support</option>
-                <option value="Partnership">Partnership Opportunities</option>
-                <option value="Pricing">Pricing Information</option>
+                <option value="Waba Service">Waba Service</option>
+                <option value="RCS Service">RCS Service</option>
+                <option value="Bulk SMS Service">Bulk SMS Service</option>
+                <option value="Voice Call Service">Voice Call Service</option>
+                <option value="OTP Service">OTP Service</option>
                 <option value="Other">Other</option>
               </select>
               <label htmlFor="subject" className="fw-medium text-muted">
@@ -299,14 +328,14 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* Message */}
+          {/* Message - Now Optional */}
           <div className="col-12">
             <div className="form-floating">
               <textarea
                 name="message"
                 id="message"
                 rows="4"
-                className={`form-control ${errors.message ? "is-invalid" : ""}`}
+                className="form-control"
                 placeholder="Tell us more about your requirements..."
                 value={formData.message}
                 onChange={handleInputChange}
@@ -321,14 +350,8 @@ const ContactForm = () => {
                 }}
               ></textarea>
               <label htmlFor="message" className="fw-medium text-muted">
-                Your Message <span className="text-danger">*</span>
+                Your Message
               </label>
-              {errors.message && (
-                <div className="invalid-feedback d-block mt-1">
-                  <i className="fas fa-exclamation-circle me-1"></i>
-                  {errors.message}
-                </div>
-              )}
             </div>
           </div>
 

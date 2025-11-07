@@ -128,7 +128,7 @@ const TechnologyStack = () => {
 
   return (
     <section className="py-5 pattern-dots position-relative">
-      <div className="container aos">
+      <div className="container aos para-color">
         {/* Header */}
         <div className="row justify-content-center mb-5">
           <div className="col-lg-8 text-center text-black">
@@ -139,7 +139,7 @@ const TechnologyStack = () => {
               Powered by the Most
               <span className="text-warning">Advanced Technologies</span>
             </h2>
-            <p className="lead">
+            <p className="">
               We don't just follow trends—we use battle-tested technologies that
               have built billion-dollar companies. Your website deserves the
               same foundation that powers industry leaders.

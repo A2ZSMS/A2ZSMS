@@ -8,6 +8,7 @@ import TechnologyStack from "./TechnologyStack";
 import Responsivedesign from "./Responsivedesign";
 import Faq from "./Faq";
 import CallToAction from "./CallToAction";
+import PopupForm from "../PopUp";
 
 const Designs = () => {
   return (
@@ -17,6 +18,7 @@ const Designs = () => {
       <WebDesignServices />
       <WebDevelopmentServices />
       <TechnologyStack />
+      <PopupForm />
       <Responsivedesign />
       <Faq />
       <CallToAction />

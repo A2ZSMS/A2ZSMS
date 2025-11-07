@@ -1,39 +1,43 @@
-import Home from './Component/Home/Home';
+import Home from "./Component/Home/Home";
 
 export const metadata = {
-  title: 'WhatsApp Messaging Services in Bangalore',
-  description: 'Get top Bulk WhatsApp Messaging Services in Bangalore & the Best WhatsApp Marketing Service in Hyderabad with our API solutions for seamless business communication.',
-  keywords: "Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore",
+  title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+  description:
+    "Get top messaging services in Bangalore, India. Reliable Bulk SMS, WhatsApp, RCS, and Voice Call solutions for businesses and marketing campaigns.",
+  keywords:
+    "Bulk SMS Services Bangalore, WhatsApp Messaging Services Bangalore, RCS Messaging Provider Bangalore, Voice Call Services Bangalore, Messaging Solutions India",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in" }],
   openGraph: {
-    title: 'WhatsApp Messaging Services in Bangalore',
-    description: 'Get top Bulk WhatsApp Messaging Services in Bangalore & the Best WhatsApp Marketing Service in Hyderabad with our API solutions for seamless business communication.',
+    title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+    description:
+      "Get top messaging services in Bangalore, India. Reliable Bulk SMS, WhatsApp, RCS, and Voice Call solutions for businesses and marketing campaigns.",
     url: "https://www.a2zsms.in",
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/images/hardesr_part_bsns.png",
         width: 1200,
         height: 630,
-        alt: "A2ZSMS Bulk WhatsApp Messaging Services",
+        alt: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
       },
     ],
     type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: 'WhatsApp Messaging Services in Bangalore',
-    description: 'Get top Bulk WhatsApp Messaging Services in Bangalore & the Best WhatsApp Marketing Service in Hyderabad with our API solutions for seamless business communication.',
-    images: ["/images/meta-image.jpg"],
+    title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+    description:
+      "Reliable Bulk SMS, WhatsApp, RCS, and Voice Call services in Bangalore, India. Perfect solutions for business communication and marketing.",
+    images: ["/images/hardesr_part_bsns.png"],
     site: "@yourtwitterhandle",
   },
-  robots: "index, follow",
-  
+  robots:
+    "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   alternates: {
     canonical: "https://www.a2zsms.in",
   },
 };
-
 
 const Page = () => {
   return <Home />;

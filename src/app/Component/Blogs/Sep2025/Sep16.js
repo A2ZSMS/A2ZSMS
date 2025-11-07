@@ -5,13 +5,13 @@ const Sep16 = () => {
   return (
     <>
       <div className="container aos para-color py-4">
-        <h1 className="text-primary py-3">
+        <h1 className="text-primary py-4 ">
           The Future is RCS: Are You Ready? Complete Guide to Rich Communication
           Services
         </h1>
 
         {/* Introduction */}
-        <h2 className="fw-bold">
+        <h2 className="">
           Understanding Rich Communication Services (RCS)
         </h2>
         <p>

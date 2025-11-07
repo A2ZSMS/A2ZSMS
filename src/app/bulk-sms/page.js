@@ -1,39 +1,53 @@
-import React from 'react'
-import BulkSms from '../Component/Product/BulkSms/BulkSms'
+import React from "react";
+import BulkSms from "../Component/Product/BulkSms/BulkSms";
 
 export const metadata = {
-  title: 'top bulk whatsapp messaging services in bangalore',
-  description: 'Bulk SMS Service Provider In India,top bulk whatsapp messaging services in bangalore,A2ZSMS - Test Free SMS Online,OTP SMS,Voice Call & Quick SMS,Promotional SMS service',
-  keywords: "Low Cost Bulk SMS Service Provider in Bangalore, Top Bulk WhatsApp Messaging Services Bangalore, Bulk SMS Service Provider In Bangalore, Karnataka",
-  authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/bulk-sms/" }],
+  title: "Best Bulk SMS Service Provider in Bangalore | India",
+  description:
+    "Top Bulk SMS service provider in Bangalore, India. Reliable business SMS solutions for OTP, promotional, transactional, and marketing campaigns.",
+  keywords:
+    "Best Bulk SMS Service Provider Bangalore, Bulk SMS Services India, OTP SMS Bangalore, Promotional SMS Provider Bangalore, Transactional SMS Services India, Business SMS Bangalore",
+  authors: [
+    { name: "SMS Services Team", url: "https://www.a2zsms.in/bulk-sms/" },
+  ],
   openGraph: {
-    title: 'top bulk whatsapp messaging services in bangalore',
-    description: 'Bulk SMS Service Provider In India,top bulk whatsapp messaging services in bangalore,A2ZSMS - Test Free SMS Online,OTP SMS,Voice Call & Quick SMS,Promotional SMS service',
+    title: "Best Bulk SMS Service Provider in Bangalore | India",
+    description:
+      "Looking for the best Bulk SMS service provider in Bangalore, India? Get reliable OTP, promotional, transactional, and marketing SMS solutions.",
     url: "https://www.a2zsms.in/bulk-sms/",
-    siteName: "A2ZSMS",
+    siteName: "Bulk SMS Services",
+    images: [
+      {
+        url: "/images/oct.png",
+        width: 1200,
+        height: 630,
+        alt: "Best Bulk SMS Service Provider in Bangalore | India",
+      },
+    ],
     type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: 'top bulk whatsapp messaging services in bangalore',
-    description: 'Bulk SMS Service Provider In India,top bulk whatsapp messaging services in bangalore,A2ZSMS - Test Free SMS Online,OTP SMS,Voice Call & Quick SMS,Promotional SMS service',
-    images: ["/images/meta-image.jpg"],
+    title: "Best Bulk SMS Service Provider in Bangalore | India",
+    description:
+      "Top Bulk SMS provider in Bangalore, India. Services include OTP, promotional, transactional, and business SMS campaigns.",
+    images: ["/images/oct.png"],
     site: "@yourtwitterhandle",
   },
-  robots: "index, follow",
-  
+  robots:
+    "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   alternates: {
     canonical: "https://www.a2zsms.in/bulk-sms/",
   },
 };
 
-
 const page = () => {
   return (
     <div>
-      <BulkSms/>
+      <BulkSms />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
