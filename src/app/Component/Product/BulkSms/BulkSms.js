@@ -1,32 +1,44 @@
 "use client";
-import React from "react";
 import Services from "./Services";
-// import Client from "../Whatsapp/Clients";
 import PricingTabs from "./Pricing";
 import Reviews from "./Reviews";
 import BulkSmsHome from "./BulkSmsHome";
-import SocialMedia from "../Whatsapp/SocialMedia";
 import Industries from "./Industries";
 import Features from "./Features";
 import FAQHome from "../../Resources/Faq/FAQHome";
 import { bulkSmsData } from "../../Resources/Faq/FaqData";
-import Trustedbrand from "../../Home/Trustedbrand";
 import PopupForm from "../PopUp";
+import BulkSmsUseCases from "./BulkSmsUseCases";
 
 const BulkSms = () => {
   return (
     <div>
+      {/* Hero Section - Keep existing Services component */}
       <Services />
-      {/* <Client /> */}
-      <Trustedbrand />
-      <PricingTabs />
-      <Reviews />
+
+      {/* Content Sections - Keep existing BulkSmsHome */}
       <BulkSmsHome />
-      <SocialMedia />
-      <PopupForm />
+
+      {/* Pricing - Conversion Section */}
+      <PricingTabs />
+
+      {/* Use Cases - Industry Solutions */}
+      <BulkSmsUseCases />
+
+      {/* Industries - Sector-specific Solutions */}
       <Industries />
+
+      {/* Features - Core Benefits */}
       <Features />
+
+      {/* Testimonials - Social Proof */}
+      <Reviews />
+
+      {/* FAQ - Address Concerns */}
       <FAQHome data={bulkSmsData} />
+
+      {/* Popup Form - Lead Generation */}
+      <PopupForm />
     </div>
   );
 };

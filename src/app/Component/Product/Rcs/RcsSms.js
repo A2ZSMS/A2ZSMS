@@ -1,25 +1,39 @@
-import React from "react";
 import Homercs from "./Homercs";
 import ComparisonTable from "./ComparisonTable";
-// import Client from '../Whatsapp/Clients'
 import RcsMessagingSection from "./RcsMessagingSection";
-import SocialMedia from "../Whatsapp/SocialMedia";
 import FAQHome from "../../Resources/Faq/FAQHome";
 import { RcsData } from "../../Resources/Faq/FaqData";
-import Trustedbrand from "../../Home/Trustedbrand";
 import PopupForm from "../PopUp";
+import RcsUseCases from "./RcsUseCases";
+import RcsFeatures from "./RcsFeatures";
+import RcsPricing from "./RcsPricing";
 
 const RcsSms = () => {
   return (
     <div>
+      {/* Hero Section with CTA */}
       <Homercs />
-      <ComparisonTable />
-      {/* <Client/> */}
-      <PopupForm />
-      <Trustedbrand />
+
+      {/* RCS Messaging Details */}
       <RcsMessagingSection />
-      <SocialMedia />
+
+      {/* RCS Features */}
+      <RcsFeatures />
+
+      {/* Pricing */}
+      <RcsPricing />
+
+      {/* Comparison Table */}
+      <ComparisonTable />
+
+      {/* Use Cases by Industry */}
+      <RcsUseCases />
+
+      {/* FAQ Section */}
       <FAQHome data={RcsData} />
+
+      {/* Popup Form */}
+      <PopupForm />
     </div>
   );
 };

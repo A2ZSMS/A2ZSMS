@@ -1,30 +1,46 @@
 import Home from "./Home";
-// import Client from './Clients'
 import ComparisonTable from "./ComparisonTable";
 import WhatsappPricing from "./WhatsappPricing";
-import Apisupport from "./Apisupport";
 import StepsSection from "./StepsSection";
 import Features from "./Features";
-import SocialMedia from "./SocialMedia";
 import FAQHome from "../../Resources/Faq/FAQHome";
 import { Whatsapp } from "../../Resources/Faq/FaqData";
-import Trustedbrand from "../../Home/Trustedbrand";
 import PopupForm from "../PopUp";
+import UseCases from "./UseCases";
+import VideoDemo from "./VideoDemo";
+import IntegrationShowcase from "./IntegrationShowcase";
 
 const WhatsappApi = () => {
   return (
     <div>
+      {/* Hero Section with CTAs */}
       <Home />
-      {/* <Client/> */}
-      <Trustedbrand />
+
       <ComparisonTable />
-      <WhatsappPricing />
-      <Apisupport />
+
+      {/* Video Demo Section */}
+      {/* <VideoDemo /> */}
+
+      {/* How It Works Steps */}
       <StepsSection />
+
+      {/* Pricing Plans */}
+      <WhatsappPricing />
+
+      {/* Use Cases by Industry */}
+      <UseCases />
+
+      {/* Integration Showcase */}
+      <IntegrationShowcase />
+
+      {/* Features Section */}
       <Features />
-      <SocialMedia />
-      <PopupForm />
+
+      {/* FAQ Section */}
       <FAQHome data={Whatsapp} />
+
+      {/* Popup Form */}
+      <PopupForm />
     </div>
   );
 };

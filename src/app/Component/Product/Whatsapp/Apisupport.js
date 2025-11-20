@@ -1,6 +1,4 @@
-'use client';  // This marks the component as a Client Component
-
-import React from "react";
+'use client';
 
 // Image data without imports
 const icons = [

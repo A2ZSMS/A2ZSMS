@@ -1,5 +1,25 @@
 [
   {
+    "id": 21,
+    "title": "Path to Customer Success with RCS Messaging",
+    "componentKey": "Nov19",
+    "slug": "path-customer-success-rcs-messaging-best-rcs-service-providers",
+    "category": "RCS Service",
+    "date": "2024-11-19",
+    "description": "Discover how leading RCS service providers in Bangalore help businesses achieve 35-45% higher engagement rates and 25-35% improved conversions. Complete guide to RCS Business Messaging implementation, industry applications, and measurable ROI within 60-90 days.",
+    "image": "/Images/lat2.png"
+  },
+  {
+    "id": 20,
+    "title": "First 3 Months: Growth & Integration with Bulk SMS Services",
+    "componentKey": "Nov12",
+    "slug": "first-3-months-growth-integration-bulk-sms-services",
+    "category": "Bulk SMS Service",
+    "date": "2024-11-12",
+    "description": "Discover how to achieve 8-12X ROI in your first 90 days with strategic bulk SMS implementation. Complete roadmap for Month 1 foundation, Month 2 integration, and Month 3 optimization delivering ₹2.5-9.5 lakhs revenue increase.",
+    "image": "/Images/Nov12.png"
+  },
+  {
     "id": 19,
     "title": "Top Bulk SMS Service Provider Instant Messaging ",
     "componentKey": "Jan7",

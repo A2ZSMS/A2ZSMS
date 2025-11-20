@@ -1,4 +1,4 @@
-"use client"; // Important for Next.js app directory
+"use client";
 
 import "aos/dist/aos.css";
 import AOS from "aos";
@@ -13,13 +13,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section
-      className="bg2"
-      // style={{
-      //   backgroundColor: "#f9f9f9",
-      //   padding: "50px 0",
-      // }}
-    >
+    <section className="bg2">
       <div className="container">
         <div className="row align-items-center aos">
           <div className="col-md-6 para-color" data-aos="fade-right">
@@ -56,6 +50,24 @@ const Home = () => {
                 <span>Personalize your brand with custom options.</span>
               </li>
             </ul>
+
+            {/* CTA Buttons */}
+            <div className="d-flex gap-3 mt-4">
+              <a
+                href="/try-for-free"
+                className="btn btn-info px-4 py-2 text-white"
+              >
+                <i className="bi bi-rocket-takeoff me-2"></i>
+                Try For Free
+              </a>
+              <a
+                href="/request-demo"
+                className="btn btn-outline-info px-4 py-2"
+              >
+                <i className="bi bi-calendar-check me-2"></i>
+                Request Demo
+              </a>
+            </div>
           </div>
           <div className="col-md-6 text-center" data-aos="fade-left">
             <img

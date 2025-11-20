@@ -1,10 +1,8 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
-// import Try1 from "../../image/Whats.png";
 
 // JSON Data
 const tableData = {
@@ -113,7 +111,7 @@ const ComparisonTable = () => {
 
   return (
     <>
-      <div className="bg-light">
+      <div className="bg-white">
         <div className="container py-5 aos">
           <h2 className="text-center fw-bold mb-3" style={{ color: "#203239" }}>
             {tableData.title}
@@ -167,24 +165,6 @@ const ComparisonTable = () => {
         </div>
       </div>
 
-      {/* API Template Section */}
-      <div className="">
-        <div className="container py-5">
-          <div className="row aos">
-            {/* <h2 className="head1 text-center ">Explore Our WhatsApp API Template</h2> */}
-
-            <div className="col-12" data-aos="fade-in">
-              <img
-                src="/image/product/Whatsapp2.png"
-                alt="WhatsApp Template"
-                width="px"
-                height={"px"}
-                className="img-fluid "
-              />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

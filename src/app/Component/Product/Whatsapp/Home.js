@@ -57,6 +57,22 @@ const Home = () => {
                 </span>
               </li>
             </ul>
+            <div className="d-flex gap-3 mt-4">
+              <a
+                href="/try-for-free"
+                className="btn btn-success  px-4 py-2"
+              >
+                <i className="bi bi-rocket-takeoff me-2"></i>
+                Try For Free
+              </a>
+              <a
+                href="/request-demo"
+                className="btn btn-outline-success  px-4 py-2"
+              >
+                <i className="bi bi-calendar-check me-2"></i>
+                Request Demo
+              </a>
+            </div>
           </div>
 
           {/* Right Image Section */}

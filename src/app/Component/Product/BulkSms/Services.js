@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 // Service Data
@@ -60,14 +60,7 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(servicesData[0]);
 
   return (
-    <section
-      className="py-5 mb-2 bg2"
-      style={
-        {
-          // backgroundColor: "#F3F7FB",
-        }
-      }
-    >
+    <section className="py-5 mb-2 bg2">
       <div className="container">
         <div className="row aos">
           {/* Left Image Section */}

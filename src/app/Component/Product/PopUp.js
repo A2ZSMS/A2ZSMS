@@ -22,7 +22,7 @@ const PopupForm = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 5000); // 10 seconds
+    }, 8000); // 10 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -341,7 +341,7 @@ const PopupForm = () => {
                         className={`form-control ${
                           errors.phone ? "is-invalid" : ""
                         }`}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 84310 86185"
                         value={formData.phone}
                         onChange={handleInputChange}
                         style={{

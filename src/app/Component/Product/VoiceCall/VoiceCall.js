@@ -1,23 +1,35 @@
-import React from "react";
 import Home from "./Home";
 import Details from "./Details";
-// import Client from '../Whatsapp/Clients'
 import Pricing from "./Pricing";
-import SocialMedia from "../Whatsapp/SocialMedia";
 import FAQHome from "../../Resources/Faq/FAQHome";
 import { voicecall } from "../../Resources/Faq/FaqData";
-import Trustedbrand from "../../Home/Trustedbrand";
+import PopupForm from "../PopUp";
+import VoiceCallUseCases from "./VoiceCallUseCases";
+import VoiceCallFeatures from "./VoiceCallFeatures";
 
 const VoiceCall = () => {
   return (
     <div>
+      {/* Hero Section with CTA */}
       <Home />
+
+      {/* Details Section */}
       <Details />
-      {/* <Client/> */}
-      <Trustedbrand />
+
+      {/* Voice Call Features */}
+      <VoiceCallFeatures />
+
+      {/* Pricing Plans */}
       <Pricing />
-      <SocialMedia />
+
+      {/* Use Cases by Industry */}
+      <VoiceCallUseCases />
+
+      {/* FAQ Section */}
       <FAQHome data={voicecall} />
+
+      {/* Popup Form */}
+      <PopupForm />
     </div>
   );
 };

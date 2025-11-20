@@ -4,7 +4,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDoubleRight,
-  faPaperPlane,
+  faLocationDot,
+  faEnvelope,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -151,24 +153,38 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter & Social Links */}
+          {/* Contact Info & Social Links */}
           <div className="col-md-3 mb-4">
-            <h5 className="fw-bold">Newsletter</h5>
-            <p className="py-2">
-              Sign up to receive our weekly newsletter to get the latest
-              updates.
-            </p>
-            <div className="input-group mb-3">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Enter Email Address"
-                aria-label="Enter Email Address"
-              />
-              <button className="btn btn-light">
-                <FontAwesomeIcon icon={faPaperPlane} />
-              </button>
-            </div>
+            <h5 className="fw-bold">Contact Us</h5>
+            <ul className="list-unstyled pt-2">
+              <li className="mb-3 d-flex">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="me-3 mt-1 text-light"
+                />
+                <span>
+                  183, 2nd Floor, G Block opposite to Reliance Trends, Sahakara
+                  Nagar Main Rd, Byatarayanapura, <br />
+                  Bengaluru, Karnataka 560092
+                </span>
+              </li>
+              <li className="mb-3 d-flex">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="me-3 mt-1 text-light"
+                />
+                <span>sales@a2zsms.in</span>
+              </li>
+              <li className="d-flex">
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="me-3 mt-1 text-light"
+                />
+                <span>+91 84310 86185</span>
+              </li>
+            </ul>
+
+            {/* Social Links */}
             <div className="d-flex mt-4">
               <Link
                 href="https://www.facebook.com/A2zsmsservices/"
@@ -218,7 +234,7 @@ const Footer = () => {
                   width: "40px",
                   height: "40px",
                   backgroundImage:
-                    "linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf,rgb(200, 16, 228))",
+                    "linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, rgb(200, 16, 228))",
                 }}
               >
                 <FontAwesomeIcon icon={faInstagram} />

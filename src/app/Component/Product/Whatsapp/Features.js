@@ -1,5 +1,3 @@
-import React from "react";
-
 const featuresData = {
   title: "WhatsApp API Features",
   features: [
@@ -49,8 +47,6 @@ const Features = () => {
               key={feature.id}
               className="col-md-12 mb-4 shadow bg-light"
               data-aos="fade-in"
-              // data-aos={index % 2 === 0 ? "zoom-in-right" : "zoom-in-left"}
-              // data-aos-duration="2000"
               style={{
                 borderRadius: "10px",
                 padding: "20px",

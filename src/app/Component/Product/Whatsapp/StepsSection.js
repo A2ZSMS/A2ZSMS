@@ -1,5 +1,3 @@
-import React from "react";
-
 // JSON Data for Steps
 const stepsData = [
   {
@@ -35,7 +33,7 @@ const stepsData = [
 
 const StepsSection = () => {
   return (
-    <div className="bg-light py-5 text-dark">
+    <div className="bg-white py-5 text-dark">
       <div className="container aos">
         <div className="row align-items-center">
           {/* Image Section */}

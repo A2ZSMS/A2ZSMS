@@ -9,6 +9,7 @@ import ContentHome from "./Content";
 import FAQHome from "../Resources/Faq/FAQHome";
 import { Whatsapp } from "../Resources/Faq/FaqData";
 import Industries from "../Product/BulkSms/Industries";
+import PopupForm from "../Product/PopUp";
 // import Reviews from "../Product/BulkSms/Reviews";
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
 
       <ContentHome data={Contents} />
       <SocialMedia />
+      <PopupForm />
       {/* <Reviews /> */}
       <Testimonials />
       <FAQHome data={Whatsapp} />

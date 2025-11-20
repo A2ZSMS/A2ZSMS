@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
@@ -223,7 +222,7 @@ const PricingTabs = () => {
   };
 
   return (
-    <div className="py-5 bg-light">
+    <div className="py-5 bg-white">
       <h2 className="text-center text-dark py-2 head1">
         Choose Awesome Plan for Your Needs
       </h2>

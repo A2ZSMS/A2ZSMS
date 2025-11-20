@@ -1,16 +1,66 @@
-import React from "react";
-
 const BulkSmsHome = () => {
   return (
     <>
+      {/* OTP SMS Section */}
+      <section className="bg-light" style={{ padding: "50px 0" }}>
+        <div className="container para-color">
+          <div className="row align-items-center aos">
+            {/* Left Content */}
+            <div className="col-md-6 para-color" data-aos="fade-right">
+              <h2 className="fw-bold mb-4">
+                Secure Your Business with{" "}
+                <span className="text-primary">OTP SMS</span> Solutions!
+              </h2>
+              <p>
+                Provide secure, real-time authentication and enhance user trust
+                with our reliable OTP SMS services. Simplify verification and
+                ensure data security for your users.
+              </p>
+              <ul className="list-unstyled mt-4 text-muted">
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Send one-time passwords instantly for login and transaction
+                    verification.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Ensure data security with encrypted and reliable OTP
+                    delivery.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Provide seamless two-factor authentication for enhanced
+                    account safety.
+                  </span>
+                </li>
+                <li className="d-flex align-items-start mb-3">
+                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
+                  <span>
+                    Integrate easily with APIs for instant OTP generation and
+                    delivery.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Right Image Section */}
+            <div className="col-md-6 text-center aos" data-aos="fade-left">
+              <img
+                className="img-fluid rounded"
+                src="/image/product/otp.png"
+                alt="Transactional SMS Services"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Transactional SMS Section */}
-      <section
-        className="bg-light mt-2"
-        style={{
-          // backgroundColor: "#f9f9f9",
-          padding: "50px 0",
-        }}
-      >
+      <section className="bg-white " style={{ padding: "50px 0" }}>
         <div className="container para-color aos">
           <div className="row align-items-center aos">
             {/* Left Content */}
@@ -70,12 +120,7 @@ const BulkSmsHome = () => {
       </section>
 
       {/* Promotional SMS Section */}
-      <section
-        style={{
-          backgroundColor: "#ffffff",
-          padding: "50px 0",
-        }}
-      >
+      <section className="bg-light" style={{ padding: "50px 0" }}>
         <div className="container para-color">
           <div className="row align-items-center aos">
             {/* Left Content */}
@@ -87,7 +132,6 @@ const BulkSmsHome = () => {
                 alt="Transactional SMS Services"
               />
             </div>
-            {/* {right Content} */}
             <div className="col-md-6 para-color" data-aos="fade-right">
               <h2 className="fw-bold mb-4">
                 Boost Your Sales with{" "}
@@ -129,71 +173,6 @@ const BulkSmsHome = () => {
             </div>
 
             {/* Right Image Section */}
-          </div>
-        </div>
-      </section>
-
-      {/* OTP SMS Section */}
-      <section
-        className="bg-light"
-        style={{
-          // backgroundColor: "#f9f9f9",
-          padding: "50px 0",
-        }}
-      >
-        <div className="container para-color">
-          <div className="row align-items-center aos">
-            {/* Left Content */}
-            <div className="col-md-6 para-color" data-aos="fade-right">
-              <h2 className="fw-bold mb-4">
-                Secure Your Business with{" "}
-                <span className="text-primary">OTP SMS</span> Solutions!
-              </h2>
-              <p>
-                Provide secure, real-time authentication and enhance user trust
-                with our reliable OTP SMS services. Simplify verification and
-                ensure data security for your users.
-              </p>
-              <ul className="list-unstyled mt-4 text-muted">
-                <li className="d-flex align-items-start mb-3">
-                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                  <span>
-                    Send one-time passwords instantly for login and transaction
-                    verification.
-                  </span>
-                </li>
-                <li className="d-flex align-items-start mb-3">
-                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                  <span>
-                    Ensure data security with encrypted and reliable OTP
-                    delivery.
-                  </span>
-                </li>
-                <li className="d-flex align-items-start mb-3">
-                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                  <span>
-                    Provide seamless two-factor authentication for enhanced
-                    account safety.
-                  </span>
-                </li>
-                <li className="d-flex align-items-start mb-3">
-                  <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                  <span>
-                    Integrate easily with APIs for instant OTP generation and
-                    delivery.
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Right Image Section */}
-            <div className="col-md-6 text-center aos" data-aos="fade-left">
-              <img
-                className="img-fluid rounded"
-                src="/image/product/otp.png"
-                alt="Transactional SMS Services"
-              />
-            </div>
           </div>
         </div>
       </section>

@@ -1,83 +1,54 @@
 "use client";
 
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Pricing.css";
 import Link from "next/link";
-const Pricing = () => {
+
+const RcsPricing = () => {
   const pricingData = [
     {
       package: "Starter Plan",
-      subtitle: "Broadcast Oriented",
-      description:
-        "Perfect for small businesses starting with WhatsApp messaging",
+      subtitle: "Basic RCS Messaging",
+      description: "Perfect for small businesses starting with RCS messaging",
       plans: [
-        { calls: "2,500 conversations", price: "₹179", period: "/month" },
-        { calls: "5,000 conversations", price: "₹419", period: "/month" },
-        { calls: "10,000 conversations", price: "₹779", period: "/month" },
-        { calls: "25,000 conversations", price: "₹1,199", period: "/month" },
-        { calls: "100,000 conversations", price: "₹1,799", period: "/month" },
-        { calls: "Unlimited conversations", price: "₹4,799", period: "/month" },
+        { messages: "5,000 messages", price: "₹299", period: "/month" },
+        { messages: "10,000 messages", price: "₹549", period: "/month" },
+        { messages: "25,000 messages", price: "₹1,299", period: "/month" },
+        { messages: "50,000 messages", price: "₹2,499", period: "/month" },
+        { messages: "100,000 messages", price: "₹4,799", period: "/month" },
       ],
-      color: "#25D366",
-      icon: "bi-chat-dots",
+      color: "#17A2B8",
+      icon: "bi-chat-square-text",
     },
     {
       package: "Business Plan",
-      subtitle: "Feature Oriented",
+      subtitle: "Advanced Features",
       description:
-        "Ideal for growing businesses with advanced features and automation",
+        "Ideal for growing businesses with rich media and automation",
       popular: true,
       plans: [
-        { calls: "1,250 conversations", price: "₹359", period: "/month" },
-        { calls: "2,500 conversations", price: "₹839", period: "/month" },
-        { calls: "5,000 conversations", price: "₹1,559", period: "/month" },
-        { calls: "12,500 conversations", price: "₹2,399", period: "/month" },
-        { calls: "50,000 conversations", price: "₹3,599", period: "/month" },
-        { calls: "Unlimited conversations", price: "₹7,199", period: "/month" },
+        { messages: "150,000 messages", price: "₹6,999", period: "/month" },
+        { messages: "250,000 messages", price: "₹11,499", period: "/month" },
+        { messages: "500,000 messages", price: "₹21,999", period: "/month" },
+        { messages: "1,000,000 messages", price: "₹41,999", period: "/month" },
+        { messages: "Unlimited messages", price: "₹79,999", period: "/month" },
       ],
-      color: "#128C7E",
+      color: "#138496",
       icon: "bi-star-fill",
     },
     {
-      package: "Add-On Packs",
-      subtitle: "Flexible Top-ups",
-      description:
-        "Need more conversations? Add extra capacity anytime as you grow",
+      package: "Enterprise Plan",
+      subtitle: "Custom Solutions",
+      description: "For large-scale operations with dedicated support",
       plans: [
+        { messages: "2,000,000 messages", price: "₹79,999", period: "/month" },
         {
-          calls: "1,000 conversations",
-          price: "₹119",
-          period: "/pack",
-          note: "₹0.119 per conversation",
+          messages: "5,000,000 messages",
+          price: "₹1,89,999",
+          period: "/month",
         },
-        {
-          calls: "5,000 conversations",
-          price: "₹419",
-          period: "/pack",
-          note: "₹0.084 per conversation",
-        },
-        {
-          calls: "10,000 conversations",
-          price: "₹659",
-          period: "/pack",
-          note: "₹0.066 per conversation",
-        },
-        {
-          calls: "25,000 conversations",
-          price: "₹1,199",
-          period: "/pack",
-          note: "₹0.048 per conversation",
-        },
-        {
-          calls: "100,000 conversations",
-          price: "₹1,799",
-          period: "/pack",
-          note: "₹0.018 per conversation",
-        },
+        { messages: "10,000,000+ messages", price: "Custom", period: "" },
       ],
-      color: "#075E54",
-      icon: "bi-plus-circle",
+      color: "#0C6980",
+      icon: "bi-building",
     },
   ];
 
@@ -87,10 +58,10 @@ const Pricing = () => {
         {/* Header */}
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold head1 mb-3" style={{ color: "#203239" }}>
-            WhatsApp Business API Pricing
+            RCS Messaging Pricing
           </h2>
           <p className="text-muted para-blog">
-            Choose the perfect plan for your business communication needs
+            Choose the perfect plan for your rich communication needs
           </p>
         </div>
 
@@ -110,14 +81,12 @@ const Pricing = () => {
                   position: "relative",
                   overflow: "hidden",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  border: category.popular
-                    ? `3px solid ${category.color}`
-                    : "none",
+                  border: category.popular ? `3px solid ${category.color}` : "none",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-10px)";
                   e.currentTarget.style.boxShadow =
-                    "0 20px 40px rgba(37, 211, 102, 0.3)";
+                    "0 20px 40px rgba(23, 162, 184, 0.3)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
@@ -189,30 +158,17 @@ const Pricing = () => {
                               : "none",
                         }}
                       >
-                        <div className="d-flex align-items-start flex-column">
-                          <div className="d-flex align-items-start mb-1">
-                            <i
-                              className="bi bi-check-circle-fill me-2 mt-1"
-                              style={{
-                                color: category.color,
-                                fontSize: "18px",
-                              }}
-                            ></i>
-                            <span
-                              className="para-color"
-                              style={{ fontSize: "14px" }}
-                            >
-                              {item.calls}
-                            </span>
-                          </div>
-                          {item.note && (
-                            <small
-                              className="text-muted ms-4"
-                              style={{ fontSize: "11px" }}
-                            >
-                              {item.note}
-                            </small>
-                          )}
+                        <div className="d-flex align-items-start">
+                          <i
+                            className="bi bi-check-circle-fill me-2 mt-1"
+                            style={{ color: category.color, fontSize: "18px" }}
+                          ></i>
+                          <span
+                            className="para-color"
+                            style={{ fontSize: "14px" }}
+                          >
+                            {item.messages}
+                          </span>
                         </div>
                         <div className="text-end">
                           <span
@@ -282,21 +238,21 @@ const Pricing = () => {
                       style={{
                         width: "60px",
                         height: "60px",
-                        backgroundColor: "#25D36615",
+                        backgroundColor: "#17A2B815",
                       }}
                     >
                       <i
-                        className="bi bi-shield-check"
-                        style={{ fontSize: "28px", color: "#25D366" }}
+                        className="bi bi-image"
+                        style={{ fontSize: "28px", color: "#17A2B8" }}
                       ></i>
                     </div>
                     <p
                       className="small mt-2 mb-0 fw-bold"
                       style={{ color: "#203239" }}
                     >
-                      End-to-End Encryption
+                      Rich Media Support
                     </p>
-                    <small className="text-muted">100% Secure</small>
+                    <small className="text-muted">HD images & videos</small>
                   </div>
                   <div className="col-md-3 col-6 mb-4 text-center">
                     <div
@@ -304,21 +260,21 @@ const Pricing = () => {
                       style={{
                         width: "60px",
                         height: "60px",
-                        backgroundColor: "#128C7E15",
+                        backgroundColor: "#13849615",
                       }}
                     >
                       <i
-                        className="bi bi-headset"
-                        style={{ fontSize: "28px", color: "#128C7E" }}
+                        className="bi bi-patch-check-fill"
+                        style={{ fontSize: "28px", color: "#138496" }}
                       ></i>
                     </div>
                     <p
                       className="small mt-2 mb-0 fw-bold"
                       style={{ color: "#203239" }}
                     >
-                      24/7 Support
+                      Verified Sender
                     </p>
-                    <small className="text-muted">Always available</small>
+                    <small className="text-muted">Brand identity</small>
                   </div>
                   <div className="col-md-3 col-6 mb-4 text-center">
                     <div
@@ -326,12 +282,12 @@ const Pricing = () => {
                       style={{
                         width: "60px",
                         height: "60px",
-                        backgroundColor: "#25D36615",
+                        backgroundColor: "#17A2B815",
                       }}
                     >
                       <i
                         className="bi bi-graph-up"
-                        style={{ fontSize: "28px", color: "#25D366" }}
+                        style={{ fontSize: "28px", color: "#17A2B8" }}
                       ></i>
                     </div>
                     <p
@@ -348,21 +304,21 @@ const Pricing = () => {
                       style={{
                         width: "60px",
                         height: "60px",
-                        backgroundColor: "#128C7E15",
+                        backgroundColor: "#13849615",
                       }}
                     >
                       <i
-                        className="bi bi-lightning-charge"
-                        style={{ fontSize: "28px", color: "#128C7E" }}
+                        className="bi bi-headset"
+                        style={{ fontSize: "28px", color: "#138496" }}
                       ></i>
                     </div>
                     <p
                       className="small mt-2 mb-0 fw-bold"
                       style={{ color: "#203239" }}
                     >
-                      Instant Setup
+                      24/7 Support
                     </p>
-                    <small className="text-muted">Ready in minutes</small>
+                    <small className="text-muted">Always available</small>
                   </div>
                 </div>
               </div>
@@ -379,7 +335,7 @@ const Pricing = () => {
             <button
               className="btn btn-lg px-5 py-3 fw-bold"
               style={{
-                background: "linear-gradient(135deg, #25D366 0%, #128C7E 100%)",
+                background: "linear-gradient(135deg, #17A2B8 0%, #138496 100%)",
                 color: "#fff",
                 border: "none",
                 borderRadius: "30px",
@@ -388,7 +344,7 @@ const Pricing = () => {
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.05)";
                 e.currentTarget.style.boxShadow =
-                  "0 10px 25px rgba(37, 211, 102, 0.3)";
+                  "0 10px 25px rgba(23, 162, 184, 0.3)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
@@ -405,4 +361,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default RcsPricing;
