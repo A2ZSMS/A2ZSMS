@@ -1,5 +1,25 @@
 [
   {
+    "id": 23,
+    "title": "How A2ZSMS Helps Your Business Grow Faster",
+    "componentKey": "Nov27",
+    "slug": "how-a2zsms-helps-your-business-grow-faster",
+    "category": "WhatsApp Service",
+    "date": "2025-11-27",
+    "description": "A2ZSMS empowers businesses to grow faster with smart communication tools, automated WhatsApp API, bulk SMS solutions, and instant customer engagement features. It helps you capture leads quickly, improve conversions, and build stronger customer relationships effortlessly.",
+    "image": "/Images/lat7.png"
+  },
+  {
+    "id": 22,
+    "title": "Grow Leads 10X Faster With Smart WhatsApp API",
+    "componentKey": "Nov25",
+    "slug": "grow-leads-faster-with-smart-whatsapp-api",
+    "category": "WhatsApp Service",
+    "date": "2025-11-25",
+    "description": "Grow your leads 10X faster with the Smart WhatsApp API. Boost conversions, automate customer replies, and engage instantly through high-open-rate messages. Discover how WhatsApp automation helps businesses capture more leads and accelerate growth effortlessly.",
+    "image": "/Images/lat4.png"
+  },
+  {
     "id": 21,
     "title": "Path to Customer Success with RCS Messaging",
     "componentKey": "Nov19",
