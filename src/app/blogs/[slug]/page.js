@@ -47,6 +47,7 @@ import Nov19 from "@/app/Component/Blogs/Nov2025/Nov19";
 import Nov25 from "@/app/Component/Blogs/Nov2025/Nov25";
 import Nov27 from "@/app/Component/Blogs/Nov2025/Nov27";
 import Dec03 from "@/app/Component/Blogs/Dec2025/Dec03";
+import Dec09 from "@/app/Component/Blogs/Dec2025/Dec09";
 // Simple component mapping
 const BlogComponents = {
   dec13: Dec13,
@@ -93,6 +94,7 @@ const BlogComponents = {
   nov25: Nov25,
   nov27: Nov27,
   dec03: Dec03,
+  dec09: Dec09,
 };
 
 // ✅ Add this function to generate static pages
