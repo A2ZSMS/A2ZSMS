@@ -2,9 +2,9 @@ import React from "react";
 import BulkSms from "../Component/Product/BulkSms/BulkSms";
 
 export const metadata = {
-  title: "Best Bulk SMS Service Provider in Bangalore | India",
+  title: "Best Bulk SMS Service Provider in Bangalore",
   description:
-    "Top Bulk SMS service provider in Bangalore, India. Reliable business SMS solutions for OTP, promotional, transactional, and marketing campaigns.",
+    "Top Bulk SMS service provider in Bangalore. Reliable business SMS solutions for OTP, promotional, transactional, and marketing campaigns.",
   keywords:
     "Best Bulk SMS Service Provider Bangalore, Bulk SMS Services India, OTP SMS Bangalore, Promotional SMS Provider Bangalore, Transactional SMS Services India, Business SMS Bangalore",
   authors: [

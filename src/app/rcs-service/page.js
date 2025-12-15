@@ -2,9 +2,9 @@ import React from "react";
 import RcsSms from "../Component/Product/Rcs/RcsSms";
 
 export const metadata = {
-  title: "Best RCS Messaging Provider in Bangalore | India",
+  title: "Best RCS Messaging Provider in Bangalore",
   description:
-    "Top RCS messaging provider in Bangalore, India. Reliable business RCS services for enterprises, campaigns, and customer engagement.",
+    "Top RCS messaging provider in Bangalore. Reliable business RCS services for enterprises, campaigns, and customer engagement.",
   keywords:
     "Best RCS Messaging Provider Bangalore, RCS Messaging Services India, RCS Business Messaging Provider, RCS Provider Bangalore, Rich Communication Services India",
   authors: [
