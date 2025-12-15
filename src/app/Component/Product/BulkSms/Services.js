@@ -8,7 +8,7 @@ const servicesData = [
     id: 1,
     title: "Promotional SMS",
     description:
-      "To boost your business, promotional SMS is a must for your business. You can bring drastic changes to your existing business. If you are planning to establish new trade or business then too promotional SMS service can help you establish well in this field. With so many companies in the market, running a business is not an easy job, but with us, you can become the game changer of your business.",
+      "To boost business growth, promotional SMS plays a vital role in reaching customers instantly and effectively. As a trusted bulk SMS service provider in Bangalore helps businesses drive brand awareness, increase engagement, and generate leads through high-delivery promotional messaging. Whether you are launching a new business or scaling an existing one, our bulk SMS solutions enable you to stand out in a competitive market and become a true game-changer for your business.",
     points: [
       "No Delivery on DND numbers",
       "6 Alphabet sender id like 'INDSMS'",
@@ -77,7 +77,7 @@ const Services = () => {
           {/* Right Content Section */}
           <div className="col-md-6 col-12" data-aos="zoom-in-left">
             <h5 className="text-primary mb-2">Bulk SMS</h5>
-            <h2 className="fw-bold mb-4">Our Bulk SMS Services</h2>
+            <h2 className="fw-bold mb-4">Bulk Sms Service Provider</h2>
             {/* Tabs with Custom Icons */}
             <div className="d-flex mb-3">
               {servicesData.map((service) => (

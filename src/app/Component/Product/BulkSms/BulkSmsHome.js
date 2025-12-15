@@ -12,9 +12,7 @@ const BulkSmsHome = () => {
                 <span className="text-primary">OTP SMS</span> Solutions!
               </h2>
               <p>
-                Provide secure, real-time authentication and enhance user trust
-                with our reliable OTP SMS services. Simplify verification and
-                ensure data security for your users.
+               Provide secure, real time authentication and enhance user trust with reliable OTP messaging solutions. As a trusted otp sms service provider instant delivery of one time passwords supports login verification transaction authentication and two factor security ensuring data protection and a seamless user experience.
               </p>
               <ul className="list-unstyled mt-4 text-muted">
                 <li className="d-flex align-items-start mb-3">
@@ -71,9 +69,7 @@ const BulkSmsHome = () => {
                 Solutions!
               </h1>
               <p>
-                Deliver crucial updates, build customer trust, and enhance user
-                engagement with our reliable transactional SMS services. Keep
-                your audience informed, anywhere and anytime!
+               Deliver crucial updates, build customer trust and enhance user engagement with a reliable transactional messaging platform. As a trusted transactional sms service provider instant delivery of OTPs, alerts, and notifications is ensured with enterprise grade reliability keeping your audience informed  anywhere and anytime!
               </p>
               <ul className="list-unstyled mt-4 text-muted">
                 <li className="d-flex align-items-start mb-3">

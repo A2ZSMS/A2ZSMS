@@ -20,10 +20,7 @@ const RcsMessagingSection = () => {
                 Why Choose RCS Messaging?
               </h3>
               <p className="text-muted ">
-                Replace SMS and MMS texting with feature-rich RCS messaging to
-                send and receive high-resolution images, videos, and interactive
-                content. Enhance your communication and improve customer
-                engagement with RCS messaging's advanced capabilities.
+                Replace SMS and MMS texting with feature-rich RCS Business Messaging to send and receive high-resolution images, videos, and interactive content. Enhance your communication and improve customer engagement with RCS Business Messaging’s advanced capabilities and branded experiences.
               </p>
               <ul>
                 <li>Verified Sender with branding</li>
@@ -43,15 +40,13 @@ const RcsMessagingSection = () => {
                 RCS Messaging Features
               </h3>
               <p className="text-muted">
-                Engage customers like never before with RCS Messaging. Deliver
-                interactive and dynamic messages to provide a premium user
-                experience and boost conversions.
+                Engage customers like never before with an advanced RCS Messaging Platform that delivers interactive, dynamic, and high-impact messages. Enhance user experience and boost conversions using rich media capabilities and branded communication features.
               </p>
               <ul>
-                <li>Instant delivery of rich media messages</li>
-                <li>Highly secure and encrypted communication</li>
-                <li>Personalized messages for each customer</li>
-                <li>Improved customer satisfaction and loyalty</li>
+                <li>Instant delivery of rich media messages through a reliable RCS Messaging Platform</li>
+                <li>Highly secure and encrypted communication for trusted customer interactions</li>
+                <li>Personalized messages for each customer based on behavior and preferences</li>
+                <li>Improved customer satisfaction and loyalty with interactive app like messaging experiences</li>
               </ul>
             </div>
             <div className="col-md-6 text-center" data-aos="fade-in">

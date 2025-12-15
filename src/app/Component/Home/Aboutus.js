@@ -10,14 +10,11 @@ const Aboutus = () => {
               More About Us
             </h6>
             <h2 className="fw-bold mb-4">
-              Transform Customer Relationships with{" "}
-              <span className="text-primary">WhatsApp CRM Integration</span>
+              WhatsApp CRM{" "}
+              <span className="text-primary">The Ultimate Guide for Businesses</span>
             </h2>
             <p className="align">
-              Elevate your customer experience by integrating WhatsApp with CRM
-              systems. Automate responses, streamline lead management, and build
-              stronger relationships with real-time communication features
-              designed for modern businesses.
+              Elevate your customer experience with the power of WhatsApp CRM The Ultimate Guide for Businesses. By integrating WhatsApp with your CRM systems, you can automate responses, streamline lead management, and build stronger customer relationships using real-time communication features designed for modern businesses.
             </p>
             <ul className="list-unstyled">
               <div className="row">
