@@ -194,93 +194,189 @@ const Dec10 = () => {
 
             {/* SUBTITLE 4 */}
             <h2 className="pb-3 fw-bold">RCS Messaging for Business</h2>
+
             <p>
-              RCS Messaging for Business is designed to support interactive
-              customer communication across industries such as e-commerce,
-              banking, healthcare, travel, education, and real estate.
-              Businesses use RCS Messaging for Business to send promotional
-              offers, product catalogs, delivery updates, payment reminders, and
-              customer support messages with interactive elements.
+              <strong>RCS Messaging for Business</strong> is built to support
+              modern, interactive customer communication across industries such
+              as e-commerce, banking, healthcare, travel, education, and real
+              estate. It enables businesses to move beyond one-way SMS and
+              deliver rich, branded, and engaging messages directly inside the
+              customer’s default messaging app.
             </p>
 
             <p>
-              Unlike SMS, RCS Messaging for Business enables real-time two-way
-              conversations using buttons and suggested replies. This reduces
-              response time, improves customer experience, and increases
-              conversion rates by allowing users to take action instantly within
-              the message.
+              Businesses use <strong>RCS Messaging for Business</strong> to send
+              promotional offers, product catalogs, delivery and order updates,
+              payment reminders, onboarding messages, and customer support
+              communications. By combining rich media with interactivity, RCS
+              helps brands guide customers through the entire journey—from
+              awareness to action—within a single messaging channel.
             </p>
+
+            <ul className="list-unstyled ps-3">
+              <li className="mb-3">
+                ✔ Interactive messaging with buttons, quick replies, and menus
+              </li>
+              <li className="mb-3">
+                ✔ Rich media support for images, videos, and product catalogs
+              </li>
+              <li className="mb-3">
+                ✔ Two-way communication for faster responses and better
+                engagement
+              </li>
+              <li className="mb-3">
+                ✔ Suitable for marketing, transactional, and customer support
+                use cases
+              </li>
+              <li className="mb-3">
+                ✔ Higher engagement and conversion rates compared to SMS
+              </li>
+            </ul>
 
             {/* SUBTITLE 5 */}
             <h2 className="pb-3 fw-bold">RCS Messaging Platform</h2>
+
             <p>
-              An RCS Messaging Platform is the system that allows businesses to
-              create, manage, send, and analyze RCS campaigns. A reliable RCS
-              Messaging Platform handles verified sender approval, message
-              design, rich media hosting, delivery tracking, analytics, and
-              intelligent fallback to SMS when RCS is unavailable.
+              An <strong>RCS Messaging Platform</strong> is the technology layer
+              that enables businesses to create, manage, deliver, and measure
+              RCS Business Messaging campaigns at scale. It handles critical
+              functions such as verified sender approval, rich message creation,
+              multimedia hosting, delivery routing, and real-time performance
+              tracking. A robust RCS platform ensures that messages reach users
+              reliably through supported devices while maintaining brand
+              identity and message quality.
             </p>
 
             <p>
-              Choosing the right RCS Messaging Platform is essential for
-              successful campaigns. Businesses need a platform that ensures high
-              delivery rates, compliance with regulations, advanced analytics,
-              and seamless integration with existing CRM and marketing tools.
+              A modern RCS Messaging Platform also supports intelligent fallback
+              to SMS when RCS is unavailable, ensuring uninterrupted
+              communication. This guarantees message delivery across diverse
+              devices and network conditions without disrupting customer
+              journeys. Businesses can run campaigns confidently, knowing that
+              communication continuity is preserved.
+            </p>
+
+            <p>
+              Choosing the right <strong>RCS Messaging Platform</strong> is
+              essential for long-term success. Businesses should look for
+              platforms that offer high delivery rates, compliance with Google
+              RCS guidelines, detailed analytics, and seamless integration with
+              CRM, ERP, and marketing automation systems. The right platform
+              enables scalable RCS campaigns that improve engagement, conversion
+              rates, and overall customer experience.
             </p>
 
             {/* SUBTITLE 6 */}
             <h2 className="pb-3 fw-bold">RCS Rich Media Messaging</h2>
+
             <p>
-              RCS Rich Media Messaging allows businesses to send high-quality
-              images, videos, GIFs, product cards, and carousels directly inside
-              the messaging conversation. This transforms static text messages
-              into visually engaging experiences that capture attention and
-              encourage interaction.
+              <strong>RCS Rich Media Messaging</strong> enables businesses to
+              deliver visually rich and interactive content directly inside the
+              customer’s native messaging inbox. Unlike traditional SMS, RCS
+              supports high-quality images, videos, GIFs, product cards, and
+              carousels, transforming simple text messages into immersive brand
+              experiences that immediately capture user attention.
             </p>
 
             <p>
-              By using RCS Rich Media Messaging, businesses can showcase
-              products, explain services visually, and guide customers through
-              interactive journeys. Rich media content significantly improves
-              engagement, message recall, and click-through rates compared to
-              traditional text-based messaging.
+              By leveraging RCS Rich Media Messaging, businesses can showcase
+              products, explain services visually, highlight offers, and guide
+              customers through structured, interactive journeys. This
+              visual-first approach makes it easier for users to understand
+              information and take action without leaving the conversation.
+            </p>
+
+            <p>
+              Rich media content delivered through RCS consistently drives
+              higher engagement, stronger message recall, and improved
+              click-through rates compared to text-only messaging. As a result,
+              RCS Rich Media Messaging has become a preferred communication
+              format for marketing campaigns, product launches, onboarding
+              flows, and customer engagement initiatives across industries.
             </p>
 
             {/* SUBTITLE 7 */}
             <h2 className="pb-3 fw-bold">RCS Verified Sender</h2>
+
             <p>
-              RCS Verified Sender is a trust and security feature that ensures
-              messages are sent only by approved and legitimate businesses.
-              Before sending messages, brands must complete a verification
-              process that validates their identity, use case, and content. Once
-              approved, messages display the brand name, logo, and verified
-              badge.
+              <strong>RCS Verified Sender</strong> is a critical trust and
+              security feature that ensures RCS messages are sent only by
+              approved and legitimate businesses. Before launching campaigns,
+              brands must complete a verification process that validates
+              business identity, messaging use case, and content compliance.
+              Once approved, messages are delivered with the official brand
+              name, logo, and a verified badge displayed inside the messaging
+              conversation.
             </p>
 
             <p>
-              RCS Verified Sender status increases customer confidence and
-              reduces the risk of spam and fraud. Customers are more likely to
-              open and interact with messages from verified brands, leading to
-              higher engagement and stronger brand credibility.
+              This verification process significantly improves customer
+              confidence and reduces the risk of spam, phishing, and fraudulent
+              messaging. Customers are far more likely to open, read, and
+              interact with messages from verified senders, making RCS Verified
+              Sender a key factor in driving higher engagement, response rates,
+              and long-term brand credibility.
             </p>
+
+            <ul className="list-unstyled ps-3">
+              <li className="mb-3">
+                ✔ Verified business identity with brand name and logo
+              </li>
+              <li className="mb-3">
+                ✔ Reduced spam and fraud through mandatory sender verification
+              </li>
+              <li className="mb-3">
+                ✔ Higher open rates and customer trust compared to unverified
+                SMS
+              </li>
+              <li className="mb-3">
+                ✔ Improved engagement and interaction with branded messaging
+              </li>
+              <li className="mb-3">
+                ✔ Essential for secure marketing, transactional, and support
+                communication
+              </li>
+            </ul>
 
             {/* SUBTITLE 8 */}
             <h2 className="pb-3 fw-bold">RCS Customer Engagement</h2>
+
             <p>
-              RCS Customer Engagement focuses on creating interactive,
-              conversational experiences instead of one-way notifications. With
-              features like suggested replies, action buttons, read receipts,
-              and rich media, RCS enables customers to respond instantly and
-              naturally.
+              <strong>RCS Customer Engagement</strong> is centered on building
+              interactive and conversational experiences rather than one-way
+              message delivery. By leveraging features such as suggested
+              replies, action buttons, read receipts, and rich media, RCS allows
+              customers to respond instantly and engage naturally within the
+              messaging interface.
             </p>
 
             <p>
-              By improving RCS Customer Engagement, businesses can shorten
-              conversion paths, increase customer satisfaction, and drive
-              measurable results. Interactive messaging journeys make it easier
-              for customers to explore offers, complete actions, and receive
-              support within a single conversation.
+              Strong RCS customer engagement shortens conversion paths, improves
+              customer satisfaction, and drives measurable business outcomes.
+              Interactive messaging journeys make it easier for users to explore
+              offers, take actions, complete purchases, or access support
+              without leaving the conversation, resulting in smoother and more
+              effective customer experiences.
             </p>
+
+            <ul className="list-unstyled ps-3">
+              <li className="mb-3">
+                ✔ Two-way conversational messaging instead of one-way
+                notifications
+              </li>
+              <li className="mb-3">
+                ✔ Suggested replies and action buttons for faster responses
+              </li>
+              <li className="mb-3">
+                ✔ Rich media content to increase attention and engagement
+              </li>
+              <li className="mb-3">
+                ✔ Shorter conversion journeys with in-message actions
+              </li>
+              <li className="mb-3">
+                ✔ Higher customer satisfaction and interaction rates
+              </li>
+            </ul>
 
             {/* SECTION 2 */}
             <h2 className="pb-3 fw-bold">
