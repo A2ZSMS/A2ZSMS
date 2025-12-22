@@ -191,7 +191,15 @@ const Dec10 = () => {
                 messaging
               </li>
             </ul>
-
+            <div>
+              <img
+                className="my-4"
+                width="100%"
+                height="auto"
+                src="/Images/3dec16.png"
+                alt="RCS Business Messaging Platform"
+              />
+            </div>
             {/* SUBTITLE 4 */}
             <h2 className="pb-3 fw-bold">RCS Messaging for Business</h2>
 
@@ -492,16 +500,6 @@ const Dec10 = () => {
             Businesses should respect user preferences, allow opt-in controls,
             and deliver value-driven content that aligns with customer intent.
           </p>
-
-          <div>
-            <img
-              className="mt-3"
-              width="100%"
-              height="auto"
-              src="/Images/3dec16.png"
-              alt="RCS Business Messaging Platform"
-            />
-          </div>
 
           {/* SECTION 6 */}
           <div data-aos="fade-right">
