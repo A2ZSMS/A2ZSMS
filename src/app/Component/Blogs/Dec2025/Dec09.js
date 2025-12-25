@@ -50,7 +50,7 @@ const Dec09 = () => {
 
         {/* SECTION 1 */}
         <div data-aos="fade-left">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">Leading RCS Solutions</span> for
             Karnataka Businesses
           </h2>
