@@ -6,8 +6,7 @@ const Dec25 = () => {
       <div className="container aos para-color py-4">
         {/* H1 */}
         <h1 className="text-primary py-4">
-          RCS Messaging Helps Boost Marketing Conversions Up to 10×: Complete
-          Business Growth Guide
+          RCS Messaging Helps Boost Marketing Conversions Up to 10×
         </h1>
 
         {/* Introduction */}
@@ -22,14 +21,12 @@ const Dec25 = () => {
             marketing, which is limited to plain text, RCS allows businesses to
             deliver rich communication services such as images, carousels,
             action buttons, and verified brand identities that guide users
-            toward clear decisions rather than passive reading.
-          </p>
-          <p>
-            As marketing automation continues to mature, businesses are shifting
-            away from static, one-way campaigns toward real-time,
-            behavior-driven engagement. RCS messaging supports this shift by
-            combining interactive messaging, rich media, and verified branding
-            with automation triggers that respond instantly to customer actions,
+            toward clear decisions rather than passive reading. As marketing
+            automation continues to mature, businesses are shifting away from
+            static, one-way campaigns toward real-time, behavior-driven
+            engagement. RCS messaging supports this shift by combining
+            interactive messaging, rich media, and verified branding with
+            automation triggers that respond instantly to customer actions,
             intent signals, and engagement patterns.
           </p>
           <p>
@@ -96,6 +93,7 @@ const Dec25 = () => {
           <h3 className="fw-bold">
             Core RCS Features That Drive Automated Conversions
           </h3>
+
           <p>
             RCS messaging enables businesses to automate decisions, not just
             messages. Interactive action buttons allow users to move through
@@ -104,16 +102,13 @@ const Dec25 = () => {
             These guided actions reduce friction and eliminate ambiguity,
             helping customers progress naturally toward a clear outcome. As a
             result, RCS becomes a powerful conversion engine rather than a
-            simple notification channel.
-          </p>
-          <p>
-            Rich media cards and carousels significantly reduce cognitive load
-            by presenting information in a visual and structured format. Instead
-            of reading long text messages or visiting external pages, customers
-            can instantly understand pricing, features, or options inside the
-            message. This visual clarity shortens decision time, improves
-            comprehension, and increases completion rates across automated RCS
-            marketing campaigns.
+            simple notification channel. Rich media cards and carousels
+            significantly reduce cognitive load by presenting information in a
+            visual and structured format. Instead of reading long text messages
+            or visiting external pages, customers can instantly understand
+            pricing, features, or options inside the message. This visual
+            clarity shortens decision time, improves comprehension, and
+            increases completion rates across automated RCS marketing campaigns.
           </p>
           <p>
             Built-in engagement signals such as message reads, button clicks,
@@ -124,14 +119,86 @@ const Dec25 = () => {
             businesses can improve conversion quality while reducing manual
             effort and operational costs.
           </p>
-          <ul>
-            <li>
-              Verified sender identity increases trust, opens, and credibility
+
+          {/* Feature List */}
+          <ul
+            className="feature-list"
+            style={{ listStyle: "none", paddingLeft: 0 }}
+          >
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-shield-check text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Verified sender identity</strong>
+                <br />
+                Builds immediate trust, improves open rates, and reduces
+                first-contact hesitation
+              </div>
             </li>
-            <li>Rich media simplifies complex products and offers</li>
-            <li>Action buttons guide users through clear decision paths</li>
-            <li>
-              Behavior signals trigger automated follow-ups and optimization
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-image text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Rich media messaging</strong>
+                <br />
+                Explains complex products faster and shortens the decision cycle
+              </div>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-cursor text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Interactive action buttons</strong>
+                <br />
+                Guide users toward a single clear decision without open-ended
+                conversations
+              </div>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-gear text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Behavior-based automation</strong>
+                <br />
+                Triggers timely follow-ups based on real user actions
+              </div>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-graph-up-arrow text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Real-time analytics</strong>
+                <br />
+                Tracks opens, clicks, and responses to refine campaign
+                performance
+              </div>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-cpu text-primary me-3 fs-4"></i>
+              <div>
+                <strong>AI-driven automation</strong>
+                <br />
+                Qualifies leads and routes high-intent users to sales teams
+              </div>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-clock text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Instant delivery & replies</strong>
+                <br />
+                Reduces response time and prevents drop-offs at critical moments
+              </div>
+            </li>
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-arrow-repeat text-primary me-3 fs-4"></i>
+              <div>
+                <strong>Intelligent workflows</strong>
+                <br />
+                Adapt messaging dynamically to create scalable personalized
+                journeys
+              </div>
             </li>
           </ul>
         </section>
@@ -189,6 +256,7 @@ const Dec25 = () => {
           <h2 className="fw-bold">
             Industries Seeing the Biggest Gains from RCS Automation
           </h2>
+
           <p>
             RCS automation delivers the strongest results in industries where
             customers require clarity, trust, and reassurance before taking
@@ -199,6 +267,7 @@ const Dec25 = () => {
             queries instantly and move users closer to a decision. This
             significantly improves response quality and conversion rates.
           </p>
+
           <p>
             Healthcare, automotive, and travel brands use RCS automation to
             handle inquiries, scheduling, confirmations, and reminders at scale
@@ -208,6 +277,7 @@ const Dec25 = () => {
             The result is faster decision-making, improved customer
             satisfaction, and higher campaign ROI.
           </p>
+
           <p>
             Wherever customer decisions are high-value, time-sensitive, or
             dependent on trust, RCS automation consistently outperforms SMS and
@@ -217,27 +287,44 @@ const Dec25 = () => {
             becomes a strategic channel for revenue-driven customer journeys
             rather than simple communication.
           </p>
-          <ul>
-            <li>
-              <strong>Real estate and education:</strong> Automate property
-              discovery, course exploration, counseling bookings, and lead
-              qualification with interactive RCS journeys that reduce sales
-              cycle time.
+
+          {/* Icon List */}
+          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-building text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Real estate and education:</strong> Automate property
+                discovery, course exploration, counseling bookings, and lead
+                qualification with interactive RCS journeys that reduce sales
+                cycle time.
+              </span>
             </li>
-            <li>
-              <strong>Healthcare and BFSI:</strong> Enable appointment
-              scheduling, eligibility checks, reminders, and secure updates
-              while maintaining trust through verified sender identity.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-heart-pulse text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Healthcare and BFSI:</strong> Enable appointment
+                scheduling, eligibility checks, reminders, and secure updates
+                while maintaining trust through verified sender identity.
+              </span>
             </li>
-            <li>
-              <strong>Automotive and travel:</strong> Streamline test drive
-              bookings, package selection, itinerary confirmations, and upgrades
-              using rich, action-driven messaging.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-car-front text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Automotive and travel:</strong> Streamline test drive
+                bookings, package selection, itinerary confirmations, and
+                upgrades using rich, action-driven messaging.
+              </span>
             </li>
-            <li>
-              <strong>High-intent automated journeys:</strong> Ideal for
-              scenarios where speed, clarity, and intent qualification directly
-              impact conversions and revenue outcomes.
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-lightning-charge text-primary me-3 fs-5"></i>
+              <span>
+                <strong>High-intent automated journeys:</strong> Ideal for
+                scenarios where speed, clarity, and intent qualification
+                directly impact conversions and revenue outcomes.
+              </span>
             </li>
           </ul>
         </section>
@@ -295,33 +382,55 @@ const Dec25 = () => {
             component of performance-driven mobile marketing strategies.
           </p>
 
-          <ul>
-            <li>
-              Trigger RCS campaigns based on user behavior, intent, or lifecycle
-              stage rather than fixed schedules.
+          {/* Icon List */}
+          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-activity text-primary me-3 fs-5"></i>
+              <span>
+                Trigger RCS campaigns based on user behavior, intent, or
+                lifecycle stage rather than fixed schedules.
+              </span>
             </li>
-            <li>
-              Design one RCS journey for one business goal to reduce friction
-              and improve completion rates.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-bullseye text-primary me-3 fs-5"></i>
+              <span>
+                Design one RCS journey for one business goal to reduce friction
+                and improve completion rates.
+              </span>
             </li>
-            <li>
-              Use interactive buttons and guided flows instead of free-text
-              responses for better automation.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-hand-index-thumb text-primary me-3 fs-5"></i>
+              <span>
+                Use interactive buttons and guided flows instead of free-text
+                responses for better automation.
+              </span>
             </li>
-            <li>
-              Integrate RCS with CRM and analytics tools to measure engagement
-              and optimize conversions.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-diagram-3 text-primary me-3 fs-5"></i>
+              <span>
+                Integrate RCS with CRM and analytics tools to measure engagement
+                and optimize conversions.
+              </span>
             </li>
-            <li>
-              Continuously test and refine RCS campaigns based on real user
-              interaction data.
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-graph-up text-primary me-3 fs-5"></i>
+              <span>
+                Continuously test and refine RCS campaigns based on real user
+                interaction data.
+              </span>
             </li>
           </ul>
         </section>
+
         <section className="mb-5">
           <h2 className="fw-bold">
             RCS Messaging vs SMS: Why RCS Converts Better
           </h2>
+
           <p>
             While SMS remains a reliable channel for reach, alerts, and basic
             notifications, it was never designed for interaction or
@@ -332,6 +441,7 @@ const Dec25 = () => {
             expectations have evolved, this text-only experience has become a
             major limitation for conversion-focused marketing campaigns.
           </p>
+
           <p>
             RCS messaging fundamentally changes this experience by enabling rich
             media, verified branding, and interactive actions directly inside
@@ -342,6 +452,7 @@ const Dec25 = () => {
             improves, and conversion rates increase significantly compared to
             traditional SMS campaigns.
           </p>
+
           <p>
             This is why RCS consistently outperforms SMS for high-intent
             marketing campaigns. Instead of competing for attention in crowded
@@ -350,31 +461,52 @@ const Dec25 = () => {
             and seamless flow allows businesses to move customers from interest
             to outcome with far greater efficiency and measurable impact.
           </p>
-          <ul>
-            <li>
-              <strong>Text vs experience:</strong> SMS is limited to plain text,
-              while RCS supports rich media, buttons, and interactive cards that
-              drive action.
+
+          {/* Icon List */}
+          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-chat-text text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Text vs experience:</strong> SMS is limited to plain
+                text, while RCS supports rich media, buttons, and interactive
+                cards that drive action.
+              </span>
             </li>
-            <li>
-              <strong>Trust and verification:</strong> RCS includes verified
-              sender identity and branding, increasing open rates and customer
-              confidence, which SMS cannot provide.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-shield-check text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Trust and verification:</strong> RCS includes verified
+                sender identity and branding, increasing open rates and customer
+                confidence, which SMS cannot provide.
+              </span>
             </li>
-            <li>
-              <strong>Reduced friction:</strong> RCS minimizes dependency on
-              external landing pages, significantly reducing drop-offs during
-              the conversion process.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-arrow-down-circle text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Reduced friction:</strong> RCS minimizes dependency on
+                external landing pages, significantly reducing drop-offs during
+                the conversion process.
+              </span>
             </li>
-            <li>
-              <strong>Conversion-first design:</strong> RCS is best suited for
-              high-intent, decision-driven campaigns, while SMS works primarily
-              for reach and notifications.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-bullseye text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Conversion-first design:</strong> RCS is best suited for
+                high-intent, decision-driven campaigns, while SMS works
+                primarily for reach and notifications.
+              </span>
             </li>
-            <li>
-              <strong>Better performance metrics:</strong> RCS provides richer
-              engagement signals such as clicks and interactions, enabling
-              better optimization and ROI tracking.
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-graph-up-arrow text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Better performance metrics:</strong> RCS provides richer
+                engagement signals such as clicks and interactions, enabling
+                better optimization and ROI tracking.
+              </span>
             </li>
           </ul>
         </section>
@@ -393,35 +525,57 @@ const Dec25 = () => {
           <h2 className="fw-bold">
             How RCS Messaging Improves Customer Engagement and Retention
           </h2>
+
           <p>
             Beyond acquisition and conversions, RCS messaging plays a critical
             role in improving long-term customer engagement and retention.
             Interactive messaging allows businesses to maintain ongoing
             conversations instead of one-time interactions.
           </p>
+
           <p>
             With features such as suggested replies, rich cards, and
             behavior-based triggers, RCS enables personalized follow-ups that
             feel timely and relevant. This reduces message fatigue and improves
             customer satisfaction compared to generic broadcast messaging.
           </p>
+
           <p>
             By keeping customers engaged throughout the lifecycle, RCS helps
             brands increase repeat interactions, upsell opportunities, and
             lifetime value. Engagement becomes continuous, measurable, and
             automation-driven.
           </p>
-          <ul>
-            <li>Interactive messages improve customer response rates</li>
-            <li>Personalized RCS journeys reduce churn</li>
-            <li>Behavior-based triggers increase relevance</li>
-            <li>Higher engagement leads to better lifetime value</li>
+
+          {/* Icon List */}
+          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-chat-dots text-primary me-3 fs-5"></i>
+              <span>Interactive messages improve customer response rates</span>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-person-check text-primary me-3 fs-5"></i>
+              <span>Personalized RCS journeys reduce churn</span>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-lightning-charge text-primary me-3 fs-5"></i>
+              <span>Behavior-based triggers increase relevance</span>
+            </li>
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-graph-up-arrow text-primary me-3 fs-5"></i>
+              <span>Higher engagement leads to better lifetime value</span>
+            </li>
           </ul>
         </section>
+
         <section className="mb-5">
           <h2 className="fw-bold">
             Why RCS Messaging Is a Future-Ready Channel for 2026 and Beyond
           </h2>
+
           <p>
             As digital marketing moves toward privacy-first, intent-driven
             engagement, RCS messaging is emerging as a future-ready channel that
@@ -429,6 +583,7 @@ const Dec25 = () => {
             into native messaging apps, RCS does not rely on third-party cookies
             or intrusive tracking.
           </p>
+
           <p>
             With increasing adoption across Android devices and growing support
             from global carriers, RCS is positioned to become a standard for
@@ -436,17 +591,50 @@ const Dec25 = () => {
             personalization, and trust makes it well-suited for the next
             generation of mobile marketing.
           </p>
+
           <p>
             Businesses that invest in RCS today are preparing for a future where
             conversational, action-driven messaging replaces static campaigns.
             This positions RCS as a long-term strategic asset rather than a
             short-term experiment.
           </p>
-          <ul>
-            <li>Privacy-friendly alternative to cookie-based marketing</li>
-            <li>Native support across Android ecosystems</li>
-            <li>Designed for automation and personalization</li>
-            <li>Future-proof channel for performance marketing</li>
+
+          {/* Icon List */}
+          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-shield-lock text-primary me-3 fs-5"></i>
+              <span>
+                Privacy-friendly alternative to cookie-based marketing that
+                enables engagement without invasive tracking while respecting
+                evolving data protection regulations.
+              </span>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-android2 text-primary me-3 fs-5"></i>
+              <span>
+                Native support across Android ecosystems ensures consistent
+                reach, reliable delivery, and seamless user experiences without
+                additional app installs.
+              </span>
+            </li>
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-cpu text-primary me-3 fs-5"></i>
+              <span>
+                Designed for automation and personalization, allowing brands to
+                respond dynamically to user behavior and intent at scale.
+              </span>
+            </li>
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-graph-up-arrow text-primary me-3 fs-5"></i>
+              <span>
+                Future-proof channel for performance marketing focused on
+                measurable outcomes, intent qualification, and long-term
+                customer value.
+              </span>
+            </li>
           </ul>
         </section>
 
@@ -503,30 +691,51 @@ const Dec25 = () => {
             per conversion.
           </p>
 
-          <ul>
-            <li>
-              <strong>Verified RCS sender configuration:</strong> Ensures brand
-              trust, higher open rates, and secure customer communication.
+          {/* Icon List */}
+          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-shield-check text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Verified RCS sender configuration:</strong> Ensures
+                brand trust, higher open rates, and secure customer
+                communication.
+              </span>
             </li>
-            <li>
-              <strong>Automated interactive journey design:</strong> Build
-              guided RCS flows with buttons, cards, and decision paths that
-              convert intent into action.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-diagram-3 text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Automated interactive journey design:</strong> Build
+                guided RCS flows with buttons, cards, and decision paths that
+                convert intent into action.
+              </span>
             </li>
-            <li>
-              <strong>Behavior-based triggers and analytics:</strong> Track real
-              user interactions and trigger automated follow-ups based on
-              engagement signals.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-activity text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Behavior-based triggers and analytics:</strong> Track
+                real user interactions and trigger automated follow-ups based on
+                engagement signals.
+              </span>
             </li>
-            <li>
-              <strong>Enterprise-grade scalable infrastructure:</strong> Run
-              high-volume RCS campaigns with reliability, performance, and
-              control.
+
+            <li className="d-flex align-items-start mb-3">
+              <i className="bi bi-server text-primary me-3 fs-5"></i>
+              <span>
+                <strong>Enterprise-grade scalable infrastructure:</strong> Run
+                high-volume RCS campaigns with reliability, performance, and
+                control.
+              </span>
             </li>
-            <li>
-              <strong>ROI-focused campaign optimization:</strong> Measure
-              conversion quality and continuously refine RCS strategies for
-              long-term growth.
+
+            <li className="d-flex align-items-start">
+              <i className="bi bi-graph-up-arrow text-primary me-3 fs-5"></i>
+              <span>
+                <strong>ROI-focused campaign optimization:</strong> Measure
+                conversion quality and continuously refine RCS strategies for
+                long-term growth.
+              </span>
             </li>
           </ul>
         </section>
