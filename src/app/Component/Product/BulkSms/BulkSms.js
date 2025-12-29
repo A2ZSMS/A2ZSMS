@@ -1,6 +1,6 @@
 "use client";
 import Services from "./Services";
-// import PricingTabs from "./Pricing";
+import NewPricingPlans from "./Pricing";
 import Reviews from "./Reviews";
 import BulkSmsHome from "./BulkSmsHome";
 import Industries from "./Industries";
@@ -20,7 +20,7 @@ const BulkSms = () => {
       <BulkSmsHome />
 
       {/* Pricing - Conversion Section */}
-      {/* <PricingTabs /> */}
+      <NewPricingPlans />
 
       {/* Use Cases - Industry Solutions */}
       <BulkSmsUseCases />
