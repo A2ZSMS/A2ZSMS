@@ -50,7 +50,7 @@ const Dec2025 = () => {
             width="100%"
             height="auto"
             src="/Images/Dec2025(1).png"
-            alt="WhatsApp Pricing Change in India "
+            alt="WhatsApp Pricing Change in India 2026 Business Impact"
           />
         </div>
 
