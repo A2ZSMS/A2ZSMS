@@ -38,7 +38,7 @@ const Nov25 = () => {
 
         {/* SECTION 1 */}
         <div data-aos="fade-left">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">What Is a Smart WhatsApp API</span>{" "}
             and Why Businesses Need It Today?
           </h2>
@@ -147,7 +147,7 @@ const Nov25 = () => {
         </div>
         {/* SECTION 5 – BENEFITS */}
         <div data-aos="fade-right">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">
               Benefits of Using Smart WhatsApp API
             </span>{" "}
@@ -257,7 +257,7 @@ const Nov25 = () => {
           />
         </div>
 
-        <h2 className="pb-3 fw-bold text-primary">
+        <h2 className="pb-3 mt-3 fw-bold text-primary">
           Why Smart Automation Outperforms Traditional Marketing
         </h2>
 

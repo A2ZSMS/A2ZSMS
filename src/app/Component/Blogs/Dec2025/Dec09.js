@@ -28,7 +28,7 @@ const Dec09 = () => {
 
         {/* SECTION 1 */}
         <div data-aos="fade-left">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">Leading RCS Solutions</span> for
             Karnataka Businesses
           </h2>
@@ -91,6 +91,40 @@ const Dec09 = () => {
     A2ZSMS ensures smooth RCS API integration for businesses across Karnataka, enabling quick implementation without technical complexity. The API supports automation, CRM integration, real-time workflows, and personalized messaging experiences. With detailed documentation and technical assistance, companies can launch RCS campaigns quickly and confidently.
   </p>
 
+        <p>
+          With comprehensive API documentation, secure authentication, and
+          dedicated technical support, development teams can implement RCS
+          quickly and reliably. From campaign triggering and message delivery
+          tracking to user interaction handling, A2ZSMS ensures fast RCS
+          deployment with minimal development effort and maximum operational
+          control.
+        </p>
+
+        <ul className="list-unstyled ps-3">
+          <li className="mb-3">
+            ✔ Developer-friendly RCS API with clear documentation and examples
+          </li>
+          <li className="mb-3">
+            ✔ Compatible with CRM, ERP, e-commerce, and marketing automation
+            platforms
+          </li>
+          <li className="mb-3">
+            ✔ Automated workflows for real-time customer interactions
+          </li>
+          <li className="mb-3">
+            ✔ Fast deployment backed by dedicated developer and technical
+            support
+          </li>
+        </ul>
+        <div>
+          <img
+            className="mt-3"
+            width="100%"
+            height="auto"
+            src="/Images/Mar12(1).png"
+            alt="Best RCS Messaging Provider Karnataka"
+          />
+        </div>
   <ul className="list-unstyled ps-3">
     <li className="mb-3">✔ Easy-to-use RCS API with complete documentation</li>
     <li className="mb-3">✔ Compatible with CRM, ERP, and marketing platforms</li>
@@ -99,7 +133,7 @@ const Dec09 = () => {
   </ul>
 
         {/* SECTION 5 */}
-        <h2 className="pb-3 fw-bold">
+        <h2 className="pb-3 mt-3 fw-bold">
           <span className="text-primary">Trusted & Reliable RCS Provider</span>{" "}
           for Karnataka Businesses
         </h2>
@@ -125,7 +159,7 @@ const Dec09 = () => {
   </div>
 
         {/* SECTION 6 */}
-        <h2 className="pb-3 fw-bold">
+        <h2 className="pb-3 mt-3 fw-bold">
           <span className="text-primary">Boost Customer Engagement</span> with
           RCS Campaigns
         </h2>
@@ -151,6 +185,37 @@ const Dec09 = () => {
     A2ZSMS offers flexible and affordable RCS pricing for businesses across Karnataka, making it easy for startups, SMEs, and enterprises to adopt this next-generation messaging technology. The plans are structured to support all types of industries and usage levels, ensuring you get maximum value at reasonable costs.
   </p>
 
+        <p>
+          Whether you are launching RCS for the first time or scaling
+          high-volume campaigns, A2ZSMS offers cost-effective plans that balance
+          performance and affordability. With predictable pricing and no hidden
+          charges, businesses can confidently plan RCS campaigns while
+          maximizing engagement and return on messaging spend.
+        </p>
+
+        <ul className="list-unstyled ps-3">
+          <li className="mb-3">
+            ✔ Flexible monthly and annual RCS pricing plans
+          </li>
+          <li className="mb-3">
+            ✔ Cost-effective options for high-volume RCS messaging
+          </li>
+          <li className="mb-3">
+            ✔ Transparent pricing with no hidden fees or surprises
+          </li>
+          <li className="mb-3">
+            ✔ Ideal for businesses adopting RCS messaging for the first time
+          </li>
+        </ul>
+        <div>
+          <img
+            className="mt-3"
+            width="100%"
+            height="auto"
+            src="/Images/2.png"
+            alt="Best RCS Messaging Provider Karnataka"
+          />
+        </div>
   <ul className="list-unstyled ps-3">
     <li className="mb-3">✔ Flexible monthly and annual plans</li>
     <li className="mb-3">✔ Cost-effective for high-volume messaging</li>
@@ -159,7 +224,7 @@ const Dec09 = () => {
   </ul>
 
         {/* SECTION 8 */}
-        <h2 className="pb-3 fw-bold">
+        <h2 className="pb-3 mt-3 fw-bold">
           <span className="text-primary">Enhanced Business Communication</span>{" "}
           with Verified RCS Messaging
         </h2>
@@ -270,15 +335,6 @@ const Dec09 = () => {
   </ul>
 
         {/* FINAL IMAGE */}
-        <div>
-          <img
-            className="mt-3"
-            width="100%"
-            height="auto"
-            src="/Images/2.png"
-            alt="Best RCS Messaging Provider Karnataka"
-          />
-        </div>
 
         {/* CONCLUSION */}
         <h2 className="pb-3 fw-bold text-primary">Conclusion</h2>

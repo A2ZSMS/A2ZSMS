@@ -11,7 +11,7 @@ export const metadata = {
     { name: "SMS Services Team", url: "https://www.a2zsms.in/bulk-sms/" },
   ],
   openGraph: {
-    title: "Best Bulk SMS Service Provider in Bangalore | India",
+    title: "Best Bulk SMS Service Provider in Bangalore",
     description:
       "Looking for the best Bulk SMS service provider in Bangalore, India? Get reliable OTP, promotional, transactional, and marketing SMS solutions.",
     url: "https://www.a2zsms.in/bulk-sms/",

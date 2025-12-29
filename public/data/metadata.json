@@ -1,15 +1,25 @@
 [
   {
-  "id": 27,
-  "title": "WhatsApp Pricing Change in India from January 1, 2026",
-  "componentKey": "Dec2025",
-  "slug": "whatsapp-pricing-change-india-2026",
-  "category": "WhatsApp Business API",
-  "date": "2025-12-20",
-  "description": "WhatsApp marketing message pricing in India increases by 10% from January 1, 2026. See new rates, real cost impact, and smarter planning tips.",
-  "image": "/Images/Dec2025(1).png"
-},
- 
+    "id": 28,
+    "title": "RCS Messaging Helps Boost Marketing Conversions Up to 10x",
+    "componentKey": "Dec25",
+    "slug": "rcs-messaging-helps-boost-marketing-conversions",
+    "category": "Bulk SMS Service",
+    "date": "2025-12-25",
+    "description": "RCS Messaging Helps Boost Marketing Conversions Up to 10x by enabling verified, interactive journeys that reduce friction and capture customer intent faster.",
+    "image": "/Images/Dec25(1).jpeg"
+  },
+  {
+    "id": 27,
+    "title": "WhatsApp Pricing Change in India from January 1, 2026",
+    "componentKey": "Dec2025",
+    "slug": "whatsapp-pricing-change-india-2026",
+    "category": "WhatsApp Business API",
+    "date": "2025-12-20",
+    "description": "WhatsApp marketing message pricing in India increases by 10% from January 1, 2026. See new rates, real cost impact, and smarter planning tips.",
+    "image": "/Images/Dec2025(1).png"
+  },
+
   {
     "id": 26,
     "title": "What Is RCS Business Messaging? Complete Guide",
@@ -19,7 +29,7 @@
     "date": "2025-12-10",
     "description": "What is RCS Business Messaging? Learn how rich media, verified senders, and interactive buttons boost engagement, conversions, and trust for modern brands!",
     "image": "/Images/1dec16.png"
-  },  
+  },
   {
     "id": 25,
     "title": "Best RCS Messaging Provider in Karnataka",
@@ -40,7 +50,7 @@
     "description": "Defining Problems in Bulk SMS Marketing: Discover key issues like low delivery rates, poor targeting, and compliance challenges that affect campaign performance.",
     "image": "/Images/lat1.png"
   },
-   {
+  {
     "id": 23,
     "title": "How A2ZSMS Helps Your Business Grow Faster",
     "componentKey": "Nov27",

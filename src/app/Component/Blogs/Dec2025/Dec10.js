@@ -200,8 +200,9 @@ const Dec10 = () => {
                 alt="RCS Business Messaging Platform"
               />
             </div>
+
             {/* SUBTITLE 4 */}
-            <h2 className="pb-3 fw-bold">RCS Messaging for Business</h2>
+            <h2 className="pb-3 mt-3 fw-bold">RCS Messaging for Business</h2>
 
             <p>
               <strong>RCS Messaging for Business</strong> is built to support

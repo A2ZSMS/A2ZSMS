@@ -2,14 +2,14 @@ export const Contents = {
   title: "Revolutionary Communication & Digital Solutions",
   content: [
     {
-      title: "WhatsApp Business API Platform ",
+      title: "WhatsApp Business API provider ",
       bg: "bg-light",
       description: [
-        "Transform customer relationships with an enterprise-grade WhatsApp Business API Platform that delivers 98% open rates and instant engagement across global markets.",
-        "Deploy intelligent chatbots, automated workflows, and personalized messaging campaigns through the WhatsApp Business API Platform to convert prospects into loyal customers effortlessly.",
-        " Integrate seamlessly with CRM systems, payment gateways, and analytics tools using our WhatsApp Business API Platform to create unified customer experiences that drive measurable business growth.",
-        "Scale conversations from hundreds to millions while maintaining authentic, human-like interactions—powered by a highly reliable WhatsApp Business API Platform that accelerates sales cycles.",
-        "Leverage rich media, interactive buttons, and secure document sharing within the WhatsApp Business API Platform to deliver immersive brand experiences that competitors simply cannot match.",
+        "Transform customer relationships with an enterprise-grade WhatsApp Business API provider that delivers 98% open rates and instant engagement across global markets.",
+        "Deploy intelligent chatbots, automated workflows, and personalized messaging campaigns through the WhatsApp Business API provider to convert prospects into loyal customers effortlessly.",
+        " Integrate seamlessly with CRM systems, payment gateways, and analytics tools using our WhatsApp Business API provider to create unified customer experiences that drive measurable business growth.",
+        "Scale conversations from hundreds to millions while maintaining authentic, human-like interactions—powered by a highly reliable WhatsApp Business API provider that accelerates sales cycles.",
+        "Leverage rich media, interactive buttons, and secure document sharing within the WhatsApp Business API provider to deliver immersive brand experiences that competitors simply cannot match.",
       ],
       image: "/image/product/whatsapp1.png",
       link: "/whatsapp-api/",
