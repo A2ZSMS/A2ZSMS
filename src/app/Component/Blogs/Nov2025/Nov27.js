@@ -39,7 +39,7 @@ const Nov27 = () => {
 
         {/* SECTION 1 */}
         <div data-aos="fade-left">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">Immediate Response</span> Converts
             Leads Faster
           </h2>
@@ -179,7 +179,7 @@ const Nov27 = () => {
 
         {/* SECTION 6 – BENEFITS */}
         <div data-aos="fade-left">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">Benefits</span> Business Owners See
             Fast
           </h2>
@@ -321,7 +321,7 @@ const Nov27 = () => {
         {/* FAQ Section */}
         <div className="container">
           {/* EXTENDED SECTION 1 */}
-          <h2 className="pb-3 fw-bold text-primary">
+          <h2 className="pb-3 mt-3 fw-bold text-primary">
             How A2ZSMS Helps Businesses Build Stronger Customer Relationships
           </h2>
 

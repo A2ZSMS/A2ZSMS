@@ -40,7 +40,7 @@ const Dec03 = () => {
 
         {/* SECTION 1 */}
         <div data-aos="fade-left">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">What Are the Major Problems</span> in
             Bulk SMS Marketing Campaigns?
           </h2>
@@ -174,7 +174,7 @@ const Dec03 = () => {
 
         {/* SECTION 6 */}
         <div data-aos="fade-right">
-          <h2 className="pb-3 fw-bold">
+          <h2 className="pb-3 mt-3 fw-bold">
             <span className="text-primary">Problem 5: Poor Timing</span> and
             Irrelevant Message Scheduling
           </h2>
@@ -291,7 +291,7 @@ const Dec03 = () => {
           />
         </div>
 
-        <h2 className="pb-3 fw-bold text-primary">
+        <h2 className="pb-3 mt-3 fw-bold text-primary">
           Strategic Solutions: Building Effective SMS Campaigns
         </h2>
 

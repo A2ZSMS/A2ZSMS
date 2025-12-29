@@ -224,9 +224,17 @@ const Dec09 = () => {
             support
           </li>
         </ul>
-
+        <div>
+          <img
+            className="mt-3"
+            width="100%"
+            height="auto"
+            src="/Images/Mar12(1).png"
+            alt="Best RCS Messaging Provider Karnataka"
+          />
+        </div>
         {/* SECTION 5 */}
-        <h2 className="pb-3 fw-bold">
+        <h2 className="pb-3 mt-3 fw-bold">
           <span className="text-primary">Trusted & Reliable RCS Provider</span>{" "}
           for Karnataka Businesses
         </h2>
@@ -265,18 +273,8 @@ const Dec09 = () => {
           </li>
         </ul>
 
-        <div>
-          <img
-            className="mt-3"
-            width="100%"
-            height="auto"
-            src="/Images/Mar12(1).png"
-            alt="Best RCS Messaging Provider Karnataka"
-          />
-        </div>
-
         {/* SECTION 6 */}
-        <h2 className="pb-3 fw-bold">
+        <h2 className="pb-3 mt-3 fw-bold">
           <span className="text-primary">Boost Customer Engagement</span> with
           RCS Campaigns
         </h2>
@@ -355,9 +353,17 @@ const Dec09 = () => {
             ✔ Ideal for businesses adopting RCS messaging for the first time
           </li>
         </ul>
-
+        <div>
+          <img
+            className="mt-3"
+            width="100%"
+            height="auto"
+            src="/Images/2.png"
+            alt="Best RCS Messaging Provider Karnataka"
+          />
+        </div>
         {/* SECTION 8 */}
-        <h2 className="pb-3 fw-bold">
+        <h2 className="pb-3 mt-3 fw-bold">
           <span className="text-primary">Enhanced Business Communication</span>{" "}
           with Verified RCS Messaging
         </h2>
@@ -488,15 +494,6 @@ const Dec09 = () => {
         </ul>
 
         {/* FINAL IMAGE */}
-        <div>
-          <img
-            className="mt-3"
-            width="100%"
-            height="auto"
-            src="/Images/2.png"
-            alt="Best RCS Messaging Provider Karnataka"
-          />
-        </div>
 
         {/* CONCLUSION */}
         <h2 className="pb-3 fw-bold text-primary">Conclusion</h2>
