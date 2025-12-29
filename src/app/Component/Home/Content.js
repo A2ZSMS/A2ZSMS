@@ -54,8 +54,9 @@ const ContentHome = ({ data }) => {
                   className="col-md-6 text-center py-4"
                   data-aos="zoom-in-left"
                 >
-                  <img src={item.image} alt={item.title} className="w-100" />
+                  <img src={item.image} alt={item.title} className="w-100 content-section-img" />
                 </div>
+
               </div>
             </div>
           </div>

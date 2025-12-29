@@ -1,20 +1,17 @@
 import Link from "next/link";
-import Image from "next/image";
 import "./Home.css";
 
 const Video = () => {
   return (
     <div className="video-container position-relative">
-      {/* <div className="videoWrapper"> */}
       <video autoPlay muted loop playsInline className="videoBackground">
         <source src="/video/video.mp4" type="video/mp4" />
       </video>
-      {/* </div> */}
 
       <div className="video-overlay"></div>
 
-      <div className="container aos">
-        <div className="video-content text-white ">
+      <div className="container position-relative z-index-2">
+        <div className="video-content text-white" data-aos="fade-up">
           <h1 className="fw-bold">
             Boost Your Business Revenue by{" "}
             <span className="highlight">5X with WhatsApp Marketing</span>
@@ -26,14 +23,14 @@ const Video = () => {
             Transform your marketing strategy with a platform that guarantees
             results.
           </p>
-          <div className="action-buttons gap-3 w-100">
+          <div className="action-buttons d-flex flex-wrap gap-3">
             <Link href="/whatsapp-api/">
-              <button className="btn btn-outline-light px-4 me-2 mb-2">
+              <button className="btn btn-outline-light">
                 Learn More
               </button>
             </Link>
             <Link href="/try-for-free/">
-              <button className="btn btn-primary px-4 ms-2">
+              <button className="btn btn-primary">
                 Set Up Discovery Call
               </button>
             </Link>
@@ -41,29 +38,29 @@ const Video = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className=" bottom-logos text-center mt-5">
-          <h3 className="text-white fw-bold">Out TrustedBrands</h3>
-          <div className="dflex" style={{ justifyContent: "space-around" }}>
+      <div className="bottom-logos" data-aos="fade-up" data-aos-delay="200">
+        <div className="container">
+          <h3 className="text-center">Our Trusted Brands</h3>
+          <div className="logo-container-flex">
             <img
-              className="m-2  logo-img"
+              className="logo-img"
               src="/image/ping4sms-client3.webp"
-              alt="Background Image"
+              alt="Trusted Brand 1"
             />
             <img
-              className="m-2  logo-img"
+              className="logo-img"
               src="/image/isk.png"
-              alt="Background Image"
+              alt="Trusted Brand 2"
             />
             <img
-              className="m-2  logo-img"
+              className="logo-img"
               src="/image/ping4sms-client1.webp"
-              alt="Background Image"
+              alt="Trusted Brand 3"
             />
             <img
-              className="m-2  logo-img"
+              className="logo-img"
               src="/image/ping4sms-client5.webp"
-              alt="Background Image"
+              alt="Trusted Brand 4"
             />
           </div>
         </div>
@@ -73,3 +70,4 @@ const Video = () => {
 };
 
 export default Video;
+

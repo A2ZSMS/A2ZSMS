@@ -1,38 +1,52 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-body {
-  font-family: "Jost", sans-serif;
-} */
-/* Import only Inter font (remove unused fonts if not needed) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Inter", sans-serif !important;
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .fw-bold {
   font-weight: 700 !important;
 }
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
+
 .place-center {
   place-content: center;
 }
-h1 {
+
+h1, h2, h3, h4, h5, h6 {
   font-family: EB Garamond, serif;
-  font-size: 35px;
   font-weight: 700;
+  color: #1a1a1a;
 }
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
 h2 {
-  font-family: EB Garamond, serif;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
 
 @media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
   .collapse {
     background-color: rgb(20, 131, 206);
   }
@@ -45,13 +59,15 @@ h2 {
   font-family: EB Garamond, serif;
   font-size: 50px;
   font-weight: 700;
-  text-shadow: 6px 7px 6px #000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
+
 .head1 {
   font-family: EB Garamond, serif;
   font-size: 35px;
   font-weight: 700;
 }
+
 .aos {
   overflow: hidden;
 }
@@ -59,90 +75,239 @@ h2 {
 .bg {
   background-image: url("/image/breadcrumb-1.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .para-color1 {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "inter" !important;
-  line-height: 30px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif !important;
+  line-height: 1.8;
+  color: #4a4a4a;
 }
+
 .para-blog {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "inter" !important;
-  /* line-height: 30px; */
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif !important;
+  line-height: 1.6;
 }
+
 .para-color {
-  font-size: 15px;
-  font-weight: 500;
-  font-family: "inter" !important;
-  line-height: 26px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif !important;
+  line-height: 1.7;
+  color: #555;
 }
 
 .para-color2 {
-  font-size: 15px;
-  font-weight: 500;
-  font-family: "inter" !important;
-  line-height: 40px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif !important;
+  line-height: 2;
 }
+
 .para-color3 {
-  font-size: 18px;
-  font-weight: 500;
-  font-family: "Open Sans" !important;
-  line-height: 32px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif !important;
+  line-height: 1.8;
 }
+
 .font2 {
   font-family: EB Garamond, serif;
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
 }
+
 .price-bg {
   background-image: url("/image/pricing-bg.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .bg1 {
-  background-color: rgb(243, 247, 251);
+  background-color: #f8fafc;
 }
 
 .bg2 {
-  background: linear-gradient(120deg, #d9f3f7, #f3eddb, #d6f4d9);
-  /* background: linear-gradient(120deg, #cfeefa, #fcf8df, #fff3e6); */
+  background: linear-gradient(120deg, #e0f2fe, #fef9c3, #dcfce7);
 }
+
 .bg3 {
-  background: linear-gradient(120deg, #ffece6, #fff9e7, #e0f7fa);
+  background: linear-gradient(120deg, #fff1f2, #fffbeb, #ecfeff);
 }
+
 .iconcolor {
-  background: linear-gradient(
-    100deg,
-    #03bff8,
-    #dac342,
-    #f5a03e
-  ); /* Gradient background */
+  background: linear-gradient(100deg, #03bff8, #dac342, #f5a03e);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
+
 .text1 {
-  font-family: "__Poppins_e16692", sans-serif;
-  color: #5f6880;
-  line-height: 24px;
-  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 1rem;
 }
+
 .para {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 400;
-  font-family: "inter" !important;
-  line-height: 24px;
-  color: #5f6880;
+  font-family: "Inter", sans-serif !important;
+  line-height: 1.6;
+  color: #64748b;
 }
+
 .para-head {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
-  font-family: "inter" !important;
-  line-height: 24px;
-  color: #3f3f3f !important;
+  font-family: "Inter", sans-serif !important;
+  line-height: 1.4;
+  color: #1e293b !important;
 }
+
+/* Custom Button Enhancements */
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary {
+  background-color: #1483ce;
+  border-color: #1483ce;
+  box-shadow: 0 4px 6px -1px rgba(20, 131, 206, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #106ba8;
+  border-color: #106ba8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(20, 131, 206, 0.3);
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Section Spacing */
+section {
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+}
+
+/* Industry Card Enhancements */
+.industry-card {
+  background: #ffffff;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 24px !important;
+}
+
+.industry-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  border-color: #1483ce;
+}
+
+.industry-card img {
+  transition: transform 0.4s ease;
+}
+
+.industry-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.industry-card h6 {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* Content Section Enhancements */
+.content-section-img {
+  transition: all 0.5s ease;
+  border-radius: 20px;
+}
+
+.content-section-img:hover {
+  transform: scale(1.02);
+}
+
+.align-items-start i {
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+
+.list-unstyled li {
+  font-size: 1.05rem;
+  color: #4a5568;
+  margin-bottom: 1rem !important;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animation Utilities */
+[data-aos] {
+  pointer-events: none;
+}
+
+.aos-animate {
+  pointer-events: auto;
+}
+
+/* Scroll Indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #fff;
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+  40% {transform: translateY(-10px) translateX(-50%);}
+  60% {transform: translateY(-5px) translateX(-50%);}
+}
+
+.social-icon-wrapper {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.social-icon-wrapper:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+
+

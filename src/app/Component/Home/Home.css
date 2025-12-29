@@ -2,14 +2,23 @@
 .video-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Fullscreen height */
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  z-index: -1;
 }
 
 /* Black Overlay for the Video */
@@ -19,103 +28,136 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   z-index: 1;
 }
 
 /* Centered Content */
 .video-content {
-  position: absolute;
-  top: 30%;
-  width: 50%;
+  position: relative;
+  width: 60%;
   z-index: 2;
+  text-align: left;
 }
 
 .video-content h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .video-content .highlight {
-  color: #0fbde9; /* Green color for highlighted text */
+  color: #0fbde9;
+  position: relative;
+  display: inline-block;
 }
 
 .video-content .description {
   font-size: 1.25rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 5);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
 }
 
 /* Buttons Styling */
 .video-content .action-buttons .btn {
-  border-radius: 30px;
-  font-size: 1rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  padding: 12px 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .video-content .btn-primary {
-  background-color: #5a5df0;
+  background-color: #1483ce;
   border: none;
+  box-shadow: 0 4px 15px rgba(20, 131, 206, 0.4);
 }
 
 .video-content .btn-outline-light {
-  border-color: #ffffff;
+  border: 2px solid #ffffff;
   color: #ffffff;
-  transition: all 0.3s ease;
+  background: transparent;
 }
 
 .video-content .btn-outline-light:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1483ce;
 }
+
 /* Logo Section at the Bottom */
 .bottom-logos {
   position: absolute;
-  bottom: 0;
+  bottom: 40px;
   left: 0;
   width: 100%;
+  z-index: 2;
 }
 
-.bottom-logos img {
-  /* max-width: 120px; */
-  height: auto;
-  /* filter: grayscale(100%); */
-  transition: filter 0.3s ease;
+.bottom-logos h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  color: #fff;
 }
 
-.bottom-logos img:hover {
-  filter: grayscale(0%);
-}
-.dflex {
+.logo-container-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
+
 .logo-img {
-  width: 80px; /* Uniform width */
-  height: 80px; /* Uniform height */
-  object-fit: contain; /* Maintains aspect ratio within bounds */
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.7);
+  transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+  filter: brightness(0) invert(1) opacity(1);
+  transform: scale(1.05);
 }
 
 @media (max-width: 992px) {
-  .video-content h1 {
-    font-size: 1.7rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
   .video-content {
-    width: 85%;
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
   }
-  .action-buttons {
-    width: 100% !important;
+  
+  .video-content h1 {
+    font-size: 2.5rem;
   }
+  
+  .video-content .description {
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .logo-container-flex {
+    gap: 20px;
+  }
+  
   .logo-img {
-    width: 60px; /* Uniform width */
-    height: 60px; /* Uniform height */
-    object-fit: contain; /* Maintains aspect ratio within bounds */
-    /* border: 1px solid #ddd;
-  border-radius: 5px;  */
-    /* Optional: Add padding for visual spacing */
+    width: 80px;
   }
 }
+

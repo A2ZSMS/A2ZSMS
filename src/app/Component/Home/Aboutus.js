@@ -55,15 +55,14 @@ const Aboutus = () => {
               </div>
             </ul>
 
-            <div className="mt-3 p-3 border rounded text-center w-100 bg-info">
+            <div className="mt-4 p-4 border-0 rounded-4 text-center w-100 bg-primary text-white shadow-lg" style={{ background: 'linear-gradient(135deg, #1483ce 0%, #0fbde9 100%)' }}>
               <i className="bi bi-telephone-fill me-2"></i>
-              <span>
+              <span className="fs-5">
                 Call us anytime :{" "}
-                <b>
-                  {" "}
+                <b className="ms-2">
                   <a
                     href="tel:+918431086185"
-                    className="text-white text-decoration-none"
+                    className="text-white text-decoration-none border-bottom border-2"
                   >
                     +91-8431086185
                   </a>
@@ -77,14 +76,15 @@ const Aboutus = () => {
             className="col-12 col-md-6 py-3 text-center"
             data-aos="zoom-in-left"
           >
-            <div>
+            <div className="position-relative">
               <img
-                className="img-fluid rounded"
+                className="img-fluid rounded-4 shadow-lg content-section-img"
                 src="/image/Whatsapp.png"
-                alt=" Image"
+                alt="WhatsApp CRM"
               />
             </div>
           </div>
+
         </div>
       </div>
     </div>
