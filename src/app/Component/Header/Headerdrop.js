@@ -146,6 +146,20 @@ const HeaderDrop = () => {
                         <li>
                           <Link
                             className="dropdown-item"
+                            href="/chatbot"
+                            onClick={() => {
+                              closeDropdown();
+                              document
+                                .querySelector('[data-bs-dismiss="offcanvas"]')
+                                .click();
+                            }}
+                          >
+                            🤖 WhatsApp AI Chatbot
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            className="dropdown-item"
                             href="/rcs-service/"
                             onClick={() => {
                               closeDropdown();

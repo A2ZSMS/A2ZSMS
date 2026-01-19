@@ -2,15 +2,72 @@
 
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Button, Form, Input, Space, Typography } from "antd";
+
+const { Text } = Typography;
 
 const Home = () => {
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState("secondary");
+  const [isSending, setIsSending] = useState(false);
+  const [form] = Form.useForm();
+  const compactWrapperStyle = {
+    maxWidth: 520,
+    width: "100%",
+  };
+  const formCardStyle = {
+    marginTop: 16,
+    padding: "16px 18px",
+    backgroundColor: "#f7fbff",
+    border: "1px solid rgba(13, 202, 240, 0.25)",
+    borderRadius: 16,
+  };
+  const inputStyle = {
+    height: 46,
+    borderRadius: 999,
+    paddingInline: 18,
+    fontSize: 15,
+    fontFamily: "inherit",
+  };
+  const buttonStyle = {
+    height: 46,
+    borderRadius: 999,
+    paddingInline: 28,
+    backgroundColor: "#0dcaf0",
+    borderColor: "#0dcaf0",
+    fontWeight: 600,
+    fontSize: 14,
+    fontFamily: "inherit",
+  };
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
       once: true, // Animation runs only once
     });
   }, []);
+
+  const handleFinish = () => {
+    setStatusMessage("Sample RCS message request received.");
+    setStatusType("success");
+    setIsSending(false);
+    form.resetFields();
+  };
+
+  const handleFinishFailed = (info) => {
+    const firstError = info?.errorFields?.[0]?.errors?.[0];
+    if (firstError) {
+      setStatusMessage(firstError);
+      setStatusType("danger");
+    }
+  };
+
+  const handleValuesChange = () => {
+    if (statusMessage) {
+      setStatusMessage("");
+      setStatusType("secondary");
+    }
+  };
 
   return (
     <section className="bg2">
@@ -68,6 +125,95 @@ const Home = () => {
                 Request Demo
               </a>
             </div>
+            {/* <div style={formCardStyle}>
+              <div className="mb-2">
+                <h5 className="mb-1 fw-semibold">Test RCS Message</h5>
+                <p className="mb-0 text-muted small">
+                  Send a sample RCS message to your number in seconds.
+                </p>
+              </div>
+              <Form
+                form={form}
+                onFinish={handleFinish}
+                onFinishFailed={handleFinishFailed}
+                onValuesChange={handleValuesChange}
+              >
+                <div style={compactWrapperStyle}>
+                  <div className="d-flex flex-column gap-2">
+                    <Space.Compact
+                      block
+                      size="middle"
+                      style={{ width: "100%" }}
+                    >
+                      <Form.Item
+                        name="name"
+                        rules={[
+                          {
+                            required: true,
+                            whitespace: true,
+                            message: "Please enter your name.",
+                          },
+                        ]}
+                        noStyle
+                      >
+                        <Input
+                          placeholder="Enter your name"
+                          aria-label="Name"
+                          style={inputStyle}
+                        />
+                      </Form.Item>
+                      <Form.Item
+                        name="mobile"
+                        rules={[
+                          {
+                            validator: (_, value) => {
+                              const digits = (value || "").replace(/\D/g, "");
+                              if (digits.length === 10) {
+                                return Promise.resolve();
+                              }
+                              return Promise.reject(
+                                new Error(
+                                  "Please enter a valid 10 digit mobile number.",
+                                ),
+                              );
+                            },
+                          },
+                        ]}
+                        normalize={(value) =>
+                          (value || "").replace(/\D/g, "").slice(0, 10)
+                        }
+                        noStyle
+                      >
+                        <Input
+                          placeholder="Enter 10 digit mobile number"
+                          aria-label="Mobile number"
+                          inputMode="numeric"
+                          className="ms-3"
+                          maxLength={10}
+                          style={inputStyle}
+                        />
+                      </Form.Item>
+                    </Space.Compact>
+                    <div className="d-flex justify-content-center">
+                      <Button
+                        type="primary"
+                        htmlType="submit"
+                        loading={isSending}
+                        style={buttonStyle}
+                        className="px-5"
+                      >
+                        Send
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                {statusMessage ? (
+                  <Text type={statusType} className="d-block mt-2 small">
+                    {statusMessage}
+                  </Text>
+                ) : null}
+              </Form>
+            </div> */}
           </div>
           <div className="col-md-6 text-center" data-aos="fade-left">
             <img
