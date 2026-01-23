@@ -6,7 +6,7 @@ const Jan21 = () => {
       <div className="container aos para-color py-4">
         {/* H1 */}
         <h1 className="text-primary py-4">
-          WhatsApp Business API Provider Hyderabad: Complete Business Messaging
+          WhatsApp Business API Provider Hyderabad: Complete Business
           Guide
         </h1>
 
