@@ -25,10 +25,7 @@ const ContactPage = () => {
   };
 
   const handleLinkedinClick = () => {
-    window.open(
-      "https://www.linkedin.com/company/103567741/admin/dashboard/",
-      "_blank"
-    );
+    window.open("https://www.linkedin.com/company/105067284", "_blank");
   };
 
   return (

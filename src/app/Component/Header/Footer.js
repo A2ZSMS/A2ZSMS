@@ -195,7 +195,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faFacebookF} />
               </Link>
               <Link
-                href="https://in.linkedin.com/in/vinay-reddy-76337b336"
+                href="https://www.linkedin.com/company/105067284"
                 className="text-white me-3 fs-5 bg-primary rounded-circle d-flex justify-content-center align-items-center"
                 target="_blank"
                 style={{ width: "40px", height: "40px" }}

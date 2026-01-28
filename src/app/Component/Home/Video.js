@@ -43,7 +43,7 @@ const Video = () => {
 
       <div className="container">
         <div className=" bottom-logos text-center mt-5">
-          <h3 className="text-white fw-bold">Out TrustedBrands</h3>
+          <h3 className="text-white fw-bold">Our Trusted Brands</h3>
           <div className="dflex" style={{ justifyContent: "space-around" }}>
             <img
               className="m-2  logo-img"
