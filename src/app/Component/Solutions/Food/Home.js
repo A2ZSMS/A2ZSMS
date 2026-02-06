@@ -24,13 +24,21 @@ const Home = () => {
             <p className="text-muted">
               Enhance your food and beverage business by leveraging messaging
               services to engage customers, improve order management, and
-              deliver real-time updates seamlessly.
+              deliver real-time updates seamlessly with{" "}
+              <strong>
+                WhatsApp Chatbots For The Food Technology Industry
+              </strong>
+              .
             </p>
             <ul className="list-unstyled mt-4">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
-                  Send personalized offers and promotional deals instantly.
+                  Send personalized offers and promotional deals instantly using{" "}
+                  <strong>
+                    WhatsApp Chatbots For The Food Technology Industry
+                  </strong>
+                  .
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">

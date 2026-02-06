@@ -23,7 +23,8 @@ const Home = () => {
             </h1>
             <p className="">
               Deliver seamless patient care, send real-time updates, and enhance
-              engagement with our innovative WhatsApp and RCS solutions. Empower
+              engagement with our innovative WhatsApp and RCS solutions.{" "}
+              <strong>RCS Business Messaging for healthcare</strong> empowers
               your healthcare services with efficient and reliable communication
               today!
             </p>
@@ -32,7 +33,8 @@ const Home = () => {
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
                   Send appointment reminders, test reports, and health updates
-                  instantly.
+                  instantly with{" "}
+                  <strong>RCS Business Messaging for healthcare</strong>.
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">
@@ -58,6 +60,7 @@ const Home = () => {
               </li>
             </ul>
           </div>
+
 
           {/* Right Image Section */}
           <div className="col-md-6 text-center aos" data-aos="fade-left">

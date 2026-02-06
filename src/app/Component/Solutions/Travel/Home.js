@@ -23,15 +23,21 @@ const Home = () => {
             </h1>
             <p className="">
               Transform how you engage with travelers by leveraging WhatsApp's
-              powerful messaging tools. Provide real-time updates, personalized
-              itineraries, and instant support to make every trip unforgettable.
+              powerful messaging tools.{" "}
+              <strong>Best whatsapp business api for travel & tourism</strong>{" "}
+              helps you provide real-time updates, personalized itineraries, and
+              instant support to make every trip unforgettable.
             </p>
             <ul className="list-unstyled mt-4 text-muted">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
-                  Deliver instant travel itineraries, confirmations, and
-                  updates.
+                  Deliver instant travel itineraries, confirmations, and updates
+                  with{" "}
+                  <strong>
+                    Best whatsapp business api for travel & tourism
+                  </strong>
+                  .
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">

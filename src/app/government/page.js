@@ -1,13 +1,16 @@
 import React from 'react'
 import Government from '../Component/Solutions/Government/Government'
 export const metadata = {
-  title: "Enhance Government Outreach with WhatsApp Solutions",
-  description: "Utilize WhatsApp for instant citizen notifications, secure OTP verifications, and interactive campaigns to improve public engagement and service delivery .",
-  keywords: ", Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore, WhatsApp Business for Government Communication",
+  title: "WhatsApp Marketing for Government | A2ZSMS",
+  description:
+    "WhatsApp Marketing for Government: send citizen updates, service alerts, document reminders, and grievance support with verified messaging and 2-way help.",
+  keywords:
+    ", Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore, WhatsApp Business for Government Communication",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/government/" }],
   openGraph: {
-    title: "Enhance Government Outreach with WhatsApp Solutions",
-    description: "Utilize WhatsApp for instant citizen notifications, secure OTP verifications, and interactive campaigns to improve public engagement and service delivery.",
+    title: "WhatsApp Marketing for Government | A2ZSMS",
+    description:
+      "WhatsApp Marketing for Government: send citizen updates, service alerts, document reminders, and grievance support with verified messaging and 2-way help.",
     url: "https://www.a2zsms.in/government/",
     siteName: "A2ZSMS",
     images: [
@@ -22,13 +25,14 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Enhance Government Outreach with WhatsApp Solutions",
-    description: "Utilize WhatsApp for instant citizen notifications, secure OTP verifications, and interactive campaigns to improve public engagement and service delivery.",
+    title: "WhatsApp Marketing for Government | A2ZSMS",
+    description:
+      "WhatsApp Marketing for Government: send citizen updates, service alerts, document reminders, and grievance support with verified messaging and 2-way help.",
     images: ["/images/meta-image.jpg"],
     site: "@yourtwitterhandle",
   },
   robots: "index, follow",
-  
+
   alternates: {
     canonical: "https://www.a2zsms.in/government/",
   },

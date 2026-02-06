@@ -1,18 +1,18 @@
 import React from "react";
 import Media from "../Component/Solutions/Media/Media";
 export const metadata = {
-  title: "WhatsApp API Solutions for Media & Entertainment Industry",
+  title: "WhatsApp API & Chatbot for Media and Entertainment Industry",
   description:
-    "Engage audiences, promote events, and deliver rich media content seamlessly with our WhatsApp API solutions tailored for the media and entertainment industry.",
+    "WhatsApp API & Chatbot for Media and Entertainment Industry: automate ticket alerts, show updates, fan support, polls, and promos to boost engagement 24/7.",
   keywords:
     "WhatsApp API for Entertainment Industry,customer engagement,sales optimization,WhatsApp Audience Interaction,WhatsApp Business for Media & Entertainment",
   authors: [
     { name: "A2ZSMS", url: "https://www.a2zsms.in/media-entertainment/" },
   ],
   openGraph: {
-    title: "WhatsApp API Solutions for Media & Entertainment Industry",
+    title: "WhatsApp API & Chatbot for Media and Entertainment Industry",
     description:
-      "Engage audiences, promote events, and deliver rich media content seamlessly with our WhatsApp API solutions tailored for the media and entertainment industry..",
+      "WhatsApp API & Chatbot for Media and Entertainment Industry: automate ticket alerts, show updates, fan support, polls, and promos to boost engagement 24/7.",
     url: "https://www.a2zsms.in/media-entertainment/",
     siteName: "A2ZSMS",
     images: [
@@ -27,9 +27,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WhatsApp API Solutions for Media & Entertainment Industry",
+    title: "WhatsApp API & Chatbot for Media and Entertainment Industry",
     description:
-      "Engage audiences, promote events, and deliver rich media content seamlessly with our WhatsApp API solutions tailored for the media and entertainment industry..",
+      "WhatsApp API & Chatbot for Media and Entertainment Industry: automate ticket alerts, show updates, fan support, polls, and promos to boost engagement 24/7.",
     images: ["/images/meta-image.jpg"],
     site: "@yourtwitterhandle",
   },

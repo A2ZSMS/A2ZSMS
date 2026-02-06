@@ -24,8 +24,9 @@ const Home = () => {
               </h1>
               <p className="">
                 Engage your customers directly, automate conversations, and
-                streamline communications using our cutting-edge WhatsApp API.
-                Reach your audience with ease and grow your business
+                streamline communications using our cutting-edge WhatsApp API.{" "}
+                <strong>WhatsApp Business API for Real Estate Leads</strong>{" "}
+                helps you reach your audience with ease and grow your business
                 effectively!
               </p>
               <ul className="list-unstyled mt-4 text-muted">
@@ -36,7 +37,8 @@ const Home = () => {
                 <li className="d-flex align-items-start mb-3">
                   <i className="bi bi-check-circle-fill text-primary me-3"></i>
                   <span>
-                    Automate responses to common queries using chatbots.
+                    Automate responses to common queries using chatbots.{" "}
+                    <strong>WhatsApp Business API for Real Estate Leads</strong>
                   </span>
                 </li>
                 <li className="d-flex align-items-start mb-3">

@@ -24,15 +24,23 @@ const Home = () => {
             </h1>
             <p>
               Engage audiences, promote events, and deliver rich media content
-              seamlessly using our WhatsApp API solutions. Redefine the way you
-              connect with your viewers and followers!
+              seamlessly using our WhatsApp API solutions.{" "}
+              <strong>
+                WhatsApp API & Chatbot for Media and Entertainment Industry
+              </strong>{" "}
+              helps you redefine the way you connect with your viewers and
+              followers.
             </p>
             <ul className="list-unstyled mt-4 text-muted">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
                   Share breaking news, trending stories, and event updates in
-                  real-time.
+                  real-time using{" "}
+                  <strong>
+                    WhatsApp API & Chatbot for Media and Entertainment Industry
+                  </strong>
+                  .
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">

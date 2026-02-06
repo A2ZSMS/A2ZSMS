@@ -2,13 +2,13 @@ import React from 'react'
 import RealEstate from '../Component/Solutions/RealEstate/RealEstate'
 
 export const metadata = {
-  title: "WhatsApp Business Solutions for Real Estate:Engage & Convert Buyers",
-  description: "Boost real estate sales with WhatsApp Business. Connect instantly, share property listings, schedule visits, and convert leads faster with seamless communication.",
+  title: "WhatsApp Business API for Real Estate Leads | A2ZSMS",
+  description: "WhatsApp Business API for Real Estate Leads: capture enquiries, automate follow-ups, share listings, and book site visits faster with A2ZSMS—24/7 securely.",
   keywords: "Instant Lead Generation,WhatsApp Business API for real estate digital marketing,Instant Buyer Engagement",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/real-estate/" }],
   openGraph: {
-    title: "WhatsApp Business Solutions for Real Estate:Engage & Convert Buyers",
-    description: "Boost real estate sales with WhatsApp Business. Connect instantly, share property listings, schedule visits, and convert leads faster with seamless communication.",
+    title: "WhatsApp Business API for Real Estate Leads | A2ZSMS",
+    description: "WhatsApp Business API for Real Estate Leads: capture enquiries, automate follow-ups, share listings, and book site visits faster with A2ZSMS—24/7 securely.",
     url: "https://www.a2zsms.in/real-estate/",
     siteName: "A2ZSMS",
     images: [
@@ -23,8 +23,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WhatsApp Business Solutions for Real Estate:Engage & Convert Buyers",
-    description: "Boost real estate sales with WhatsApp Business. Connect instantly, share property listings, schedule visits, and convert leads faster with seamless communication.",
+    title: "WhatsApp Business API for Real Estate Leads | A2ZSMS",
+    description: "WhatsApp Business API for Real Estate Leads: capture enquiries, automate follow-ups, share listings, and book site visits faster with A2ZSMS—24/7 securely.",
     images: ["/images/meta-image.jpg"],
     site: "@yourtwitterhandle",
   },
