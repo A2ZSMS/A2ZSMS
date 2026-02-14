@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useEffect } from "react";
-
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
+import "../../Home/Home.css";
 
 const FAQHome = ({ data }) => {
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS for animations
+    AOS.init({ duration: 1000 });
   }, []);
 
   if (!data) {
@@ -17,63 +17,50 @@ const FAQHome = ({ data }) => {
   const { title, subtitle, faqs } = data;
 
   return (
-    <div className="bg-white">
-      <div className="container py-5 aos">
+    <div className="faq-section">
+      <div className="container py-3">
         {/* Title Section */}
-        <div className="text-center mb-4">
-          <h3 className="fw-bold text-dark">{title}</h3>
-          {subtitle && <p className="fw-light text-secondary">{subtitle}</p>}
+        <div className="text-center mb-5">
+          <span className="section-label">FAQ</span>
+          <h2 className="section-heading">{title}</h2>
+          {subtitle && <p className="section-desc mx-auto">{subtitle}</p>}
         </div>
 
         {/* Accordion Section */}
-        <div className="accordion aos" data-aos="fade-in" id="faqAccordion">
-          {faqs && faqs.length > 0 ? (
-            faqs.map((faq) => (
-              <div
-                className="accordion-item mb-1"
-                data-aos="fade-in"
-                key={faq.id}
-              >
-                <h2
-                  className="accordion-header"
-                  // data-aos="zoom-in-up"
-                  id={`heading${faq.id}`}
-                >
-                  <button
-                    className="accordion-button fw-bold text-dark bg-light border-0 py-4"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target={`#collapse${faq.id}`}
-                    aria-expanded={faq.id === 1 ? "true" : "false"}
-                    aria-controls={`collapse${faq.id}`}
-                  >
-                    <i
-                      className={`me-2 ${faq.icon}`}
-                      style={{ color: "#007bff" }}
-                    ></i>
-                    {faq.question}
-                  </button>
-                </h2>
-                <div
-                  id={`collapse${faq.id}`}
-                  className={`accordion-collapse collapse ${
-                    faq.id === 1 ? "show" : ""
-                  }`}
-                  aria-labelledby={`heading${faq.id}`}
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div
-                    className="accordion-body para-color"
-                    style={{ color: "#333" }}
-                  >
-                    {faq.answer}
+        <div className="row justify-content-center">
+          <div className="col-lg-9">
+            <div className="accordion" data-aos="fade-up" id="faqAccordion">
+              {faqs && faqs.length > 0 ? (
+                faqs.map((faq) => (
+                  <div className="accordion-item" key={faq.id}>
+                    <h2 className="accordion-header" id={`heading${faq.id}`}>
+                      <button
+                        className={`accordion-button ${faq.id === 1 ? "" : "collapsed"}`}
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapse${faq.id}`}
+                        aria-expanded={faq.id === 1 ? "true" : "false"}
+                        aria-controls={`collapse${faq.id}`}
+                      >
+                        <i className={`me-2 ${faq.icon}`}></i>
+                        {faq.question}
+                      </button>
+                    </h2>
+                    <div
+                      id={`collapse${faq.id}`}
+                      className={`accordion-collapse collapse ${faq.id === 1 ? "show" : ""}`}
+                      aria-labelledby={`heading${faq.id}`}
+                      data-bs-parent="#faqAccordion"
+                    >
+                      <div className="accordion-body">{faq.answer}</div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-muted">No FAQs available.</p>
-          )}
+                ))
+              ) : (
+                <p className="text-center text-muted">No FAQs available.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

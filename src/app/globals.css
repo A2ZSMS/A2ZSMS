@@ -1,31 +1,70 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-body {
-  font-family: "Jost", sans-serif;
-} */
-/* Import only Inter font (remove unused fonts if not needed) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Brand Colors - from header/CTA */
+  --brand-blue: #097bdf;
+  --brand-blue-dark: #065a9c;
+  --brand-blue-light: #1e89ec;
+  --brand-green: #43cea2;
+  --brand-navy: #185a9d;
+  --brand-gradient: linear-gradient(135deg, #097bdf, #43cea2);
+  --brand-gradient-reverse: linear-gradient(135deg, #43cea2, #185a9d);
+  --brand-cta: linear-gradient(to right, #43cea2 0%, #185a9d 51%, #43cea2 100%);
+
+  /* Text */
+  --text-dark: #1a1a2e;
+  --text-body: #4a5568;
+  --text-muted: #94a3b8;
+
+  /* Backgrounds */
+  --bg-light: #f7f9fc;
+  --bg-section: #f0f4f8;
+  --bg-white: #ffffff;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --shadow-blue: 0 4px 20px rgba(9,123,223,0.2);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Transition */
+  --transition: all 0.3s ease;
+}
 
 body {
   font-family: "Inter", sans-serif !important;
+  color: var(--text-body);
+  overflow-x: hidden;
 }
 
 .fw-bold {
   font-weight: 700 !important;
 }
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
+
 .place-center {
   place-content: center;
 }
+
 h1 {
   font-family: EB Garamond, serif;
   font-size: 35px;
   font-weight: 700;
 }
+
 h2 {
   font-family: EB Garamond, serif;
   font-size: 30px;
@@ -47,11 +86,13 @@ h2 {
   font-weight: 700;
   text-shadow: 6px 7px 6px #000;
 }
+
 .head1 {
   font-family: EB Garamond, serif;
   font-size: 35px;
   font-weight: 700;
 }
+
 .aos {
   overflow: hidden;
 }
@@ -65,39 +106,43 @@ h2 {
 .para-color1 {
   font-size: 16px;
   font-weight: 500;
-  font-family: "inter" !important;
+  font-family: "Inter", sans-serif !important;
   line-height: 30px;
 }
+
 .para-blog {
   font-size: 16px;
   font-weight: 500;
-  font-family: "inter" !important;
-  /* line-height: 30px; */
+  font-family: "Inter", sans-serif !important;
 }
+
 .para-color {
   font-size: 15px;
   font-weight: 500;
-  font-family: "inter" !important;
+  font-family: "Inter", sans-serif !important;
   line-height: 26px;
 }
 
 .para-color2 {
   font-size: 15px;
   font-weight: 500;
-  font-family: "inter" !important;
+  font-family: "Inter", sans-serif !important;
   line-height: 40px;
 }
+
 .para-color3 {
   font-size: 18px;
   font-weight: 500;
-  font-family: "Open Sans" !important;
+  font-family: "Inter", sans-serif !important;
   line-height: 32px;
 }
+
 .font2 {
   font-family: EB Garamond, serif;
   font-size: 32px;
   font-weight: 700;
 }
+
 .price-bg {
   background-image: url("/image/pricing-bg.jpg");
   background-repeat: no-repeat;
@@ -105,44 +150,102 @@ h2 {
 }
 
 .bg1 {
-  background-color: rgb(243, 247, 251);
+  background-color: var(--bg-light);
 }
 
 .bg2 {
   background: linear-gradient(120deg, #d9f3f7, #f3eddb, #d6f4d9);
-  /* background: linear-gradient(120deg, #cfeefa, #fcf8df, #fff3e6); */
 }
+
 .bg3 {
   background: linear-gradient(120deg, #ffece6, #fff9e7, #e0f7fa);
 }
+
 .iconcolor {
-  background: linear-gradient(
-    100deg,
-    #03bff8,
-    #dac342,
-    #f5a03e
-  ); /* Gradient background */
+  background: linear-gradient(100deg, #097bdf, #43cea2, #185a9d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
 .text1 {
-  font-family: "__Poppins_e16692", sans-serif;
+  font-family: "Inter", sans-serif;
   color: #5f6880;
   line-height: 24px;
   font-size: 16px;
 }
+
 .para {
   font-size: 15px;
   font-weight: 400;
-  font-family: "inter" !important;
+  font-family: "Inter", sans-serif !important;
   line-height: 24px;
   color: #5f6880;
 }
+
 .para-head {
   font-size: 20px;
   font-weight: 600;
-  font-family: "inter" !important;
+  font-family: "Inter", sans-serif !important;
   line-height: 24px;
   color: #3f3f3f !important;
+}
+
+/* ===== BRAND UTILITY CLASSES ===== */
+.brand-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-label {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(9, 123, 223, 0.08);
+  border: 1px solid rgba(9, 123, 223, 0.15);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-family: EB Garamond, serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 650px;
+}
+
+/* Animated counter */
+@keyframes countPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Smooth fade in from bottom */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtle floating */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: subtleFloat 4s ease-in-out infinite;
 }

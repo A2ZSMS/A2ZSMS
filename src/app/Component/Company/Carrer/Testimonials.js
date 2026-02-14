@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Testimonials.css";
+import "../../Home/Home.css";
 
 const testimonials = [
   {
@@ -54,7 +54,7 @@ const testimonials = [
     name: "Pooja Reddy",
     role: "Education Coordinator",
     feedback:
-      "With WhatsApp Business API, we’ve enhanced student and parent communication. Sending out reminders for school events, assignments, and updates has become incredibly streamlined and impactful.",
+      "With WhatsApp Business API, we've enhanced student and parent communication. Sending out reminders for school events, assignments, and updates has become incredibly streamlined and impactful.",
   },
 ];
 
@@ -67,31 +67,33 @@ const Testimonials = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
   };
 
-  // Group testimonials into sets of 4 (2 rows × 2 columns per slide)
   const groupedTestimonials = [];
   for (let i = 0; i < testimonials.length; i += 4) {
     groupedTestimonials.push(testimonials.slice(i, i + 4));
   }
 
   return (
-    <div className="py-5 bg-light">
+    <div className="testimonials-section">
       <div className="container py-3">
-        <h2 className="text-center fw-bold mb-4">
-          What Our Clients Say About Us
-        </h2>
+        <div className="text-center mb-5">
+          <span className="section-label">Testimonials</span>
+          <h2 className="section-heading">What Our Clients Say About Us</h2>
+          <p className="section-desc mx-auto">
+            Trusted by businesses across industries to deliver exceptional communication solutions.
+          </p>
+        </div>
         <Slider {...settings}>
           {groupedTestimonials.map((group, index) => (
             <div key={index}>
               <div className="row gx-4 gy-4">
                 {group.map((testimonial, idx) => (
                   <div key={idx} className="col-md-6">
-                    <div
-                      className="testimonial-card position-relative p-4 shadow-sm rounded bg-white"
-                      data-aos="zoom-in"
-                    >
-                      <div className="quote-icon position-absolute text-primary">
+                    <div className="testimonial-card position-relative p-4 rounded">
+                      <div className="quote-icon position-absolute">
                         <FontAwesomeIcon icon={faQuoteLeft} size="2x" />
                       </div>
                       <div className="mb-3">
@@ -99,7 +101,7 @@ const Testimonials = () => {
                         <p className="text-muted mb-0">{testimonial.role}</p>
                       </div>
                       <p className="text-muted mb-0 fst-italic">
-                        "{testimonial.feedback}"
+                        &ldquo;{testimonial.feedback}&rdquo;
                       </p>
                     </div>
                   </div>

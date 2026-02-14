@@ -1,159 +1,280 @@
 import React from "react";
-// import Industries from "../../Product/BulkSms/Industries";
-// import Reviews from "../../Product/BulkSms/Reviews";2
 import SocialMedia from "../../Product/Whatsapp/SocialMedia";
-// import Client from "../../Product/Whatsapp/Clients";
-// import Testimonials from "../Carrer/Testimonials";
 
 const AboutHome = () => {
   return (
     <div>
-     
-
       {/* Who We Are */}
-      <div className="container py-5">
-        <h2 className="text-center fw-bold mb-4">Who We Are</h2>
-        <div className="row aos para-color align">
-          <div className="col-md-6" data-aos='zoom-in-right'>
-            <p>
-              At A2ZSMS, we are a trailblazing SMS solutions provider committed
-              to bridging the communication gap for businesses across
-              industries. With a focus on delivering reliable, efficient, and
-              scalable messaging solutions, we empower companies to connect with
-              their customers like never before.
-            </p>
-            <p>
-              Founded with the vision to redefine communication standards, we
-              specialize in bulk SMS services, transactional SMS, promotional
-              SMS, OTP services, and more. Over the years, we have built a
-              strong reputation for our innovative approach, customer-centric
-              solutions, and an unwavering commitment to excellence.
-            </p>
-            <p>
-              Our team of experts, equipped with decades of experience, works
-              passionately to design strategies that meet the unique needs of
-              every client. Whether you're a budding startup or a global
-              enterprise, A2ZSMS provides you with the tools and expertise to
-              communicate effectively, ensuring your success in today’s
-              competitive landscape.
+      <section className="who-section">
+        <div className="container">
+          <div className="text-center mb-5" data-aos="fade-up">
+            <span className="section-label">Who We Are</span>
+            <h2 className="section-heading">
+              Bridging the Communication <span className="highlight">Gap</span>
+            </h2>
+            <p className="section-desc mx-auto">
+              A trailblazing SMS solutions provider committed to delivering
+              reliable, efficient, and scalable messaging solutions.
             </p>
           </div>
-          <div className="col-md-6" data-aos='zoom-in-left'>
-            <img
-              src="/image/about-choose.jpeg"
-              alt="Who We Are" width="px" height={"px"}
-              className="img-fluid rounded shadow"
-            />
+
+          <div className="row align-items-center aos">
+            <div className="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+              <div className="who-img-wrap">
+                <img
+                  src="/image/about-choose.jpeg"
+                  alt="Who We Are"
+                  className="img-fluid"
+                />
+                <div className="who-img-accent"></div>
+              </div>
+            </div>
+            <div className="col-lg-6" data-aos="fade-left">
+              <h2>
+                Redefining <span className="highlight">Communication</span>{" "}
+                Standards Since Day One
+              </h2>
+              <p className="who-desc">
+                At A2ZSMS, we are a trailblazing SMS solutions provider committed
+                to bridging the communication gap for businesses across
+                industries. With a focus on delivering reliable, efficient, and
+                scalable messaging solutions, we empower companies to connect
+                with their customers like never before.
+              </p>
+              <p className="who-desc">
+                Founded with the vision to redefine communication standards, we
+                specialize in bulk SMS services, transactional SMS, promotional
+                SMS, OTP services, and more. Over the years, we have built a
+                strong reputation for our innovative approach and customer-centric
+                solutions.
+              </p>
+
+              <div className="who-highlights">
+                <div className="who-highlight-item">
+                  <div className="who-highlight-icon">
+                    <i className="bi bi-lightning-charge-fill"></i>
+                  </div>
+                  <span>Fast Delivery</span>
+                </div>
+                <div className="who-highlight-item">
+                  <div className="who-highlight-icon">
+                    <i className="bi bi-shield-lock-fill"></i>
+                  </div>
+                  <span>Secure & Reliable</span>
+                </div>
+                <div className="who-highlight-item">
+                  <div className="who-highlight-icon">
+                    <i className="bi bi-graph-up-arrow"></i>
+                  </div>
+                  <span>Scalable Solutions</span>
+                </div>
+                <div className="who-highlight-item">
+                  <div className="who-highlight-icon">
+                    <i className="bi bi-headset"></i>
+                  </div>
+                  <span>24/7 Support</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      {/* <Client/> */}
-
-
-      {/* Our Journey */}
+      </section>
 
       {/* Mission & Vision */}
-     <div className="bg-light para-color">
-         <div className="container py-5">
-           <h2 className="text-center fw-bold mb-4">Our Mission & Vision</h2>
-        
-           {/* Mission */}
-           <div className="row align-items-center mb-5 aos align">
-             <div className="col-md-6" data-aos='fade-right'>
-               <h4 className="fw-bold">Our Mission</h4>
-               <p>
-                 Our mission at <strong>A2ZSMS</strong> is to empower businesses to
-                 communicate effortlessly and efficiently. We aim to provide
-                 <strong> state-of-the-art SMS solutions</strong> that drive
-                 engagement, enhance customer experiences, and simplify operations.
-               </p>
-               <p>
-                 Through our innovative services, we strive to enable businesses of
-                 all sizes to:
-               </p>
-               <ul>
-                 <li>Build stronger customer relationships.</li>
-                 <li>Reach wider audiences with impactful messaging.</li>
-                 <li>Streamline internal and external communication processes.</li>
-               </ul>
-               <p>
-                 We are dedicated to staying ahead of industry trends, adopting
-                 cutting-edge technology, and delivering value-driven solutions
-                 that ensure our clients' continued growth and success.
-               </p>
-             </div>
-             <div className="col-md-6" data-aos='fade-left'>
-               <img
-                 src="/image/api.jpg"
-                 alt="Our Mission" width="px" height={"px"}
-                 className="img-fluid rounded shadow"
-               />
-             </div>
-           </div>
-           </div>
-           </div>
-           <div className=" bg-light">
-             {/* <Testimonials/> */}
-           </div>
-           {/* Vision */}
-           <div className="bg-light py-5 para-color" >
-            <div className="container">
-           <div className="row align-items-center py-2 mt-5 aos align">
-             <div className="col-md-6 order-md-2" data-aos='fade-left'>
-               <h4 className="fw-bold">Our Vision</h4>
-               <p>
-                 Our vision is to become a{" "}
-                 <strong>global leader in SMS communication solutions</strong>,
-                 recognized for our innovation, reliability, and customer-first
-                 approach. We aspire to:
-               </p>
-               <ul>
-                 <li>
-                   Revolutionize how businesses communicate with their customers
-                   through SMS technology.
-                 </li>
-                 <li>
-                   Foster a world where seamless and secure communication is
-                   accessible to every business.
-                 </li>
-                 <li>
-                   Continuously innovate to provide solutions that are not just
-                   efficient but also sustainable and scalable.
-                 </li>
-               </ul>
-               <p>
-                 We envision a future where <strong>A2ZSMS</strong> is synonymous
-                 with <strong>excellence in communication</strong>, enabling
-                 businesses to thrive in a connected world while maintaining a
-                 strong commitment to integrity and trust.
-               </p>
-             </div>
-             <div className="col-md-6 order-md-1" data-aos='fade-right'>
-               <img
-                 src="/image/Vission.jpg"
-                 alt="Our Vision" width="px" height={"px"}
-                 className="img-fluid rounded shadow"
-               />
-             </div>
-           </div>
-         </div>
-     </div>
-     {/* <Industries/> */}
+      <section className="mv-section">
+        <div className="container">
+          <div className="text-center mb-5" data-aos="fade-up">
+            <span className="section-label">Our Purpose</span>
+            <h2 className="section-heading">Mission & Vision</h2>
+            <p className="section-desc mx-auto">
+              Driving innovation in business communication with a clear purpose
+              and bold vision for the future.
+            </p>
+          </div>
 
-     <SocialMedia/>
-     
+          <div className="row g-4">
+            {/* Mission */}
+            <div className="col-lg-6" data-aos="fade-right">
+              <div className="mv-card">
+                <div className="mv-icon mission-icon">
+                  <i className="bi bi-rocket-takeoff-fill"></i>
+                </div>
+                <h3>Our Mission</h3>
+                <p>
+                  Our mission at A2ZSMS is to empower businesses to communicate
+                  effortlessly and efficiently. We aim to provide state-of-the-art
+                  SMS solutions that drive engagement, enhance customer
+                  experiences, and simplify operations.
+                </p>
+                <ul className="mv-list">
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Build stronger customer relationships through messaging.
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Reach wider audiences with impactful communication.
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Streamline internal and external communication processes.
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Stay ahead with cutting-edge technology and innovation.
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-      {/* Call-to-Action */}
-      <div className="bg-light py-5">
-        <div className="container text-center">
-          <h3 className="fw-bold mb-4">Join Us in Our Mission</h3>
-          <p className="mb-4">
-            Want to collaborate or learn more? Let’s create something amazing
-            together.
-          </p>
-          <button className="btn btn-primary btn-lg">Contact Us</button>
+            {/* Vision */}
+            <div className="col-lg-6" data-aos="fade-left">
+              <div className="mv-card">
+                <div className="mv-icon vision-icon">
+                  <i className="bi bi-eye-fill"></i>
+                </div>
+                <h3>Our Vision</h3>
+                <p>
+                  Our vision is to become a global leader in SMS communication
+                  solutions, recognized for our innovation, reliability, and
+                  customer-first approach.
+                </p>
+                <ul className="mv-list">
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Revolutionize business-customer communication through SMS
+                    technology.
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Foster seamless and secure communication accessible to every
+                    business.
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Continuously innovate with solutions that are efficient,
+                    sustainable, and scalable.
+                  </li>
+                  <li>
+                    <i className="bi bi-check-circle-fill"></i>
+                    Be synonymous with excellence in communication worldwide.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="values-section">
+        <div className="container">
+          <div className="text-center mb-5" data-aos="fade-up">
+            <span className="section-label">Our Values</span>
+            <h2 className="section-heading">What Drives Us</h2>
+            <p className="section-desc mx-auto">
+              The principles that guide every decision we make and every solution
+              we deliver.
+            </p>
+          </div>
+
+          <div className="row g-4">
+            <div className="col-md-6 col-lg-3" data-aos="fade-up">
+              <div className="value-card">
+                <div
+                  className="value-icon"
+                  style={{ background: "linear-gradient(135deg, #097bdf, #065a9c)" }}
+                >
+                  <i className="bi bi-lightbulb-fill"></i>
+                </div>
+                <h5>Innovation</h5>
+                <p>
+                  We constantly evolve our technology to deliver cutting-edge
+                  messaging solutions.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div className="value-card">
+                <div
+                  className="value-icon"
+                  style={{ background: "linear-gradient(135deg, #43cea2, #185a9d)" }}
+                >
+                  <i className="bi bi-people-fill"></i>
+                </div>
+                <h5>Customer First</h5>
+                <p>
+                  Every solution is crafted with our clients' success as the top
+                  priority.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div className="value-card">
+                <div
+                  className="value-icon"
+                  style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
+                >
+                  <i className="bi bi-award-fill"></i>
+                </div>
+                <h5>Excellence</h5>
+                <p>
+                  We maintain the highest standards of quality in everything we
+                  deliver.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div className="value-card">
+                <div
+                  className="value-icon"
+                  style={{ background: "linear-gradient(135deg, #8b5cf6, #6d28d9)" }}
+                >
+                  <i className="bi bi-hand-thumbs-up-fill"></i>
+                </div>
+                <h5>Integrity</h5>
+                <p>
+                  Trust and transparency form the foundation of every client
+                  relationship.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SocialMedia />
+
+      {/* CTA */}
+      <section className="about-cta-section">
+        <div className="container text-center about-cta-inner">
+          <div data-aos="fade-up">
+            <span
+              className="section-label"
+              style={{
+                background: "rgba(255,255,255,0.1)",
+                borderColor: "rgba(255,255,255,0.2)",
+                color: "#fff",
+              }}
+            >
+              Get Started
+            </span>
+            <h2>Join Us in Our Mission</h2>
+            <p>
+              Ready to transform your business communication? Let's create
+              something amazing together.
+            </p>
+            <div className="d-flex gap-3 justify-content-center flex-wrap">
+              <a href="/contact" className="btn-white">
+                Contact Us <i className="bi bi-arrow-right"></i>
+              </a>
+              <a href="tel:+918431086185" className="btn-outline-white">
+                <i className="bi bi-telephone-fill"></i> +91-8431086185
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

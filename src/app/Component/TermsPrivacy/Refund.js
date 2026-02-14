@@ -4,7 +4,7 @@ const Refund = () => {
   return (
     <div
       style={{
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "'Inter', sans-serif",
         lineHeight: 1.6,
         color: "#333",
       }}
