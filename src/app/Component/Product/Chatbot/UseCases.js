@@ -1,225 +1,254 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./Chatbot.module.css";
 
 const industrySections = [
   {
+    id: "marketing",
+    tab: "Marketing",
+    icon: "bi-megaphone",
     title: "Manage Marketing Needs Using Your Chatbot for WhatsApp",
     description:
       "Turn your WhatsApp chatbot into a growth engine. Nurture leads with automated campaigns and win loyalty effortlessly.",
     image: "/image/product/chatbot_market.png",
-    badge: "Marketing Automation",
     items: [
       {
+        icon: "bi-funnel",
         title: "Drip Campaigns",
         description: "Automate sequences to nurture prospects at every stage.",
       },
       {
+        icon: "bi-send",
         title: "Bulk Message Campaigns",
         description:
           "Send segmented promotions to large audiences at the perfect time.",
       },
       {
+        icon: "bi-person-check",
         title: "Lead Generation",
         description:
           "Capture, qualify, and route leads directly to your sales team.",
       },
       {
+        icon: "bi-layout-text-window",
         title: "Multiple Widgets",
         description:
           "Add WhatsApp buttons, widgets, QR codes, and links to drive signups.",
       },
       {
-        title: "Integrate With Marketing Tools",
+        icon: "bi-plug",
+        title: "Marketing Tools",
         description:
           "Connect CRM and analytics tools for seamless reporting and sync.",
       },
     ],
   },
   {
-    title: "Close High-Value Real Estate Deals With Chatbot for WhatsApp",
+    id: "realestate",
+    tab: "Real Estate",
+    icon: "bi-building",
+    title: "Close High-Value Real Estate Deals With WhatsApp",
     description:
       "Let clients contact you instantly to schedule consultations or property viewings.",
     image: "/image/product/chatbot_realestate.png",
-    badge: "Real Estate",
     items: [
       {
-        title: "Property Search and Listings",
+        icon: "bi-search",
+        title: "Property Search",
         description:
           "Share listings based on budgets, locations, and preferences.",
       },
       {
-        title: "Notify Them About New Deals",
+        icon: "bi-bell",
+        title: "Deal Alerts",
         description:
           "Send alerts about price drops, new launches, and open houses.",
       },
       {
-        title: "Booking for Property Viewing",
+        icon: "bi-calendar-event",
+        title: "Property Viewing",
         description:
           "Schedule visits automatically with confirmation reminders.",
       },
       {
-        title: "Property Valuation Assistance",
+        icon: "bi-calculator",
+        title: "Valuation",
         description: "Offer quick estimates and capture seller requirements.",
       },
       {
-        title: "Integration With CRM Systems",
+        icon: "bi-database",
+        title: "CRM Integration",
         description: "Sync leads and conversations with your real estate CRM.",
       },
       {
-        title: "Live Chat With Your WhatsApp Customers",
+        icon: "bi-chat-dots",
+        title: "Live Chat",
         description:
           "Escalate high-intent leads to agents for immediate support.",
       },
     ],
   },
-
   {
+    id: "ecommerce",
+    tab: "E-commerce",
+    icon: "bi-cart4",
     title: "Fit Your eCommerce Store in Chat With WhatsApp Bots",
     description:
       "Bring your digital shop to WhatsApp with catalogs, orders, and support in one place.",
     image: "/image/product/e-commerce.png",
-    badge: "E-commerce",
     items: [
       {
-        title: "Send Product Catalog",
+        icon: "bi-grid",
+        title: "Product Catalog",
         description:
           "Share rich product listings directly in WhatsApp conversations.",
       },
       {
-        title: "Recover Abandoned Carts",
+        icon: "bi-cart-x",
+        title: "Cart Recovery",
         description:
           "Nudge shoppers back with personalized reminders and offers.",
       },
       {
-        title: "Discounts and Offers",
+        icon: "bi-tag",
+        title: "Discounts & Offers",
         description:
           "Notify customers about limited-time deals and price drops.",
       },
       {
-        title: "Back in Stock Alerts",
-        description:
-          "Automate alerts when popular products are available again.",
-      },
-      {
+        icon: "bi-box-seam",
         title: "Order Tracking",
         description:
           "Provide shipping updates and delivery confirmations instantly.",
       },
       {
-        title: "Wishlist and Favorite Items",
+        icon: "bi-heart",
+        title: "Wishlist",
         description:
           "Let shoppers save items and get notified when prices change.",
       },
       {
-        title: "Performance Analytics",
+        icon: "bi-bar-chart-line",
+        title: "Analytics",
         description: "Track conversions and engagement to optimize your store.",
       },
     ],
   },
-
   {
-    title: "Provide Digital Healthcare Services With Chatbot for WhatsApp",
+    id: "healthcare",
+    tab: "Healthcare",
+    icon: "bi-heart-pulse",
+    title: "Digital Healthcare Services With WhatsApp Chatbot",
     description:
       "Improve healthcare communication with instant assistance and seamless appointments.",
     image: "/image/product/health.png",
-    badge: "Healthcare",
     items: [
       {
-        title: "Automated Appointment Booking",
+        icon: "bi-calendar-check",
+        title: "Appointment Booking",
         description:
           "Let patients schedule visits and get reminders automatically.",
       },
       {
-        title: "Send Patient Reports",
+        icon: "bi-file-medical",
+        title: "Patient Reports",
         description:
           "Deliver prescriptions, lab results, and follow-up notes securely.",
       },
       {
-        title: "Post Consultation Support",
+        icon: "bi-chat-left-heart",
+        title: "Post-Visit Support",
         description: "Answer post-visit questions and share care instructions.",
       },
       {
-        title: "Collect Payments",
+        icon: "bi-credit-card",
+        title: "Payments",
         description: "Offer payment links for consultations and subscriptions.",
       },
       {
-        title: "Medication Reminders",
+        icon: "bi-alarm",
+        title: "Med Reminders",
         description:
           "Send automated reminders to improve adherence and outcomes.",
-      },
-      {
-        title: "Health Monitoring and Analytics",
-        description: "Track engagement and highlight urgent patient needs.",
       },
     ],
   },
   {
-    title: "Automate Your Hiring & Employee Management With a WhatsApp Bot",
+    id: "hr",
+    tab: "HR & Hiring",
+    icon: "bi-people",
+    title: "Automate Hiring & Employee Management With WhatsApp",
     description:
       "Get an all-rounder WhatsApp chatbot for HR that works 24/7 without delays.",
     image: "/image/product/chatbot_hiring.png",
-    badge: "HR Automation",
     items: [
       {
-        title: "Personalized Messages",
+        icon: "bi-envelope-heart",
+        title: "Welcome Messages",
         description:
           "Send welcome notes, updates, and policy reminders automatically.",
       },
       {
-        title: "Unified Chat Inbox",
+        icon: "bi-inbox",
+        title: "Unified Inbox",
         description:
           "Centralize employee queries and route tickets to the right team.",
       },
       {
-        title: "Answer FAQs",
+        icon: "bi-question-circle",
+        title: "FAQ Answers",
         description:
           "Resolve common employee questions instantly with AI responses.",
       },
       {
-        title: "Integrate With Ticketing System",
+        icon: "bi-ticket-perforated",
+        title: "Ticketing",
         description:
           "Sync HR tickets with your existing helpdesk or HRMS tools.",
       },
       {
-        title: "Live Chat",
+        icon: "bi-chat-text",
+        title: "Live Escalation",
         description: "Escalate to a human recruiter or HR agent when needed.",
-      },
-      {
-        title: "Send WhatsApp Notifications",
-        description:
-          "Share interview schedules, onboarding tasks, and reminders.",
       },
     ],
   },
   {
+    id: "education",
+    tab: "Education",
+    icon: "bi-mortarboard",
     title: "AI-Driven Ed-Tech Chatbot for WhatsApp",
     description:
       "Answer admissions questions, share evaluations, and keep parents informed with automation.",
     image: "/image/product/chatbot_edu.png",
-    badge: "Education",
     items: [
       {
-        title: "Answer Admission Queries",
+        icon: "bi-info-circle",
+        title: "Admission Queries",
         description:
           "Respond instantly to program details, fees, and deadlines.",
       },
       {
-        title: "Send Class Reminders",
+        icon: "bi-clock",
+        title: "Class Reminders",
         description: "Automate timetable updates and upcoming class alerts.",
       },
       {
-        title: "Share Student Reports",
+        icon: "bi-file-earmark-bar-graph",
+        title: "Student Reports",
         description:
           "Deliver progress updates and performance insights securely.",
       },
       {
-        title: "Stay in Touch With Students",
+        icon: "bi-chat-square-dots",
+        title: "Student Engagement",
         description: "Provide support, resources, and career guidance in chat.",
       },
       {
-        title: "Secure Information Handling",
+        icon: "bi-shield-lock",
+        title: "Data Security",
         description:
           "Keep student data protected with verified WhatsApp channels.",
       },
@@ -228,76 +257,104 @@ const industrySections = [
 ];
 
 const UseCases = () => {
-  return (
-    <div>
-      {industrySections.map((section, index) => {
-        const sectionClass =
-          index % 2 === 1 ? styles.sectionAlt : styles.caseSection;
-        const rowClass = `row align-items-center gy-4${
-          index % 2 === 1 ? " flex-lg-row-reverse" : ""
-        }`;
+  const [activeTab, setActiveTab] = useState("marketing");
+  const activeSection = industrySections.find((s) => s.id === activeTab);
 
-        return (
-          <section key={section.title} className={sectionClass}>
-            <div className="container aos">
-              {/* <div className="text-center mb-5 pb-3" data-aos="fade-up">
-                <h2 className={styles.sectionTitle}>
-                  How Our AI-Powered WhatsApp Chatbot Helps Your Business
-                </h2>
-                <p className={styles.sectionLead}>
-                  Our AI-powered WhatsApp chatbot is designed to automate
-                  customer communication, manage leads, run campaigns, and
-                  provide instant support. It connects with your business
-                  systems to deliver fast, accurate, and personalized responses
-                  at scale.
-                </p>
-              </div> */}
-              <div className={rowClass}>
-                <div
-                  className="col-lg-6"
-                  data-aos={index % 2 === 1 ? "fade-left" : "fade-right"}
+  return (
+    <section className={styles.section}>
+      <div className="container aos">
+        <div className="text-center mb-5" data-aos="fade-up">
+          <span className={styles.sectionBadge}>Industry Solutions</span>
+          <h2 className={styles.sectionTitle}>
+            Built for Every Industry, Designed for Results
+          </h2>
+          <p
+            className={`${styles.sectionLead} mx-auto`}
+            style={{ maxWidth: "600px" }}
+          >
+            See how businesses across industries use our AI chatbot to automate,
+            engage, and grow on WhatsApp.
+          </p>
+        </div>
+
+        <div className="row g-4 aos" data-aos="fade-up">
+          {/* Vertical Sidebar Tabs */}
+          <div className="col-lg-3">
+            <div className={styles.ucTabSidebar}>
+              {industrySections.map((section) => (
+                <button
+                  key={section.id}
+                  className={`${styles.ucTabBtn} ${activeTab === section.id ? styles.ucTabBtnActive : ""}`}
+                  onClick={() => setActiveTab(section.id)}
                 >
-                  <div className={styles.caseMedia}>
-                    <img src={section.image} alt={section.title} />
-                    <div className={styles.caseBadge}>{section.badge}</div>
+                  <div className={styles.ucTabIcon}>
+                    <i className={`bi ${section.icon}`}></i>
                   </div>
-                </div>
-                <div
-                  className="col-lg-6"
-                  data-aos={index % 2 === 1 ? "fade-right" : "fade-left"}
-                >
-                  <h3 className={styles.caseTitle}>{section.title}</h3>
-                  <p className={styles.caseLead}>{section.description}</p>
-                  <div className={styles.detailsList}>
-                    {section.items.map((item, itemIndex) => (
-                      <details
-                        key={item.title}
-                        className={styles.detailItem}
-                        open={itemIndex === 0}
-                      >
-                        <summary>{item.title}</summary>
-                        <p className={styles.detailText}>{item.description}</p>
-                      </details>
-                    ))}
-                  </div>
-                  {section.cta && (
-                    <div className={styles.ctaRow}>
-                      <Link
-                        href={section.cta.href}
-                        className={styles.primaryBtn}
-                      >
-                        {section.cta.label}{" "}
-                        <i className="bi bi-arrow-right"></i>
-                      </Link>
+                  <span>{section.tab}</span>
+                  <i
+                    className={`bi bi-chevron-right ms-auto ${styles.ucTabArrow}`}
+                  ></i>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Content Panel */}
+          <div className="col-lg-9">
+            {activeSection && (
+              <div className={styles.ucPanel}>
+                <div className="row g-4 align-items-start">
+                  <div className="col-md-6">
+                    <div className={styles.ucImageWrap}>
+                      <img
+                        src={activeSection.image}
+                        alt={activeSection.title}
+                        className={styles.ucImage}
+                      />
+                      <div className={styles.ucImageBadge}>
+                        <i
+                          className={`bi ${industrySections.find((s) => s.id === activeTab)?.icon} me-1`}
+                        ></i>
+                        {activeSection.tab}
+                      </div>
                     </div>
-                  )}
+                  </div>
+                  <div className="col-md-6">
+                    <h3 className={styles.ucTitle}>{activeSection.title}</h3>
+                    <p className={styles.ucDesc}>{activeSection.description}</p>
+
+                    <div className={styles.ucItemsList}>
+                      {activeSection.items.map((item) => (
+                        <div key={item.title} className={styles.ucItem}>
+                          <div className={styles.ucItemIcon}>
+                            <i className={`bi ${item.icon}`}></i>
+                          </div>
+                          <div>
+                            <span className={styles.ucItemTitle}>
+                              {item.title}
+                            </span>
+                            <p className={styles.ucItemDesc}>
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Link
+                      href="/request-demo"
+                      className={`mt-3 ${styles.primaryBtn}`}
+                    >
+                      Get Started <i className="bi bi-arrow-right ms-1"></i>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        );
-      })}
-    </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

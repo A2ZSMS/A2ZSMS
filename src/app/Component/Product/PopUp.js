@@ -137,9 +137,12 @@ const PopupForm = () => {
     <>
       {/* Main Contact Form Popup */}
       {showPopup && (
-        <div className="popup-overlay" onClick={(e) => {
-          if (e.target.classList.contains("popup-overlay")) closePopup();
-        }}>
+        <div
+          className="popup-overlay"
+          onClick={(e) => {
+            if (e.target.classList.contains("popup-overlay")) closePopup();
+          }}
+        >
           <div className="popup-container">
             <div className="popup-card">
               {/* Header */}
@@ -167,7 +170,7 @@ const PopupForm = () => {
 
               {/* Body */}
               <div className="popup-body">
-                <div className="row g-3">
+                <div className="row g-3 aos">
                   {/* Name */}
                   <div className="col-md-6">
                     <label className="popup-label">
@@ -184,7 +187,9 @@ const PopupForm = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    {errors.name && <div className="popup-error">{errors.name}</div>}
+                    {errors.name && (
+                      <div className="popup-error">{errors.name}</div>
+                    )}
                   </div>
 
                   {/* Email */}
@@ -203,7 +208,9 @@ const PopupForm = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    {errors.email && <div className="popup-error">{errors.email}</div>}
+                    {errors.email && (
+                      <div className="popup-error">{errors.email}</div>
+                    )}
                   </div>
 
                   {/* Phone */}
@@ -222,7 +229,9 @@ const PopupForm = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                    {errors.phone && <div className="popup-error">{errors.phone}</div>}
+                    {errors.phone && (
+                      <div className="popup-error">{errors.phone}</div>
+                    )}
                   </div>
 
                   {/* Company */}
@@ -255,15 +264,23 @@ const PopupForm = () => {
                         onChange={handleInputChange}
                       >
                         <option value="">Choose a service</option>
-                        <option value="Waba Service">WhatsApp Business API</option>
+                        <option value="Waba Service">
+                          WhatsApp Business API
+                        </option>
                         <option value="RCS Service">RCS Messaging</option>
-                        <option value="Bulk SMS Service">Bulk SMS Service</option>
-                        <option value="Voice Call Service">Voice Call Service</option>
+                        <option value="Bulk SMS Service">
+                          Bulk SMS Service
+                        </option>
+                        <option value="Voice Call Service">
+                          Voice Call Service
+                        </option>
                         <option value="OTP Service">OTP Service</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>
-                    {errors.subject && <div className="popup-error">{errors.subject}</div>}
+                    {errors.subject && (
+                      <div className="popup-error">{errors.subject}</div>
+                    )}
                   </div>
 
                   {/* Message */}
@@ -281,7 +298,9 @@ const PopupForm = () => {
 
                   {/* Consent */}
                   <div className="col-12">
-                    <div className={`popup-consent ${errors.consent ? "popup-consent-error" : ""}`}>
+                    <div
+                      className={`popup-consent ${errors.consent ? "popup-consent-error" : ""}`}
+                    >
                       <label className="popup-check-wrap">
                         <input
                           type="checkbox"
@@ -295,14 +314,16 @@ const PopupForm = () => {
                         </span>
                         <span className="popup-consent-text">
                           I authorize A2Z SMS to send notifications and agree to
-                          the{" "}
-                          <a href="/terms/">Terms</a> and{" "}
+                          the <a href="/terms/">Terms</a> and{" "}
                           <a href="/privacy/">Privacy Policy</a>.{" "}
                           <span className="popup-req">*</span>
                         </span>
                       </label>
                       {errors.consent && (
-                        <div className="popup-error" style={{ marginLeft: "32px" }}>
+                        <div
+                          className="popup-error"
+                          style={{ marginLeft: "32px" }}
+                        >
                           {errors.consent}
                         </div>
                       )}
@@ -329,7 +350,10 @@ const PopupForm = () => {
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                          <span
+                            className="spinner-border spinner-border-sm me-2"
+                            role="status"
+                          ></span>
                           Sending Message...
                         </>
                       ) : (
@@ -402,7 +426,8 @@ const PopupForm = () => {
           background: #fff;
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25),
+          box-shadow:
+            0 24px 80px rgba(0, 0, 0, 0.25),
             0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
@@ -468,7 +493,9 @@ const PopupForm = () => {
         }
 
         .popup-header-content h3 {
-          font-family: EB Garamond, serif;
+          font-family:
+            EB Garamond,
+            serif;
           font-size: 26px;
           font-weight: 700;
           margin-bottom: 6px;
@@ -648,7 +675,12 @@ const PopupForm = () => {
           padding: 13px 24px;
           border: none;
           border-radius: 10px;
-          background: linear-gradient(to right, #43cea2 0%, #185a9d 51%, #43cea2 100%);
+          background: linear-gradient(
+            to right,
+            #43cea2 0%,
+            #185a9d 51%,
+            #43cea2 100%
+          );
           background-size: 200% auto;
           color: #fff;
           font-family: "Inter", sans-serif;
@@ -702,7 +734,9 @@ const PopupForm = () => {
         }
 
         .popup-success-body h3 {
-          font-family: EB Garamond, serif;
+          font-family:
+            EB Garamond,
+            serif;
           font-size: 26px;
           font-weight: 700;
           color: #1a1a2e;
@@ -723,19 +757,37 @@ const PopupForm = () => {
 
         /* ===== ANIMATIONS ===== */
         @keyframes popupFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
 
         @keyframes popupSlideUp {
-          from { opacity: 0; transform: translateY(40px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
+          from {
+            opacity: 0;
+            transform: translateY(40px) scale(0.97);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
         }
 
         @keyframes popupBounce {
-          0% { opacity: 0; transform: scale(0.3); }
-          50% { opacity: 1; transform: scale(1.08); }
-          100% { transform: scale(1); }
+          0% {
+            opacity: 0;
+            transform: scale(0.3);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.08);
+          }
+          100% {
+            transform: scale(1);
+          }
         }
 
         /* ===== RESPONSIVE ===== */

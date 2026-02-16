@@ -13,7 +13,7 @@ const StatsSection = () => {
     <section className={styles.sectionAlt}>
       <div className="container aos">
         <div className={styles.statsWrap} data-aos="fade-up">
-          <div className="row align-items-center gy-3">
+          <div className="row align-items-center gy-3 aos">
             <div className="col-lg-7">
               <div className={styles.statsGrid}>
                 {stats.map((stat) => (
