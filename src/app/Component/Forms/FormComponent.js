@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Form, Input, Select, Button, Checkbox, notification } from "antd";
 import Link from "next/link";
 import axios from "axios";
+import { gtag_report_conversion } from "../../GoogleTracking";
 
 const { Option } = Select;
 
@@ -50,6 +51,9 @@ const FormComponent = ({ title, buttonText }) => {
         (makeWebhookResponse.status === 200 ||
           makeWebhookResponse.status === 201)
       ) {
+        // Fire Google Ads conversion tracking
+        gtag_report_conversion();
+
         setShowModal(true);
         form.resetFields();
       }

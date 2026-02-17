@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { gtag_report_conversion } from "../../../GoogleTracking";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -129,6 +130,9 @@ const ContactForm = () => {
         (makeResponse.status === 200 || makeResponse.status === 201) &&
         web3Response.status === 200
       ) {
+        // Fire Google Ads conversion tracking
+        gtag_report_conversion();
+
         setSubmitStatus("success");
         setShowModal(true);
 

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { gtag_report_conversion } from "../../GoogleTracking";
 
 const PopupForm = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -101,6 +102,9 @@ const PopupForm = () => {
       ]);
 
       if (makeResponse.ok && web3Response.ok) {
+        // Fire Google Ads conversion tracking
+        gtag_report_conversion();
+
         setSubmitStatus("success");
         setShowPopup(false);
         setShowSuccessModal(true);
