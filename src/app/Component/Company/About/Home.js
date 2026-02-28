@@ -16,8 +16,8 @@ const Home = () => {
   return (
     <section className="about-hero">
       <div className="about-hero-grid"></div>
-      <div className="container about-hero-inner">
-        <div className="row align-items-center">
+      <div className="container about-hero-inner aos">
+        <div className="row align-items-center aos">
           {/* Left Content */}
           <div className="col-lg-6" data-aos="fade-right">
             <span className="section-label">About A2ZSMS</span>

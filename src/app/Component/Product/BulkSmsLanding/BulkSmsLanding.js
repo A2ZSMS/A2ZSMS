@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import styles from "./WhatsappApiService.module.css";
-import PopupForm from "../PopUp";
+import { useRouter } from "next/navigation";
+import styles from "./BulkSmsLanding.module.css";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 
 const WA_NUMBER = "919740274595";
-const WA_MSG = encodeURIComponent("Hi");
+const WA_MSG = encodeURIComponent("Hi, I am interested in Bulk SMS Service");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
 const trustLogos = [
@@ -61,21 +60,19 @@ const useCountUp = (end, duration = 2000, isDecimal = false) => {
    ═══════════════════════════════════════════════════ */
 const AnnouncementTicker = () => {
   const messages = [
-    "🔥 February Offer: Free WhatsApp API Setup + 1 Month Platform Free — Only 3 spots left!",
-    "⚡ 98% open rate on WhatsApp — 5× better than SMS or email",
-    "🏆 Trusted by 500+ businesses across India — Official Meta Partner!",
+    "🔥 February Offer: DLT Registration at just ₹5,000 + Free Sender ID — Only 5 spots left!",
+    "⚡ OTP delivered in under 3 seconds — 99.9% delivery rate guaranteed",
+    "🏆 Trusted by 1000+ businesses across India — Join them today!",
   ];
   const [idx, setIdx] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % messages.length), 3500);
+    const t = setInterval(() => setIdx(i => (i + 1) % messages.length), 3500);
     return () => clearInterval(t);
   }, []);
   return (
     <div className={styles.ticker}>
       <span className={styles.tickerText}>{messages[idx]}</span>
-      <a href="#get-started" className={styles.tickerCta}>
-        Claim Offer →
-      </a>
+      <a href="#get-started" className={styles.tickerCta}>Claim Offer →</a>
     </div>
   );
 };
@@ -84,11 +81,12 @@ const AnnouncementTicker = () => {
    SOCIAL PROOF BUBBLE
    ═══════════════════════════════════════════════════ */
 const socialProofPeople = [
-  { name: "Priya", city: "Mumbai", time: "3 min ago" },
-  { name: "Rahul", city: "Bangalore", time: "7 min ago" },
-  { name: "Sneha", city: "Chennai", time: "11 min ago" },
-  { name: "Amit", city: "Delhi", time: "15 min ago" },
+  { name: "Ravi", city: "Bangalore", time: "2 min ago" },
+  { name: "Priya", city: "Mumbai", time: "5 min ago" },
+  { name: "Amit", city: "Delhi", time: "9 min ago" },
+  { name: "Sneha", city: "Hyderabad", time: "12 min ago" },
 ];
+
 const SocialProofBubble = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -97,7 +95,7 @@ const SocialProofBubble = () => {
     timerRef.current = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
-        setIdx((i) => (i + 1) % socialProofPeople.length);
+        setIdx(i => (i + 1) % socialProofPeople.length);
         setVisible(true);
       }, 400);
     }, 4000);
@@ -107,13 +105,9 @@ const SocialProofBubble = () => {
   }, []);
   const p = socialProofPeople[idx];
   return (
-    <div
-      className={`${styles.socialBubble} ${visible ? styles.socialBubbleVisible : styles.socialBubbleHidden}`}
-    >
+    <div className={`${styles.socialBubble} ${visible ? styles.socialBubbleVisible : styles.socialBubbleHidden}`}>
       <span className={styles.socialBubbleDot}></span>
-      <span>
-        <strong>{p.name}</strong> from {p.city} just got a free demo · {p.time}
-      </span>
+      <span><strong>{p.name}</strong> from {p.city} just got a free demo · {p.time}</span>
     </div>
   );
 };
@@ -140,12 +134,9 @@ const FloatingStickyBar = () => {
   if (!show) return null;
   return (
     <div className={styles.floatingBar}>
-      <span className={styles.floatingBarText}>
-        🎯 Get free WhatsApp API demo — only 3 spots left today
-      </span>
-      <a href="#get-started" className={styles.floatingBarCta}>
-        Get Free Demo
-      </a>
+      <span className={styles.floatingBarText}>🎯 Get free Bulk SMS demo — 5 spots left today</span>
+      <a href="tel:+918431086185" className={styles.floatingBarCall}><i className="bi bi-telephone-fill"></i> Call Now</a>
+      <a href="#get-started" className={styles.floatingBarCta}>Get Free Demo</a>
     </div>
   );
 };
@@ -157,121 +148,23 @@ const CountdownTimer = () => {
   const [time, setTime] = useState({ h: 23, m: 47, s: 12 });
   useEffect(() => {
     const t = setInterval(() => {
-      setTime((prev) => {
+      setTime(prev => {
         let { h, m, s } = prev;
-        s--;
-        if (s < 0) {
-          s = 59;
-          m--;
-        }
-        if (m < 0) {
-          m = 59;
-          h--;
-        }
-        if (h < 0) {
-          h = 23;
-          m = 59;
-          s = 59;
-        }
+        s--; if (s < 0) { s = 59; m--; } if (m < 0) { m = 59; h--; } if (h < 0) { h = 23; m = 59; s = 59; }
         return { h, m, s };
       });
     }, 1000);
     return () => clearInterval(t);
   }, []);
-  const pad = (n) => String(n).padStart(2, "0");
+  const pad = n => String(n).padStart(2, "0");
   return (
     <div className={styles.countdown}>
       <i className="bi bi-clock-fill"></i>
       <span>Offer expires in</span>
-      <span className={styles.countdownTime}>
-        {pad(time.h)}:{pad(time.m)}:{pad(time.s)}
-      </span>
+      <span className={styles.countdownTime}>{pad(time.h)}:{pad(time.m)}:{pad(time.s)}</span>
     </div>
   );
 };
-
-/* ═══════════════════════════════════════════════════
-   PRICING TEASER STRIP
-   ═══════════════════════════════════════════════════ */
-const PricingTeaserStrip = () => (
-  <div className={styles.pricingTeaser}>
-    <div className="container">
-      <div className={styles.pricingTeaserInner}>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-tag-fill"></i>
-          <span>
-            Setup from <strong>₹2,999</strong> only
-          </span>
-        </div>
-        <div className={styles.pricingTeaserDivider}></div>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-check-circle-fill"></i>
-          <span>
-            <strong>1 month platform</strong> free
-          </span>
-        </div>
-        <div className={styles.pricingTeaserDivider}></div>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-x-circle-fill"></i>
-          <span>
-            <strong>Cancel anytime</strong>
-          </span>
-        </div>
-        <div className={styles.pricingTeaserDivider}></div>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-patch-check-fill"></i>
-          <span>
-            <strong>Official Meta</strong> partner
-          </span>
-        </div>
-        <a href="#get-started" className={styles.pricingTeaserCta}>
-          See Pricing
-        </a>
-      </div>
-    </div>
-  </div>
-);
-
-/* ═══════════════════════════════════════════════════
-   AS SEEN ON STRIP
-   ═══════════════════════════════════════════════════ */
-const AsSeenOnStrip = () => (
-  <div className={styles.asSeenOn}>
-    <div className="container">
-      <div className={styles.asSeenOnInner}>
-        <span className={styles.asSeenOnLabel}>As seen on</span>
-        <div className={styles.asSeenOnLogos}>
-          <div className={styles.asSeenOnLogo}>
-            <i className="bi bi-google" style={{ color: "#4285F4" }}></i>
-            <span>
-              <strong>Google</strong> Reviews
-            </span>
-            <span className={styles.asSeenOnRating}>★ 4.9/5</span>
-          </div>
-          <div className={styles.asSeenOnDivider}></div>
-          <div className={styles.asSeenOnLogo}>
-            <i className="bi bi-star-fill" style={{ color: "#00b67a" }}></i>
-            <span>
-              <strong>Trustpilot</strong>
-            </span>
-            <span className={styles.asSeenOnRating}>★ 4.8/5</span>
-          </div>
-          <div className={styles.asSeenOnDivider}></div>
-          <div className={styles.asSeenOnLogo}>
-            <i
-              className="bi bi-shield-check-fill"
-              style={{ color: "#ff6d42" }}
-            ></i>
-            <span>
-              <strong>Capterra</strong>
-            </span>
-            <span className={styles.asSeenOnRating}>★ 4.7/5</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 /* ═══════════════════════════════════════════════════
    STICKY MINI NAV
@@ -294,9 +187,13 @@ const StickyMiniNav = () => {
           <img src="/image/logo.png" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
+          <a href="tel:+918431086185" className={styles.miniNavPhone}>
+            <i className="bi bi-telephone-fill"></i>
+            <span className="d-none d-md-inline">+91 84310 86185</span>
+          </a>
           <div className={styles.miniNavSpotsWrap}>
             <span className={styles.miniNavSpotsDot}></span>
-            <span className="d-none d-sm-inline">Only 3 spots left</span>
+            <span className="d-none d-sm-inline" style={{ fontSize: 12, color: "#dc2626", fontWeight: 600 }}>Only 5 spots left</span>
           </div>
           <a href="#get-started" className={styles.miniNavCta}>
             Get Free Demo <i className="bi bi-arrow-right ms-1"></i>
@@ -308,70 +205,68 @@ const StickyMiniNav = () => {
 };
 
 /* ═══════════════════════════════════════════════════
-   HERO VIDEO PLAYER
+   PRICING TEASER STRIP
    ═══════════════════════════════════════════════════ */
-// Replace 'YOUTUBE_VIDEO_ID' with your actual YouTube video ID
-const HERO_VIDEO_ID = "YOUTUBE_VIDEO_ID";
-
-const HeroVideoPlayer = () => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <div className={styles.heroImageWrap}>
-      <div className={styles.heroImageGlow}></div>
-      {playing ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
-          title="How WhatsApp API Works - A2ZSMS"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={styles.heroVideoIframe}
-        />
-      ) : (
-        <div
-          className={styles.heroVideoPoster}
-          onClick={() => setPlaying(true)}
-        >
-          <img
-            src="/image/product/whatsapp.png"
-            alt="Watch How WhatsApp API Works - A2ZSMS Demo"
-            className={styles.heroImage}
-            width={560}
-            height={480}
-            loading="eager"
-            decoding="async"
-          />
-          <div className={styles.heroVideoOverlay}></div>
-          <span
-            className={styles.heroPlayBtn}
-            role="button"
-            aria-label="Play how it works video"
-          >
-            <i className="bi bi-play-fill"></i>
-          </span>
-          <span className={styles.heroPlayLabel}>
-            <i className="bi bi-camera-video-fill"></i> How It Works (60 sec)
-          </span>
+const PricingTeaserStrip = () => (
+  <div className={styles.pricingTeaser}>
+    <div className="container">
+      <div className={styles.pricingTeaserInner}>
+        <div className={styles.pricingTeaserItem}>
+          <i className="bi bi-tag-fill"></i>
+          <span>Starting at <strong>₹799/month</strong></span>
         </div>
-      )}
-      {!playing && (
-        <>
-          <div className={styles.heroFloat1}>
-            <i className="bi bi-whatsapp"></i>
-            <span>98% Open Rate</span>
-          </div>
-          <div className={styles.heroFloat2}>
-            <i className="bi bi-robot"></i>
-            <span>AI Chatbot</span>
-          </div>
-          <div className={styles.heroFloat3}>
-            <i className="bi bi-patch-check-fill"></i>
-            <span>Meta Verified</span>
-          </div>
-        </>
-      )}
+        <div className={styles.pricingTeaserDivider}></div>
+        <div className={styles.pricingTeaserItem}>
+          <i className="bi bi-check-circle-fill"></i>
+          <span><strong>No setup fee</strong></span>
+        </div>
+        <div className={styles.pricingTeaserDivider}></div>
+        <div className={styles.pricingTeaserItem}>
+          <i className="bi bi-x-circle-fill"></i>
+          <span><strong>Cancel anytime</strong></span>
+        </div>
+        <div className={styles.pricingTeaserDivider}></div>
+        <div className={styles.pricingTeaserItem}>
+          <i className="bi bi-gift-fill"></i>
+          <span>Free <strong>1000 SMS credits</strong> on signup</span>
+        </div>
+        <a href="#get-started" className={styles.pricingTeaserCta}>See Pricing</a>
+      </div>
     </div>
-  );
-};
+  </div>
+);
+
+/* ═══════════════════════════════════════════════════
+   AS SEEN ON STRIP
+   ═══════════════════════════════════════════════════ */
+const AsSeenOnStrip = () => (
+  <div className={styles.asSeenOn}>
+    <div className="container">
+      <div className={styles.asSeenOnInner}>
+        <span className={styles.asSeenOnLabel}>As seen on</span>
+        <div className={styles.asSeenOnLogos}>
+          <div className={styles.asSeenOnLogo}>
+            <i className="bi bi-google" style={{ color: "#4285F4" }}></i>
+            <span><strong>Google</strong> Reviews</span>
+            <span className={styles.asSeenOnRating}>★ 4.9/5</span>
+          </div>
+          <div className={styles.asSeenOnDivider}></div>
+          <div className={styles.asSeenOnLogo}>
+            <i className="bi bi-star-fill" style={{ color: "#00b67a" }}></i>
+            <span><strong>Trustpilot</strong></span>
+            <span className={styles.asSeenOnRating}>★ 4.8/5</span>
+          </div>
+          <div className={styles.asSeenOnDivider}></div>
+          <div className={styles.asSeenOnLogo}>
+            <i className="bi bi-shield-check-fill" style={{ color: "#ff6d42" }}></i>
+            <span><strong>Capterra</strong></span>
+            <span className={styles.asSeenOnRating}>★ 4.7/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 /* ═══════════════════════════════════════════════════
    HERO
@@ -390,79 +285,78 @@ const HeroStatItem = ({ end, suffix, label, isDecimal }) => {
 };
 
 const HeroSection = () => (
-  <section className={`${styles.hero} aos`}>
+  <section className={styles.hero}>
     <div className={styles.heroMesh1}></div>
     <div className={styles.heroMesh2}></div>
     <div className={styles.heroMesh3}></div>
+
+    {/* Top urgency bar */}
+    <div className={styles.heroTopBar}>
+      <i className="bi bi-fire" style={{ color: "#f97316" }}></i>
+      <span>
+        <strong>February Offer:</strong> DLT Registration only ₹5,000 + Free Sender ID — only <strong style={{ color: "#dc2626" }}>5 spots left</strong> this month
+      </span>
+      <i className="bi bi-fire" style={{ color: "#f97316" }}></i>
+    </div>
+
     <div className="container position-relative">
       <div className="row align-items-center gy-5">
-        <div className="col-lg-6" data-aos="fade-right">
-          {/* Logo */}
-          <div className={styles.heroLogoWrap}>
-            <img
-              src="/image/logo.png"
-              alt="A2ZSMS"
-              className={styles.heroLogo}
-            />
-          </div>
-
-          {/* Urgency top bar */}
-          <div className={styles.heroTopBar}>
-            <i className="bi bi-lightning-charge-fill"></i>
-            <span>
-              <strong>February Offer:</strong> Free Setup + 1 Month Platform
-              Free — only <strong>3 spots left</strong>
-            </span>
-          </div>
-
+        <div className="col-lg-6">
           <div className={styles.heroBadge}>
             <span className={styles.heroBadgeDot}></span>
-            Official WhatsApp Business API Partner
+            #1 Rated Bulk SMS Provider in India &mdash; 1000+ Businesses Trust Us
           </div>
 
           <h1 className={styles.heroTitle}>
-            Official WhatsApp Business API Provider —{" "}
-            <span className={styles.heroGradient}>
-              Automate Sales &amp; Support Instantly
-            </span>
+            Stop Losing Customers.{" "}
+            <span className={styles.heroGradient}>Reach Them Instantly with Bulk SMS</span>
           </h1>
 
-          <p className={styles.heroText}>Stop losing leads to slow replies.</p>
-
-          <p className={styles.heroSubText}>
-            Get Official WhatsApp Business API with AI Chatbot, Multi-Agent
-            Support, and CRM Integration — all in one platform.
+          <p className={styles.heroText}>
+            While your competitors are sending emails that go to spam, your customers are already
+            opening SMS in <strong>under 3 seconds</strong>. Send OTP, Promotional &amp; Transactional
+            SMS at 99.9% delivery — no technical skills needed.
           </p>
 
           <div className={styles.heroChecks}>
             {[
-              "98% open rates with WhatsApp Business API",
-              "Automate replies, OTPs & follow-ups 24/7",
-              "Get Official Green Tick Verification",
-              "Send compliant bulk broadcasts",
-              "Seamless CRM integration",
+              { text: "99.9% delivery rate — every single time", highlight: false },
+              { text: "OTP delivered in under 3 seconds", highlight: true },
+              { text: "Promotional SMS with 98% open rate", highlight: false },
+              { text: "DLT registration at just ₹5,000 — we handle everything", highlight: false },
             ].map((item) => (
-              <div key={item} className={styles.heroCheckItem}>
+              <div key={item.text} className={styles.heroCheckItem}>
                 <i className="bi bi-check-circle-fill"></i>
-                <span>{item}</span>
+                <span style={item.highlight ? { fontWeight: 700, color: "#0d6efd" } : {}}>
+                  {item.text}
+                </span>
               </div>
             ))}
           </div>
 
-          <p className={styles.heroGuarantee}>
-            <i className="bi bi-shield-check-fill"></i> No credit card required
-            · Free consultation · Reply within 2 hours
-          </p>
+          <div className="d-flex flex-wrap gap-3 mt-4">
+            <a href="#get-started" className={styles.primaryBtn}>
+              Get Free Demo Now <i className="bi bi-arrow-right ms-1"></i>
+            </a>
+            <a href="tel:+918431086185" className={styles.heroCallBtn}>
+              <i className="bi bi-telephone-fill"></i> Call Now
+            </a>
+          </div>
+
+          <div className={styles.heroGuarantee}>
+            <i className="bi bi-shield-fill-check"></i>
+            <span>No commitment · Free setup consultation · Response in 2 hrs</span>
+          </div>
 
           <SocialProofBubble />
 
           <div className={styles.heroStats}>
-            <HeroStatItem end={500} suffix="+" label="Businesses" />
+            <HeroStatItem end={1000} suffix="+" label="Businesses" />
             <div className={styles.heroStatDivider}></div>
             <HeroStatItem
               end={99.9}
               suffix="%"
-              label="Uptime"
+              label="Delivery Rate"
               isDecimal={true}
             />
             <div className={styles.heroStatDivider}></div>
@@ -470,8 +364,38 @@ const HeroSection = () => (
           </div>
         </div>
 
-        <div className="col-lg-6" data-aos="fade-left">
-          <LeadForm />
+        <div className="col-lg-6">
+          <div className={styles.heroImageWrap}>
+            <div className={styles.heroImageGlow}></div>
+            <img
+              src="/image/product/bulksms.png"
+              alt="Bulk SMS Service Dashboard"
+              className={styles.heroImage}
+              width={560}
+              height={480}
+              loading="eager"
+              decoding="async"
+            />
+            <a
+              href="#get-started"
+              className={styles.heroPlayBtn}
+              aria-label="Get started"
+            >
+              <i className="bi bi-play-fill"></i>
+            </a>
+            <div className={styles.heroFloat1}>
+              <i className="bi bi-envelope-fill"></i>
+              <span>99.9% Delivery</span>
+            </div>
+            <div className={styles.heroFloat2}>
+              <i className="bi bi-lightning-fill"></i>
+              <span>Under 3 Seconds</span>
+            </div>
+            <div className={styles.heroFloat3}>
+              <i className="bi bi-shield-check-fill"></i>
+              <span>DLT Compliant</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -482,10 +406,10 @@ const HeroSection = () => (
    MARQUEE TRUST BAR
    ═══════════════════════════════════════════════════ */
 const MarqueeTrustBar = () => (
-  <div className={`${styles.marqueeSection} aos`} data-aos="fade-up">
+  <div className={styles.marqueeSection}>
     <div className="container">
       <span className={styles.marqueeLabel}>
-        Trusted by <strong>500+</strong> Businesses Across India
+        Trusted by <strong>1000+</strong> Businesses Across India
       </span>
     </div>
     <div className={styles.marqueeTrack}>
@@ -512,24 +436,24 @@ const MarqueeTrustBar = () => (
    ═══════════════════════════════════════════════════ */
 const problems = [
   {
-    icon: "bi-emoji-frown",
-    title: "Low SMS & Email Open Rates",
-    text: "Traditional SMS gets <20% opens, emails land in spam. Your marketing budget is wasted.",
+    icon: "bi-envelope-x",
+    title: "Low Email Open Rates",
+    text: "Emails land in spam and get ignored. Your marketing messages never reach the customer at the right time.",
     stat: "<20%",
-    statLabel: "Open Rate",
+    statLabel: "Email Open Rate",
   },
   {
-    icon: "bi-clock-history",
-    title: "Manual Follow-ups Waste Time",
-    text: "Your team spends hours manually following up with leads instead of closing deals.",
+    icon: "bi-hourglass-split",
+    title: "Slow Customer Communication",
+    text: "Delayed notifications mean frustrated customers. Manual messaging wastes your team's valuable time.",
     stat: "3hrs",
-    statLabel: "Avg Response",
+    statLabel: "Avg Delay",
   },
   {
-    icon: "bi-moon",
-    title: "No Support After Hours",
-    text: "Customers leave when they don't get instant replies. You lose leads every night.",
-    stat: "40%",
+    icon: "bi-x-circle",
+    title: "Missed Sales Opportunities",
+    text: "Without timely promotions and alerts, customers buy from competitors. You lose revenue every day.",
+    stat: "35%",
     statLabel: "Leads Lost",
   },
 ];
@@ -537,39 +461,39 @@ const problems = [
 const solutions = [
   {
     icon: "bi-graph-up-arrow",
-    title: "98% Open Rate on WhatsApp",
-    text: "Messages read within minutes. Rich media — images, videos, buttons for higher engagement.",
+    title: "98% SMS Open Rate",
+    text: "SMS messages are read within 3 minutes of delivery. Reach your audience instantly where they always look — their phone.",
     stat: "98%",
     statLabel: "Open Rate",
   },
   {
-    icon: "bi-gear-wide-connected",
-    title: "Automated Workflows & Drips",
-    text: "Set up auto-replies, drip campaigns, and triggers that engage leads on autopilot.",
-    stat: "Instant",
-    statLabel: "Response",
+    icon: "bi-lightning-fill",
+    title: "Instant Bulk Delivery",
+    text: "Send millions of SMS within seconds. Automated campaigns, OTPs, and alerts delivered at lightning speed.",
+    stat: "< 3sec",
+    statLabel: "Delivery Time",
   },
   {
-    icon: "bi-robot",
-    title: "AI Chatbot Works 24/7",
-    text: "Intelligent chatbot handles queries, captures leads, and books appointments around the clock.",
-    stat: "24/7",
-    statLabel: "Coverage",
+    icon: "bi-bullseye",
+    title: "Targeted SMS Campaigns",
+    text: "Segment your audience and send personalized messages that convert. Boost sales with the right message at the right time.",
+    stat: "3x",
+    statLabel: "More Conversions",
   },
 ];
 
 const ProblemSolution = () => (
-  <section className={`${styles.sectionAlt} aos`}>
+  <section className={styles.sectionAlt}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Why Switch?</span>
+      <div className="text-center mb-5">
+        <span className={styles.sectionBadge}>Why Switch to Bulk SMS?</span>
         <h2 className={styles.sectionTitle}>The Problem &amp; Our Solution</h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Stop struggling with outdated channels. Switch to WhatsApp API +
-          Chatbot and see instant results.
+          Stop losing customers to slow communication. Switch to Bulk SMS and
+          see instant results.
         </p>
       </div>
 
@@ -580,12 +504,7 @@ const ProblemSolution = () => (
           </h6>
         </div>
         {problems.map((p, i) => (
-          <div
-            className="col-md-4"
-            key={i}
-            data-aos="fade-up"
-            data-aos-delay={i * 100}
-          >
+          <div className="col-md-4" key={i}>
             <div className={`${styles.compCard} ${styles.compCardRed}`}>
               <div className={`${styles.compIcon} ${styles.compIconRed}`}>
                 <i className={`bi ${p.icon}`}></i>
@@ -601,7 +520,7 @@ const ProblemSolution = () => (
         ))}
       </div>
 
-      <div className={styles.psArrow} data-aos="fade-up">
+      <div className={styles.psArrow}>
         <div className={styles.psArrowLine}></div>
         <div className={styles.psArrowIcon}>
           <i className="bi bi-arrow-down-circle-fill"></i>
@@ -616,14 +535,9 @@ const ProblemSolution = () => (
           </h6>
         </div>
         {solutions.map((s, i) => (
-          <div
-            className="col-md-4"
-            key={i}
-            data-aos="fade-up"
-            data-aos-delay={i * 100}
-          >
-            <div className={`${styles.compCard} ${styles.compCardGreen}`}>
-              <div className={`${styles.compIcon} ${styles.compIconGreen}`}>
+          <div className="col-md-4" key={i}>
+            <div className={`${styles.compCard} ${styles.compCardBlue}`}>
+              <div className={`${styles.compIcon} ${styles.compIconBlue}`}>
                 <i className={`bi ${s.icon}`}></i>
               </div>
               <h5 className={styles.compCardTitle}>{s.title}</h5>
@@ -641,223 +555,131 @@ const ProblemSolution = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   COMPARISON TABLE — Standard WA vs A2ZSMS API
+   FEATURES — Tab Switcher
    ═══════════════════════════════════════════════════ */
-const comparisonRows = [
-  ["Bulk Messaging", "❌ Not Allowed", "✅ Unlimited Scale"],
-  ["Automation & Chatbot", "❌ Manual Only", "✅ Full AI Automation"],
-  ["Green Tick Verified", "❌ Not Available", "✅ Meta Verified"],
-  ["CRM / ERP Integration", "❌ No Integration", "✅ 80+ Tools"],
-  ["Multi-Agent Support", "❌ Single Device", "✅ Unlimited Agents"],
-  ["Analytics & Reports", "❌ Basic Stats", "✅ Real-Time Dashboard"],
-  ["Meta-Approved Templates", "❌ No Templates", "✅ Full Library"],
-  ["Ban Risk", "🔴 High Risk", "✅ Zero Risk"],
-  ["Official Meta Support", "❌ No Priority", "✅ Dedicated Support"],
+const promotionalFeatures = [
+  {
+    icon: "bi-megaphone-fill",
+    color: "#0d6efd",
+    title: "Mass Promotional Campaigns",
+    text: "Send offers, discounts, and product launches to thousands of customers simultaneously. Maximise reach and ROI.",
+  },
+  {
+    icon: "bi-calendar-event-fill",
+    color: "#6366f1",
+    title: "Scheduled Campaigns",
+    text: "Plan your campaigns in advance. Schedule SMS delivery at the perfect time for maximum engagement.",
+  },
+  {
+    icon: "bi-people-fill",
+    color: "#0ea5e9",
+    title: "Audience Segmentation",
+    text: "Target specific customer groups based on demographics, location, and behaviour for higher conversions.",
+  },
+  {
+    icon: "bi-bar-chart-fill",
+    color: "#8b5cf6",
+    title: "Real-Time Analytics",
+    text: "Track delivery, open, and conversion rates. Optimise campaigns with data-driven insights.",
+  },
+  {
+    icon: "bi-link-45deg",
+    color: "#f59e0b",
+    title: "URL Shortener & Tracking",
+    text: "Embed trackable short links in your SMS to measure clicks and drive traffic to your website.",
+  },
+  {
+    icon: "bi-person-fill-check",
+    color: "#10b981",
+    title: "DLT Template Management",
+    text: "Fully DLT compliant promotional SMS. We manage template registration and approval for you.",
+  },
 ];
 
-const ComparisonTableSection = () => (
-  <section className={`${styles.section} aos`}>
-    <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Why Upgrade?</span>
-        <h2 className={styles.sectionTitle}>
-          Standard WhatsApp vs. A2ZSMS API
-        </h2>
-        <p
-          className={`${styles.sectionLead} mx-auto`}
-          style={{ maxWidth: 620 }}
-        >
-          The WhatsApp Business App is built for small shops. The API is built
-          for scaling. Here&apos;s the difference.
-        </p>
-      </div>
-      <div className={styles.compTableWrap} data-aos="fade-up">
-        <table className={styles.compTable}>
-          <thead>
-            <tr>
-              <th className={styles.compTableThFeature}>Feature</th>
-              <th className={styles.compTableThStandard}>
-                <i className="bi bi-whatsapp me-2"></i>Standard WhatsApp
-              </th>
-              <th className={styles.compTableThApi}>
-                <i className="bi bi-patch-check-fill me-2"></i>A2ZSMS API
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {comparisonRows.map(([feature, standard, api], i) => (
-              <tr
-                key={i}
-                className={i % 2 === 0 ? styles.compTableRowEven : ""}
-              >
-                <td className={styles.compTableFeatureCell}>{feature}</td>
-                <td className={styles.compTableStandardCell}>{standard}</td>
-                <td className={styles.compTableApiCell}>{api}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="text-center mt-5" data-aos="fade-up">
-        <a href="#get-started" className={styles.primaryBtn}>
-          Switch to A2ZSMS API <i className="bi bi-arrow-right ms-1"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-);
-
-/* ═══════════════════════════════════════════════════
-   VIDEO DEMO SECTION
-   ═══════════════════════════════════════════════════ */
-const VideoSection = () => (
-  <section className={`${styles.sectionDark} aos`}>
-    <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadgeLight}>See It In Action</span>
-        <h2 className={styles.sectionTitleLight}>
-          Watch How WhatsApp API Works in 60 Seconds
-        </h2>
-        <p className={styles.sectionLeadLight}>
-          See exactly how A2ZSMS automates your business communication — from
-          setup to your first message.
-        </p>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-lg-8" data-aos="fade-up">
-          <HeroVideoPlayer />
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-/* ═══════════════════════════════════════════════════
-   FEATURES — Tab Switcher (API + Chatbot merged)
-   ═══════════════════════════════════════════════════ */
-const apiAdvantages = [
+const transactionalFeatures = [
   {
-    icon: "bi-send-fill",
-    color: "#25d366",
-    title: "Bulk Messaging at Scale",
-    text: "Send thousands of personalized WhatsApp messages with 98% open rate. Reach customers where they are most active.",
+    icon: "bi-lock-fill",
+    color: "#0d6efd",
+    title: "Instant OTP Delivery",
+    text: "Deliver one-time passwords in under 3 seconds. Secure 2FA authentication for banks, e-commerce, and apps.",
+  },
+  {
+    icon: "bi-receipt",
+    color: "#6366f1",
+    title: "Order & Transaction Alerts",
+    text: "Automated SMS for order confirmations, payment receipts, delivery updates, and shipping notifications.",
   },
   {
     icon: "bi-bell-fill",
-    color: "#128c7e",
-    title: "Automated Notifications",
-    text: "Order updates, payment reminders, OTPs, and alerts — sent automatically without any manual work.",
-  },
-  {
-    icon: "bi-shield-lock-fill",
-    color: "#075e54",
-    title: "Green Tick Verified Profile",
-    text: "Get official Meta verification with a green tick badge that builds instant customer trust.",
-  },
-  {
-    icon: "bi-plug-fill",
     color: "#0ea5e9",
-    title: "Easy API Integration",
-    text: "Connect WhatsApp with your CRM, ERP, or any business tool in minutes using our developer-friendly API.",
+    title: "Account & Security Alerts",
+    text: "Login notifications, password resets, balance alerts, and suspicious activity warnings sent instantly.",
   },
   {
-    icon: "bi-graph-up-arrow",
+    icon: "bi-calendar-check-fill",
     color: "#8b5cf6",
-    title: "Real-Time Analytics",
-    text: "Track delivery, read rates, and campaign performance with powerful real-time dashboards.",
+    title: "Appointment Reminders",
+    text: "Automated reminders for bookings, appointments, and events to reduce no-shows by 60%.",
   },
   {
-    icon: "bi-images",
+    icon: "bi-gear-fill",
     color: "#f59e0b",
-    title: "Rich Media Templates",
-    text: "Send images, videos, PDFs, carousels, and interactive buttons — boost engagement 3x over plain text.",
-  },
-];
-
-const chatbotAdvantages = [
-  {
-    icon: "bi-stars",
-    color: "#25d366",
-    title: "AI-Powered Replies",
-    text: "Natural conversations with AI that improves after every interaction. Handle 80% queries without humans.",
+    title: "API Integration",
+    text: "Seamlessly integrate with your app, CRM, or website using our developer-friendly REST API.",
   },
   {
-    icon: "bi-megaphone",
-    color: "#128c7e",
-    title: "Campaign Automation",
-    text: "Segment your audience and launch drip or broadcast campaigns with smart scheduling.",
-  },
-  {
-    icon: "bi-bag-check",
-    color: "#075e54",
-    title: "Product Discovery",
-    text: "Show catalogs, share product cards, and guide shoppers to checkout inside WhatsApp.",
-  },
-  {
-    icon: "bi-headset",
-    color: "#0ea5e9",
-    title: "Always-On Support",
-    text: "Resolve FAQs instantly and route complex issues to human agents with full context.",
-  },
-  {
-    icon: "bi-calendar-check",
-    color: "#8b5cf6",
-    title: "Appointment Booking",
-    text: "Capture leads, confirm bookings, and send reminders — no manual follow-up needed.",
-  },
-  {
-    icon: "bi-diagram-3-fill",
-    color: "#f59e0b",
-    title: "No-Code Flow Builder",
-    text: "Build complex conversation flows with our drag-and-drop visual builder. Zero coding needed.",
+    icon: "bi-clock-history",
+    color: "#10b981",
+    title: "24/7 Automated Delivery",
+    text: "Transactional SMS run on autopilot. No manual intervention — messages sent the moment an event triggers.",
   },
 ];
 
 const FeaturesSection = ({ activeTab, setActiveTab }) => (
-  <section className={`${styles.section} aos`}>
+  <section className={styles.section}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
+      <div className="text-center mb-5">
         <span className={styles.sectionBadge}>Features</span>
         <h2 className={styles.sectionTitle}>
-          Everything You Need to Scale on WhatsApp
+          Everything You Need to Scale with Bulk SMS
         </h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          From bulk messaging to AI chatbot automation — one platform for
-          complete WhatsApp success.
+          From promotional campaigns to mission-critical OTPs — one platform for
+          all your SMS needs.
         </p>
         <div className={styles.tabSwitcher}>
           <button
-            className={`${styles.tabBtn} ${activeTab === "api" ? styles.tabBtnActive : ""}`}
-            onClick={() => setActiveTab("api")}
+            className={`${styles.tabBtn} ${activeTab === "promotional" ? styles.tabBtnActive : ""}`}
+            onClick={() => setActiveTab("promotional")}
           >
-            <i className="bi bi-whatsapp me-2"></i>WhatsApp API
+            <i className="bi bi-megaphone me-2"></i>Promotional SMS
           </button>
           <button
-            className={`${styles.tabBtn} ${activeTab === "chatbot" ? styles.tabBtnActive : ""}`}
-            onClick={() => setActiveTab("chatbot")}
+            className={`${styles.tabBtn} ${activeTab === "transactional" ? styles.tabBtnActive : ""}`}
+            onClick={() => setActiveTab("transactional")}
           >
-            <i className="bi bi-robot me-2"></i>AI Chatbot
+            <i className="bi bi-shield-lock me-2"></i>Transactional SMS
           </button>
         </div>
       </div>
 
       <div className="row align-items-center gy-5">
-        <div className="col-lg-5" data-aos="fade-right">
+        <div className="col-lg-5">
           <div className={styles.featureImageWrap}>
             <div className={styles.heroImageGlow}></div>
             <img
               src={
-                activeTab === "api"
-                  ? "/image/product/whatsapp1.png"
-                  : "/image/product/chatbot_2.png"
+                activeTab === "promotional"
+                  ? "/image/product/promotional.png"
+                  : "/image/product/transactional.png"
               }
               alt={
-                activeTab === "api"
-                  ? "WhatsApp API Features"
-                  : "AI Chatbot Features"
+                activeTab === "promotional"
+                  ? "Promotional SMS Features"
+                  : "Transactional SMS Features"
               }
               className={styles.featureSectionImage}
               width={480}
@@ -867,29 +689,30 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             />
           </div>
         </div>
-        <div className="col-lg-7" data-aos="fade-left">
+        <div className="col-lg-7">
           <div className="row g-3">
-            {(activeTab === "api" ? apiAdvantages : chatbotAdvantages).map(
-              (f, i) => (
-                <div className="col-md-6" key={`${activeTab}-${i}`}>
-                  <div className={styles.glassFeatureCard}>
-                    <div
-                      className={styles.featureIcon}
-                      style={{
-                        background: `${f.color}14`,
-                        color: f.color,
-                      }}
-                    >
-                      <i className={`bi ${f.icon}`}></i>
-                    </div>
-                    <div>
-                      <h6 className={styles.featureTitle}>{f.title}</h6>
-                      <p className={styles.featureText}>{f.text}</p>
-                    </div>
+            {(activeTab === "promotional"
+              ? promotionalFeatures
+              : transactionalFeatures
+            ).map((f, i) => (
+              <div className="col-md-6" key={`${activeTab}-${i}`}>
+                <div className={styles.glassFeatureCard}>
+                  <div
+                    className={styles.featureIcon}
+                    style={{
+                      background: `${f.color}14`,
+                      color: f.color,
+                    }}
+                  >
+                    <i className={`bi ${f.icon}`}></i>
+                  </div>
+                  <div>
+                    <h6 className={styles.featureTitle}>{f.title}</h6>
+                    <p className={styles.featureText}>{f.text}</p>
                   </div>
                 </div>
-              ),
-            )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -904,29 +727,29 @@ const steps = [
   {
     icon: "bi-pencil-square",
     title: "Sign Up",
-    desc: "Fill the form or chat with us on WhatsApp to get started.",
+    desc: "Fill the form or call us to get started with your Bulk SMS account.",
   },
   {
     icon: "bi-patch-check-fill",
-    title: "Get Verified",
-    desc: "We set up your official WhatsApp Business API + Green Tick.",
+    title: "DLT Registration",
+    desc: "We handle your DLT registration and template approval on your behalf.",
   },
   {
-    icon: "bi-plug-fill",
-    title: "Integrate",
-    desc: "Connect with your CRM, website, or systems using our API.",
+    icon: "bi-upload",
+    title: "Upload Contacts",
+    desc: "Upload your contact list and set up your SMS campaigns in minutes.",
   },
   {
     icon: "bi-rocket-takeoff-fill",
     title: "Go Live!",
-    desc: "Start sending bulk messages, automate chatbot & grow.",
+    desc: "Start sending bulk SMS and track real-time delivery reports.",
   },
 ];
 
 const HowItWorks = () => (
-  <section className={`${styles.sectionDark} aos`}>
+  <section className={styles.sectionDark}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
+      <div className="text-center mb-5">
         <span className={styles.sectionBadgeLight}>Simple Process</span>
         <h2 className={styles.sectionTitleLight}>
           Get Started in 4 Easy Steps
@@ -937,12 +760,7 @@ const HowItWorks = () => (
       </div>
       <div className={styles.stepsGrid}>
         {steps.map((s, i) => (
-          <div
-            key={i}
-            className={styles.stepBlock}
-            data-aos="fade-up"
-            data-aos-delay={i * 120}
-          >
+          <div key={i} className={styles.stepBlock}>
             <div className={styles.stepDot}>
               <span className={styles.stepDotGlow}></span>
               {i + 1}
@@ -957,7 +775,7 @@ const HowItWorks = () => (
           </div>
         ))}
       </div>
-      <div className="text-center mt-5" data-aos="fade-up">
+      <div className="text-center mt-5">
         <a href="#get-started" className={styles.primaryBtnLight}>
           Start Your Journey <i className="bi bi-arrow-right ms-1"></i>
         </a>
@@ -972,19 +790,19 @@ const HowItWorks = () => (
 const useCases = [
   {
     icon: "bi-cart-check-fill",
-    color: "#25d366",
-    bg: "#e6f7ed",
+    color: "#0d6efd",
+    bg: "#eff6ff",
     title: "E-Commerce",
-    text: "Order updates, abandoned cart recovery, product catalogs & promotional offers.",
+    text: "Order confirmations, shipping updates, abandoned cart alerts & promotional offers.",
     metric: "3x",
     metricLabel: "More Sales",
   },
   {
     icon: "bi-mortarboard-fill",
-    color: "#0ea5e9",
-    bg: "#e0f2fe",
+    color: "#8b5cf6",
+    bg: "#f5f3ff",
     title: "Education",
-    text: "Admission alerts, fee reminders, class schedules & student engagement.",
+    text: "Admission alerts, fee reminders, exam schedules & result notifications.",
     metric: "60%",
     metricLabel: "Less No-Shows",
   },
@@ -993,17 +811,17 @@ const useCases = [
     color: "#ef4444",
     bg: "#fee2e2",
     title: "Healthcare",
-    text: "Appointment reminders, lab reports, prescription alerts & patient follow-ups.",
+    text: "Appointment reminders, lab report alerts, prescription refills & patient follow-ups.",
     metric: "45%",
     metricLabel: "Faster Response",
   },
   {
     icon: "bi-bank2",
-    color: "#8b5cf6",
-    bg: "#ede9fe",
+    color: "#10b981",
+    bg: "#d1fae5",
     title: "Banking & Finance",
-    text: "Transaction alerts, OTP verification, loan updates & customer onboarding.",
-    metric: "99%",
+    text: "OTP delivery, transaction alerts, loan EMI reminders & account security messages.",
+    metric: "99.9%",
     metricLabel: "Delivery Rate",
   },
   {
@@ -1011,43 +829,38 @@ const useCases = [
     color: "#f59e0b",
     bg: "#fef3c7",
     title: "Real Estate",
-    text: "Property listings, site visit scheduling, lead nurturing & document sharing.",
+    text: "Property listing alerts, site visit confirmations, lead follow-ups & payment reminders.",
     metric: "2x",
     metricLabel: "More Visits",
   },
   {
     icon: "bi-truck",
-    color: "#128c7e",
-    bg: "#d1fae5",
+    color: "#0ea5e9",
+    bg: "#e0f2fe",
     title: "Logistics",
-    text: "Live delivery tracking, dispatch notifications & driver coordination.",
+    text: "Live tracking updates, delivery confirmations, pickup alerts & driver coordination.",
     metric: "80%",
     metricLabel: "Auto-Handled",
   },
 ];
 
 const UseCasesSection = () => (
-  <section className={`${styles.section} aos`}>
+  <section className={styles.section}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
+      <div className="text-center mb-5">
         <span className={styles.sectionBadge}>Use Cases</span>
         <h2 className={styles.sectionTitle}>Built for Every Industry</h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          WhatsApp API + Chatbot works across industries to automate
-          communication and boost conversions.
+          Bulk SMS works across industries to automate communication and boost
+          conversions.
         </p>
       </div>
       <div className="row g-4">
         {useCases.map((uc, i) => (
-          <div
-            className="col-md-6 col-lg-4"
-            key={i}
-            data-aos="fade-up"
-            data-aos-delay={i * 80}
-          >
+          <div className="col-md-6 col-lg-4" key={i}>
             <div className={styles.ucCard}>
               <div
                 className={styles.ucIcon}
@@ -1085,24 +898,24 @@ const integrationLogos = [
   { icon: "bi-lightning-fill", name: "Zapier", color: "#FF4A00" },
   { icon: "bi-briefcase-fill", name: "Zoho", color: "#E42527" },
   { icon: "bi-wordpress", name: "WordPress", color: "#21759B" },
-  { icon: "bi-code-slash", name: "REST API", color: "#61DAFB" },
+  { icon: "bi-code-slash", name: "REST API", color: "#6366f1" },
 ];
 
 const IntegrationSection = () => (
-  <section className={`${styles.sectionAlt} aos`}>
+  <section className={styles.sectionAlt}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
+      <div className="text-center mb-5">
         <span className={styles.sectionBadge}>Integrations</span>
         <h2 className={styles.sectionTitle}>Works With Your Favorite Tools</h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Connect WhatsApp API with 80+ CRMs, e-commerce platforms, and business
-          tools.
+          Connect Bulk SMS with 80+ CRMs, e-commerce platforms, and business
+          tools via our powerful API.
         </p>
       </div>
-      <div className={styles.integGrid} data-aos="fade-up">
+      <div className={styles.integGrid}>
         {integrationLogos.map((item, i) => (
           <div key={i} className={styles.integCard}>
             <div
@@ -1117,7 +930,7 @@ const IntegrationSection = () => (
       </div>
       <p
         className="text-center mt-4"
-        style={{ color: "var(--wa-muted)", fontSize: 14 }}
+        style={{ color: "var(--sms-muted)", fontSize: 14 }}
       >
         + 80 more integrations available
       </p>
@@ -1130,40 +943,35 @@ const IntegrationSection = () => (
    ═══════════════════════════════════════════════════ */
 const testimonials = [
   {
-    text: "A2ZSMS WhatsApp API transformed our customer communication. We saw a 3x increase in engagement within the first month. The setup was seamless and support is outstanding!",
-    name: "Rahul Sharma",
-    role: "CEO, ShopEase Retail",
-    initials: "RS",
+    text: "A2ZSMS Bulk SMS transformed our customer communication. We saw a 3x increase in sales from our promotional campaigns. Setup was quick and support is always available!",
+    name: "Vikram Mehta",
+    role: "CEO, FashionMart India",
+    initials: "VM",
   },
   {
-    text: "We automated our appointment reminders and reduced no-shows by 60%. The chatbot handles queries even when we are closed. Truly a game-changer for our clinic.",
-    name: "Dr. Priya Nair",
-    role: "Director, HealthFirst Clinic",
-    initials: "PN",
+    text: "We use A2ZSMS for OTP delivery and it's blazing fast — under 3 seconds every time. Our customers never face delays during login or payment. Highly reliable!",
+    name: "Sneha Iyer",
+    role: "CTO, PaySwift Fintech",
+    initials: "SI",
   },
   {
-    text: "Bulk messaging with the official API means no bans. Our delivery rate is 99%+ and the analytics dashboard helps us optimize every campaign. Highly recommend!",
-    name: "Amit Patel",
-    role: "Marketing Head, EduConnect",
-    initials: "AP",
+    text: "Appointment reminders via Bulk SMS reduced our no-shows by 55%. The delivery rate is 99%+ and the DLT compliance support saved us a lot of headache.",
+    name: "Dr. Arun Nair",
+    role: "Director, MediCare Clinics",
+    initials: "AN",
   },
 ];
 
 const TestimonialsSection = () => (
-  <section className={`${styles.section} aos`}>
+  <section className={styles.section}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
+      <div className="text-center mb-5">
         <span className={styles.sectionBadge}>Testimonials</span>
         <h2 className={styles.sectionTitle}>What Our Clients Say</h2>
       </div>
       <div className="row g-4">
         {testimonials.map((t, i) => (
-          <div
-            className="col-md-4"
-            key={i}
-            data-aos="fade-up"
-            data-aos-delay={i * 100}
-          >
+          <div className="col-md-4" key={i}>
             <div className={styles.testimonialCard}>
               <div className={styles.testimonialQuoteMark}>
                 <i className="bi bi-quote"></i>
@@ -1194,50 +1002,50 @@ const TestimonialsSection = () => (
    ═══════════════════════════════════════════════════ */
 const faqItems = [
   {
-    q: "What is WhatsApp Business API?",
-    a: "WhatsApp Business API is the official enterprise solution from Meta that allows businesses to send bulk messages, automate notifications, and integrate WhatsApp with their CRM and business tools. Unlike the WhatsApp Business App, the API supports high-volume messaging and team collaboration.",
+    q: "What is Bulk SMS?",
+    a: "Bulk SMS is a service that allows businesses to send large volumes of text messages to multiple recipients simultaneously. It is used for OTP delivery, promotional campaigns, transactional alerts, appointment reminders, and more.",
   },
   {
-    q: "How is this different from the WhatsApp Business App?",
-    a: "The WhatsApp Business App is designed for small businesses with limited messaging needs. The API is built for scale — it supports bulk messaging, chatbot automation, multi-agent support, CRM integration, and official green tick verification.",
+    q: "What is the difference between Promotional and Transactional SMS?",
+    a: "Promotional SMS is used for marketing campaigns, offers, and discounts — sent only to opted-in customers during allowed hours. Transactional SMS is for critical, time-sensitive information like OTPs, account alerts, and order updates — sent 24/7 to all numbers.",
   },
   {
-    q: "How long does the setup take?",
-    a: "We typically complete the setup within 24-48 hours. This includes Meta Business verification, phone number registration, and template approval. Our team handles the entire process for you.",
+    q: "What is DLT registration and do I need it?",
+    a: "DLT (Distributed Ledger Technology) registration is mandatory in India as per TRAI regulations for all businesses sending commercial SMS. We handle your DLT registration and template approval, so you don't need to worry about compliance.",
   },
   {
-    q: "Can I send promotional messages via WhatsApp API?",
-    a: "Yes, the API supports marketing template messages including promotional offers, product launches, and re-engagement campaigns. All templates must be approved by Meta before sending.",
+    q: "How quickly are SMS messages delivered?",
+    a: "Transactional SMS (OTPs, alerts) are delivered within 3 seconds. Promotional SMS campaigns are typically delivered within a few minutes, depending on volume. We guarantee 99.9% delivery rate.",
   },
   {
-    q: "Is there a limit on the number of messages I can send?",
-    a: "WhatsApp API uses a tier-based system. You start at 1,000 unique contacts per day and can scale up to unlimited messaging as your quality rating improves. We help you scale quickly.",
+    q: "Can I schedule SMS campaigns in advance?",
+    a: "Yes! Our platform allows you to schedule promotional SMS campaigns for any future date and time. You can also set up automated recurring campaigns for regular communications.",
   },
   {
-    q: "Do I need a new phone number?",
-    a: "You can use your existing business number or we can provide a new one. The number must not be currently registered with WhatsApp or WhatsApp Business App.",
+    q: "Do you provide a sender ID?",
+    a: "Yes. We provide a DLT-registered 6-character alphabetical sender ID that reflects your brand name (e.g., MYSHOP, BANKXYZ). This builds trust and improves message open rates.",
   },
   {
-    q: "What kind of support do you provide?",
-    a: "We provide dedicated account management, 24/7 technical support via WhatsApp, email and phone. We also help with template creation, campaign strategy, and API integration.",
+    q: "Is there an API for integration?",
+    a: "Yes, we provide a powerful REST API that you can integrate with your website, app, CRM, or any business software. Detailed API documentation and developer support are included.",
   },
   {
-    q: "What are the pricing details?",
-    a: "Our pricing starts with a one-time setup fee and a monthly platform fee. Per-message charges follow Meta\u2019s conversation-based pricing. Contact us for a customized quote based on your volume.",
+    q: "What are the pricing plans?",
+    a: "Our pricing is credit-based. You buy SMS credits and use them as needed. We offer flexible plans for startups and enterprises. Contact us for custom pricing based on your monthly volume.",
   },
 ];
 
 const FaqSection = ({ openIndex, setOpenIndex }) => (
-  <section className={`${styles.sectionAlt} aos`}>
+  <section className={styles.sectionAlt}>
     <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
+      <div className="text-center mb-5">
         <span className={styles.sectionBadge}>FAQ</span>
         <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Everything you need to know about WhatsApp API &amp; Chatbot.
+          Everything you need to know about Bulk SMS services.
         </p>
       </div>
       <div className="row justify-content-center">
@@ -1246,8 +1054,6 @@ const FaqSection = ({ openIndex, setOpenIndex }) => (
             <div
               key={i}
               className={`${styles.faqItem} ${openIndex === i ? styles.faqItemOpen : ""}`}
-              data-aos="fade-up"
-              data-aos-delay={i * 50}
             >
               <button
                 className={styles.faqQuestion}
@@ -1272,7 +1078,7 @@ const FaqSection = ({ openIndex, setOpenIndex }) => (
 /* ═══════════════════════════════════════════════════
    LEAD FORM
    ═══════════════════════════════════════════════════ */
-const LeadForm = ({ formId = "get-started" }) => {
+const LeadForm = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -1327,7 +1133,6 @@ const LeadForm = ({ formId = "get-started" }) => {
             company: form.company,
             service: form.service,
             message: form.message,
-            source: "g-ads",
             timestamp,
           }),
         }),
@@ -1345,10 +1150,8 @@ const LeadForm = ({ formId = "get-started" }) => {
           }),
         }),
       ]);
-      // Fire Google Ads conversion tracking
       gtag_report_conversion();
-
-      router.push("/whatsapp-api-service/thank-you/");
+      router.push("/bulk-sms-service/thank-you/");
     } catch (err) {
       console.error("Submission error:", err);
     } finally {
@@ -1357,25 +1160,23 @@ const LeadForm = ({ formId = "get-started" }) => {
   };
 
   return (
-    <div className={styles.formCard} id={formId}>
+    <div className={styles.formCard} id="get-started">
       <CountdownTimer />
-      {/* Urgency top strip */}
+
       <div className={styles.formUrgencyStrip}>
         <span className={styles.formUrgencyDot}></span>
         <span>
-          <strong>Only 3 free setup spots</strong> left this month — grab yours
-          before they&apos;re gone
+          🔥 DLT Registration at just <strong>₹5,000</strong> — only 5 spots left this month
         </span>
-        <span className={styles.formUrgencyFire}>🔥</span>
       </div>
 
       <div className={styles.formResponseTime}>
         <span className={styles.formResponseDot}></span>
-        Average response time: <strong>under 2 hours</strong>
+        Our team responds in <strong>under 2 hours</strong> — we&apos;re online now
       </div>
       <h4 className={styles.formTitle}>Claim Your Free Demo &amp; Pricing</h4>
       <p className={styles.formSub}>
-        Takes 30 seconds · No credit card · Our expert calls you back
+        Takes 30 seconds · No credit card · Get a personalised quote instantly
       </p>
       <form onSubmit={handleSubmit} noValidate>
         <div className="row g-3">
@@ -1411,7 +1212,9 @@ const LeadForm = ({ formId = "get-started" }) => {
                 onChange={handleChange}
               />
             </div>
-            {errors.email && <p className={styles.formError}>{errors.email}</p>}
+            {errors.email && (
+              <p className={styles.formError}>{errors.email}</p>
+            )}
           </div>
           <div className="col-md-6">
             <label className={styles.formLabel}>
@@ -1429,7 +1232,9 @@ const LeadForm = ({ formId = "get-started" }) => {
                 maxLength={15}
               />
             </div>
-            {errors.phone && <p className={styles.formError}>{errors.phone}</p>}
+            {errors.phone && (
+              <p className={styles.formError}>{errors.phone}</p>
+            )}
           </div>
           <div className="col-md-6">
             <label className={styles.formLabel}>Company Name</label>
@@ -1459,10 +1264,10 @@ const LeadForm = ({ formId = "get-started" }) => {
                 style={{ cursor: "pointer", appearance: "auto" }}
               >
                 <option value="">Select a service</option>
-                <option value="WhatsApp API">WhatsApp Business API</option>
-                <option value="WhatsApp Chatbot">WhatsApp Chatbot</option>
-                <option value="API + Chatbot Combo">API + Chatbot Combo</option>
-                <option value="Bulk Messaging">Bulk Messaging Only</option>
+                <option value="Promotional SMS">Promotional SMS</option>
+                <option value="Transactional SMS">Transactional SMS</option>
+                <option value="OTP SMS">OTP SMS</option>
+                <option value="Bulk SMS API">Bulk SMS API</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -1504,8 +1309,7 @@ const LeadForm = ({ formId = "get-started" }) => {
               )}
             </button>
             <p className={styles.formPrivacyNote}>
-              <i className="bi bi-lock-fill"></i> We never share your details.
-              By submitting you agree to be contacted by A2ZSMS.
+              <i className="bi bi-lock-fill"></i> 100% confidential · No spam · Unsubscribe anytime
             </p>
             <div className={styles.formTrust}>
               <div className={styles.formTrustItem}>
@@ -1514,7 +1318,7 @@ const LeadForm = ({ formId = "get-started" }) => {
               </div>
               <div className={styles.formTrustItem}>
                 <i className="bi bi-patch-check-fill"></i>
-                <span>Meta Partner</span>
+                <span>TRAI Compliant</span>
               </div>
               <div className={styles.formTrustItem}>
                 <i className="bi bi-clock-fill"></i>
@@ -1532,60 +1336,46 @@ const LeadForm = ({ formId = "get-started" }) => {
    FORM + CTA SECTION
    ═══════════════════════════════════════════════════ */
 const FormCtaSection = () => (
-  <section className={`${styles.formSection} aos`} id="get-started-section">
-    {/* Section-level urgency banner */}
+  <section className={styles.formSection} id="get-started-section">
     <div className={styles.urgencyBanner}>
       <i className="bi bi-lightning-charge-fill"></i>
       <span>
-        <strong>Limited Offer:</strong> Free Setup + 1 Month Platform Free —
-        Only for new sign-ups this month
+        <strong>February Special:</strong> DLT Registration at just ₹5,000 + Free Branded Sender ID + Free 1000 SMS Credits — Only for new sign-ups
       </span>
       <i className="bi bi-lightning-charge-fill"></i>
     </div>
 
     <div className="container">
       <div className="row g-5 align-items-start">
-        {/* Left — benefits */}
-        <div className="col-lg-5" data-aos="fade-right">
-          <span className={styles.sectionBadge}>Get Started Free</span>
+        <div className="col-lg-5">
+          <span className={styles.sectionBadge}>🎯 Exclusive Offer — Limited Spots</span>
           <h2 className={styles.sectionTitle}>
-            Your Competitors Are Already on WhatsApp.{" "}
-            <span style={{ color: "var(--wa-accent)" }}>Are You?</span>
+            Your Competitors Are Already Using Bulk SMS. Are You?
           </h2>
           <p className={styles.sectionLead}>
-            Every day you wait, a competitor steals your customer on WhatsApp.{" "}
-            <strong>500+ businesses</strong> across India already use A2ZSMS to
-            send instant messages, automate support, and close deals 24/7.
+            Every day without Bulk SMS is revenue you&apos;re leaving on the table.{" "}
+            <strong>1000+ businesses</strong> in India already send instant OTPs,
+            promotional offers &amp; alerts with A2ZSMS — and they&apos;re converting more customers than ever.
           </p>
 
           {/* Live notification strip */}
           <div className={styles.liveNotifStrip}>
             <span className={styles.liveNotifDot}></span>
             <span className={styles.liveNotifText}>
-              <strong>Priya from Mumbai</strong> just signed up 6 minutes ago
+              <strong>Ravi from Bangalore</strong> just signed up 8 minutes ago
             </span>
           </div>
 
-          {/* Spots warning */}
-          <div className={styles.spotsWarning}>
-            <i className="bi bi-exclamation-triangle-fill"></i>
-            <span>
-              <strong>Only 3 free setup spots</strong> remaining this month.
-              Free Setup + 1 Month Platform Free — expires when spots fill.
-            </span>
-          </div>
-
-          {/* Social proof live strip */}
           <div className={styles.socialProofStrip}>
             <div className={styles.socialProofAvatars}>
-              {["RS", "PK", "AM", "DV"].map((init, i) => (
+              {["VM", "SI", "AN", "RK"].map((init, i) => (
                 <div key={i} className={styles.socialProofAvatar}>
                   {init}
                 </div>
               ))}
             </div>
             <span className={styles.socialProofText}>
-              <strong>18 businesses</strong> signed up this week
+              <strong>23 businesses</strong> signed up this week
             </span>
           </div>
 
@@ -1593,25 +1383,26 @@ const FormCtaSection = () => (
             {[
               {
                 icon: "bi-gift-fill",
-                text: "Free setup + 1 month platform free",
+                text: "Free 1000 SMS credits on signup",
                 highlight: true,
-              },
-              { icon: "bi-clock-fill", text: "Go live in 24–48 hours" },
-              {
-                icon: "bi-person-check-fill",
-                text: "Dedicated account manager assigned",
-              },
-              {
-                icon: "bi-shield-check-fill",
-                text: "No hidden charges — transparent pricing",
-              },
-              {
-                icon: "bi-x-circle-fill",
-                text: "Cancel anytime — zero lock-in",
               },
               {
                 icon: "bi-patch-check-fill",
-                text: "Official Meta Business API partner",
+                text: "DLT registration at just ₹5,000 — we handle it all",
+                highlight: true,
+              },
+              { icon: "bi-clock-fill", text: "Account live within 24 hours" },
+              {
+                icon: "bi-person-check-fill",
+                text: "Dedicated account manager assigned to you",
+              },
+              {
+                icon: "bi-shield-check-fill",
+                text: "No hidden charges — pay only for what you send",
+              },
+              {
+                icon: "bi-x-circle-fill",
+                text: "No lock-in contract — cancel anytime",
               },
             ].map((item, i) => (
               <li
@@ -1620,23 +1411,20 @@ const FormCtaSection = () => (
                 style={{
                   fontSize: 15,
                   fontWeight: item.highlight ? 700 : 500,
-                  color: item.highlight ? "#1da851" : "inherit",
+                  color: item.highlight ? "#1d4ed8" : "inherit",
                 }}
               >
                 <i
                   className={`bi ${item.icon}`}
-                  style={{
-                    color: item.highlight ? "#25d366" : "#25d366",
-                    fontSize: 17,
-                  }}
+                  style={{ color: "#0d6efd", fontSize: 17 }}
                 ></i>
                 {item.text}
                 {item.highlight && (
                   <span
                     style={{
                       fontSize: 11,
-                      background: "#dcfce7",
-                      color: "#15803d",
+                      background: "#dbeafe",
+                      color: "#1d4ed8",
                       padding: "2px 8px",
                       borderRadius: 999,
                       fontWeight: 700,
@@ -1650,7 +1438,15 @@ const FormCtaSection = () => (
             ))}
           </ul>
 
-          {/* Trust logos row */}
+          {/* Urgency countdown message */}
+          <div className={styles.spotsWarning}>
+            <i className="bi bi-exclamation-circle-fill"></i>
+            <span>
+              Only <strong style={{ color: "#dc2626" }}>5 slots left</strong> at the ₹5,000 DLT registration price this month.
+              Once filled, regular pricing applies.
+            </span>
+          </div>
+
           <div className={styles.formTrustLogos}>
             <div className={styles.formTrustLogo}>
               <i className="bi bi-shield-lock-fill"></i>
@@ -1658,7 +1454,7 @@ const FormCtaSection = () => (
             </div>
             <div className={styles.formTrustLogo}>
               <i className="bi bi-patch-check-fill"></i>
-              <span>Meta Partner</span>
+              <span>TRAI Compliant</span>
             </div>
             <div className={styles.formTrustLogo}>
               <i className="bi bi-star-fill"></i>
@@ -1675,12 +1471,14 @@ const FormCtaSection = () => (
             >
               <i className="bi bi-whatsapp"></i> Chat on WhatsApp
             </a>
+            <a href="tel:+918431086185" className={styles.secondaryBtn}>
+              <i className="bi bi-telephone-fill"></i> Call Now
+            </a>
           </div>
         </div>
 
-        {/* Right — form */}
-        <div className="col-lg-7" data-aos="fade-left">
-          <LeadForm formId="get-started-bottom" />
+        <div className="col-lg-7">
+          <LeadForm />
         </div>
       </div>
     </div>
@@ -1691,7 +1489,7 @@ const FormCtaSection = () => (
    FINAL CTA (Dark)
    ═══════════════════════════════════════════════════ */
 const FinalCTA = () => (
-  <section className={`${styles.ctaSection} aos`}>
+  <section className={styles.ctaSection}>
     <div className={styles.ctaParticles}>
       {[...Array(6)].map((_, i) => (
         <span
@@ -1701,54 +1499,50 @@ const FinalCTA = () => (
         ></span>
       ))}
     </div>
-    <div className="container position-relative" data-aos="zoom-in">
+    <div className="container position-relative">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
-        February Offer: Free Setup + 1 Month Platform Free — 3 Spots Left
+        February Offer · DLT Registration at ₹5,000 · Only 5 Spots Left
       </div>
       <h2 className={styles.sectionTitleLight}>
         Every Second You Wait, a Customer Buys from Your Competitor
       </h2>
       <p
         className={styles.sectionLeadLight}
-        style={{ maxWidth: 580, margin: "14px auto 36px" }}
+        style={{ maxWidth: 580, margin: "14px auto 12px" }}
       >
-        Your competitors are already replying instantly on WhatsApp, closing
-        deals while you&rsquo;re still sending emails. Don&rsquo;t lose another
-        customer — get WhatsApp API + AI Chatbot today.
+        Businesses using Bulk SMS see <strong style={{ color: "#93c5fd" }}>3× more conversions</strong> than
+        those relying on email alone. Don&rsquo;t let another day pass without reaching your customers
+        where they actually look — their phone.
+      </p>
+      <p className={styles.sectionLeadLight} style={{ maxWidth: 500, margin: "0 auto 36px", fontSize: "0.9rem", opacity: 0.7 }}>
+        Free setup · No hidden fees · Account live in 24 hours
       </p>
       <div className="d-flex flex-wrap gap-3 justify-content-center">
         <a href="#get-started" className={styles.primaryBtn}>
-          Claim Free Demo Now <i className="bi bi-arrow-right ms-1"></i>
+          Claim My Free Setup Now <i className="bi bi-arrow-right ms-1"></i>
+        </a>
+        <a href="tel:+918431086185" className={styles.ctaCallBtn}>
+          <i className="bi bi-telephone-fill"></i> Call +91 84310 86185
         </a>
       </div>
+      <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 13, marginTop: 20 }}>
+        🔒 No credit card required &nbsp;·&nbsp; 100% free consultation
+      </p>
     </div>
   </section>
 );
 
 /* ═══════════════════════════════════════════════════
-   LANDING PAGE FOOTER (Privacy / Terms)
-   ═══════════════════════════════════════════════════ */
-const LandingPageFooter = () => (
-  <footer className={styles.landingFooter}>
-    <nav className={styles.landingFooterLinks} aria-label="Legal links">
-      <a href="/privacy/">Privacy Policy</a>
-      <span className={styles.landingFooterDot}>·</span>
-      <a href="/terms/">Terms &amp; Conditions</a>
-    </nav>
-  </footer>
-);
-
-/* ═══════════════════════════════════════════════════
    MAIN COMPONENT
    ═══════════════════════════════════════════════════ */
-const WhatsappApiService = () => {
-  const [activeFeatureTab, setActiveFeatureTab] = useState("api");
+const BulkSmsLanding = () => {
+  const [activeFeatureTab, setActiveFeatureTab] = useState("promotional");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     const nav = document.querySelector("nav.navbar");
-    const footer = document.querySelector("footer.site-footer");
+    const footer = document.querySelector("footer");
     if (nav) nav.style.display = "none";
     if (footer) footer.style.display = "none";
     return () => {
@@ -1759,32 +1553,29 @@ const WhatsappApiService = () => {
 
   return (
     <>
-      <div className="d-none d-md-block">
-        <AnnouncementTicker />
-      </div>
+      <AnnouncementTicker />
       <div className={styles.page}>
         <StickyMiniNav />
         <HeroSection />
         <PricingTeaserStrip />
-        {/* <MarqueeTrustBar /> */}
+        <MarqueeTrustBar />
         <AsSeenOnStrip />
         <ProblemSolution />
-        <ComparisonTableSection />
         <FeaturesSection
           activeTab={activeFeatureTab}
           setActiveTab={setActiveFeatureTab}
         />
         <HowItWorks />
-        {/* <VideoSection /> */}
         <UseCasesSection />
         <IntegrationSection />
         <TestimonialsSection />
         <FaqSection openIndex={openFaqIndex} setOpenIndex={setOpenFaqIndex} />
         <FormCtaSection />
+        <FinalCTA />
+        <FloatingStickyBar />
       </div>
-      <LandingPageFooter />
     </>
   );
 };
 
-export default WhatsappApiService;
+export default BulkSmsLanding;

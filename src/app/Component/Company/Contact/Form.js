@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import axios from "axios";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 
 const ContactForm = () => {
@@ -18,21 +17,20 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({
+    if (name === "phone") {
+      setFormData((prev) => ({ ...prev, [name]: value.replace(/\D/g, "") }));
+    } else {
+      setFormData((prev) => ({
         ...prev,
-        [name]: "",
+        [name]: type === "checkbox" ? checked : value,
       }));
+    }
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -51,14 +49,12 @@ const ContactForm = () => {
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (
-      !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ""))
-    ) {
-      newErrors.phone = "Please enter a valid phone number";
+    } else if (!/^\d{10,15}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Enter valid phone (min 10 digits)";
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
+      newErrors.subject = "Please select a subject";
     }
 
     if (!formData.consent) {
@@ -72,81 +68,54 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Prepare data for both webhooks
       const timestamp = new Date().toISOString();
 
-      // Data for Make.com webhook
-      const makeWebhookData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        service: formData.subject,
-        message: formData.message,
-        // consent: formData.consent,
-        timestamp: timestamp,
-      };
-
-      // Data for Web3Forms
-      const web3FormsData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        service: formData.subject,
-        message: formData.message,
-        // consent: formData.consent,
-        access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
-      };
-
-      // Send to both webhooks simultaneously
-      const [makeResponse, web3Response] = await Promise.all([
-        axios.post(
-          "https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6",
-          makeWebhookData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ),
-        axios.post("https://api.web3forms.com/submit", web3FormsData, {
-          headers: {
-            "Content-Type": "application/json",
-          },
+      await Promise.all([
+        fetch("https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            service: formData.subject,
+            message: formData.message,
+            timestamp,
+          }),
+        }),
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            service: formData.subject,
+            message: formData.message,
+            access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
+          }),
         }),
       ]);
 
-      // Check if both requests were successful
-      if (
-        (makeResponse.status === 200 || makeResponse.status === 201) &&
-        web3Response.status === 200
-      ) {
-        // Fire Google Ads conversion tracking
-        gtag_report_conversion();
-
-        setSubmitStatus("success");
-        setShowModal(true);
-
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          subject: "",
-          message: "",
-          consent: false,
-        });
-      }
+      gtag_report_conversion();
+      setShowSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        subject: "",
+        message: "",
+        consent: false,
+      });
     } catch (error) {
       console.error("Submission error:", error);
       setSubmitStatus("error");
@@ -155,162 +124,134 @@ const ContactForm = () => {
     }
   };
 
-  const closeModal = () => {
-    setShowModal(false);
-    setSubmitStatus(null);
-  };
+  if (showSuccess) {
+    return (
+      <div style={styles.successWrap}>
+        <div style={styles.successIcon}>
+          <i className="bi bi-check-lg"></i>
+        </div>
+        <h4 className="fw-bold mb-2">Message Sent Successfully!</h4>
+        <p className="text-muted mb-3">
+          Thank you for reaching out. Our team will get back to you within 24
+          hours.
+        </p>
+        <button style={styles.submitBtn} onClick={() => setShowSuccess(false)}>
+          <i className="bi bi-arrow-left me-2"></i>Send Another Message
+        </button>
+      </div>
+    );
+  }
 
   return (
     <>
+      {/* Response time badge */}
+      <div style={styles.responseBadge}>
+        <span style={styles.responseDot}></span>
+        Average response time: <strong>under 24 hours</strong>
+      </div>
+
       <form onSubmit={handleSubmit} noValidate>
-        <div className="row g-4">
-          {/* Name */}
+        <div className="row g-3 aos">
+          {/* Full Name */}
           <div className="col-md-6">
-            <div className="form-floating">
+            <label style={styles.label}>
+              Full Name <span style={styles.required}>*</span>
+            </label>
+            <div style={styles.inputWrap}>
+              <i className={`bi bi-person`} style={styles.inputIcon}></i>
               <input
                 type="text"
                 name="name"
-                id="name"
-                className={`form-control form-control-lg ${
-                  errors.name ? "is-invalid" : ""
-                }`}
-                placeholder="Enter your full name"
+                placeholder="Your Full Name"
+                style={{
+                  ...styles.input,
+                  ...(errors.name ? styles.inputError : {}),
+                }}
                 value={formData.name}
                 onChange={handleInputChange}
-                style={{
-                  borderRadius: "12px",
-                  border: "2px solid #e9ecef",
-                  fontSize: "16px",
-                  paddingTop: "1.625rem",
-                  paddingBottom: "0.625rem",
-                  height: "calc(3.5rem + 2px)",
-                }}
               />
-              <label htmlFor="name" className="fw-medium text-muted">
-                Full Name <span className="text-danger">*</span>
-              </label>
-              {errors.name && (
-                <div className="invalid-feedback d-block mt-1">
-                  <i className="fas fa-exclamation-circle me-1"></i>
-                  {errors.name}
-                </div>
-              )}
             </div>
+            {errors.name && <p style={styles.errorText}>{errors.name}</p>}
           </div>
 
           {/* Email */}
           <div className="col-md-6">
-            <div className="form-floating">
+            <label style={styles.label}>
+              Email Address <span style={styles.required}>*</span>
+            </label>
+            <div style={styles.inputWrap}>
+              <i className="bi bi-envelope" style={styles.inputIcon}></i>
               <input
                 type="email"
                 name="email"
-                id="email"
-                className={`form-control form-control-lg ${
-                  errors.email ? "is-invalid" : ""
-                }`}
-                placeholder="Enter your email address"
+                placeholder="you@company.com"
+                style={{
+                  ...styles.input,
+                  ...(errors.email ? styles.inputError : {}),
+                }}
                 value={formData.email}
                 onChange={handleInputChange}
-                style={{
-                  borderRadius: "12px",
-                  border: "2px solid #e9ecef",
-                  fontSize: "16px",
-                  paddingTop: "1.625rem",
-                  paddingBottom: "0.625rem",
-                  height: "calc(3.5rem + 2px)",
-                }}
               />
-              <label htmlFor="email" className="fw-medium text-muted">
-                Email Address <span className="text-danger">*</span>
-              </label>
-              {errors.email && (
-                <div className="invalid-feedback d-block mt-1">
-                  <i className="fas fa-exclamation-circle me-1"></i>
-                  {errors.email}
-                </div>
-              )}
             </div>
+            {errors.email && <p style={styles.errorText}>{errors.email}</p>}
           </div>
 
           {/* Phone */}
           <div className="col-md-6">
-            <div className="form-floating">
+            <label style={styles.label}>
+              Phone Number <span style={styles.required}>*</span>
+            </label>
+            <div style={styles.inputWrap}>
+              <i className="bi bi-telephone" style={styles.inputIcon}></i>
               <input
                 type="tel"
                 name="phone"
-                id="phone"
-                className={`form-control form-control-lg ${
-                  errors.phone ? "is-invalid" : ""
-                }`}
-                placeholder="Enter your phone number"
+                placeholder="10-digit mobile number"
+                style={{
+                  ...styles.input,
+                  ...(errors.phone ? styles.inputError : {}),
+                }}
                 value={formData.phone}
                 onChange={handleInputChange}
-                style={{
-                  borderRadius: "12px",
-                  border: "2px solid #e9ecef",
-                  fontSize: "16px",
-                  paddingTop: "1.625rem",
-                  paddingBottom: "0.625rem",
-                  height: "calc(3.5rem + 2px)",
-                }}
+                maxLength={15}
               />
-              <label htmlFor="phone" className="fw-medium text-muted">
-                Phone Number <span className="text-danger">*</span>
-              </label>
-              {errors.phone && (
-                <div className="invalid-feedback d-block mt-1">
-                  <i className="fas fa-exclamation-circle me-1"></i>
-                  {errors.phone}
-                </div>
-              )}
             </div>
+            {errors.phone && <p style={styles.errorText}>{errors.phone}</p>}
           </div>
 
           {/* Company */}
           <div className="col-md-6">
-            <div className="form-floating">
+            <label style={styles.label}>Company Name</label>
+            <div style={styles.inputWrap}>
+              <i className="bi bi-building" style={styles.inputIcon}></i>
               <input
                 type="text"
                 name="company"
-                id="company"
-                className="form-control form-control-lg"
-                placeholder="Enter your company name"
+                placeholder="Your Company (optional)"
+                style={styles.input}
                 value={formData.company}
                 onChange={handleInputChange}
-                style={{
-                  borderRadius: "12px",
-                  border: "2px solid #e9ecef",
-                  fontSize: "16px",
-                  paddingTop: "1.625rem",
-                  paddingBottom: "0.625rem",
-                  height: "calc(3.5rem + 2px)",
-                }}
               />
-              <label htmlFor="company" className="fw-medium text-muted">
-                Company Name
-              </label>
             </div>
           </div>
 
           {/* Subject */}
           <div className="col-12">
-            <div className="form-floating">
+            <label style={styles.label}>
+              Subject <span style={styles.required}>*</span>
+            </label>
+            <div style={styles.inputWrap}>
+              <i className="bi bi-grid" style={styles.inputIcon}></i>
               <select
                 name="subject"
-                id="subject"
-                className={`form-select form-select-lg ${
-                  errors.subject ? "is-invalid" : ""
-                }`}
+                style={{
+                  ...styles.input,
+                  ...(errors.subject ? styles.inputError : {}),
+                  cursor: "pointer",
+                  appearance: "auto",
+                }}
                 value={formData.subject}
                 onChange={handleInputChange}
-                style={{
-                  borderRadius: "12px",
-                  border: "2px solid #e9ecef",
-                  fontSize: "16px",
-                  paddingTop: "1.625rem",
-                  paddingBottom: "0.625rem",
-                  height: "calc(3.5rem + 2px)",
-                }}
               >
                 <option value="">Choose a subject</option>
                 <option value="Waba Service">Waba Service</option>
@@ -320,257 +261,305 @@ const ContactForm = () => {
                 <option value="OTP Service">OTP Service</option>
                 <option value="Other">Other</option>
               </select>
-              <label htmlFor="subject" className="fw-medium text-muted">
-                Subject <span className="text-danger">*</span>
-              </label>
-              {errors.subject && (
-                <div className="invalid-feedback d-block mt-1">
-                  <i className="fas fa-exclamation-circle me-1"></i>
-                  {errors.subject}
-                </div>
-              )}
             </div>
+            {errors.subject && <p style={styles.errorText}>{errors.subject}</p>}
           </div>
 
-          {/* Message - Now Optional */}
+          {/* Message */}
           <div className="col-12">
-            <div className="form-floating">
-              <textarea
-                name="message"
-                id="message"
-                rows="4"
-                className="form-control"
-                placeholder="Tell us more about your requirements..."
-                value={formData.message}
-                onChange={handleInputChange}
-                style={{
-                  borderRadius: "12px",
-                  border: "2px solid #e9ecef",
-                  fontSize: "16px",
-                  paddingTop: "1.625rem",
-                  paddingBottom: "0.625rem",
-                  height: "120px",
-                  resize: "vertical",
-                }}
-              ></textarea>
-              <label htmlFor="message" className="fw-medium text-muted">
-                Your Message
-              </label>
-            </div>
+            <label style={styles.label}>Your Message</label>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Tell us more about your requirements..."
+              style={{ ...styles.input, ...styles.textarea }}
+              value={formData.message}
+              onChange={handleInputChange}
+            ></textarea>
           </div>
 
           {/* Consent */}
           <div className="col-12">
-            <div className="form-check p-3 bg-light bg-opacity-50 rounded-3 border">
+            <div
+              style={{
+                ...styles.consentBox,
+                ...(errors.consent ? styles.consentBoxError : {}),
+              }}
+            >
               <input
                 type="checkbox"
                 name="consent"
                 id="consent"
-                className={`form-check-input me-2 ${
-                  errors.consent ? "is-invalid" : ""
-                }`}
                 checked={formData.consent}
                 onChange={handleInputChange}
-                style={{
-                  transform: "scale(1.1)",
-                  borderRadius: "4px",
-                }}
+                style={styles.checkbox}
               />
-              <label
-                className="form-check-label text-muted small lh-base"
-                htmlFor="consent"
-              >
-                I hereby authorize A2Z SMS to send notifications via
+              <label htmlFor="consent" style={styles.consentLabel}>
+                I authorize A2Z SMS to send notifications via
                 SMS/Messages/Promotional/Informational messages and agree to the{" "}
                 <Link
                   href="/terms/"
-                  className="text-primary text-decoration-none fw-medium"
+                  style={styles.consentLink}
                 >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy/"
-                  className="text-primary text-decoration-none fw-medium"
+                  style={styles.consentLink}
                 >
                   Privacy Policy
                 </Link>
-                . <span className="text-danger fw-medium">*</span>
+                . <span style={styles.required}>*</span>
               </label>
-              {errors.consent && (
-                <div className="invalid-feedback d-block mt-1">
-                  <i className="fas fa-exclamation-circle me-1"></i>
-                  {errors.consent}
-                </div>
-              )}
             </div>
+            {errors.consent && (
+              <p style={styles.errorText}>{errors.consent}</p>
+            )}
           </div>
 
-          {/* Submit Button */}
-          <div className="col-12 mt-4">
+          {/* Submit */}
+          <div className="col-12 mt-2">
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="btn btn-primary btn-lg w-100 fw-semibold position-relative overflow-hidden"
               style={{
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, #0d6efd, #0b5ed7)",
-                border: "none",
-                height: "60px",
-                fontSize: "16px",
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                ...styles.submitBtn,
+                ...(isSubmitting ? styles.submitBtnDisabled : {}),
               }}
+              disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <>
                   <span
                     className="spinner-border spinner-border-sm me-2"
                     role="status"
-                    aria-hidden="true"
                   ></span>
                   Sending Message...
                 </>
               ) : (
                 <>
-                  <i className="fas fa-paper-plane me-2"></i>
-                  Send Message
+                  Send Message <i className="bi bi-send-fill ms-1"></i>
                 </>
               )}
             </button>
+
+            {/* Trust badges */}
+            <div style={styles.trustRow}>
+              <div style={styles.trustItem}>
+                <i className="bi bi-shield-lock-fill" style={styles.trustIcon}></i>
+                <span>256-bit SSL</span>
+              </div>
+              <div style={styles.trustItem}>
+                <i className="bi bi-patch-check-fill" style={styles.trustIcon}></i>
+                <span>Verified Partner</span>
+              </div>
+              <div style={styles.trustItem}>
+                <i className="bi bi-clock-fill" style={styles.trustIcon}></i>
+                <span>Reply in 24 hrs</span>
+              </div>
+            </div>
           </div>
 
-          {/* Error Message */}
+          {/* Error alert */}
           {submitStatus === "error" && (
             <div className="col-12">
               <div
-                className="alert alert-danger d-flex align-items-center border-0 rounded-3"
-                role="alert"
-                style={{ backgroundColor: "#f8d7da" }}
+                style={{
+                  background: "#fee2e2",
+                  border: "1px solid #fecaca",
+                  borderRadius: "12px",
+                  padding: "12px 16px",
+                  color: "#dc2626",
+                  fontSize: "14px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
               >
-                <div className="bg-danger bg-opacity-10 rounded-circle p-2 me-3">
-                  <i className="fas fa-exclamation-triangle text-danger"></i>
-                </div>
-                <div>
-                  <strong>Error:</strong> There was an issue submitting your
-                  message. Please try again or contact us directly.
-                </div>
+                <i className="bi bi-exclamation-circle-fill"></i>
+                There was an issue submitting your message. Please try again or
+                contact us directly.
               </div>
             </div>
           )}
         </div>
       </form>
 
-      {/* Success Modal */}
-      {showModal && (
-        <div
-          className="modal fade show d-block"
-          tabIndex="-1"
-          style={{ backgroundColor: "rgba(0,0,0,0.5)", zIndex: 1055 }}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div
-              className="modal-content border-0 shadow-lg"
-              style={{ borderRadius: "20px" }}
-            >
-              <div className="modal-body text-center p-5">
-                <div className="success-animation mb-4">
-                  <div
-                    className="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center"
-                    style={{ width: "80px", height: "80px" }}
-                  >
-                    <i
-                      className="fas fa-check text-success"
-                      style={{ fontSize: "2.5rem" }}
-                    ></i>
-                  </div>
-                </div>
-                <h4 className="mb-3 fw-bold text-dark">
-                  Message Sent Successfully!
-                </h4>
-                <p className="text-muted mb-4 lh-base">
-                  Thank you for reaching out to us. We have received your
-                  message and our team will get back to you within 24 hours.
-                </p>
-                <button
-                  type="button"
-                  className="btn btn-primary btn-lg px-4 py-2 fw-semibold"
-                  onClick={closeModal}
-                  style={{
-                    borderRadius: "12px",
-                    background: "linear-gradient(135deg, #0d6efd, #0b5ed7)",
-                    border: "none",
-                  }}
-                >
-                  <i className="fas fa-thumbs-up me-2"></i>
-                  Perfect!
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       <style jsx>{`
-        .form-control:focus,
-        .form-select:focus {
+        input:focus,
+        select:focus,
+        textarea:focus {
           border-color: #0d6efd !important;
-          box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15) !important;
+          box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12) !important;
+          outline: none;
         }
-
-        .form-floating > label {
-          padding: 1rem 1rem;
-        }
-
-        .btn-primary:hover {
+        button[type="submit"]:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
-        }
-
-        .btn-primary:active {
-          transform: translateY(0);
-        }
-
-        .success-animation {
-          animation: bounceIn 0.6s ease-out;
-        }
-
-        @keyframes bounceIn {
-          0% {
-            opacity: 0;
-            transform: scale(0.3);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.1);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        .form-check-input:checked {
-          background-color: #0d6efd;
-          border-color: #0d6efd;
-        }
-
-        .alert {
-          animation: slideInDown 0.3s ease-out;
-        }
-
-        @keyframes slideInDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          box-shadow: 0 8px 24px rgba(13, 110, 253, 0.3) !important;
         }
       `}</style>
     </>
   );
+};
+
+const styles = {
+  responseBadge: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    background: "#e8f0fe",
+    borderRadius: "999px",
+    padding: "6px 16px",
+    fontSize: "12px",
+    color: "#374151",
+    marginBottom: "20px",
+  },
+  responseDot: {
+    width: "8px",
+    height: "8px",
+    borderRadius: "50%",
+    background: "#0d6efd",
+    display: "inline-block",
+    animation: "pulse 2s ease-in-out infinite",
+  },
+  label: {
+    display: "block",
+    fontSize: "13px",
+    fontWeight: "600",
+    color: "#1a2332",
+    marginBottom: "6px",
+  },
+  required: {
+    color: "#ef4444",
+  },
+  inputWrap: {
+    position: "relative",
+  },
+  inputIcon: {
+    position: "absolute",
+    left: "14px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    fontSize: "15px",
+    color: "#8a9ba3",
+    pointerEvents: "none",
+    zIndex: 1,
+  },
+  input: {
+    width: "100%",
+    padding: "12px 14px 12px 40px",
+    border: "1.5px solid #e2e8f0",
+    borderRadius: "12px",
+    fontSize: "14px",
+    color: "#1a2332",
+    background: "#fff",
+    transition: "all 0.2s",
+    outline: "none",
+    fontFamily: "inherit",
+  },
+  inputError: {
+    borderColor: "#ef4444",
+  },
+  textarea: {
+    paddingLeft: "14px",
+    resize: "vertical",
+    minHeight: "100px",
+  },
+  errorText: {
+    fontSize: "12px",
+    color: "#ef4444",
+    marginTop: "4px",
+    marginBottom: "0",
+  },
+  consentBox: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: "10px",
+    background: "#f8fafc",
+    border: "1.5px solid #e2e8f0",
+    borderRadius: "12px",
+    padding: "14px 16px",
+  },
+  consentBoxError: {
+    borderColor: "#ef4444",
+  },
+  checkbox: {
+    width: "16px",
+    height: "16px",
+    marginTop: "2px",
+    flexShrink: 0,
+    cursor: "pointer",
+    accentColor: "#0d6efd",
+  },
+  consentLabel: {
+    fontSize: "13px",
+    color: "#6b7280",
+    lineHeight: "1.6",
+    cursor: "pointer",
+  },
+  consentLink: {
+    color: "#0d6efd",
+    textDecoration: "none",
+    fontWeight: "600",
+  },
+  submitBtn: {
+    width: "100%",
+    padding: "13px 24px",
+    border: "none",
+    borderRadius: "999px",
+    background: "linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%)",
+    color: "#fff",
+    fontSize: "15px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    boxShadow: "0 4px 16px rgba(13, 110, 253, 0.3)",
+    fontFamily: "inherit",
+  },
+  submitBtnDisabled: {
+    opacity: 0.6,
+    cursor: "not-allowed",
+    transform: "none",
+    boxShadow: "none",
+  },
+  trustRow: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
+    marginTop: "16px",
+    flexWrap: "wrap",
+  },
+  trustItem: {
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    fontSize: "12px",
+    color: "#8a9ba3",
+  },
+  trustIcon: {
+    color: "#0d6efd",
+    fontSize: "14px",
+  },
+  successWrap: {
+    textAlign: "center",
+    padding: "32px 16px",
+  },
+  successIcon: {
+    width: "64px",
+    height: "64px",
+    borderRadius: "50%",
+    background: "linear-gradient(135deg, #0d6efd, #0b5ed7)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "28px",
+    color: "#fff",
+    margin: "0 auto 16px",
+  },
 };
 
 export default ContactForm;

@@ -27,7 +27,7 @@ const Industries = () => {
 
   return (
     <section className="industries-section">
-      <div className="container">
+      <div className="container aos">
         <div className="row justify-content-center">
           <div className="col-lg-8 text-center mb-4" data-aos="fade-up">
             <span className="section-label">Industries</span>

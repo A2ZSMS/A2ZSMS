@@ -1,14 +1,21 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import styles from "./WhatsappApiService.module.css";
-import PopupForm from "../PopUp";
+import { useRouter } from "next/navigation";
+import styles from "./RcsLanding.module.css";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 
 const WA_NUMBER = "919740274595";
-const WA_MSG = encodeURIComponent("Hi");
+const WA_MSG = encodeURIComponent("Hi, I am interested in RCS Messaging Service");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+
+const socialProofPeople = [
+  { name: "Priya Sharma", city: "Mumbai", time: "2 min ago" },
+  { name: "Rahul Nair", city: "Bangalore", time: "5 min ago" },
+  { name: "Sneha Reddy", city: "Hyderabad", time: "8 min ago" },
+  { name: "Amit Joshi", city: "Delhi", time: "12 min ago" },
+  { name: "Kavya Menon", city: "Chennai", time: "15 min ago" },
+];
 
 const trustLogos = [
   { src: "/image/brand/google.png", alt: "Google" },
@@ -61,9 +68,9 @@ const useCountUp = (end, duration = 2000, isDecimal = false) => {
    ═══════════════════════════════════════════════════ */
 const AnnouncementTicker = () => {
   const messages = [
-    "🔥 February Offer: Free WhatsApp API Setup + 1 Month Platform Free — Only 3 spots left!",
-    "⚡ 98% open rate on WhatsApp — 5× better than SMS or email",
-    "🏆 Trusted by 500+ businesses across India — Official Meta Partner!",
+    "🚀 February Offer: Free RCS Setup + 1 Month Platform Free — Only 4 spots left!",
+    "⚡ 35% Higher Engagement vs Plain SMS — Switch to RCS Today!",
+    "🏆 Trusted by 500+ Businesses Across India — Verified Google RCS Partner",
   ];
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -73,9 +80,7 @@ const AnnouncementTicker = () => {
   return (
     <div className={styles.ticker}>
       <span className={styles.tickerText}>{messages[idx]}</span>
-      <a href="#get-started" className={styles.tickerCta}>
-        Claim Offer →
-      </a>
+      <a href="#get-started" className={styles.tickerCta}>Claim Offer →</a>
     </div>
   );
 };
@@ -83,12 +88,6 @@ const AnnouncementTicker = () => {
 /* ═══════════════════════════════════════════════════
    SOCIAL PROOF BUBBLE
    ═══════════════════════════════════════════════════ */
-const socialProofPeople = [
-  { name: "Priya", city: "Mumbai", time: "3 min ago" },
-  { name: "Rahul", city: "Bangalore", time: "7 min ago" },
-  { name: "Sneha", city: "Chennai", time: "11 min ago" },
-  { name: "Amit", city: "Delhi", time: "15 min ago" },
-];
 const SocialProofBubble = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -107,13 +106,9 @@ const SocialProofBubble = () => {
   }, []);
   const p = socialProofPeople[idx];
   return (
-    <div
-      className={`${styles.socialBubble} ${visible ? styles.socialBubbleVisible : styles.socialBubbleHidden}`}
-    >
+    <div className={`${styles.socialBubble} ${visible ? styles.socialBubbleVisible : styles.socialBubbleHidden}`}>
       <span className={styles.socialBubbleDot}></span>
-      <span>
-        <strong>{p.name}</strong> from {p.city} just got a free demo · {p.time}
-      </span>
+      <span><strong>{p.name}</strong> from {p.city} just got a free RCS demo · {p.time}</span>
     </div>
   );
 };
@@ -140,12 +135,11 @@ const FloatingStickyBar = () => {
   if (!show) return null;
   return (
     <div className={styles.floatingBar}>
-      <span className={styles.floatingBarText}>
-        🎯 Get free WhatsApp API demo — only 3 spots left today
-      </span>
-      <a href="#get-started" className={styles.floatingBarCta}>
-        Get Free Demo
+      <span className={styles.floatingBarText}>🎯 Get free RCS demo — only 4 spots left today</span>
+      <a href="tel:+918431086185" className={styles.floatingBarCall}>
+        <i className="bi bi-telephone-fill"></i> Call Now
       </a>
+      <a href="#get-started" className={styles.floatingBarCta}>Get Free Demo</a>
     </div>
   );
 };
@@ -160,19 +154,9 @@ const CountdownTimer = () => {
       setTime((prev) => {
         let { h, m, s } = prev;
         s--;
-        if (s < 0) {
-          s = 59;
-          m--;
-        }
-        if (m < 0) {
-          m = 59;
-          h--;
-        }
-        if (h < 0) {
-          h = 23;
-          m = 59;
-          s = 59;
-        }
+        if (s < 0) { s = 59; m--; }
+        if (m < 0) { m = 59; h--; }
+        if (h < 0) { h = 23; m = 59; s = 59; }
         return { h, m, s };
       });
     }, 1000);
@@ -183,9 +167,7 @@ const CountdownTimer = () => {
     <div className={styles.countdown}>
       <i className="bi bi-clock-fill"></i>
       <span>Offer expires in</span>
-      <span className={styles.countdownTime}>
-        {pad(time.h)}:{pad(time.m)}:{pad(time.s)}
-      </span>
+      <span className={styles.countdownTime}>{pad(time.h)}:{pad(time.m)}:{pad(time.s)}</span>
     </div>
   );
 };
@@ -195,39 +177,29 @@ const CountdownTimer = () => {
    ═══════════════════════════════════════════════════ */
 const PricingTeaserStrip = () => (
   <div className={styles.pricingTeaser}>
-    <div className="container">
-      <div className={styles.pricingTeaserInner}>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-tag-fill"></i>
-          <span>
-            Setup from <strong>₹2,999</strong> only
-          </span>
-        </div>
-        <div className={styles.pricingTeaserDivider}></div>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-check-circle-fill"></i>
-          <span>
-            <strong>1 month platform</strong> free
-          </span>
-        </div>
-        <div className={styles.pricingTeaserDivider}></div>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-x-circle-fill"></i>
-          <span>
-            <strong>Cancel anytime</strong>
-          </span>
-        </div>
-        <div className={styles.pricingTeaserDivider}></div>
-        <div className={styles.pricingTeaserItem}>
-          <i className="bi bi-patch-check-fill"></i>
-          <span>
-            <strong>Official Meta</strong> partner
-          </span>
-        </div>
-        <a href="#get-started" className={styles.pricingTeaserCta}>
-          See Pricing
-        </a>
+    <div className={styles.pricingTeaserInner}>
+      <div className={styles.pricingTeaserItem}>
+        <i className="bi bi-tag-fill"></i>
+        <span>RCS Setup from <strong>₹3,999</strong></span>
       </div>
+      <div className={styles.pricingTeaserDivider}></div>
+      <div className={styles.pricingTeaserItem}>
+        <i className="bi bi-gift-fill"></i>
+        <span><strong>1 Month</strong> platform free</span>
+      </div>
+      <div className={styles.pricingTeaserDivider}></div>
+      <div className={styles.pricingTeaserItem}>
+        <i className="bi bi-shield-check-fill"></i>
+        <span>Cancel <strong>anytime</strong></span>
+      </div>
+      <div className={styles.pricingTeaserDivider}></div>
+      <div className={styles.pricingTeaserItem}>
+        <i className="bi bi-patch-check-fill"></i>
+        <span><strong>Google</strong> RCS Partner</span>
+      </div>
+      <a href="#get-started" className={styles.pricingTeaserCta}>
+        Get Free Demo <i className="bi bi-arrow-right ms-1"></i>
+      </a>
     </div>
   </div>
 );
@@ -237,36 +209,25 @@ const PricingTeaserStrip = () => (
    ═══════════════════════════════════════════════════ */
 const AsSeenOnStrip = () => (
   <div className={styles.asSeenOn}>
-    <div className="container">
-      <div className={styles.asSeenOnInner}>
-        <span className={styles.asSeenOnLabel}>As seen on</span>
-        <div className={styles.asSeenOnLogos}>
-          <div className={styles.asSeenOnLogo}>
-            <i className="bi bi-google" style={{ color: "#4285F4" }}></i>
-            <span>
-              <strong>Google</strong> Reviews
-            </span>
-            <span className={styles.asSeenOnRating}>★ 4.9/5</span>
-          </div>
-          <div className={styles.asSeenOnDivider}></div>
-          <div className={styles.asSeenOnLogo}>
-            <i className="bi bi-star-fill" style={{ color: "#00b67a" }}></i>
-            <span>
-              <strong>Trustpilot</strong>
-            </span>
-            <span className={styles.asSeenOnRating}>★ 4.8/5</span>
-          </div>
-          <div className={styles.asSeenOnDivider}></div>
-          <div className={styles.asSeenOnLogo}>
-            <i
-              className="bi bi-shield-check-fill"
-              style={{ color: "#ff6d42" }}
-            ></i>
-            <span>
-              <strong>Capterra</strong>
-            </span>
-            <span className={styles.asSeenOnRating}>★ 4.7/5</span>
-          </div>
+    <div className={styles.asSeenOnInner}>
+      <span className={styles.asSeenOnLabel}>Rated & Reviewed On</span>
+      <div className={styles.asSeenOnLogos}>
+        <div className={styles.asSeenOnLogo}>
+          <i className="bi bi-google"></i>
+          <span>Google</span>
+          <span className={styles.asSeenOnRating}>★ 4.9</span>
+        </div>
+        <div className={styles.asSeenOnDivider}></div>
+        <div className={styles.asSeenOnLogo}>
+          <i className="bi bi-star-fill"></i>
+          <span>Trustpilot</span>
+          <span className={styles.asSeenOnRating}>★ 4.8</span>
+        </div>
+        <div className={styles.asSeenOnDivider}></div>
+        <div className={styles.asSeenOnLogo}>
+          <i className="bi bi-award-fill"></i>
+          <span>Capterra</span>
+          <span className={styles.asSeenOnRating}>★ 4.7</span>
         </div>
       </div>
     </div>
@@ -296,80 +257,18 @@ const StickyMiniNav = () => {
         <div className="d-flex align-items-center gap-3">
           <div className={styles.miniNavSpotsWrap}>
             <span className={styles.miniNavSpotsDot}></span>
-            <span className="d-none d-sm-inline">Only 3 spots left</span>
+            <span className="d-none d-sm-inline">Only 4 spots left</span>
           </div>
+          <a href="tel:+918431086185" className={styles.miniNavPhone}>
+            <i className="bi bi-telephone-fill"></i>
+            <span className="d-none d-md-inline">+91 84310 86185</span>
+          </a>
           <a href="#get-started" className={styles.miniNavCta}>
             Get Free Demo <i className="bi bi-arrow-right ms-1"></i>
           </a>
         </div>
       </div>
     </nav>
-  );
-};
-
-/* ═══════════════════════════════════════════════════
-   HERO VIDEO PLAYER
-   ═══════════════════════════════════════════════════ */
-// Replace 'YOUTUBE_VIDEO_ID' with your actual YouTube video ID
-const HERO_VIDEO_ID = "YOUTUBE_VIDEO_ID";
-
-const HeroVideoPlayer = () => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <div className={styles.heroImageWrap}>
-      <div className={styles.heroImageGlow}></div>
-      {playing ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
-          title="How WhatsApp API Works - A2ZSMS"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={styles.heroVideoIframe}
-        />
-      ) : (
-        <div
-          className={styles.heroVideoPoster}
-          onClick={() => setPlaying(true)}
-        >
-          <img
-            src="/image/product/whatsapp.png"
-            alt="Watch How WhatsApp API Works - A2ZSMS Demo"
-            className={styles.heroImage}
-            width={560}
-            height={480}
-            loading="eager"
-            decoding="async"
-          />
-          <div className={styles.heroVideoOverlay}></div>
-          <span
-            className={styles.heroPlayBtn}
-            role="button"
-            aria-label="Play how it works video"
-          >
-            <i className="bi bi-play-fill"></i>
-          </span>
-          <span className={styles.heroPlayLabel}>
-            <i className="bi bi-camera-video-fill"></i> How It Works (60 sec)
-          </span>
-        </div>
-      )}
-      {!playing && (
-        <>
-          <div className={styles.heroFloat1}>
-            <i className="bi bi-whatsapp"></i>
-            <span>98% Open Rate</span>
-          </div>
-          <div className={styles.heroFloat2}>
-            <i className="bi bi-robot"></i>
-            <span>AI Chatbot</span>
-          </div>
-          <div className={styles.heroFloat3}>
-            <i className="bi bi-patch-check-fill"></i>
-            <span>Meta Verified</span>
-          </div>
-        </>
-      )}
-    </div>
   );
 };
 
@@ -397,56 +296,56 @@ const HeroSection = () => (
     <div className="container position-relative">
       <div className="row align-items-center gy-5">
         <div className="col-lg-6" data-aos="fade-right">
-          {/* Logo */}
-          <div className={styles.heroLogoWrap}>
-            <img
-              src="/image/logo.png"
-              alt="A2ZSMS"
-              className={styles.heroLogo}
-            />
-          </div>
-
           {/* Urgency top bar */}
           <div className={styles.heroTopBar}>
             <i className="bi bi-lightning-charge-fill"></i>
             <span>
-              <strong>February Offer:</strong> Free Setup + 1 Month Platform
-              Free — only <strong>3 spots left</strong>
+              <strong>February Offer:</strong> Free RCS Setup + 1 Month Platform
+              Free — only <strong>4 spots left</strong>
             </span>
           </div>
 
           <div className={styles.heroBadge}>
             <span className={styles.heroBadgeDot}></span>
-            Official WhatsApp Business API Partner
+            India&apos;s #1 RCS Messaging Platform
           </div>
 
           <h1 className={styles.heroTitle}>
-            Official WhatsApp Business API Provider —{" "}
+            Stop Sending Plain SMS That Gets Ignored.{" "}
             <span className={styles.heroGradient}>
-              Automate Sales &amp; Support Instantly
+              Switch to RCS — Rich, Verified &amp; Unopenable
             </span>
           </h1>
 
-          <p className={styles.heroText}>Stop losing leads to slow replies.</p>
-
-          <p className={styles.heroSubText}>
-            Get Official WhatsApp Business API with AI Chatbot, Multi-Agent
-            Support, and CRM Integration — all in one platform.
+          <p className={styles.heroText}>
+            Your customers ignore boring plain-text SMS. RCS delivers branded
+            messages with images, carousels, quick-reply buttons and verified
+            sender ID — straight to their default messages app. No app download
+            needed.
           </p>
 
           <div className={styles.heroChecks}>
             {[
-              "98% open rates with WhatsApp Business API",
-              "Automate replies, OTPs & follow-ups 24/7",
-              "Get Official Green Tick Verification",
-              "Send compliant bulk broadcasts",
-              "Seamless CRM integration",
+              "35% higher engagement than plain SMS",
+              "Verified business sender — zero spoofing",
+              "Rich cards, carousels & interactive buttons",
+              "Works on 2B+ devices — no app install needed",
             ].map((item) => (
               <div key={item} className={styles.heroCheckItem}>
                 <i className="bi bi-check-circle-fill"></i>
                 <span>{item}</span>
               </div>
             ))}
+          </div>
+
+          <div className="d-flex flex-wrap gap-3 mt-4">
+            <a href="#get-started" className={styles.primaryBtn}>
+              Claim Free Demo &amp; Pricing{" "}
+              <i className="bi bi-arrow-right ms-1"></i>
+            </a>
+            <a href="tel:+918431086185" className={styles.heroCallBtn}>
+              <i className="bi bi-telephone-fill"></i> Call Now
+            </a>
           </div>
 
           <p className={styles.heroGuarantee}>
@@ -459,19 +358,47 @@ const HeroSection = () => (
           <div className={styles.heroStats}>
             <HeroStatItem end={500} suffix="+" label="Businesses" />
             <div className={styles.heroStatDivider}></div>
-            <HeroStatItem
-              end={99.9}
-              suffix="%"
-              label="Uptime"
-              isDecimal={true}
-            />
+            <HeroStatItem end={35} suffix="%" label="More Engagement" />
             <div className={styles.heroStatDivider}></div>
-            <HeroStatItem end={24} suffix="/7" label="Support" />
+            <HeroStatItem end={98} suffix="%" label="Delivery Rate" />
           </div>
         </div>
 
         <div className="col-lg-6" data-aos="fade-left">
-          <LeadForm />
+          <div className={styles.heroImageWrap}>
+            <div className={styles.heroImageGlow}></div>
+            <img
+              src="/image/product/rcs.png"
+              alt="RCS Messaging Service Dashboard"
+              className={styles.heroImage}
+              width={560}
+              height={480}
+              loading="eager"
+              decoding="async"
+              onError={(e) => {
+                e.target.src = "/image/product/whatsapp.png";
+              }}
+            />
+            <a
+              href="#get-started"
+              className={styles.heroPlayBtn}
+              aria-label="Get started"
+            >
+              <i className="bi bi-play-fill"></i>
+            </a>
+            <div className={styles.heroFloat1}>
+              <i className="bi bi-patch-check-fill"></i>
+              <span>Verified Sender</span>
+            </div>
+            <div className={styles.heroFloat2}>
+              <i className="bi bi-graph-up-arrow"></i>
+              <span>35% Higher CTR</span>
+            </div>
+            <div className={styles.heroFloat3}>
+              <i className="bi bi-images"></i>
+              <span>Rich Media</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -512,49 +439,49 @@ const MarqueeTrustBar = () => (
    ═══════════════════════════════════════════════════ */
 const problems = [
   {
-    icon: "bi-emoji-frown",
-    title: "Low SMS & Email Open Rates",
-    text: "Traditional SMS gets <20% opens, emails land in spam. Your marketing budget is wasted.",
+    icon: "bi-envelope-slash",
+    title: "Plain SMS Gets Ignored",
+    text: "Generic plain-text SMS has <20% click-through. Customers don't trust unknown numbers — they delete without reading.",
     stat: "<20%",
-    statLabel: "Open Rate",
+    statLabel: "Click Rate",
   },
   {
-    icon: "bi-clock-history",
-    title: "Manual Follow-ups Waste Time",
-    text: "Your team spends hours manually following up with leads instead of closing deals.",
-    stat: "3hrs",
-    statLabel: "Avg Response",
+    icon: "bi-shield-exclamation",
+    title: "No Sender Verification",
+    text: "Unverified SMS numbers lead to spoofing, spam, and customers blocking your messages permanently.",
+    stat: "67%",
+    statLabel: "Marked as Spam",
   },
   {
-    icon: "bi-moon",
-    title: "No Support After Hours",
-    text: "Customers leave when they don't get instant replies. You lose leads every night.",
-    stat: "40%",
-    statLabel: "Leads Lost",
+    icon: "bi-image-slash",
+    title: "No Rich Media in SMS",
+    text: "Plain SMS can't show product images, videos, or interactive buttons. You lose every visual upsell opportunity.",
+    stat: "3×",
+    statLabel: "Missed Engagement",
   },
 ];
 
 const solutions = [
   {
-    icon: "bi-graph-up-arrow",
-    title: "98% Open Rate on WhatsApp",
-    text: "Messages read within minutes. Rich media — images, videos, buttons for higher engagement.",
-    stat: "98%",
-    statLabel: "Open Rate",
+    icon: "bi-stars",
+    title: "Rich Visual Messages",
+    text: "Send carousels, product images, video previews, and PDF files directly in the message. Engage like never before.",
+    stat: "35%",
+    statLabel: "Higher Engagement",
   },
   {
-    icon: "bi-gear-wide-connected",
-    title: "Automated Workflows & Drips",
-    text: "Set up auto-replies, drip campaigns, and triggers that engage leads on autopilot.",
-    stat: "Instant",
-    statLabel: "Response",
+    icon: "bi-patch-check-fill",
+    title: "Verified Business Sender",
+    text: "Your brand logo, name, and verified badge appear on every message. Zero spoofing — 100% customer trust.",
+    stat: "100%",
+    statLabel: "Verified",
   },
   {
-    icon: "bi-robot",
-    title: "AI Chatbot Works 24/7",
-    text: "Intelligent chatbot handles queries, captures leads, and books appointments around the clock.",
-    stat: "24/7",
-    statLabel: "Coverage",
+    icon: "bi-hand-index-thumb-fill",
+    title: "Interactive Buttons & CTAs",
+    text: "Add quick-reply buttons, URL buttons, call buttons, and location sharing — drive action right inside the message.",
+    stat: "5×",
+    statLabel: "More Clicks",
   },
 ];
 
@@ -562,21 +489,21 @@ const ProblemSolution = () => (
   <section className={`${styles.sectionAlt} aos`}>
     <div className="container">
       <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Why Switch?</span>
+        <span className={styles.sectionBadge}>Why Switch to RCS?</span>
         <h2 className={styles.sectionTitle}>The Problem &amp; Our Solution</h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Stop struggling with outdated channels. Switch to WhatsApp API +
-          Chatbot and see instant results.
+          Plain SMS is dying. RCS is the next generation of business messaging
+          — richer, verified, and 35% more engaging.
         </p>
       </div>
 
       <div className="row g-4 mb-2">
         <div className="col-12">
           <h6 className="text-uppercase fw-bold text-danger small mb-3">
-            <i className="bi bi-x-circle-fill me-2"></i>Common Problems
+            <i className="bi bi-x-circle-fill me-2"></i>Problems with Plain SMS
           </h6>
         </div>
         {problems.map((p, i) => (
@@ -611,8 +538,8 @@ const ProblemSolution = () => (
 
       <div className="row g-4 mt-2">
         <div className="col-12">
-          <h6 className="text-uppercase fw-bold text-success small mb-3">
-            <i className="bi bi-check-circle-fill me-2"></i>Our Solution
+          <h6 className="text-uppercase fw-bold small mb-3" style={{ color: "var(--rcs-accent)" }}>
+            <i className="bi bi-check-circle-fill me-2"></i>RCS Solution
           </h6>
         </div>
         {solutions.map((s, i) => (
@@ -622,8 +549,8 @@ const ProblemSolution = () => (
             data-aos="fade-up"
             data-aos-delay={i * 100}
           >
-            <div className={`${styles.compCard} ${styles.compCardGreen}`}>
-              <div className={`${styles.compIcon} ${styles.compIconGreen}`}>
+            <div className={`${styles.compCard} ${styles.compCardPurple}`}>
+              <div className={`${styles.compIcon} ${styles.compIconPurple}`}>
                 <i className={`bi ${s.icon}`}></i>
               </div>
               <h5 className={styles.compCardTitle}>{s.title}</h5>
@@ -641,175 +568,83 @@ const ProblemSolution = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   COMPARISON TABLE — Standard WA vs A2ZSMS API
+   FEATURES — Tab Switcher (RCS Messaging + AI Chatbot)
    ═══════════════════════════════════════════════════ */
-const comparisonRows = [
-  ["Bulk Messaging", "❌ Not Allowed", "✅ Unlimited Scale"],
-  ["Automation & Chatbot", "❌ Manual Only", "✅ Full AI Automation"],
-  ["Green Tick Verified", "❌ Not Available", "✅ Meta Verified"],
-  ["CRM / ERP Integration", "❌ No Integration", "✅ 80+ Tools"],
-  ["Multi-Agent Support", "❌ Single Device", "✅ Unlimited Agents"],
-  ["Analytics & Reports", "❌ Basic Stats", "✅ Real-Time Dashboard"],
-  ["Meta-Approved Templates", "❌ No Templates", "✅ Full Library"],
-  ["Ban Risk", "🔴 High Risk", "✅ Zero Risk"],
-  ["Official Meta Support", "❌ No Priority", "✅ Dedicated Support"],
-];
-
-const ComparisonTableSection = () => (
-  <section className={`${styles.section} aos`}>
-    <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Why Upgrade?</span>
-        <h2 className={styles.sectionTitle}>
-          Standard WhatsApp vs. A2ZSMS API
-        </h2>
-        <p
-          className={`${styles.sectionLead} mx-auto`}
-          style={{ maxWidth: 620 }}
-        >
-          The WhatsApp Business App is built for small shops. The API is built
-          for scaling. Here&apos;s the difference.
-        </p>
-      </div>
-      <div className={styles.compTableWrap} data-aos="fade-up">
-        <table className={styles.compTable}>
-          <thead>
-            <tr>
-              <th className={styles.compTableThFeature}>Feature</th>
-              <th className={styles.compTableThStandard}>
-                <i className="bi bi-whatsapp me-2"></i>Standard WhatsApp
-              </th>
-              <th className={styles.compTableThApi}>
-                <i className="bi bi-patch-check-fill me-2"></i>A2ZSMS API
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {comparisonRows.map(([feature, standard, api], i) => (
-              <tr
-                key={i}
-                className={i % 2 === 0 ? styles.compTableRowEven : ""}
-              >
-                <td className={styles.compTableFeatureCell}>{feature}</td>
-                <td className={styles.compTableStandardCell}>{standard}</td>
-                <td className={styles.compTableApiCell}>{api}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="text-center mt-5" data-aos="fade-up">
-        <a href="#get-started" className={styles.primaryBtn}>
-          Switch to A2ZSMS API <i className="bi bi-arrow-right ms-1"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-);
-
-/* ═══════════════════════════════════════════════════
-   VIDEO DEMO SECTION
-   ═══════════════════════════════════════════════════ */
-const VideoSection = () => (
-  <section className={`${styles.sectionDark} aos`}>
-    <div className="container">
-      <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadgeLight}>See It In Action</span>
-        <h2 className={styles.sectionTitleLight}>
-          Watch How WhatsApp API Works in 60 Seconds
-        </h2>
-        <p className={styles.sectionLeadLight}>
-          See exactly how A2ZSMS automates your business communication — from
-          setup to your first message.
-        </p>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-lg-8" data-aos="fade-up">
-          <HeroVideoPlayer />
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-/* ═══════════════════════════════════════════════════
-   FEATURES — Tab Switcher (API + Chatbot merged)
-   ═══════════════════════════════════════════════════ */
-const apiAdvantages = [
+const rcsFeatures = [
   {
-    icon: "bi-send-fill",
-    color: "#25d366",
-    title: "Bulk Messaging at Scale",
-    text: "Send thousands of personalized WhatsApp messages with 98% open rate. Reach customers where they are most active.",
+    icon: "bi-images",
+    color: "#7c3aed",
+    title: "Rich Media Cards",
+    text: "Send product images, carousels, video previews and PDF brochures directly in the message thread.",
   },
   {
-    icon: "bi-bell-fill",
-    color: "#128c7e",
-    title: "Automated Notifications",
-    text: "Order updates, payment reminders, OTPs, and alerts — sent automatically without any manual work.",
+    icon: "bi-patch-check-fill",
+    color: "#0072ff",
+    title: "Verified Sender ID",
+    text: "Brand logo, name, and blue verified badge on every message — customers instantly recognise and trust you.",
   },
   {
-    icon: "bi-shield-lock-fill",
-    color: "#075e54",
-    title: "Green Tick Verified Profile",
-    text: "Get official Meta verification with a green tick badge that builds instant customer trust.",
+    icon: "bi-hand-index-thumb-fill",
+    color: "#059669",
+    title: "Interactive Buttons",
+    text: "Quick reply, URL, call, and location-sharing buttons — turn every message into a two-way conversation.",
+  },
+  {
+    icon: "bi-graph-up-arrow",
+    color: "#f59e0b",
+    title: "Read Receipts & Analytics",
+    text: "Know exactly who opened, clicked, and replied. Optimise every campaign with real-time dashboards.",
+  },
+  {
+    icon: "bi-phone-fill",
+    color: "#ef4444",
+    title: "No App Download",
+    text: "RCS works inside the default Messages app on Android. 2 billion+ devices supported — zero friction for users.",
   },
   {
     icon: "bi-plug-fill",
     color: "#0ea5e9",
-    title: "Easy API Integration",
-    text: "Connect WhatsApp with your CRM, ERP, or any business tool in minutes using our developer-friendly API.",
-  },
-  {
-    icon: "bi-graph-up-arrow",
-    color: "#8b5cf6",
-    title: "Real-Time Analytics",
-    text: "Track delivery, read rates, and campaign performance with powerful real-time dashboards.",
-  },
-  {
-    icon: "bi-images",
-    color: "#f59e0b",
-    title: "Rich Media Templates",
-    text: "Send images, videos, PDFs, carousels, and interactive buttons — boost engagement 3x over plain text.",
+    title: "API Integration",
+    text: "Connect with your CRM, e-commerce store, or any business tool via our developer-friendly REST API.",
   },
 ];
 
-const chatbotAdvantages = [
+const chatbotFeatures = [
   {
     icon: "bi-stars",
-    color: "#25d366",
-    title: "AI-Powered Replies",
-    text: "Natural conversations with AI that improves after every interaction. Handle 80% queries without humans.",
+    color: "#7c3aed",
+    title: "AI-Powered RCS Chatbot",
+    text: "Natural language chatbot inside RCS threads — answer queries, collect leads and book appointments 24/7.",
   },
   {
     icon: "bi-megaphone",
-    color: "#128c7e",
-    title: "Campaign Automation",
-    text: "Segment your audience and launch drip or broadcast campaigns with smart scheduling.",
+    color: "#0072ff",
+    title: "Drip Campaign Automation",
+    text: "Segment audiences and send timed RCS message sequences with rich visuals and personalised content.",
   },
   {
     icon: "bi-bag-check",
-    color: "#075e54",
-    title: "Product Discovery",
-    text: "Show catalogs, share product cards, and guide shoppers to checkout inside WhatsApp.",
+    color: "#059669",
+    title: "Product Catalog in Chat",
+    text: "Showcase products with image carousels, price tags, and buy buttons — turn chats into a storefront.",
   },
   {
     icon: "bi-headset",
-    color: "#0ea5e9",
-    title: "Always-On Support",
-    text: "Resolve FAQs instantly and route complex issues to human agents with full context.",
+    color: "#f59e0b",
+    title: "24/7 Automated Support",
+    text: "Resolve FAQs, track orders, and route complex queries to human agents — all within RCS.",
   },
   {
     icon: "bi-calendar-check",
-    color: "#8b5cf6",
+    color: "#ef4444",
     title: "Appointment Booking",
-    text: "Capture leads, confirm bookings, and send reminders — no manual follow-up needed.",
+    text: "Capture bookings, send rich reminders with map buttons, and reduce no-shows by up to 60%.",
   },
   {
     icon: "bi-diagram-3-fill",
-    color: "#f59e0b",
+    color: "#0ea5e9",
     title: "No-Code Flow Builder",
-    text: "Build complex conversation flows with our drag-and-drop visual builder. Zero coding needed.",
+    text: "Build RCS conversation flows with a drag-and-drop visual editor. No coding skills required.",
   },
 ];
 
@@ -819,21 +654,21 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Features</span>
         <h2 className={styles.sectionTitle}>
-          Everything You Need to Scale on WhatsApp
+          Everything You Need to Win with RCS
         </h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          From bulk messaging to AI chatbot automation — one platform for
-          complete WhatsApp success.
+          From rich media messaging to AI chatbot automation — one platform for
+          complete RCS success.
         </p>
         <div className={styles.tabSwitcher}>
           <button
-            className={`${styles.tabBtn} ${activeTab === "api" ? styles.tabBtnActive : ""}`}
-            onClick={() => setActiveTab("api")}
+            className={`${styles.tabBtn} ${activeTab === "rcs" ? styles.tabBtnActive : ""}`}
+            onClick={() => setActiveTab("rcs")}
           >
-            <i className="bi bi-whatsapp me-2"></i>WhatsApp API
+            <i className="bi bi-chat-square-dots-fill me-2"></i>RCS Messaging
           </button>
           <button
             className={`${styles.tabBtn} ${activeTab === "chatbot" ? styles.tabBtnActive : ""}`}
@@ -850,13 +685,13 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             <div className={styles.heroImageGlow}></div>
             <img
               src={
-                activeTab === "api"
-                  ? "/image/product/whatsapp1.png"
+                activeTab === "rcs"
+                  ? "/image/product/rcs.png"
                   : "/image/product/chatbot_2.png"
               }
               alt={
-                activeTab === "api"
-                  ? "WhatsApp API Features"
+                activeTab === "rcs"
+                  ? "RCS Messaging Features"
                   : "AI Chatbot Features"
               }
               className={styles.featureSectionImage}
@@ -864,12 +699,15 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
               height={400}
               loading="lazy"
               decoding="async"
+              onError={(e) => {
+                e.target.src = "/image/product/whatsapp.png";
+              }}
             />
           </div>
         </div>
         <div className="col-lg-7" data-aos="fade-left">
           <div className="row g-3">
-            {(activeTab === "api" ? apiAdvantages : chatbotAdvantages).map(
+            {(activeTab === "rcs" ? rcsFeatures : chatbotFeatures).map(
               (f, i) => (
                 <div className="col-md-6" key={`${activeTab}-${i}`}>
                   <div className={styles.glassFeatureCard}>
@@ -898,28 +736,28 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
 );
 
 /* ═══════════════════════════════════════════════════
-   HOW IT WORKS — Dark Timeline
+   HOW IT WORKS
    ═══════════════════════════════════════════════════ */
 const steps = [
   {
     icon: "bi-pencil-square",
     title: "Sign Up",
-    desc: "Fill the form or chat with us on WhatsApp to get started.",
+    desc: "Fill the form or call us — our RCS expert contacts you within 2 hours.",
   },
   {
     icon: "bi-patch-check-fill",
     title: "Get Verified",
-    desc: "We set up your official WhatsApp Business API + Green Tick.",
+    desc: "We register your brand, verify your sender ID and design your rich message templates.",
   },
   {
     icon: "bi-plug-fill",
     title: "Integrate",
-    desc: "Connect with your CRM, website, or systems using our API.",
+    desc: "Connect your CRM, e-commerce or any business tool with our REST API.",
   },
   {
     icon: "bi-rocket-takeoff-fill",
     title: "Go Live!",
-    desc: "Start sending bulk messages, automate chatbot & grow.",
+    desc: "Launch RCS campaigns and watch engagement soar 35% above plain SMS.",
   },
 ];
 
@@ -972,57 +810,57 @@ const HowItWorks = () => (
 const useCases = [
   {
     icon: "bi-cart-check-fill",
-    color: "#25d366",
-    bg: "#e6f7ed",
-    title: "E-Commerce",
-    text: "Order updates, abandoned cart recovery, product catalogs & promotional offers.",
-    metric: "3x",
-    metricLabel: "More Sales",
+    color: "#7c3aed",
+    bg: "#f3e8ff",
+    title: "E-Commerce & Retail",
+    text: "Product carousels, abandoned cart recovery, order tracking, and promotional offers with images.",
+    metric: "85%",
+    metricLabel: "Engagement Rate",
   },
   {
-    icon: "bi-mortarboard-fill",
-    color: "#0ea5e9",
-    bg: "#e0f2fe",
-    title: "Education",
-    text: "Admission alerts, fee reminders, class schedules & student engagement.",
-    metric: "60%",
-    metricLabel: "Less No-Shows",
+    icon: "bi-bank2",
+    color: "#0072ff",
+    bg: "#e0f0ff",
+    title: "Banking & Finance",
+    text: "Transaction alerts, loan offers, KYC reminders, and verified OTPs — all in rich branded messages.",
+    metric: "99.8%",
+    metricLabel: "Secure Delivery",
   },
   {
     icon: "bi-hospital-fill",
     color: "#ef4444",
     bg: "#fee2e2",
     title: "Healthcare",
-    text: "Appointment reminders, lab reports, prescription alerts & patient follow-ups.",
-    metric: "45%",
-    metricLabel: "Faster Response",
+    text: "Appointment reminders with map buttons, health tips, lab report links, and patient follow-ups.",
+    metric: "70%",
+    metricLabel: "Fewer No-Shows",
   },
   {
-    icon: "bi-bank2",
-    color: "#8b5cf6",
-    bg: "#ede9fe",
-    title: "Banking & Finance",
-    text: "Transaction alerts, OTP verification, loan updates & customer onboarding.",
-    metric: "99%",
-    metricLabel: "Delivery Rate",
+    icon: "bi-mortarboard-fill",
+    color: "#059669",
+    bg: "#d1fae5",
+    title: "Education",
+    text: "Admission alerts with rich brochures, fee reminders, class schedules, and event invites.",
+    metric: "60%",
+    metricLabel: "Higher Response",
   },
   {
-    icon: "bi-house-door-fill",
+    icon: "bi-airplane-fill",
     color: "#f59e0b",
     bg: "#fef3c7",
-    title: "Real Estate",
-    text: "Property listings, site visit scheduling, lead nurturing & document sharing.",
-    metric: "2x",
-    metricLabel: "More Visits",
+    title: "Travel & Hospitality",
+    text: "Booking confirmations with hotel images, check-in reminders, and upsell carousels.",
+    metric: "92%",
+    metricLabel: "Satisfaction Score",
   },
   {
-    icon: "bi-truck",
-    color: "#128c7e",
-    bg: "#d1fae5",
-    title: "Logistics",
-    text: "Live delivery tracking, dispatch notifications & driver coordination.",
-    metric: "80%",
-    metricLabel: "Auto-Handled",
+    icon: "bi-bag-fill",
+    color: "#0ea5e9",
+    bg: "#e0f7fe",
+    title: "Food & Delivery",
+    text: "Order status updates, loyalty offers with food images, and repeat-order quick-reply buttons.",
+    metric: "60%",
+    metricLabel: "Repeat Orders",
   },
 ];
 
@@ -1036,8 +874,8 @@ const UseCasesSection = () => (
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          WhatsApp API + Chatbot works across industries to automate
-          communication and boost conversions.
+          RCS messaging works across industries to deliver richer, verified
+          messages that convert better than plain SMS.
         </p>
       </div>
       <div className="row g-4">
@@ -1075,52 +913,66 @@ const UseCasesSection = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   INTEGRATION PARTNERS
+   RCS vs SMS COMPARISON
    ═══════════════════════════════════════════════════ */
-const integrationLogos = [
-  { icon: "bi-cloud-fill", name: "Salesforce", color: "#00A1E0" },
-  { icon: "bi-graph-up", name: "HubSpot", color: "#FF7A59" },
-  { icon: "bi-bag-fill", name: "Shopify", color: "#96BF48" },
-  { icon: "bi-credit-card-fill", name: "Razorpay", color: "#3395FF" },
-  { icon: "bi-lightning-fill", name: "Zapier", color: "#FF4A00" },
-  { icon: "bi-briefcase-fill", name: "Zoho", color: "#E42527" },
-  { icon: "bi-wordpress", name: "WordPress", color: "#21759B" },
-  { icon: "bi-code-slash", name: "REST API", color: "#61DAFB" },
+const comparisons = [
+  { feature: "Rich Media (Images, Video)", sms: false, rcs: true },
+  { feature: "Verified Sender Badge", sms: false, rcs: true },
+  { feature: "Interactive Buttons & CTAs", sms: false, rcs: true },
+  { feature: "Read Receipts", sms: false, rcs: true },
+  { feature: "Brand Logo in Message", sms: false, rcs: true },
+  { feature: "Two-Way Conversation", sms: false, rcs: true },
+  { feature: "App Download Required", sms: false, rcs: false },
+  { feature: "Average Open Rate", sms: "20%", rcs: "98%" },
+  { feature: "Click-Through Rate", sms: "2%", rcs: "35%" },
 ];
 
-const IntegrationSection = () => (
+const ComparisonSection = () => (
   <section className={`${styles.sectionAlt} aos`}>
     <div className="container">
       <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Integrations</span>
-        <h2 className={styles.sectionTitle}>Works With Your Favorite Tools</h2>
-        <p
-          className={`${styles.sectionLead} mx-auto`}
-          style={{ maxWidth: 600 }}
-        >
-          Connect WhatsApp API with 80+ CRMs, e-commerce platforms, and business
-          tools.
+        <span className={styles.sectionBadge}>RCS vs SMS</span>
+        <h2 className={styles.sectionTitle}>
+          Why RCS Beats Plain SMS Every Time
+        </h2>
+        <p className={`${styles.sectionLead} mx-auto`} style={{ maxWidth: 580 }}>
+          See exactly what you&apos;ve been missing by staying on plain SMS.
         </p>
       </div>
-      <div className={styles.integGrid} data-aos="fade-up">
-        {integrationLogos.map((item, i) => (
-          <div key={i} className={styles.integCard}>
-            <div
-              className={styles.integIcon}
-              style={{ background: `${item.color}14`, color: item.color }}
-            >
-              <i className={`bi ${item.icon}`}></i>
+      <div className="row justify-content-center" data-aos="fade-up">
+        <div className="col-lg-9">
+          <div className={styles.compareTable}>
+            <div className={styles.compareHeader}>
+              <div className={styles.compareFeatureCol}>Feature</div>
+              <div className={`${styles.compareCol} ${styles.compareSmsCol}`}>
+                <i className="bi bi-chat-left-text me-2"></i>Plain SMS
+              </div>
+              <div className={`${styles.compareCol} ${styles.compareRcsCol}`}>
+                <i className="bi bi-chat-square-dots-fill me-2"></i>RCS
+              </div>
             </div>
-            <span className={styles.integName}>{item.name}</span>
+            {comparisons.map((row, i) => (
+              <div key={i} className={`${styles.compareRow} ${i % 2 === 0 ? styles.compareRowAlt : ""}`}>
+                <div className={styles.compareFeatureCol}>{row.feature}</div>
+                <div className={styles.compareCol}>
+                  {typeof row.sms === "boolean" ? (
+                    <i className={`bi ${row.sms ? "bi-check-circle-fill text-success" : "bi-x-circle-fill text-danger"}`}></i>
+                  ) : (
+                    <span className={styles.compareStatBad}>{row.sms}</span>
+                  )}
+                </div>
+                <div className={styles.compareCol}>
+                  {typeof row.rcs === "boolean" ? (
+                    <i className={`bi ${row.rcs ? "bi-check-circle-fill" : "bi-x-circle-fill text-danger"}`} style={{ color: row.rcs ? "var(--rcs-accent)" : undefined }}></i>
+                  ) : (
+                    <span className={styles.compareStatGood}>{row.rcs}</span>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-      <p
-        className="text-center mt-4"
-        style={{ color: "var(--wa-muted)", fontSize: 14 }}
-      >
-        + 80 more integrations available
-      </p>
     </div>
   </section>
 );
@@ -1130,22 +982,22 @@ const IntegrationSection = () => (
    ═══════════════════════════════════════════════════ */
 const testimonials = [
   {
-    text: "A2ZSMS WhatsApp API transformed our customer communication. We saw a 3x increase in engagement within the first month. The setup was seamless and support is outstanding!",
-    name: "Rahul Sharma",
-    role: "CEO, ShopEase Retail",
-    initials: "RS",
+    text: "We switched from plain SMS to RCS with A2ZSMS and our click-through rate jumped from 3% to 38% in the first month. The verified sender badge alone built instant trust with our customers.",
+    name: "Rohit Verma",
+    role: "Marketing Head, QuickMart",
+    initials: "RV",
   },
   {
-    text: "We automated our appointment reminders and reduced no-shows by 60%. The chatbot handles queries even when we are closed. Truly a game-changer for our clinic.",
-    name: "Dr. Priya Nair",
-    role: "Director, HealthFirst Clinic",
-    initials: "PN",
+    text: "RCS appointment reminders with maps and confirm/cancel buttons reduced our no-shows by 65%. Patients love the rich experience and our clinic revenue has gone up 28%.",
+    name: "Dr. Sneha Patel",
+    role: "Director, CarePlus Clinics",
+    initials: "SP",
   },
   {
-    text: "Bulk messaging with the official API means no bans. Our delivery rate is 99%+ and the analytics dashboard helps us optimize every campaign. Highly recommend!",
-    name: "Amit Patel",
-    role: "Marketing Head, EduConnect",
-    initials: "AP",
+    text: "Our loan offer campaigns on RCS got 4x more applications than plain SMS. The image carousels showcasing EMI plans really converted. A2ZSMS support team is excellent.",
+    name: "Kiran Mehta",
+    role: "VP Marketing, QuickLoan Finance",
+    initials: "KM",
   },
 ];
 
@@ -1190,40 +1042,40 @@ const TestimonialsSection = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   FAQ ACCORDION
+   FAQ
    ═══════════════════════════════════════════════════ */
 const faqItems = [
   {
-    q: "What is WhatsApp Business API?",
-    a: "WhatsApp Business API is the official enterprise solution from Meta that allows businesses to send bulk messages, automate notifications, and integrate WhatsApp with their CRM and business tools. Unlike the WhatsApp Business App, the API supports high-volume messaging and team collaboration.",
+    q: "What is RCS Messaging?",
+    a: "RCS (Rich Communication Services) is the next generation of SMS. It delivers rich, branded messages with images, carousels, interactive buttons, and verified sender identity — all inside the user's default Messages app. No extra app download needed.",
   },
   {
-    q: "How is this different from the WhatsApp Business App?",
-    a: "The WhatsApp Business App is designed for small businesses with limited messaging needs. The API is built for scale — it supports bulk messaging, chatbot automation, multi-agent support, CRM integration, and official green tick verification.",
+    q: "How is RCS different from plain SMS?",
+    a: "Plain SMS is text-only, unverified, and has ~2% click-through. RCS supports rich media, verified sender badges, read receipts, interactive buttons, and achieves 35%+ CTR. It's like WhatsApp — but built into the default message app.",
   },
   {
-    q: "How long does the setup take?",
-    a: "We typically complete the setup within 24-48 hours. This includes Meta Business verification, phone number registration, and template approval. Our team handles the entire process for you.",
+    q: "Which devices support RCS?",
+    a: "RCS works on 2 billion+ Android devices worldwide with Google Messages as the default SMS app. iPhones also support RCS natively from iOS 18. If a device doesn't support RCS, the message falls back to standard SMS automatically.",
   },
   {
-    q: "Can I send promotional messages via WhatsApp API?",
-    a: "Yes, the API supports marketing template messages including promotional offers, product launches, and re-engagement campaigns. All templates must be approved by Meta before sending.",
+    q: "How long does RCS setup take?",
+    a: "We typically complete brand verification and RCS setup within 3–5 business days. This includes brand profile registration, sender verification, and template design. Our team handles everything end-to-end.",
   },
   {
-    q: "Is there a limit on the number of messages I can send?",
-    a: "WhatsApp API uses a tier-based system. You start at 1,000 unique contacts per day and can scale up to unlimited messaging as your quality rating improves. We help you scale quickly.",
+    q: "Do customers need to install an app to receive RCS?",
+    a: "No. That's one of RCS's biggest advantages. Messages arrive in the device's default Messages app — zero friction, zero app download. This gives you a massive reach advantage over app-based channels.",
   },
   {
-    q: "Do I need a new phone number?",
-    a: "You can use your existing business number or we can provide a new one. The number must not be currently registered with WhatsApp or WhatsApp Business App.",
+    q: "Can I send promotional messages via RCS?",
+    a: "Yes. RCS supports marketing campaigns, product carousels, promotional offers, and re-engagement messages — all with rich visuals and interactive CTAs that drive 5× more clicks than plain SMS.",
   },
   {
     q: "What kind of support do you provide?",
-    a: "We provide dedicated account management, 24/7 technical support via WhatsApp, email and phone. We also help with template creation, campaign strategy, and API integration.",
+    a: "We provide dedicated account management, 24/7 technical support via WhatsApp, email and phone, plus help with campaign design, template creation, and API integration.",
   },
   {
     q: "What are the pricing details?",
-    a: "Our pricing starts with a one-time setup fee and a monthly platform fee. Per-message charges follow Meta\u2019s conversation-based pricing. Contact us for a customized quote based on your volume.",
+    a: "Pricing depends on message volume and features required. We offer Starter, Business, and Enterprise plans. Contact us for a customised quote — our team will match a plan to your exact business needs.",
   },
 ];
 
@@ -1237,7 +1089,7 @@ const FaqSection = ({ openIndex, setOpenIndex }) => (
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Everything you need to know about WhatsApp API &amp; Chatbot.
+          Everything you need to know about RCS Messaging.
         </p>
       </div>
       <div className="row justify-content-center">
@@ -1272,7 +1124,7 @@ const FaqSection = ({ openIndex, setOpenIndex }) => (
 /* ═══════════════════════════════════════════════════
    LEAD FORM
    ═══════════════════════════════════════════════════ */
-const LeadForm = ({ formId = "get-started" }) => {
+const LeadForm = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -1327,7 +1179,6 @@ const LeadForm = ({ formId = "get-started" }) => {
             company: form.company,
             service: form.service,
             message: form.message,
-            source: "g-ads",
             timestamp,
           }),
         }),
@@ -1345,10 +1196,8 @@ const LeadForm = ({ formId = "get-started" }) => {
           }),
         }),
       ]);
-      // Fire Google Ads conversion tracking
       gtag_report_conversion();
-
-      router.push("/whatsapp-api-service/thank-you/");
+      router.push("/rcs-service-landing/thank-you/");
     } catch (err) {
       console.error("Submission error:", err);
     } finally {
@@ -1357,13 +1206,13 @@ const LeadForm = ({ formId = "get-started" }) => {
   };
 
   return (
-    <div className={styles.formCard} id={formId}>
+    <div className={styles.formCard} id="get-started">
       <CountdownTimer />
-      {/* Urgency top strip */}
+      {/* Urgency strip */}
       <div className={styles.formUrgencyStrip}>
         <span className={styles.formUrgencyDot}></span>
         <span>
-          <strong>Only 3 free setup spots</strong> left this month — grab yours
+          <strong>Only 4 free setup spots</strong> left this month — grab yours
           before they&apos;re gone
         </span>
         <span className={styles.formUrgencyFire}>🔥</span>
@@ -1375,7 +1224,7 @@ const LeadForm = ({ formId = "get-started" }) => {
       </div>
       <h4 className={styles.formTitle}>Claim Your Free Demo &amp; Pricing</h4>
       <p className={styles.formSub}>
-        Takes 30 seconds · No credit card · Our expert calls you back
+        Takes 30 seconds · No credit card · Our RCS expert calls you back
       </p>
       <form onSubmit={handleSubmit} noValidate>
         <div className="row g-3">
@@ -1459,10 +1308,10 @@ const LeadForm = ({ formId = "get-started" }) => {
                 style={{ cursor: "pointer", appearance: "auto" }}
               >
                 <option value="">Select a service</option>
-                <option value="WhatsApp API">WhatsApp Business API</option>
-                <option value="WhatsApp Chatbot">WhatsApp Chatbot</option>
-                <option value="API + Chatbot Combo">API + Chatbot Combo</option>
-                <option value="Bulk Messaging">Bulk Messaging Only</option>
+                <option value="RCS Messaging">RCS Bulk Messaging</option>
+                <option value="RCS Chatbot">RCS AI Chatbot</option>
+                <option value="RCS + Chatbot Combo">RCS + Chatbot Combo</option>
+                <option value="RCS API Integration">RCS API Integration</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -1514,7 +1363,7 @@ const LeadForm = ({ formId = "get-started" }) => {
               </div>
               <div className={styles.formTrustItem}>
                 <i className="bi bi-patch-check-fill"></i>
-                <span>Meta Partner</span>
+                <span>Google RCS Partner</span>
               </div>
               <div className={styles.formTrustItem}>
                 <i className="bi bi-clock-fill"></i>
@@ -1533,36 +1382,34 @@ const LeadForm = ({ formId = "get-started" }) => {
    ═══════════════════════════════════════════════════ */
 const FormCtaSection = () => (
   <section className={`${styles.formSection} aos`} id="get-started-section">
-    {/* Section-level urgency banner */}
     <div className={styles.urgencyBanner}>
       <i className="bi bi-lightning-charge-fill"></i>
       <span>
-        <strong>Limited Offer:</strong> Free Setup + 1 Month Platform Free —
-        Only for new sign-ups this month
+        <strong>Limited Offer:</strong> Free RCS Setup + 1 Month Platform Free
+        — Only for new sign-ups this month
       </span>
       <i className="bi bi-lightning-charge-fill"></i>
     </div>
 
     <div className="container">
       <div className="row g-5 align-items-start">
-        {/* Left — benefits */}
         <div className="col-lg-5" data-aos="fade-right">
           <span className={styles.sectionBadge}>Get Started Free</span>
           <h2 className={styles.sectionTitle}>
-            Your Competitors Are Already on WhatsApp.{" "}
-            <span style={{ color: "var(--wa-accent)" }}>Are You?</span>
+            Your Competitors Are Sending Rich RCS.{" "}
+            <span style={{ color: "var(--rcs-accent)" }}>Are You Still on Plain SMS?</span>
           </h2>
           <p className={styles.sectionLead}>
-            Every day you wait, a competitor steals your customer on WhatsApp.{" "}
-            <strong>500+ businesses</strong> across India already use A2ZSMS to
-            send instant messages, automate support, and close deals 24/7.
+            Every day you stick to plain SMS, you lose clicks, trust, and sales.{" "}
+            <strong>500+ businesses</strong> across India already use A2ZSMS RCS
+            to deliver verified, rich, engaging messages that convert 35% better.
           </p>
 
           {/* Live notification strip */}
           <div className={styles.liveNotifStrip}>
             <span className={styles.liveNotifDot}></span>
             <span className={styles.liveNotifText}>
-              <strong>Priya from Mumbai</strong> just signed up 6 minutes ago
+              <strong>Arun from Hyderabad</strong> just signed up 4 minutes ago
             </span>
           </div>
 
@@ -1570,22 +1417,22 @@ const FormCtaSection = () => (
           <div className={styles.spotsWarning}>
             <i className="bi bi-exclamation-triangle-fill"></i>
             <span>
-              <strong>Only 3 free setup spots</strong> remaining this month.
+              <strong>Only 4 free setup spots</strong> remaining this month.
               Free Setup + 1 Month Platform Free — expires when spots fill.
             </span>
           </div>
 
-          {/* Social proof live strip */}
+          {/* Social proof */}
           <div className={styles.socialProofStrip}>
             <div className={styles.socialProofAvatars}>
-              {["RS", "PK", "AM", "DV"].map((init, i) => (
+              {["AK", "SM", "RV", "NP"].map((init, i) => (
                 <div key={i} className={styles.socialProofAvatar}>
                   {init}
                 </div>
               ))}
             </div>
             <span className={styles.socialProofText}>
-              <strong>18 businesses</strong> signed up this week
+              <strong>15 businesses</strong> signed up this week
             </span>
           </div>
 
@@ -1596,7 +1443,7 @@ const FormCtaSection = () => (
                 text: "Free setup + 1 month platform free",
                 highlight: true,
               },
-              { icon: "bi-clock-fill", text: "Go live in 24–48 hours" },
+              { icon: "bi-clock-fill", text: "Go live in 3–5 business days" },
               {
                 icon: "bi-person-check-fill",
                 text: "Dedicated account manager assigned",
@@ -1611,7 +1458,7 @@ const FormCtaSection = () => (
               },
               {
                 icon: "bi-patch-check-fill",
-                text: "Official Meta Business API partner",
+                text: "Verified Google RCS Business Messaging partner",
               },
             ].map((item, i) => (
               <li
@@ -1620,23 +1467,20 @@ const FormCtaSection = () => (
                 style={{
                   fontSize: 15,
                   fontWeight: item.highlight ? 700 : 500,
-                  color: item.highlight ? "#1da851" : "inherit",
+                  color: item.highlight ? "var(--rcs-accent-dark)" : "inherit",
                 }}
               >
                 <i
                   className={`bi ${item.icon}`}
-                  style={{
-                    color: item.highlight ? "#25d366" : "#25d366",
-                    fontSize: 17,
-                  }}
+                  style={{ color: "var(--rcs-accent)", fontSize: 17 }}
                 ></i>
                 {item.text}
                 {item.highlight && (
                   <span
                     style={{
                       fontSize: 11,
-                      background: "#dcfce7",
-                      color: "#15803d",
+                      background: "#ede9fe",
+                      color: "#6d28d9",
                       padding: "2px 8px",
                       borderRadius: 999,
                       fontWeight: 700,
@@ -1650,7 +1494,6 @@ const FormCtaSection = () => (
             ))}
           </ul>
 
-          {/* Trust logos row */}
           <div className={styles.formTrustLogos}>
             <div className={styles.formTrustLogo}>
               <i className="bi bi-shield-lock-fill"></i>
@@ -1658,7 +1501,7 @@ const FormCtaSection = () => (
             </div>
             <div className={styles.formTrustLogo}>
               <i className="bi bi-patch-check-fill"></i>
-              <span>Meta Partner</span>
+              <span>Google Partner</span>
             </div>
             <div className={styles.formTrustLogo}>
               <i className="bi bi-star-fill"></i>
@@ -1675,12 +1518,14 @@ const FormCtaSection = () => (
             >
               <i className="bi bi-whatsapp"></i> Chat on WhatsApp
             </a>
+            <a href="tel:+918431086185" className={styles.secondaryBtn}>
+              <i className="bi bi-telephone-fill"></i> Call Us
+            </a>
           </div>
         </div>
 
-        {/* Right — form */}
         <div className="col-lg-7" data-aos="fade-left">
-          <LeadForm formId="get-started-bottom" />
+          <LeadForm />
         </div>
       </div>
     </div>
@@ -1688,7 +1533,7 @@ const FormCtaSection = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   FINAL CTA (Dark)
+   FINAL CTA
    ═══════════════════════════════════════════════════ */
 const FinalCTA = () => (
   <section className={`${styles.ctaSection} aos`}>
@@ -1704,22 +1549,25 @@ const FinalCTA = () => (
     <div className="container position-relative" data-aos="zoom-in">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
-        February Offer: Free Setup + 1 Month Platform Free — 3 Spots Left
+        February Offer: Free RCS Setup + 1 Month Platform Free — 4 Spots Left
       </div>
       <h2 className={styles.sectionTitleLight}>
-        Every Second You Wait, a Customer Buys from Your Competitor
+        Every Day on Plain SMS, Your Competitors Win More Customers
       </h2>
       <p
         className={styles.sectionLeadLight}
         style={{ maxWidth: 580, margin: "14px auto 36px" }}
       >
-        Your competitors are already replying instantly on WhatsApp, closing
-        deals while you&rsquo;re still sending emails. Don&rsquo;t lose another
-        customer — get WhatsApp API + AI Chatbot today.
+        They send rich, verified RCS messages with product images and one-tap
+        CTAs. You send plain texts. Don&rsquo;t let another campaign go to
+        waste — upgrade to RCS today.
       </p>
       <div className="d-flex flex-wrap gap-3 justify-content-center">
         <a href="#get-started" className={styles.primaryBtn}>
-          Claim Free Demo Now <i className="bi bi-arrow-right ms-1"></i>
+          Claim Free RCS Demo Now <i className="bi bi-arrow-right ms-1"></i>
+        </a>
+        <a href="tel:+918431086185" className={styles.ctaCallBtn}>
+          <i className="bi bi-telephone-fill"></i> Call Us Now
         </a>
       </div>
     </div>
@@ -1727,28 +1575,15 @@ const FinalCTA = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   LANDING PAGE FOOTER (Privacy / Terms)
-   ═══════════════════════════════════════════════════ */
-const LandingPageFooter = () => (
-  <footer className={styles.landingFooter}>
-    <nav className={styles.landingFooterLinks} aria-label="Legal links">
-      <a href="/privacy/">Privacy Policy</a>
-      <span className={styles.landingFooterDot}>·</span>
-      <a href="/terms/">Terms &amp; Conditions</a>
-    </nav>
-  </footer>
-);
-
-/* ═══════════════════════════════════════════════════
    MAIN COMPONENT
    ═══════════════════════════════════════════════════ */
-const WhatsappApiService = () => {
-  const [activeFeatureTab, setActiveFeatureTab] = useState("api");
+const RcsLanding = () => {
+  const [activeFeatureTab, setActiveFeatureTab] = useState("rcs");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     const nav = document.querySelector("nav.navbar");
-    const footer = document.querySelector("footer.site-footer");
+    const footer = document.querySelector("footer");
     if (nav) nav.style.display = "none";
     if (footer) footer.style.display = "none";
     return () => {
@@ -1759,32 +1594,29 @@ const WhatsappApiService = () => {
 
   return (
     <>
-      <div className="d-none d-md-block">
-        <AnnouncementTicker />
-      </div>
+      <AnnouncementTicker />
       <div className={styles.page}>
         <StickyMiniNav />
         <HeroSection />
         <PricingTeaserStrip />
-        {/* <MarqueeTrustBar /> */}
+        <MarqueeTrustBar />
         <AsSeenOnStrip />
         <ProblemSolution />
-        <ComparisonTableSection />
         <FeaturesSection
           activeTab={activeFeatureTab}
           setActiveTab={setActiveFeatureTab}
         />
         <HowItWorks />
-        {/* <VideoSection /> */}
         <UseCasesSection />
-        <IntegrationSection />
+        <ComparisonSection />
         <TestimonialsSection />
         <FaqSection openIndex={openFaqIndex} setOpenIndex={setOpenFaqIndex} />
         <FormCtaSection />
+        <FinalCTA />
+        <FloatingStickyBar />
       </div>
-      <LandingPageFooter />
     </>
   );
 };
 
-export default WhatsappApiService;
+export default RcsLanding;

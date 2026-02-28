@@ -1,4 +1,3 @@
-import React from "react";
 import BulkSms from "../Component/Product/BulkSms/BulkSms";
 
 export const metadata = {

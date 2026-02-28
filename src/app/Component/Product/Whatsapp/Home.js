@@ -95,8 +95,8 @@ const Home = () => {
 
   return (
     <section className="py-5 bg2">
-      <div className="container">
-        <div className="row align-items-center">
+      <div className="container aos">
+        <div className="row align-items-center aos">
           {/* Left Content */}
           <div className="col-md-6 para-color" data-aos="fade-right">
             <h1 className="fw-bold mb-3 lh-sm display-6">

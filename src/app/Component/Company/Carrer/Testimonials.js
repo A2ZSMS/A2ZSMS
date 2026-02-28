@@ -78,12 +78,13 @@ const Testimonials = () => {
 
   return (
     <div className="testimonials-section">
-      <div className="container py-3">
+      <div className="container py-3 aos">
         <div className="text-center mb-5">
           <span className="section-label">Testimonials</span>
           <h2 className="section-heading">What Our Clients Say About Us</h2>
           <p className="section-desc mx-auto">
-            Trusted by businesses across industries to deliver exceptional communication solutions.
+            Trusted by businesses across industries to deliver exceptional
+            communication solutions.
           </p>
         </div>
         <Slider {...settings}>

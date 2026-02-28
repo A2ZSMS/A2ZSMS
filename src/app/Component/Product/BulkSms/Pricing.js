@@ -254,7 +254,7 @@ const PricingTabs = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="container">
+      <div className="container aos">
         <div className="row justify-content-between">
           {pricingData[activeTab]?.map((item, index) => (
             <div

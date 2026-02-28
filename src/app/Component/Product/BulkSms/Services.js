@@ -61,7 +61,7 @@ const Services = () => {
 
   return (
     <section className="py-5 mb-2 bg2">
-      <div className="container">
+      <div className="container aos">
         <div className="row aos">
           {/* Left Image Section */}
           <div className="col-md-6" data-aos="zoom-in-right">

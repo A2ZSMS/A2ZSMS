@@ -89,7 +89,7 @@ const BulkSmsStats = () => {
         background: "linear-gradient(135deg, #007BFF 0%, #0056b3 100%)",
       }}
     >
-      <div className="container">
+      <div className="container aos">
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold text-white head1">Leading the SMS Industry</h2>
           <p className="text-white-50 para-blog mt-3">

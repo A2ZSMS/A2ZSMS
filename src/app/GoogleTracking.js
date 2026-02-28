@@ -87,7 +87,7 @@ export const gtag_report_conversion = (url) => {
       }
     };
     window.gtag("event", "conversion", {
-      send_to: "AW-17957140915/xL5hCLuO0vkbELPz0PJC",
+      send_to: "AW-17957140915/mZd1CKqrkfsbELPz0PJC",
       event_callback: callback,
     });
     return false;

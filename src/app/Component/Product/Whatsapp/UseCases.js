@@ -90,7 +90,7 @@ const useCasesData = [
 const UseCases = () => {
   return (
     <section className="py-5 bg-white">
-      <div className="container">
+      <div className="container aos">
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold head1" style={{ color: "#203239" }}>
             Industry Solutions
@@ -100,7 +100,7 @@ const UseCases = () => {
           </p>
         </div>
 
-        <div className="row g-4">
+        <div className="row g-4 aos">
           {useCasesData.map((useCase, index) => (
             <div
               key={useCase.id}

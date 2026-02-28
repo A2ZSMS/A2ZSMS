@@ -6,7 +6,7 @@ const AboutHome = () => {
     <div>
       {/* Who We Are */}
       <section className="who-section">
-        <div className="container">
+        <div className="container aos">
           <div className="text-center mb-5" data-aos="fade-up">
             <span className="section-label">Who We Are</span>
             <h2 className="section-heading">
@@ -82,7 +82,7 @@ const AboutHome = () => {
 
       {/* Mission & Vision */}
       <section className="mv-section">
-        <div className="container">
+        <div className="container aos">
           <div className="text-center mb-5" data-aos="fade-up">
             <span className="section-label">Our Purpose</span>
             <h2 className="section-heading">Mission & Vision</h2>
@@ -168,7 +168,7 @@ const AboutHome = () => {
 
       {/* Core Values */}
       <section className="values-section">
-        <div className="container">
+        <div className="container aos">
           <div className="text-center mb-5" data-aos="fade-up">
             <span className="section-label">Our Values</span>
             <h2 className="section-heading">What Drives Us</h2>
@@ -247,7 +247,7 @@ const AboutHome = () => {
 
       {/* CTA */}
       <section className="about-cta-section">
-        <div className="container text-center about-cta-inner">
+        <div className="container text-center about-cta-inner aos">
           <div data-aos="fade-up">
             <span
               className="section-label"

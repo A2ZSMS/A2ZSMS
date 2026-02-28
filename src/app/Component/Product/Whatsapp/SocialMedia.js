@@ -21,7 +21,7 @@ const socialMediaData = [
 const SocialMedia = () => {
   return (
     <div className="social-section">
-      <div className="container text-center">
+      <div className="container text-center aos">
         <span className="section-label">Follow Us</span>
         <h2 className="section-heading mb-2">
           Let&apos;s Get <span style={{ color: "#097bdf" }}>Social!</span>

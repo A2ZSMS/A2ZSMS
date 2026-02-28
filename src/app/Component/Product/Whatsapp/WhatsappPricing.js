@@ -83,7 +83,7 @@ const Pricing = () => {
 
   return (
     <section className="py-5 bg-light">
-      <div className="container">
+      <div className="container aos">
         {/* Header */}
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold head1 mb-3" style={{ color: "#203239" }}>
@@ -259,7 +259,7 @@ const Pricing = () => {
         </div> */}
 
         {/* Features Included */}
-        <div className="row mt-5" data-aos="fade-up">
+        <div className="row mt-5 aos" data-aos="fade-up">
           <div className="col-12">
             <div
               className="card border-0 shadow-sm"
