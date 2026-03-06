@@ -112,8 +112,7 @@ const SocialProofBubble = () => {
     >
       <span className={styles.socialBubbleDot}></span>
       <span>
-        <strong>{p.name}</strong> from {p.city} just got a free demo ·{" "}
-        {p.time}
+        <strong>{p.name}</strong> from {p.city} just got a free demo · {p.time}
       </span>
     </div>
   );
@@ -144,9 +143,9 @@ const FloatingStickyBar = () => {
       <span className={styles.floatingBarText}>
         🎯 Get free Bulk SMS demo — 5 spots left today
       </span>
-      <a href="tel:+918431086185" className={styles.floatingBarCall}>
+      {/* <a href="tel:+918431086185" className={styles.floatingBarCall}>
         <i className="bi bi-telephone-fill"></i> Call Now
-      </a>
+      </a> */}
       <a href="#get-started" className={styles.floatingBarCta}>
         Get Free Demo
       </a>
@@ -456,9 +455,7 @@ const LeadForm = ({ formId = "get-started" }) => {
                 onChange={handleChange}
               />
             </div>
-            {errors.email && (
-              <p className={styles.formError}>{errors.email}</p>
-            )}
+            {errors.email && <p className={styles.formError}>{errors.email}</p>}
           </div>
           <div className="col-md-6">
             <label className={styles.formLabel}>
@@ -476,9 +473,7 @@ const LeadForm = ({ formId = "get-started" }) => {
                 maxLength={15}
               />
             </div>
-            {errors.phone && (
-              <p className={styles.formError}>{errors.phone}</p>
-            )}
+            {errors.phone && <p className={styles.formError}>{errors.phone}</p>}
           </div>
           <div className="col-md-6">
             <label className={styles.formLabel}>Company Name</label>
@@ -1025,8 +1020,8 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          From promotional campaigns to mission-critical OTPs — one platform
-          for all your SMS needs.
+          From promotional campaigns to mission-critical OTPs — one platform for
+          all your SMS needs.
         </p>
         <div className={styles.tabSwitcher}>
           <button
@@ -1129,7 +1124,9 @@ const HowItWorks = () => (
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadgeLight}>Simple Process</span>
-        <h2 className={styles.sectionTitleLight}>Get Started in 4 Easy Steps</h2>
+        <h2 className={styles.sectionTitleLight}>
+          Get Started in 4 Easy Steps
+        </h2>
         <p className={styles.sectionLeadLight}>
           We handle the setup so you can focus on growing your business.
         </p>
@@ -1582,9 +1579,8 @@ const FormCtaSection = () => (
           <div className={styles.spotsWarning}>
             <i className="bi bi-exclamation-circle-fill"></i>
             <span>
-              Only{" "}
-              <strong style={{ color: "#dc2626" }}>5 slots left</strong> at the
-              ₹5,000 DLT registration price this month. Once filled, regular
+              Only <strong style={{ color: "#dc2626" }}>5 slots left</strong> at
+              the ₹5,000 DLT registration price this month. Once filled, regular
               pricing applies.
             </span>
           </div>
@@ -1674,7 +1670,9 @@ const FinalCTA = () => (
           Claim My Free Setup Now <i className="bi bi-arrow-right ms-1"></i>
         </a>
       </div>
-      <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 13, marginTop: 20 }}>
+      <p
+        style={{ color: "rgba(255,255,255,0.4)", fontSize: 13, marginTop: 20 }}
+      >
         🔒 No credit card required &nbsp;·&nbsp; 100% free consultation
       </p>
     </div>
@@ -1692,6 +1690,127 @@ const LandingPageFooter = () => (
       <a href="/terms/">Terms &amp; Conditions</a>
     </nav>
   </footer>
+);
+
+/* ═══════════════════════════════════════════════════
+   SERVICES OVERVIEW SECTION
+   ═══════════════════════════════════════════════════ */
+const services = [
+  {
+    icon: "bi-chat-dots-fill",
+    color1: "#0d6efd",
+    color2: "#6366f1",
+    bg: "#eff6ff",
+    iconColor: "#0d6efd",
+    title: "Bulk SMS Service",
+    text: "Send thousands of messages instantly to your customers using our powerful Bulk SMS messaging platform. Perfect for marketing campaigns, alerts and notifications.",
+    listLabel: "Best for",
+    items: [
+      "Marketing campaigns",
+      "Alerts and notifications",
+      "Customer engagement",
+      "Mass communication",
+    ],
+  },
+  {
+    icon: "bi-megaphone-fill",
+    color1: "#f59e0b",
+    color2: "#f97316",
+    bg: "#fef3c7",
+    iconColor: "#f59e0b",
+    title: "Promotional SMS",
+    text: "Promotional SMS helps businesses promote offers, discounts and announcements directly to customers. Reach thousands of users within seconds.",
+    listLabel: "Best for",
+    items: [
+      "Marketing campaigns",
+      "Sales promotions",
+      "Festival offers",
+      "Product launches",
+    ],
+  },
+  {
+    icon: "bi-shield-lock-fill",
+    color1: "#10b981",
+    color2: "#0ea5e9",
+    bg: "#d1fae5",
+    iconColor: "#10b981",
+    title: "Transactional SMS",
+    text: "Transactional SMS is used for sending important service messages that customers must receive instantly.",
+    listLabel: "Examples",
+    items: [
+      "Order confirmations",
+      "Payment alerts",
+      "Delivery updates",
+      "Account notifications",
+    ],
+  },
+  {
+    icon: "bi-lock-fill",
+    color1: "#8b5cf6",
+    color2: "#6366f1",
+    bg: "#f5f3ff",
+    iconColor: "#8b5cf6",
+    title: "OTP SMS Service",
+    text: "Our OTP SMS Service Provider platform ensures secure and instant OTP delivery for mobile apps and websites.",
+    listLabel: "Best for",
+    items: [
+      "Login verification",
+      "Banking authentication",
+      "E-commerce verification",
+      "App registration",
+    ],
+  },
+];
+
+const ServicesOverviewSection = () => (
+  <section className={styles.servicesSection}>
+    <div className="container">
+      <div className="text-center" data-aos="fade-up">
+        <span className={styles.sectionBadge}>Our Services</span>
+        <h2 className={styles.sectionTitle}>
+          Bulk SMS Services for Every Business Need
+        </h2>
+        <p
+          className={`${styles.sectionLead} mx-auto`}
+          style={{ maxWidth: 600 }}
+        >
+          From promotional campaigns to critical OTPs — we have the right SMS
+          solution for every use case.
+        </p>
+      </div>
+
+      <div className={styles.servicesGrid}>
+        {services.map((svc, i) => (
+          <div
+            key={i}
+            className={styles.serviceCard}
+            style={{ "--sc-color1": svc.color1, "--sc-color2": svc.color2 }}
+            data-aos="fade-up"
+            data-aos-delay={i * 80}
+          >
+            <div
+              className={styles.serviceIconWrap}
+              style={{ background: svc.bg, color: svc.iconColor }}
+            >
+              <i className={`bi ${svc.icon}`}></i>
+            </div>
+            <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
+            <p className={styles.serviceCardText}>{svc.text}</p>
+            <div>
+              <p className={styles.serviceListLabel}>{svc.listLabel}</p>
+              <ul className={styles.serviceList}>
+                {svc.items.map((item) => (
+                  <li key={item} style={{ color: svc.iconColor }}>
+                    <span style={{ color: "var(--sms-body)" }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 );
 
 /* ═══════════════════════════════════════════════════
@@ -1721,6 +1840,7 @@ const BulkSmsLanding = () => {
         <StickyMiniNav />
         <HeroSection />
         <PricingTeaserStrip />
+        <ServicesOverviewSection />
         {/* <MarqueeTrustBar /> */}
         {/* <AsSeenOnStrip /> */}
         <ProblemSolution />
