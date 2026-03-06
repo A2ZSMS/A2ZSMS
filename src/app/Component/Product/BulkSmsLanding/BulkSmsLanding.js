@@ -210,15 +210,11 @@ const StickyMiniNav = () => {
     <nav
       className={`${styles.miniNav} ${scrolled ? styles.miniNavScrolled : ""}`}
     >
-      <div className="container d-flex align-items-center justify-content-between">
+      <div className="container d-flex align-items-center justify-content-between aos">
         <a href="/" className={styles.miniNavLogo}>
-          <img src="/image/logo.png" alt="A2ZSMS" />
+          <img src="/image/logo1.png" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
-          <a href="tel:+918431086185" className={styles.miniNavPhone}>
-            <i className="bi bi-telephone-fill"></i>
-            <span className="d-none d-md-inline">+91 84310 86185</span>
-          </a>
           <div className={styles.miniNavSpotsWrap}>
             <span className={styles.miniNavSpotsDot}></span>
             <span
@@ -242,7 +238,7 @@ const StickyMiniNav = () => {
    ═══════════════════════════════════════════════════ */
 const PricingTeaserStrip = () => (
   <div className={styles.pricingTeaser}>
-    <div className="container">
+    <div className="container aos">
       <div className={styles.pricingTeaserInner}>
         <div className={styles.pricingTeaserItem}>
           <i className="bi bi-tag-fill"></i>
@@ -284,7 +280,7 @@ const PricingTeaserStrip = () => (
    ═══════════════════════════════════════════════════ */
 const AsSeenOnStrip = () => (
   <div className={styles.asSeenOn}>
-    <div className="container">
+    <div className="container aos">
       <div className={styles.asSeenOnInner}>
         <span className={styles.asSeenOnLabel}>As seen on</span>
         <div className={styles.asSeenOnLogos}>
@@ -427,7 +423,7 @@ const LeadForm = ({ formId = "get-started" }) => {
         Takes 30 seconds · No credit card · Get a personalised quote instantly
       </p>
       <form onSubmit={handleSubmit} noValidate>
-        <div className="row g-3">
+        <div className="row g-3 aos">
           <div className="col-12">
             <label className={styles.formLabel}>
               Full Name <span className={styles.formRequired}>*</span>
@@ -603,17 +599,21 @@ const HeroSection = () => (
     <div className={styles.heroMesh2}></div>
     <div className={styles.heroMesh3}></div>
 
-    <div className="container position-relative">
-      <div className="row align-items-center gy-5">
+    <div className="container position-relative aos">
+      <div className="row align-items-center gy-5 aos">
         {/* LEFT — text */}
         <div className="col-lg-6" data-aos="fade-right">
           {/* Logo */}
           <div className={styles.heroLogoWrap}>
-            <img src="/image/logo.png" alt="A2ZSMS" className={styles.heroLogo} />
+            <img
+              src="/image/logo.png"
+              alt="A2ZSMS"
+              className={styles.heroLogo}
+            />
           </div>
 
           {/* Urgency top bar */}
-          <div className={styles.heroTopBar}>
+          {/* <div className={styles.heroTopBar}>
             <i className="bi bi-fire" style={{ color: "#f97316" }}></i>
             <span>
               <strong>March Offer:</strong> DLT Registration only ₹5,000 + Free
@@ -622,7 +622,7 @@ const HeroSection = () => (
               month
             </span>
             <i className="bi bi-fire" style={{ color: "#f97316" }}></i>
-          </div>
+          </div> */}
 
           <div className={styles.heroBadge}>
             <span className={styles.heroBadgeDot}></span>
@@ -631,22 +631,25 @@ const HeroSection = () => (
           </div>
 
           <h1 className={styles.heroTitle}>
-            Stop Losing Customers.{" "}
+            Bulk SMS Service Provider in India{" "}
             <span className={styles.heroGradient}>
-              Reach Them Instantly with Bulk SMS
+              – Fast & Reliable SMS Gateway
             </span>
           </h1>
 
           <p className={styles.heroText}>
-            While your competitors are sending emails that go to spam, your
-            customers are already opening SMS in{" "}
-            <strong>under 3 seconds</strong>. Send OTP, Promotional &amp;
-            Transactional SMS at 99.9% delivery — no technical skills needed.
+            Send OTP, Promotional & Transactional SMS instantly using our
+            reliable Bulk SMS Service platform. High-speed SMS delivery with
+            99.9% delivery rate, real-time reports, and an easy dashboard. No
+            technical skills required to start sending bulk messages.
           </p>
 
           <div className={styles.heroChecks}>
             {[
-              { text: "99.9% delivery rate — every single time", highlight: false },
+              {
+                text: "99.9% delivery rate — every single time",
+                highlight: false,
+              },
               { text: "OTP delivered in under 3 seconds", highlight: true },
               { text: "Promotional SMS with 98% open rate", highlight: false },
               {
@@ -704,7 +707,7 @@ const HeroSection = () => (
    ═══════════════════════════════════════════════════ */
 const MarqueeTrustBar = () => (
   <div className={styles.marqueeSection}>
-    <div className="container">
+    <div className="container aos">
       <span className={styles.marqueeLabel}>
         Trusted by <strong>1000+</strong> Businesses Across India
       </span>
@@ -781,7 +784,7 @@ const solutions = [
 
 const ProblemSolution = () => (
   <section className={styles.sectionAlt}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Why Switch to Bulk SMS?</span>
         <h2 className={styles.sectionTitle}>The Problem &amp; Our Solution</h2>
@@ -794,7 +797,7 @@ const ProblemSolution = () => (
         </p>
       </div>
 
-      <div className="row g-4 mb-2">
+      <div className="row g-4 mb-2 aos">
         <div className="col-12">
           <h6 className="text-uppercase fw-bold text-danger small mb-3">
             <i className="bi bi-x-circle-fill me-2"></i>Common Problems
@@ -830,7 +833,7 @@ const ProblemSolution = () => (
         <div className={styles.psArrowLine}></div>
       </div>
 
-      <div className="row g-4 mt-2">
+      <div className="row g-4 mt-2 aos">
         <div className="col-12">
           <h6 className="text-uppercase fw-bold text-success small mb-3">
             <i className="bi bi-check-circle-fill me-2"></i>Our Solution
@@ -879,7 +882,7 @@ const comparisonRows = [
 
 const ComparisonTableSection = () => (
   <section className={styles.section}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Why Upgrade?</span>
         <h2 className={styles.sectionTitle}>
@@ -1012,7 +1015,7 @@ const transactionalFeatures = [
 
 const FeaturesSection = ({ activeTab, setActiveTab }) => (
   <section className={styles.sectionAlt}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Features</span>
         <h2 className={styles.sectionTitle}>
@@ -1041,7 +1044,7 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
         </div>
       </div>
 
-      <div className="row align-items-center gy-5">
+      <div className="row align-items-center gy-5 aos">
         <div className="col-lg-5" data-aos="fade-right">
           <div className={styles.featureImageWrap}>
             <div className={styles.heroImageGlow}></div>
@@ -1065,7 +1068,7 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
           </div>
         </div>
         <div className="col-lg-7" data-aos="fade-left">
-          <div className="row g-3">
+          <div className="row g-3 aos">
             {(activeTab === "promotional"
               ? promotionalFeatures
               : transactionalFeatures
@@ -1123,7 +1126,7 @@ const steps = [
 
 const HowItWorks = () => (
   <section className={styles.sectionDark}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadgeLight}>Simple Process</span>
         <h2 className={styles.sectionTitleLight}>Get Started in 4 Easy Steps</h2>
@@ -1224,7 +1227,7 @@ const useCases = [
 
 const UseCasesSection = () => (
   <section className={styles.section}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Use Cases</span>
         <h2 className={styles.sectionTitle}>Built for Every Industry</h2>
@@ -1232,11 +1235,11 @@ const UseCasesSection = () => (
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Bulk SMS works across industries to automate communication and boost
-          conversions.
+          Our Bulk SMS Service Provider platform supports businesses across
+          multiple industries by enabling instant customer communication.
         </p>
       </div>
-      <div className="row g-4">
+      <div className="row g-4 aos">
         {useCases.map((uc, i) => (
           <div
             className="col-md-6 col-lg-4"
@@ -1286,7 +1289,7 @@ const integrationLogos = [
 
 const IntegrationSection = () => (
   <section className={styles.sectionAlt}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Integrations</span>
         <h2 className={styles.sectionTitle}>Works With Your Favorite Tools</h2>
@@ -1347,12 +1350,12 @@ const testimonials = [
 
 const TestimonialsSection = () => (
   <section className={styles.section}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>Testimonials</span>
         <h2 className={styles.sectionTitle}>What Our Clients Say</h2>
       </div>
-      <div className="row g-4">
+      <div className="row g-4 aos">
         {testimonials.map((t, i) => (
           <div
             className="col-md-4"
@@ -1425,7 +1428,7 @@ const faqItems = [
 
 const FaqSection = ({ openIndex, setOpenIndex }) => (
   <section className={styles.sectionAlt}>
-    <div className="container">
+    <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
         <span className={styles.sectionBadge}>FAQ</span>
         <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
@@ -1479,8 +1482,8 @@ const FormCtaSection = () => (
       <i className="bi bi-lightning-charge-fill"></i>
     </div>
 
-    <div className="container">
-      <div className="row g-5 align-items-start">
+    <div className="container aos">
+      <div className="row g-5 align-items-start aos">
         <div className="col-lg-5" data-aos="fade-right">
           <span className={styles.sectionBadge}>
             🎯 Exclusive Offer — Limited Spots
@@ -1638,7 +1641,7 @@ const FinalCTA = () => (
         ></span>
       ))}
     </div>
-    <div className="container position-relative" data-aos="zoom-in">
+    <div className="container position-relative aos" data-aos="zoom-in">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
         March Offer · DLT Registration at ₹5,000 · Only 5 Spots Left
@@ -1669,9 +1672,6 @@ const FinalCTA = () => (
       <div className="d-flex flex-wrap gap-3 justify-content-center">
         <a href="#get-started" className={styles.primaryBtn}>
           Claim My Free Setup Now <i className="bi bi-arrow-right ms-1"></i>
-        </a>
-        <a href="tel:+918431086185" className={styles.ctaCallBtn}>
-          <i className="bi bi-telephone-fill"></i> Call +91 84310 86185
         </a>
       </div>
       <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 13, marginTop: 20 }}>
