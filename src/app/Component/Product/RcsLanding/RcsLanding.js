@@ -68,7 +68,7 @@ const useCountUp = (end, duration = 2000, isDecimal = false) => {
    ═══════════════════════════════════════════════════ */
 const AnnouncementTicker = () => {
   const messages = [
-    "🚀 February Offer: Free RCS Setup + 1 Month Platform Free — Only 4 spots left!",
+    // "🚀 February Offer: Free RCS Setup + 1 Month Platform Free — Only 4 spots left!",
     "⚡ 35% Higher Engagement vs Plain SMS — Switch to RCS Today!",
     "🏆 Trusted by 500+ Businesses Across India — Verified Google RCS Partner",
   ];
@@ -259,10 +259,10 @@ const StickyMiniNav = () => {
             <span className={styles.miniNavSpotsDot}></span>
             <span className="d-none d-sm-inline">Only 4 spots left</span>
           </div>
-          <a href="tel:+918431086185" className={styles.miniNavPhone}>
+          {/* <a href="tel:+918431086185" className={styles.miniNavPhone}>
             <i className="bi bi-telephone-fill"></i>
             <span className="d-none d-md-inline">+91 84310 86185</span>
-          </a>
+          </a> */}
           <a href="#get-started" className={styles.miniNavCta}>
             Get Free Demo <i className="bi bi-arrow-right ms-1"></i>
           </a>
@@ -299,10 +299,6 @@ const HeroSection = () => (
           {/* Urgency top bar */}
           <div className={styles.heroTopBar}>
             <i className="bi bi-lightning-charge-fill"></i>
-            <span>
-              <strong>February Offer:</strong> Free RCS Setup + 1 Month Platform
-              Free — only <strong>4 spots left</strong>
-            </span>
           </div>
 
           <div className={styles.heroBadge}>
@@ -343,9 +339,9 @@ const HeroSection = () => (
               Claim Free Demo &amp; Pricing{" "}
               <i className="bi bi-arrow-right ms-1"></i>
             </a>
-            <a href="tel:+918431086185" className={styles.heroCallBtn}>
+            {/* <a href="tel:+918431086185" className={styles.heroCallBtn}>
               <i className="bi bi-telephone-fill"></i> Call Now
-            </a>
+            </a> */}
           </div>
 
           <p className={styles.heroGuarantee}>
@@ -368,7 +364,7 @@ const HeroSection = () => (
           <div className={styles.heroImageWrap}>
             <div className={styles.heroImageGlow}></div>
             <img
-              src="/image/product/rcs.png"
+              src="/image/product/google ads rcs.png"
               alt="RCS Messaging Service Dashboard"
               className={styles.heroImage}
               width={560}
@@ -686,8 +682,8 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             <img
               src={
                 activeTab === "rcs"
-                  ? "/image/product/rcs.png"
-                  : "/image/product/chatbot_2.png"
+                  ? "/image/product/RCS1.png"
+                  : "/image/product/RCS1.png"
               }
               alt={
                 activeTab === "rcs"
@@ -1509,7 +1505,7 @@ const FormCtaSection = () => (
             </div>
           </div>
 
-          <div className="d-flex flex-wrap gap-3 mt-4">
+          {/* <div className="d-flex flex-wrap gap-3 mt-4">
             <a
               href={WA_LINK}
               target="_blank"
@@ -1521,7 +1517,7 @@ const FormCtaSection = () => (
             <a href="tel:+918431086185" className={styles.secondaryBtn}>
               <i className="bi bi-telephone-fill"></i> Call Us
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div className="col-lg-7" data-aos="fade-left">
@@ -1566,9 +1562,9 @@ const FinalCTA = () => (
         <a href="#get-started" className={styles.primaryBtn}>
           Claim Free RCS Demo Now <i className="bi bi-arrow-right ms-1"></i>
         </a>
-        <a href="tel:+918431086185" className={styles.ctaCallBtn}>
+        {/* <a href="tel:+918431086185" className={styles.ctaCallBtn}>
           <i className="bi bi-telephone-fill"></i> Call Us Now
-        </a>
+        </a> */}
       </div>
     </div>
   </section>
