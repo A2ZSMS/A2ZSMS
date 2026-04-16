@@ -526,7 +526,7 @@ const SharedLeadForm = ({
                 </a>{" "}
                 and{" "}
                 <a
-                  href="/terms-of-service"
+                  href="/terms"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "#7c3aed", fontWeight: 600 }}

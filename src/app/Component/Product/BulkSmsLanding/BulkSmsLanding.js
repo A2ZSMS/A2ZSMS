@@ -59,7 +59,7 @@ const useCountUp = (end, duration = 2000, isDecimal = false) => {
    ═══════════════════════════════════════════════════ */
 const AnnouncementTicker = () => {
   const messages = [
-    "🔥 March Offer: DLT Registration at just ₹5,000 + Free Sender ID — Only 5 spots left!",
+    "🔥 Limited Offer: DLT Registration at just ₹5,000 + Free Sender ID — Only 5 spots left!",
     "⚡ OTP delivered in under 3 seconds — 99.9% delivery rate guaranteed",
     "🏆 Trusted by 1000+ businesses across India — Join them today!",
   ];
@@ -91,17 +91,24 @@ const socialProofPeople = [
 const SocialProofBubble = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
-  const timerRef = useRef(null);
+  const intervalRef = useRef(null);
+  const timeoutRef  = useRef(null);
+  const mountedRef  = useRef(true);
   useEffect(() => {
-    timerRef.current = setInterval(() => {
+    mountedRef.current = true;
+    intervalRef.current = setInterval(() => {
+      if (!mountedRef.current) return;
       setVisible(false);
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
+        if (!mountedRef.current) return;
         setIdx((i) => (i + 1) % socialProofPeople.length);
         setVisible(true);
       }, 400);
     }, 4000);
     return () => {
-      clearInterval(timerRef.current);
+      mountedRef.current = false;
+      clearInterval(intervalRef.current);
+      clearTimeout(timeoutRef.current);
     };
   }, []);
   const p = socialProofPeople[idx];
@@ -148,46 +155,6 @@ const FloatingStickyBar = () => {
       <a href="#get-started" className={styles.floatingBarCta}>
         Get Free Demo
       </a>
-    </div>
-  );
-};
-
-/* ═══════════════════════════════════════════════════
-   COUNTDOWN TIMER
-   ═══════════════════════════════════════════════════ */
-const CountdownTimer = () => {
-  const [time, setTime] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const t = setInterval(() => {
-      setTime((prev) => {
-        let { h, m, s } = prev;
-        s--;
-        if (s < 0) {
-          s = 59;
-          m--;
-        }
-        if (m < 0) {
-          m = 59;
-          h--;
-        }
-        if (h < 0) {
-          h = 23;
-          m = 59;
-          s = 59;
-        }
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(t);
-  }, []);
-  const pad = (n) => String(n).padStart(2, "0");
-  return (
-    <div className={styles.countdown}>
-      <i className="bi bi-clock-fill"></i>
-      <span>Offer expires in</span>
-      <span className={styles.countdownTime}>
-        {pad(time.h)}:{pad(time.m)}:{pad(time.s)}
-      </span>
     </div>
   );
 };
@@ -339,7 +306,7 @@ const LeadForm = ({ formId = "get-started" }) => (
     pageId="bulk-sms-landing"
     formId={formId}
     urgencyText="Only 5 DLT registration spots left this month"
-    submitLabel="Get My Free Demo & Pricing"
+    submitLabel="Get My Free Setup"
   />
 );
 
@@ -382,7 +349,7 @@ const HeroSection = () => (
           {/* <div className={styles.heroTopBar}>
             <i className="bi bi-fire" style={{ color: "#f97316" }}></i>
             <span>
-              <strong>March Offer:</strong> DLT Registration only ₹5,000 + Free
+              <strong>Limited Offer:</strong> DLT Registration only ₹5,000 + Free
               Sender ID — only{" "}
               <strong style={{ color: "#dc2626" }}>5 spots left</strong> this
               month
@@ -1244,7 +1211,7 @@ const FormCtaSection = () => (
     <div className={styles.urgencyBanner}>
       <i className="bi bi-lightning-charge-fill"></i>
       <span>
-        <strong>March Special:</strong> DLT Registration at just ₹5,000 + Free
+        <strong>Limited Offer:</strong> DLT Registration at just ₹5,000 + Free
         Branded Sender ID + Free 1000 SMS Credits — Only for new sign-ups
       </span>
       <i className="bi bi-lightning-charge-fill"></i>
@@ -1411,7 +1378,7 @@ const FinalCTA = () => (
     <div className="container position-relative aos" data-aos="zoom-in">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
-        March Offer · DLT Registration at ₹5,000 · Only 5 Spots Left
+        Limited Offer · DLT Registration at ₹5,000 · Only 5 Spots Left
       </div>
       <h2 className={styles.sectionTitleLight}>
         Every Second You Wait, a Customer Buys from Your Competitor

@@ -36,7 +36,6 @@ export const metadata = {
     description:
       "India's top RCS messaging platform. Rich media, verified sender, interactive buttons. 35% higher CTR than SMS. Free setup this month.",
     images: ["/images/1.png"],
-    site: "@yourtwitterhandle",
   },
   robots: "noindex, nofollow",
   alternates: {
@@ -45,9 +44,6 @@ export const metadata = {
   category: "RCS Messaging Service",
   applicationName: "A2ZSMS",
   generator: "Next.js",
-  other: {
-    "twitter:creator": "@yourtwitterhandle",
-  },
 };
 
 export const viewport = {

@@ -152,34 +152,6 @@ const FloatingStickyBar = () => {
 };
 
 /* ═══════════════════════════════════════════════════
-   COUNTDOWN TIMER
-   ═══════════════════════════════════════════════════ */
-const CountdownTimer = () => {
-  const [time, setTime] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const t = setInterval(() => {
-      setTime((prev) => {
-        let { h, m, s } = prev;
-        s--;
-        if (s < 0) { s = 59; m--; }
-        if (m < 0) { m = 59; h--; }
-        if (h < 0) { h = 23; m = 59; s = 59; }
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(t);
-  }, []);
-  const pad = (n) => String(n).padStart(2, "0");
-  return (
-    <div className={styles.countdown}>
-      <i className="bi bi-clock-fill"></i>
-      <span>Offer expires in</span>
-      <span className={styles.countdownTime}>{pad(time.h)}:{pad(time.m)}:{pad(time.s)}</span>
-    </div>
-  );
-};
-
-/* ═══════════════════════════════════════════════════
    PRICING TEASER STRIP
    ═══════════════════════════════════════════════════ */
 const PricingTeaserStrip = () => (
@@ -371,7 +343,7 @@ const HeroSection = () => (
           <div className={styles.heroImageWrap}>
             <div className={styles.heroImageGlow}></div>
             <img
-              src="/image/Product/google ads rcs.png"
+              src="/image/product/google-ads-rcs.png"
               alt="RCS Messaging Service Dashboard"
               className={styles.heroImage}
               width={560}
@@ -1326,7 +1298,7 @@ const FinalCTA = () => (
     <div className="container position-relative" data-aos="zoom-in">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
-        February Offer: Free RCS Setup + 1 Month Platform Free — 4 Spots Left
+        Limited Offer: Free RCS Setup + 1 Month Platform Free — 4 Spots Left
       </div>
       <h2 className={styles.sectionTitleLight}>
         Every Day on Plain SMS, Your Competitors Win More Customers
@@ -1376,8 +1348,8 @@ const RcsLanding = () => {
         <StickyMiniNav />
         <HeroSection />
         <PricingTeaserStrip />
-        <MarqueeTrustBar />
-        <AsSeenOnStrip />
+        {/* <MarqueeTrustBar /> */}
+        {/* <AsSeenOnStrip /> */}
         <ProblemSolution />
         <FeaturesSection
           activeTab={activeFeatureTab}

@@ -1,6 +1,7 @@
 import WhatsappApiService from "../Component/Product/WhatsappApiService/WhatsappApiService";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title:
     "WhatsApp API Service - Send Bulk Messages with Official API | A2ZSMS",
   description:
@@ -38,22 +39,21 @@ export const metadata = {
     description:
       "Official WhatsApp Business API provider. Send bulk messages, automate notifications, and integrate chatbots. Starting at Rs 2999.",
     images: ["/images/1.png"],
-    site: "@yourtwitterhandle",
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   alternates: {
     canonical: "https://www.a2zsms.in/whatsapp-api-service/",
   },
-  viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#075e54",
   category: "WhatsApp API Service",
   applicationName: "A2ZSMS",
   generator: "Next.js",
-  other: {
-    "twitter:creator": "@yourtwitterhandle",
-    "og:updated_time": new Date().toISOString(),
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  themeColor: "#075e54",
 };
 
 const page = () => {

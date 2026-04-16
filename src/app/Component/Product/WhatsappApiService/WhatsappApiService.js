@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./WhatsappApiService.module.css";
-import PopupForm from "../PopUp";
 import SharedLeadForm from "../SharedLeadForm/SharedLeadForm";
 
 const WA_NUMBER = "919740274595";
@@ -61,7 +60,7 @@ const useCountUp = (end, duration = 2000, isDecimal = false) => {
    ═══════════════════════════════════════════════════ */
 const AnnouncementTicker = () => {
   const messages = [
-    "🔥 February Offer: Free WhatsApp API Setup + 1 Month Platform Free — Only 3 spots left!",
+    "🔥 Limited Offer: Free WhatsApp API Setup + 1 Month Platform Free — Only 3 spots left!",
     "⚡ 98% open rate on WhatsApp — 5× better than SMS or email",
     "🏆 Trusted by 500+ businesses across India — Official Meta Partner!",
   ];
@@ -92,17 +91,24 @@ const socialProofPeople = [
 const SocialProofBubble = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
-  const timerRef = useRef(null);
+  const intervalRef = useRef(null);
+  const timeoutRef  = useRef(null);
+  const mountedRef  = useRef(true);
   useEffect(() => {
-    timerRef.current = setInterval(() => {
+    mountedRef.current = true;
+    intervalRef.current = setInterval(() => {
+      if (!mountedRef.current) return;
       setVisible(false);
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
+        if (!mountedRef.current) return;
         setIdx((i) => (i + 1) % socialProofPeople.length);
         setVisible(true);
       }, 400);
     }, 4000);
     return () => {
-      clearInterval(timerRef.current);
+      mountedRef.current = false;
+      clearInterval(intervalRef.current);
+      clearTimeout(timeoutRef.current);
     };
   }, []);
   const p = socialProofPeople[idx];
@@ -146,46 +152,6 @@ const FloatingStickyBar = () => {
       <a href="#get-started" className={styles.floatingBarCta}>
         Get Free Demo
       </a>
-    </div>
-  );
-};
-
-/* ═══════════════════════════════════════════════════
-   COUNTDOWN TIMER
-   ═══════════════════════════════════════════════════ */
-const CountdownTimer = () => {
-  const [time, setTime] = useState({ h: 23, m: 47, s: 12 });
-  useEffect(() => {
-    const t = setInterval(() => {
-      setTime((prev) => {
-        let { h, m, s } = prev;
-        s--;
-        if (s < 0) {
-          s = 59;
-          m--;
-        }
-        if (m < 0) {
-          m = 59;
-          h--;
-        }
-        if (h < 0) {
-          h = 23;
-          m = 59;
-          s = 59;
-        }
-        return { h, m, s };
-      });
-    }, 1000);
-    return () => clearInterval(t);
-  }, []);
-  const pad = (n) => String(n).padStart(2, "0");
-  return (
-    <div className={styles.countdown}>
-      <i className="bi bi-clock-fill"></i>
-      <span>Offer expires in</span>
-      <span className={styles.countdownTime}>
-        {pad(time.h)}:{pad(time.m)}:{pad(time.s)}
-      </span>
     </div>
   );
 };
@@ -308,70 +274,41 @@ const StickyMiniNav = () => {
 };
 
 /* ═══════════════════════════════════════════════════
-   HERO VIDEO PLAYER
+   HERO IMAGE
    ═══════════════════════════════════════════════════ */
-// Replace 'YOUTUBE_VIDEO_ID' with your actual YouTube video ID
-const HERO_VIDEO_ID = "YOUTUBE_VIDEO_ID";
-
-const HeroVideoPlayer = () => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <div className={styles.heroImageWrap}>
-      <div className={styles.heroImageGlow}></div>
-      {playing ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
-          title="How WhatsApp API Works - A2ZSMS"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className={styles.heroVideoIframe}
-        />
-      ) : (
-        <div
-          className={styles.heroVideoPoster}
-          onClick={() => setPlaying(true)}
-        >
-          <img
-            src="/image/product/whatsapp.png"
-            alt="Watch How WhatsApp API Works - A2ZSMS Demo"
-            className={styles.heroImage}
-            width={560}
-            height={480}
-            loading="eager"
-            decoding="async"
-          />
-          <div className={styles.heroVideoOverlay}></div>
-          <span
-            className={styles.heroPlayBtn}
-            role="button"
-            aria-label="Play how it works video"
-          >
-            <i className="bi bi-play-fill"></i>
-          </span>
-          <span className={styles.heroPlayLabel}>
-            <i className="bi bi-camera-video-fill"></i> How It Works (60 sec)
-          </span>
-        </div>
-      )}
-      {!playing && (
-        <>
-          <div className={styles.heroFloat1}>
-            <i className="bi bi-whatsapp"></i>
-            <span>98% Open Rate</span>
-          </div>
-          <div className={styles.heroFloat2}>
-            <i className="bi bi-robot"></i>
-            <span>AI Chatbot</span>
-          </div>
-          <div className={styles.heroFloat3}>
-            <i className="bi bi-patch-check-fill"></i>
-            <span>Meta Verified</span>
-          </div>
-        </>
-      )}
+const HeroVideoPlayer = () => (
+  <div className={styles.heroImageWrap}>
+    <div className={styles.heroImageGlow}></div>
+    <img
+      src="/image/product/whatsapp.png"
+      alt="WhatsApp Business API Platform by A2ZSMS"
+      className={styles.heroImage}
+      width={560}
+      height={480}
+      loading="eager"
+      decoding="async"
+    />
+    <a
+      href="#get-started"
+      className={styles.heroPlayBtn}
+      aria-label="Get started with WhatsApp API"
+    >
+      <i className="bi bi-arrow-right-circle-fill"></i>
+    </a>
+    <div className={styles.heroFloat1}>
+      <i className="bi bi-whatsapp"></i>
+      <span>98% Open Rate</span>
     </div>
-  );
-};
+    <div className={styles.heroFloat2}>
+      <i className="bi bi-robot"></i>
+      <span>AI Chatbot</span>
+    </div>
+    <div className={styles.heroFloat3}>
+      <i className="bi bi-patch-check-fill"></i>
+      <span>Meta Verified</span>
+    </div>
+  </div>
+);
 
 /* ═══════════════════════════════════════════════════
    HERO
@@ -410,7 +347,7 @@ const HeroSection = () => (
           <div className={styles.heroTopBar}>
             <i className="bi bi-lightning-charge-fill"></i>
             <span>
-              <strong>February Offer:</strong> Free Setup + 1 Month Platform
+              <strong>Limited Offer:</strong> Free Setup + 1 Month Platform
               Free — only <strong>3 spots left</strong>
             </span>
           </div>
@@ -1474,7 +1411,7 @@ const FinalCTA = () => (
     <div className="container position-relative" data-aos="zoom-in">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
-        February Offer: Free Setup + 1 Month Platform Free — 3 Spots Left
+        Limited Offer: Free Setup + 1 Month Platform Free — 3 Spots Left
       </div>
       <h2 className={styles.sectionTitleLight}>
         Every Second You Wait, a Customer Buys from Your Competitor
@@ -1556,5 +1493,6 @@ const WhatsappApiService = () => {
     </>
   );
 };
+
 
 export default WhatsappApiService;
