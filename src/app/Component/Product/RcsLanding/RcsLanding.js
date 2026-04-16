@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, useRef, memo } from "react";
 import styles from "./RcsLanding.module.css";
-import { gtag_report_conversion } from "../../../GoogleTracking";
+import SharedLeadForm from "../SharedLeadForm/SharedLeadForm";
+
 
 const WA_NUMBER = "919740274595";
 const WA_MSG = encodeURIComponent("Hi, I am interested in RCS Messaging Service");
@@ -91,19 +91,28 @@ const AnnouncementTicker = () => {
 const SocialProofBubble = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
-  const timerRef = useRef(null);
+  const intervalRef = useRef(null);
+  const timeoutRef  = useRef(null);
+  const mountedRef  = useRef(true);
+
   useEffect(() => {
-    timerRef.current = setInterval(() => {
+    mountedRef.current = true;
+    intervalRef.current = setInterval(() => {
+      if (!mountedRef.current) return;
       setVisible(false);
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
+        if (!mountedRef.current) return;
         setIdx((i) => (i + 1) % socialProofPeople.length);
         setVisible(true);
       }, 400);
     }, 4000);
     return () => {
-      clearInterval(timerRef.current);
+      mountedRef.current = false;
+      clearInterval(intervalRef.current);
+      clearTimeout(timeoutRef.current);
     };
   }, []);
+
   const p = socialProofPeople[idx];
   return (
     <div className={`${styles.socialBubble} ${visible ? styles.socialBubbleVisible : styles.socialBubbleHidden}`}>
@@ -136,9 +145,7 @@ const FloatingStickyBar = () => {
   return (
     <div className={styles.floatingBar}>
       <span className={styles.floatingBarText}>🎯 Get free RCS demo — only 4 spots left today</span>
-      <a href="tel:+918431086185" className={styles.floatingBarCall}>
-        <i className="bi bi-telephone-fill"></i> Call Now
-      </a>
+
       <a href="#get-started" className={styles.floatingBarCta}>Get Free Demo</a>
     </div>
   );
@@ -364,7 +371,7 @@ const HeroSection = () => (
           <div className={styles.heroImageWrap}>
             <div className={styles.heroImageGlow}></div>
             <img
-              src="/image/product/google ads rcs.png"
+              src="/image/Product/google ads rcs.png"
               alt="RCS Messaging Service Dashboard"
               className={styles.heroImage}
               width={560}
@@ -404,7 +411,7 @@ const HeroSection = () => (
 /* ═══════════════════════════════════════════════════
    MARQUEE TRUST BAR
    ═══════════════════════════════════════════════════ */
-const MarqueeTrustBar = () => (
+const MarqueeTrustBar = memo(() => (
   <div className={`${styles.marqueeSection} aos`} data-aos="fade-up">
     <div className="container">
       <span className={styles.marqueeLabel}>
@@ -428,7 +435,7 @@ const MarqueeTrustBar = () => (
       </div>
     </div>
   </div>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    PROBLEM → SOLUTION
@@ -1118,260 +1125,34 @@ const FaqSection = ({ openIndex, setOpenIndex }) => (
 );
 
 /* ═══════════════════════════════════════════════════
-   LEAD FORM
+   RCS SERVICE OPTIONS (passed to SharedLeadForm)
    ═══════════════════════════════════════════════════ */
-const LeadForm = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
+const RCS_SERVICES = [
+  { value: "RCS Messaging",       label: "RCS Bulk Messaging" },
+  { value: "RCS Chatbot",         label: "RCS AI Chatbot" },
+  { value: "RCS + Chatbot Combo", label: "RCS + Chatbot Combo" },
+  { value: "RCS API Integration", label: "RCS API Integration" },
+  { value: "Other",               label: "Other" },
+];
+const RCS_TRUST = [
+  { icon: "bi-shield-lock-fill", label: "256-bit SSL" },
+  { icon: "bi-patch-check-fill", label: "Google RCS Partner" },
+  { icon: "bi-clock-fill",       label: "Reply in 2 hrs" },
+];
 
-  const validate = () => {
-    const errs = {};
-    if (!form.name.trim()) errs.name = "Name is required";
-    if (!form.email.trim()) errs.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      errs.email = "Enter a valid email";
-    if (!form.phone.trim()) errs.phone = "Phone number is required";
-    else if (!/^\d{10,15}$/.test(form.phone.trim()))
-      errs.phone = "Enter valid phone (min 10 digits)";
-    if (!form.service) errs.service = "Please select a service";
-    return errs;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "phone")
-      setForm((p) => ({ ...p, [name]: value.replace(/\D/g, "") }));
-    else setForm((p) => ({ ...p, [name]: value }));
-    if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
-    setLoading(true);
-    try {
-      const timestamp = new Date().toISOString();
-      await Promise.all([
-        fetch("https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            company: form.company,
-            service: form.service,
-            message: form.message,
-            timestamp,
-          }),
-        }),
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            company: form.company,
-            service: form.service,
-            message: form.message,
-            access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
-          }),
-        }),
-      ]);
-      gtag_report_conversion();
-      router.push("/rcs-service-landing/thank-you/");
-    } catch (err) {
-      console.error("Submission error:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className={styles.formCard} id="get-started">
-      <CountdownTimer />
-      {/* Urgency strip */}
-      <div className={styles.formUrgencyStrip}>
-        <span className={styles.formUrgencyDot}></span>
-        <span>
-          <strong>Only 4 free setup spots</strong> left this month — grab yours
-          before they&apos;re gone
-        </span>
-        <span className={styles.formUrgencyFire}>🔥</span>
-      </div>
-
-      <div className={styles.formResponseTime}>
-        <span className={styles.formResponseDot}></span>
-        Average response time: <strong>under 2 hours</strong>
-      </div>
-      <h4 className={styles.formTitle}>Claim Your Free Demo &amp; Pricing</h4>
-      <p className={styles.formSub}>
-        Takes 30 seconds · No credit card · Our RCS expert calls you back
-      </p>
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="row g-3">
-          <div className="col-12">
-            <label className={styles.formLabel}>
-              Full Name <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-person ${styles.formInputIcon}`}></i>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Full Name"
-                className={`${styles.formInput} ${errors.name ? styles.formInputError : ""}`}
-                value={form.name}
-                onChange={handleChange}
-              />
-            </div>
-            {errors.name && <p className={styles.formError}>{errors.name}</p>}
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>
-              Email <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-envelope ${styles.formInputIcon}`}></i>
-              <input
-                type="email"
-                name="email"
-                placeholder="you@company.com"
-                className={`${styles.formInput} ${errors.email ? styles.formInputError : ""}`}
-                value={form.email}
-                onChange={handleChange}
-              />
-            </div>
-            {errors.email && <p className={styles.formError}>{errors.email}</p>}
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>
-              Phone <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-telephone ${styles.formInputIcon}`}></i>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="10-digit mobile number"
-                className={`${styles.formInput} ${errors.phone ? styles.formInputError : ""}`}
-                value={form.phone}
-                onChange={handleChange}
-                maxLength={15}
-              />
-            </div>
-            {errors.phone && <p className={styles.formError}>{errors.phone}</p>}
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>Company Name</label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-building ${styles.formInputIcon}`}></i>
-              <input
-                type="text"
-                name="company"
-                placeholder="Your Company"
-                className={styles.formInput}
-                value={form.company}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>
-              Service <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-grid ${styles.formInputIcon}`}></i>
-              <select
-                name="service"
-                className={`${styles.formInput} ${errors.service ? styles.formInputError : ""}`}
-                value={form.service}
-                onChange={handleChange}
-                style={{ cursor: "pointer", appearance: "auto" }}
-              >
-                <option value="">Select a service</option>
-                <option value="RCS Messaging">RCS Bulk Messaging</option>
-                <option value="RCS Chatbot">RCS AI Chatbot</option>
-                <option value="RCS + Chatbot Combo">RCS + Chatbot Combo</option>
-                <option value="RCS API Integration">RCS API Integration</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            {errors.service && (
-              <p className={styles.formError}>{errors.service}</p>
-            )}
-          </div>
-          <div className="col-12">
-            <label className={styles.formLabel}>Your Requirement</label>
-            <textarea
-              name="message"
-              rows="3"
-              placeholder="Tell us about your requirements..."
-              className={`${styles.formInput} ${styles.formTextarea}`}
-              value={form.message}
-              onChange={handleChange}
-              style={{ paddingLeft: 14 }}
-            ></textarea>
-          </div>
-          <div className="col-12">
-            <button
-              type="submit"
-              className={styles.formSubmit}
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <span
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                  ></span>
-                  Submitting...
-                </>
-              ) : (
-                <>
-                  Get My Free Demo &amp; Pricing{" "}
-                  <i className="bi bi-arrow-right ms-1"></i>
-                </>
-              )}
-            </button>
-            <p className={styles.formPrivacyNote}>
-              <i className="bi bi-lock-fill"></i> We never share your details.
-              By submitting you agree to be contacted by A2ZSMS.
-            </p>
-            <div className={styles.formTrust}>
-              <div className={styles.formTrustItem}>
-                <i className="bi bi-shield-lock-fill"></i>
-                <span>256-bit SSL</span>
-              </div>
-              <div className={styles.formTrustItem}>
-                <i className="bi bi-patch-check-fill"></i>
-                <span>Google RCS Partner</span>
-              </div>
-              <div className={styles.formTrustItem}>
-                <i className="bi bi-clock-fill"></i>
-                <span>Reply in 2 hrs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  );
-};
+// Thin wrapper — FormCtaSection uses <LeadForm /> unchanged
+const LeadForm = () => (
+  <SharedLeadForm
+    styles={styles}
+    thankYouUrl="/rcs-service-landing/thank-you/"
+    serviceOptions={RCS_SERVICES}
+    trustItems={RCS_TRUST}
+    pageId="rcs-service-landing"
+    formId="get-started"
+    urgencyText="Only 4 free setup spots left this month"
+    submitLabel="Get My Free Demo & Pricing"
+  />
+);
 
 /* ═══════════════════════════════════════════════════
    FORM + CTA SECTION

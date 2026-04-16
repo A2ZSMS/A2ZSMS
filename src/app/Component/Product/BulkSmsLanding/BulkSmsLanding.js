@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./BulkSmsLanding.module.css";
-import { gtag_report_conversion } from "../../../GoogleTracking";
+import SharedLeadForm from "../SharedLeadForm/SharedLeadForm";
 
 const WA_NUMBER = "919740274595";
 const WA_MSG = encodeURIComponent("Hi, I am interested in Bulk SMS Service");
@@ -316,261 +315,33 @@ const AsSeenOnStrip = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   LEAD FORM — defined early so HeroSection can use it
+   LEAD FORM
    ═══════════════════════════════════════════════════ */
-const LeadForm = ({ formId = "get-started" }) => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    service: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
+const SMS_SERVICES = [
+  { value: "Promotional SMS",   label: "Promotional SMS" },
+  { value: "Transactional SMS", label: "Transactional SMS" },
+  { value: "OTP SMS",           label: "OTP SMS" },
+  { value: "Bulk SMS API",      label: "Bulk SMS API" },
+  { value: "Other",             label: "Other" },
+];
+const SMS_TRUST = [
+  { icon: "bi-shield-lock-fill", label: "256-bit SSL" },
+  { icon: "bi-patch-check-fill", label: "TRAI Compliant" },
+  { icon: "bi-clock-fill",       label: "Reply in 2 hrs" },
+];
 
-  const validate = () => {
-    const errs = {};
-    if (!form.name.trim()) errs.name = "Name is required";
-    if (!form.email.trim()) errs.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      errs.email = "Enter a valid email";
-    if (!form.phone.trim()) errs.phone = "Phone number is required";
-    else if (!/^\d{10,15}$/.test(form.phone.trim()))
-      errs.phone = "Enter valid phone (min 10 digits)";
-    if (!form.service) errs.service = "Please select a service";
-    return errs;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "phone")
-      setForm((p) => ({ ...p, [name]: value.replace(/\D/g, "") }));
-    else setForm((p) => ({ ...p, [name]: value }));
-    if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
-    setLoading(true);
-    try {
-      const timestamp = new Date().toISOString();
-      await Promise.all([
-        fetch("https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            company: form.company,
-            service: form.service,
-            message: form.message,
-            source: "g-ads",
-            timestamp,
-          }),
-        }),
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            company: form.company,
-            service: form.service,
-            message: form.message,
-            access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
-          }),
-        }),
-      ]);
-      gtag_report_conversion();
-      router.push("/bulk-sms-service/thank-you/");
-    } catch (err) {
-      console.error("Submission error:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className={styles.formCard} id={formId}>
-      <CountdownTimer />
-
-      <div className={styles.formUrgencyStrip}>
-        <span className={styles.formUrgencyDot}></span>
-        <span>
-          🔥 DLT Registration at just <strong>₹5,000</strong> — only 5 spots
-          left this month
-        </span>
-      </div>
-
-      <div className={styles.formResponseTime}>
-        <span className={styles.formResponseDot}></span>
-        Our team responds in <strong>under 2 hours</strong> — we&apos;re online
-        now
-      </div>
-      <h4 className={styles.formTitle}>Claim Your Free Demo &amp; Pricing</h4>
-      <p className={styles.formSub}>
-        Takes 30 seconds · No credit card · Get a personalised quote instantly
-      </p>
-      <form onSubmit={handleSubmit} noValidate>
-        <div className="row g-3 aos">
-          <div className="col-12">
-            <label className={styles.formLabel}>
-              Full Name <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-person ${styles.formInputIcon}`}></i>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Full Name"
-                className={`${styles.formInput} ${errors.name ? styles.formInputError : ""}`}
-                value={form.name}
-                onChange={handleChange}
-              />
-            </div>
-            {errors.name && <p className={styles.formError}>{errors.name}</p>}
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>
-              Email <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-envelope ${styles.formInputIcon}`}></i>
-              <input
-                type="email"
-                name="email"
-                placeholder="you@company.com"
-                className={`${styles.formInput} ${errors.email ? styles.formInputError : ""}`}
-                value={form.email}
-                onChange={handleChange}
-              />
-            </div>
-            {errors.email && <p className={styles.formError}>{errors.email}</p>}
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>
-              Phone <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-telephone ${styles.formInputIcon}`}></i>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="10-digit mobile number"
-                className={`${styles.formInput} ${errors.phone ? styles.formInputError : ""}`}
-                value={form.phone}
-                onChange={handleChange}
-                maxLength={15}
-              />
-            </div>
-            {errors.phone && <p className={styles.formError}>{errors.phone}</p>}
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>Company Name</label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-building ${styles.formInputIcon}`}></i>
-              <input
-                type="text"
-                name="company"
-                placeholder="Your Company"
-                className={styles.formInput}
-                value={form.company}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <label className={styles.formLabel}>
-              Service <span className={styles.formRequired}>*</span>
-            </label>
-            <div className={styles.formInputWrap}>
-              <i className={`bi bi-grid ${styles.formInputIcon}`}></i>
-              <select
-                name="service"
-                className={`${styles.formInput} ${errors.service ? styles.formInputError : ""}`}
-                value={form.service}
-                onChange={handleChange}
-                style={{ cursor: "pointer", appearance: "auto" }}
-              >
-                <option value="">Select a service</option>
-                <option value="Promotional SMS">Promotional SMS</option>
-                <option value="Transactional SMS">Transactional SMS</option>
-                <option value="OTP SMS">OTP SMS</option>
-                <option value="Bulk SMS API">Bulk SMS API</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            {errors.service && (
-              <p className={styles.formError}>{errors.service}</p>
-            )}
-          </div>
-          <div className="col-12">
-            <label className={styles.formLabel}>Your Requirement</label>
-            <textarea
-              name="message"
-              rows="3"
-              placeholder="Tell us about your requirements..."
-              className={`${styles.formInput} ${styles.formTextarea}`}
-              value={form.message}
-              onChange={handleChange}
-              style={{ paddingLeft: 14 }}
-            ></textarea>
-          </div>
-          <div className="col-12">
-            <button
-              type="submit"
-              className={styles.formSubmit}
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <span
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                  ></span>
-                  Submitting...
-                </>
-              ) : (
-                <>
-                  Get My Free Demo &amp; Pricing{" "}
-                  <i className="bi bi-arrow-right ms-1"></i>
-                </>
-              )}
-            </button>
-            <p className={styles.formPrivacyNote}>
-              <i className="bi bi-lock-fill"></i> 100% confidential · No spam ·
-              Unsubscribe anytime
-            </p>
-            <div className={styles.formTrust}>
-              <div className={styles.formTrustItem}>
-                <i className="bi bi-shield-lock-fill"></i>
-                <span>256-bit SSL</span>
-              </div>
-              <div className={styles.formTrustItem}>
-                <i className="bi bi-patch-check-fill"></i>
-                <span>TRAI Compliant</span>
-              </div>
-              <div className={styles.formTrustItem}>
-                <i className="bi bi-clock-fill"></i>
-                <span>Reply in 2 hrs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  );
-};
+const LeadForm = ({ formId = "get-started" }) => (
+  <SharedLeadForm
+    styles={styles}
+    thankYouUrl="/bulk-sms-service/thank-you/"
+    serviceOptions={SMS_SERVICES}
+    trustItems={SMS_TRUST}
+    pageId="bulk-sms-landing"
+    formId={formId}
+    urgencyText="Only 5 DLT registration spots left this month"
+    submitLabel="Get My Free Demo & Pricing"
+  />
+);
 
 /* ═══════════════════════════════════════════════════
    HERO — Left: text+stats | Right: LeadForm

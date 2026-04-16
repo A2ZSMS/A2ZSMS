@@ -1,6 +1,7 @@
 import RcsLanding from "../Component/Product/RcsLanding/RcsLanding";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "RCS Messaging Service - Rich Business Messaging | A2ZSMS",
   description:
     "India's leading RCS Messaging provider. Send rich, verified business messages with images, carousels & interactive buttons. 35% higher engagement than SMS. Free setup offer.",
@@ -41,15 +42,18 @@ export const metadata = {
   alternates: {
     canonical: "https://www.a2zsms.in/rcs-service-landing/",
   },
-  viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#7c3aed",
   category: "RCS Messaging Service",
   applicationName: "A2ZSMS",
   generator: "Next.js",
   other: {
     "twitter:creator": "@yourtwitterhandle",
-    "og:updated_time": new Date().toISOString(),
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  themeColor: "#7c3aed",
 };
 
 const page = () => {

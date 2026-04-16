@@ -283,6 +283,10 @@
   border-radius: 50%;
   pointer-events: none;
   filter: blur(80px);
+  /* GPU-promote so blur is composited on its own layer — prevents repaint on parent */
+  will-change: transform;
+  transform: translateZ(0);
+  contain: layout paint;
 }
 .heroMesh1 {
   top: -150px;
@@ -308,6 +312,10 @@
   background: rgba(76, 29, 149, 0.04);
   animation: meshFloat 18s ease-in-out infinite;
   animation-delay: 3s;
+}
+/* Hide expensive mesh blobs on mobile — biggest scroll-lag fix */
+@media (max-width: 768px) {
+  .heroMesh1, .heroMesh2, .heroMesh3 { display: none; }
 }
 
 /* Urgency top bar */
@@ -473,7 +481,16 @@
   text-decoration: none;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: var(--rcs-transition);
+  /* Pulse ring via pseudo-element (transform+opacity only — GPU composited, no repaint) */
+}
+.heroPlayBtn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(124, 58, 237, 0.5);
   animation: playPulse 2s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 .heroPlayBtn:hover {
   transform: translate(-50%, -50%) scale(1.1);
@@ -612,6 +629,7 @@
   gap: 60px;
   animation: marqueeScroll 30s linear infinite;
   width: max-content;
+  will-change: transform;
 }
 .marqueeLogo {
   height: 24px;
@@ -1610,9 +1628,9 @@
   100% { opacity: 0; transform: translateY(-100px); }
 }
 @keyframes playPulse {
-  0% { box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 0 0 0 rgba(124, 58, 237, 0.4); }
-  70% { box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 0 0 20px rgba(124, 58, 237, 0); }
-  100% { box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 0 0 0 rgba(124, 58, 237, 0); }
+  0%   { transform: scale(1);    opacity: 0.6; }
+  70%  { transform: scale(1.6);  opacity: 0; }
+  100% { transform: scale(1.6);  opacity: 0; }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -2003,4 +2021,19 @@
   color: #f59e0b;
   font-size: 12px;
   margin-left: 2px;
+}
+
+/* Respect reduced-motion preference — disables all animations for performance
+   and accessibility. Applies on low-end devices that set this via OS. */
+@media (prefers-reduced-motion: reduce) {
+  .heroMesh1, .heroMesh2, .heroMesh3,
+  .marqueeContent,
+  .heroPlayBtn::after,
+  .heroFloat1, .heroFloat2, .heroFloat3,
+  .stepDotGlow,
+  .ctaParticle,
+  .socialBubble {
+    animation: none !important;
+    transition: none !important;
+  }
 }
