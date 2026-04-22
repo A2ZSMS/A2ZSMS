@@ -29,7 +29,7 @@ export const metadata = {
     description:
       "WhatsApp Marketing for Government: send citizen updates, service alerts, document reminders, and grievance support with verified messaging and 2-way help.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
 

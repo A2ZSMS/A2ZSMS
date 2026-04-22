@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./thankyou.module.css";
-("use-client");
+
 export const metadata = {
   title: "Thank You – A2ZSMS | We'll Be in Touch Soon",
   description:

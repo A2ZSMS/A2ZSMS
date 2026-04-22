@@ -26,7 +26,7 @@ export const metadata = {
     title: "Best whatsapp business api for travel & tourism",
     description: "Best whatsapp business api for travel & tourism: capture enquiries, automate itineraries and booking updates, send offers, and support customers 24/7 fast.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

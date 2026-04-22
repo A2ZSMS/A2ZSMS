@@ -2008,7 +2008,8 @@
    ═══════════════════════════════════════════════════ */
 .landingFooter {
   background: #0f1c2e;
-  padding: 14px 20px;
+  /* padding-bottom: 80px ensures footer links stay above the 66px fixed floating bar on desktop */
+  padding: 14px 20px 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2042,6 +2043,8 @@
   .compTable tbody td { padding: 12px 14px; }
   .landingFooterLinks { gap: 8px; }
   .landingFooterLinks a { font-size: 12px; }
+  /* Push footer above fixed floating bar (107px tall on mobile) */
+  .landingFooter { padding-bottom: 120px; }
 }
 
 /* ═══════════════════════════════════════════════════

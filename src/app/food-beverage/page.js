@@ -23,7 +23,7 @@ export const metadata = {
       "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
 
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
 

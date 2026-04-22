@@ -25,7 +25,7 @@ export const metadata = {
     title: "Top Bulk WhatsApp Messaging & Business Solutions for Gaming",
     description: "Get WhatsApp Business for Gaming and API solutions in Bangalore for seamless communication, marketing, and bulk messaging services.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

@@ -30,23 +30,21 @@ export const metadata = {
     description:
       "Get WhatsApp Business API services in Bangalore with A2ZSMS. Free setup, automation, and bulk WhatsApp marketing for your business.",
     images: ["/images/1.png"],
-    site: "@yourtwitterhandle",
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   alternates: {
     canonical: "https://www.a2zsms.in/whatsapp-api/",
   },
-  // ✅ Extra SEO meta tags
-  viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#0A8F08",
   category: "WhatsApp Business API",
   applicationName: "A2ZSMS",
   generator: "Next.js",
-  other: {
-    "twitter:creator": "@yourtwitterhandle",
-    "og:updated_time": new Date().toISOString(),
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  themeColor: "#0A8F08",
 };
 
 const page = () => {

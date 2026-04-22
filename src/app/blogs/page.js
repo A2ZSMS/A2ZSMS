@@ -31,7 +31,7 @@ export const metadata = {
     description:
       "Explore blogs on Bulk SMS, WhatsApp API, RCS messaging, and voice marketing services in India. Get the latest updates and insights.",
     images: ["/images/oct8.png"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   alternates: {

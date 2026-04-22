@@ -48,10 +48,10 @@ const Video = () => {
                   <div className="num">10K+</div>
                   <div className="label">Businesses</div>
                 </div>
-                <div className="hero-metric">
+                {/* <div className="hero-metric">
                   <div className="num">50M+</div>
                   <div className="label">Messages Sent</div>
-                </div>
+                </div> */}
                 <div className="hero-metric">
                   <div className="num">99.9%</div>
                   <div className="label">Uptime</div>

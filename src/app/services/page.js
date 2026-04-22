@@ -25,7 +25,7 @@ export const metadata = {
     title: "Top Bulk WhatsApp Messaging & Communication Services in Bangalore",
     description: "Get comprehensive messaging & communication services with WhatsApp API solutions for businesses in Bangalore to enhance seamless marketing & engagement.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

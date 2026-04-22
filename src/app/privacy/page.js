@@ -26,7 +26,7 @@ export const metadata = {
     title: "Best Bulk WhatsApp Messaging & Business Solutions in India",
     description: "Boost your business with the best Bulk WhatsApp Messaging Services in India. Get seamless communication, marketing, and automation for your business growth.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   alternates: {

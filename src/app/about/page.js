@@ -17,7 +17,7 @@ export const metadata = {
     title: "About - Reliable Bulk SMS & Top WhatsApp Messaging Services",
     description: "Learn about our reliable Bulk SMS services and WhatsApp API solutions for businesses in Bangalore to enhance communication and marketing efforts.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

@@ -73,7 +73,7 @@ const RcsThankYou = () => {
         {/* CTA buttons */}
         <div className={styles.ctaBtns}>
           <a
-            href="https://wa.me/919740274595?text=Hi%2C%20I%20just%20submitted%20the%20RCS%20demo%20form"
+            href="https://wa.me/918431086185?text=Hi%2C%20I%20just%20submitted%20the%20RCS%20demo%20form"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.waBtn}

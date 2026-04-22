@@ -1,6 +1,7 @@
 import Home from "./Component/Home/Home";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
   description:
     "Get top messaging services in Bangalore, India. Reliable Bulk SMS, WhatsApp, RCS, and Voice Call solutions for businesses and marketing campaigns.",
@@ -30,7 +31,7 @@ export const metadata = {
     description:
       "Reliable Bulk SMS, WhatsApp, RCS, and Voice Call services in Bangalore, India. Perfect solutions for business communication and marketing.",
     images: ["/images/hardesr_part_bsns.png"],
-    site: "@yourtwitterhandle",
+
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",

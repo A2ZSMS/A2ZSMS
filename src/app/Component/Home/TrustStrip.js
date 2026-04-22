@@ -3,7 +3,7 @@ import React from "react";
 const trustData = [
   { icon: "bi-whatsapp", bg: "#25D366", num: "Official", label: "Meta Business Partner" },
   { icon: "bi-people-fill", bg: "#097bdf", num: "10,000+", label: "Active Businesses" },
-  { icon: "bi-envelope-check", bg: "#43cea2", num: "50M+", label: "Messages Delivered" },
+  // { icon: "bi-envelope-check", bg: "#43cea2", num: "50M+", label: "Messages Delivered" },
   { icon: "bi-shield-check", bg: "#065a9c", num: "99.9%", label: "Uptime Guaranteed" },
 ];
 

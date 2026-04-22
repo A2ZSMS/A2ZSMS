@@ -4,7 +4,8 @@ import { FAQ } from "../../../public/Schema/FaqSchema";
 import { Breadcrumb } from "../../../public/Schema/BreadCrumb";
 import { Organization } from "../../../public/Schema/Organization";
 import { Website_Schema } from "../../../public/Schema/Website";
- 
+import { SoftwareApplication } from "../../../public/Schema/SoftwareApplication";
+
 const SchemaMarkup = () => {
   return (
     <>
@@ -38,9 +39,14 @@ const SchemaMarkup = () => {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(Website_Schema) }}
       />
+      <Script
+        id="schema-software-application"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SoftwareApplication) }}
+      />
     </>
   );
 };
- 
+
 export default SchemaMarkup;
- 

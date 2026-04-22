@@ -26,7 +26,7 @@ export const metadata = {
     title: "RCS Business Messaging for healthcare | A2ZSMS",
     description: "RCS Business Messaging for healthcare: send appointment reminders, test result alerts, billing updates, and 2-way support securely to cut no-shows 24/7 AI.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

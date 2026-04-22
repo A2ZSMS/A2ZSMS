@@ -1700,13 +1700,14 @@
   .ucCard { padding: 18px; }
   .compCard { padding: 20px 16px; }
   .glassFeatureCard { padding: 16px; gap: 12px; }
-  .compareTable { overflow-x: auto; }
+  /* Fit table in 375px viewport — no horizontal scroll, tighter layout */
+  .compareTable { overflow-x: visible; }
   .compareHeader, .compareRow {
-    grid-template-columns: 1.5fr 1fr 1fr;
-    min-width: 420px;
-    font-size: 13px;
+    grid-template-columns: 2fr 1fr 1fr;
+    min-width: 0;
+    font-size: 12px;
   }
-  .compareFeatureCol, .compareCol { padding: 12px 14px; }
+  .compareFeatureCol, .compareCol { padding: 10px 8px; }
   /* New component mobile overrides */
   .ticker { font-size: 12.5px; padding: 9px 12px; gap: 8px; }
   .tickerCta { padding: 5px 12px; font-size: 11px; }

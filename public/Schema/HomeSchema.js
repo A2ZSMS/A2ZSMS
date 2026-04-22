@@ -1,11 +1,13 @@
-export const A2ZSMS_Service={
+export const A2ZSMS_Service = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "A2ZSMS - Service",
-  "image": "https://www.a2zsms.in/static/media/logo.cc5bd9b359b94629387c.png",
+  "name": "A2ZSMS",
+  "description": "India's leading cloud messaging platform providing Bulk SMS, WhatsApp Business API, RCS messaging, and Voice Call services for businesses across India. DLT compliant, TRAI regulated with 99.9% delivery rate.",
+  "image": "https://www.a2zsms.in/images/1.png",
   "@id": "https://www.a2zsms.in/",
   "url": "https://www.a2zsms.in/",
-  "telephone": "8431086185",
+  "telephone": "+918431086185",
+  "priceRange": "₹₹",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "183, 2nd Floor, G Block opposite to Reliance Trends, Sahakara Nagar Main rd, Byatarayanapura",
@@ -31,5 +33,23 @@ export const A2ZSMS_Service={
     "opens": "09:30",
     "closes": "18:30"
   },
-  "sameAs": "https://www.facebook.com/A2zsmsservices/" 
-}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "150",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+918431086185",
+    "contactType": "customer service",
+    "areaServed": "IN",
+    "availableLanguage": ["English", "Hindi", "Kannada"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/A2zsmsservices/",
+    "https://www.youtube.com/@a2zsms",
+    "https://in.linkedin.com/in/vinay-reddy-76337b336"
+  ]
+};

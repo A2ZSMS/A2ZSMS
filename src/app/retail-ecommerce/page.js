@@ -25,7 +25,7 @@ export const metadata = {
     title: "WhatsApp Business Platform for Retail & eCommerce | A2ZSMS",
     description: "WhatsApp Business Platform for Retail & eCommerce: automate order updates, cart recovery, offers, and support to boost conversions and repeat sales 24/7.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

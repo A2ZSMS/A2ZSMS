@@ -31,7 +31,7 @@ export const metadata = {
     description:
       "WhatsApp API & Chatbot for Media and Entertainment Industry: automate ticket alerts, show updates, fan support, polls, and promos to boost engagement 24/7.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
 

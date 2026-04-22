@@ -17,7 +17,7 @@ export const metadata = {
     title: "WhatsApp Business API for Education | A2ZSMS",
     description: "WhatsApp Business API for Education: send fee reminders, attendance alerts, exam updates, and 2-way student support with chatbots to reduce calls 24/7.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import styles from "./BulkSmsLanding.module.css";
 import SharedLeadForm from "../SharedLeadForm/SharedLeadForm";
 
@@ -57,26 +57,27 @@ const useCountUp = (end, duration = 2000, isDecimal = false) => {
 /* ═══════════════════════════════════════════════════
    ANNOUNCEMENT TICKER
    ═══════════════════════════════════════════════════ */
-const AnnouncementTicker = () => {
-  const messages = [
-    "🔥 Limited Offer: DLT Registration at just ₹5,000 + Free Sender ID — Only 5 spots left!",
-    "⚡ OTP delivered in under 3 seconds — 99.9% delivery rate guaranteed",
-    "🏆 Trusted by 1000+ businesses across India — Join them today!",
-  ];
+const TICKER_MESSAGES_SMS = [
+  "🔥 Limited Offer: DLT Registration at just ₹5,000 + Free Sender ID — Only 5 spots left!",
+  "⚡ OTP delivered in under 3 seconds — 99.9% delivery rate guaranteed",
+  "🏆 Trusted by 1000+ businesses across India — Join them today!",
+];
+
+const AnnouncementTicker = memo(() => {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % messages.length), 3500);
+    const t = setInterval(() => setIdx((i) => (i + 1) % TICKER_MESSAGES_SMS.length), 3500);
     return () => clearInterval(t);
   }, []);
   return (
     <div className={styles.ticker}>
-      <span className={styles.tickerText}>{messages[idx]}</span>
+      <span className={styles.tickerText}>{TICKER_MESSAGES_SMS[idx]}</span>
       <a href="#get-started" className={styles.tickerCta}>
         Claim Offer →
       </a>
     </div>
   );
-};
+});
 
 /* ═══════════════════════════════════════════════════
    SOCIAL PROOF BUBBLE
@@ -88,7 +89,7 @@ const socialProofPeople = [
   { name: "Sneha", city: "Hyderabad", time: "12 min ago" },
 ];
 
-const SocialProofBubble = () => {
+const SocialProofBubble = memo(() => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   const intervalRef = useRef(null);
@@ -122,12 +123,12 @@ const SocialProofBubble = () => {
       </span>
     </div>
   );
-};
+});
 
 /* ═══════════════════════════════════════════════════
    FLOATING STICKY BAR
    ═══════════════════════════════════════════════════ */
-const FloatingStickyBar = () => {
+const FloatingStickyBar = memo(() => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     let ticking = false;
@@ -157,17 +158,17 @@ const FloatingStickyBar = () => {
       </a>
     </div>
   );
-};
+});
 
 /* ═══════════════════════════════════════════════════
    STICKY MINI NAV
    ═══════════════════════════════════════════════════ */
-const StickyMiniNav = () => {
+const StickyMiniNav = memo(() => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -196,12 +197,12 @@ const StickyMiniNav = () => {
       </div>
     </nav>
   );
-};
+});
 
 /* ═══════════════════════════════════════════════════
    PRICING TEASER STRIP
    ═══════════════════════════════════════════════════ */
-const PricingTeaserStrip = () => (
+const PricingTeaserStrip = memo(() => (
   <div className={styles.pricingTeaser}>
     <div className="container aos">
       <div className={styles.pricingTeaserInner}>
@@ -238,12 +239,12 @@ const PricingTeaserStrip = () => (
       </div>
     </div>
   </div>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    AS SEEN ON STRIP
    ═══════════════════════════════════════════════════ */
-const AsSeenOnStrip = () => (
+const AsSeenOnStrip = memo(() => (
   <div className={styles.asSeenOn}>
     <div className="container aos">
       <div className={styles.asSeenOnInner}>
@@ -267,7 +268,7 @@ const AsSeenOnStrip = () => (
           <div className={styles.asSeenOnDivider}></div>
           <div className={styles.asSeenOnLogo}>
             <i
-              className="bi bi-shield-check-fill"
+              className="bi bi-shield-fill-check"
               style={{ color: "#ff6d42" }}
             ></i>
             <span>
@@ -279,7 +280,7 @@ const AsSeenOnStrip = () => (
       </div>
     </div>
   </div>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    LEAD FORM
@@ -438,7 +439,7 @@ const HeroSection = () => (
 /* ═══════════════════════════════════════════════════
    MARQUEE TRUST BAR
    ═══════════════════════════════════════════════════ */
-const MarqueeTrustBar = () => (
+const MarqueeTrustBar = memo(() => (
   <div className={styles.marqueeSection}>
     <div className="container aos">
       <span className={styles.marqueeLabel}>
@@ -462,7 +463,7 @@ const MarqueeTrustBar = () => (
       </div>
     </div>
   </div>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    PROBLEM → SOLUTION
@@ -515,7 +516,7 @@ const solutions = [
   },
 ];
 
-const ProblemSolution = () => (
+const ProblemSolution = memo(() => (
   <section className={styles.sectionAlt}>
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
@@ -595,7 +596,7 @@ const ProblemSolution = () => (
       </div>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    COMPARISON TABLE — Email / Calls vs A2ZSMS Bulk SMS
@@ -613,7 +614,7 @@ const comparisonRows = [
   ["Dedicated Support", "❌ No Priority", "✅ 24/7 Account Manager"],
 ];
 
-const ComparisonTableSection = () => (
+const ComparisonTableSection = memo(() => (
   <section className={styles.section}>
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
@@ -663,7 +664,7 @@ const ComparisonTableSection = () => (
       </div>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    FEATURES — Tab Switcher
@@ -857,7 +858,7 @@ const steps = [
   },
 ];
 
-const HowItWorks = () => (
+const HowItWorks = memo(() => (
   <section className={styles.sectionDark}>
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
@@ -898,7 +899,7 @@ const HowItWorks = () => (
       </div>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    USE CASES
@@ -960,7 +961,7 @@ const useCases = [
   },
 ];
 
-const UseCasesSection = () => (
+const UseCasesSection = memo(() => (
   <section className={styles.section}>
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
@@ -1006,7 +1007,7 @@ const UseCasesSection = () => (
       </div>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    INTEGRATION PARTNERS
@@ -1022,7 +1023,7 @@ const integrationLogos = [
   { icon: "bi-code-slash", name: "REST API", color: "#6366f1" },
 ];
 
-const IntegrationSection = () => (
+const IntegrationSection = memo(() => (
   <section className={styles.sectionAlt}>
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
@@ -1057,7 +1058,7 @@ const IntegrationSection = () => (
       </p>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    TESTIMONIALS
@@ -1083,7 +1084,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialsSection = () => (
+const TestimonialsSection = memo(() => (
   <section className={styles.section}>
     <div className="container aos">
       <div className="text-center mb-5" data-aos="fade-up">
@@ -1121,7 +1122,7 @@ const TestimonialsSection = () => (
       </div>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    FAQ ACCORDION
@@ -1272,7 +1273,7 @@ const FormCtaSection = () => (
                 text: "Dedicated account manager assigned to you",
               },
               {
-                icon: "bi-shield-check-fill",
+                icon: "bi-shield-fill-check",
                 text: "No hidden charges — pay only for what you send",
               },
               {
@@ -1364,14 +1365,16 @@ const FormCtaSection = () => (
 /* ═══════════════════════════════════════════════════
    FINAL CTA (Dark)
    ═══════════════════════════════════════════════════ */
-const FinalCTA = () => (
+const CTA_PARTICLES = Array.from({ length: 6 }, (_, i) => `${i * 0.8}s`);
+
+const FinalCTA = memo(() => (
   <section className={styles.ctaSection}>
     <div className={styles.ctaParticles}>
-      {[...Array(6)].map((_, i) => (
+      {CTA_PARTICLES.map((delay, i) => (
         <span
           key={i}
           className={styles.ctaParticle}
-          style={{ animationDelay: `${i * 0.8}s` }}
+          style={{ animationDelay: delay }}
         ></span>
       ))}
     </div>
@@ -1415,12 +1418,12 @@ const FinalCTA = () => (
       </p>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    LANDING PAGE FOOTER (Privacy / Terms)
    ═══════════════════════════════════════════════════ */
-const LandingPageFooter = () => (
+const LandingPageFooter = memo(() => (
   <footer className={styles.landingFooter}>
     <nav className={styles.landingFooterLinks} aria-label="Legal links">
       <a href="/privacy/">Privacy Policy</a>
@@ -1428,7 +1431,7 @@ const LandingPageFooter = () => (
       <a href="/terms/">Terms &amp; Conditions</a>
     </nav>
   </footer>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    SERVICES OVERVIEW SECTION
@@ -1500,7 +1503,7 @@ const services = [
   },
 ];
 
-const ServicesOverviewSection = () => (
+const ServicesOverviewSection = memo(() => (
   <section className={styles.servicesSection}>
     <div className="container">
       <div className="text-center" data-aos="fade-up">
@@ -1549,7 +1552,7 @@ const ServicesOverviewSection = () => (
       </div>
     </div>
   </section>
-);
+));
 
 /* ═══════════════════════════════════════════════════
    MAIN COMPONENT

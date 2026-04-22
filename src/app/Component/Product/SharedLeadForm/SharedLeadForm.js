@@ -13,8 +13,9 @@ const DISPOSABLE_EMAIL_DOMAINS = new Set([
   "tempmailo.com","emailondeck.com","mailnesia.com","tempr.email",
 ]);
 const ROLE_EMAIL_PREFIXES = new Set([
-  "admin","administrator","info","test","noreply","no-reply","webmaster",
-  "postmaster","root","support","help","abuse","spam","user","demo",
+  "admin","administrator","test","noreply","no-reply","webmaster",
+  "postmaster","root","abuse","spam","demo",
+  // NOTE: "info", "support", "help", "user" removed — common in Indian B2B
 ]);
 const FAKE_NAME_BLOCKLIST = new Set([
   "test","asdf","abc","abcd","qwerty","admin","user","name","demo",
@@ -28,13 +29,19 @@ const NAME_RE   = /^[A-Za-z][A-Za-z .'-]{1,59}$/;
 const EMAIL_RE  = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 const MOBILE_RE = /^[6-9]\d{9}$/;
 
-const MAKE_URL   = "https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6";
-const W3F_KEY    = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
-const RATE_WIN   = 60 * 60 * 1000;  // 1 hr
-const RATE_MAX   = 3;               // max submissions/hr per browser
-const BURST_WIN  = 60 * 1000;       // 1 min
-const DEDUPE_WIN = 24 * 60 * 60 * 1000;
-const MIN_MS     = 3000;            // minimum fill time
+// ── All constants BEFORE any function that references them ────────────────────
+const MAKE_URL      = "https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6";
+const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
+const MIN_MS        = 800;             // minimum fill time — allows browser autofill
+const FETCH_TIMEOUT = 7000;            // 7s per endpoint attempt
+
+// ── Fetch with timeout to avoid hanging submissions ───────────────────────────
+const fetchWithTimeout = (url, options, ms = FETCH_TIMEOUT) => {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return fetch(url, { ...options, signal: controller.signal })
+    .finally(() => clearTimeout(timer));
+};
 
 // ── Tiny countdown timer (1-per-form, isolated state) ────────────────────────
 const CountdownTimer = ({ styles }) => {
@@ -105,6 +112,7 @@ const SharedLeadForm = ({
   const router        = useRouter();
   const mountTime     = useRef(Date.now());
   const utmRef        = useRef({});
+  const isSubmitting  = useRef(false); // mutex — blocks double-clicks at ref level
 
   // Capture UTM / gclid / referrer once on mount
   useEffect(() => {
@@ -148,48 +156,15 @@ const SharedLeadForm = ({
     else if (FAKE_PHONE_BLOCKLIST.has(phone)) errs.phone = "Enter a real mobile number";
     else if (/(.)\1{6,}/.test(phone))      errs.phone = "Enter a real mobile number";
 
+    const company = form.company.trim();
+    if (!company)                          errs.company = "Company name is required";
+    else if (company.length < 2)           errs.company = "At least 2 characters";
+
     if (!form.service)                     errs.service = "Please select a service";
 
     return errs;
   };
 
-  // ── localStorage rate-limit + dedupe (per browser) ─────────────────────────
-  const checkRate = () => {
-    try {
-      const now  = Date.now();
-      const hits = JSON.parse(localStorage.getItem("a2z_form_hits") || "[]");
-      const win  = hits.filter((t) => now - t < RATE_WIN);
-      if (win.some((t) => now - t < BURST_WIN))
-        return "Please wait a minute before submitting again.";
-      if (win.length >= RATE_MAX)
-        return "Submission limit reached. Try again in an hour.";
-    } catch (_) {}
-    return null;
-  };
-
-  const checkDedupe = (email, phone) => {
-    try {
-      const now  = Date.now();
-      const map  = JSON.parse(localStorage.getItem("a2z_form_dedupe") || "{}");
-      const key  = `${email}|${phone}`;
-      if (map[key] && now - map[key] < DEDUPE_WIN)
-        return "We already received your enquiry — our team will contact you shortly.";
-    } catch (_) {}
-    return null;
-  };
-
-  const recordSubmit = (email, phone) => {
-    try {
-      const now  = Date.now();
-      const hits = JSON.parse(localStorage.getItem("a2z_form_hits") || "[]");
-      hits.push(now);
-      localStorage.setItem("a2z_form_hits", JSON.stringify(hits.filter((t) => now - t < RATE_WIN)));
-      const map = JSON.parse(localStorage.getItem("a2z_form_dedupe") || "{}");
-      map[`${email}|${phone}`] = now;
-      for (const k of Object.keys(map)) if (now - map[k] > DEDUPE_WIN) delete map[k];
-      localStorage.setItem("a2z_form_dedupe", JSON.stringify(map));
-    } catch (_) {}
-  };
 
   // ── Handlers ────────────────────────────────────────────────────────────────
   const handleChange = (e) => {
@@ -204,35 +179,48 @@ const SharedLeadForm = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // ── Block double-clicks immediately at ref level (before any state update) ──
+    if (isSubmitting.current) return;
+    isSubmitting.current = true;
+    setLoading(true); // disable button UI instantly on every click attempt
+
     setSubmitError("");
     setAgreeError("");
 
-    // Honeypot
-    if (form.website_url) return;
+    // Honeypot — silent drop, reset lock
+    if (form.website_url) {
+      isSubmitting.current = false;
+      setLoading(false);
+      return;
+    }
 
-    // Time-trap
+    // Time-trap — silent drop, reset lock
     const formMs = Date.now() - mountTime.current;
-    if (formMs < MIN_MS) return;
+    if (formMs < MIN_MS) {
+      isSubmitting.current = false;
+      setLoading(false);
+      return;
+    }
 
     // Privacy checkbox
     if (!agreed) {
       setAgreeError("Please accept the privacy policy and terms to continue.");
+      isSubmitting.current = false;
+      setLoading(false);
       return;
     }
 
     const errs = validate();
-    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
-
-    const rateMsg = checkRate();
-    if (rateMsg) { setSubmitError(rateMsg); return; }
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      isSubmitting.current = false;
+      setLoading(false);
+      return;
+    }
 
     const cleanEmail = form.email.trim().toLowerCase();
     const cleanPhone = form.phone.trim();
-
-    const dupeMsg = checkDedupe(cleanEmail, cleanPhone);
-    if (dupeMsg) { setSubmitError(dupeMsg); return; }
-
-    setLoading(true);
 
     const payload = {
       name:             form.name.trim(),
@@ -254,37 +242,66 @@ const SharedLeadForm = ({
       ...utmRef.current,
     };
 
+    // ── Send to Make.com (with 1 auto-retry) ────────────────────────────────
+    const tryMake = async () => {
+      const opts = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      };
+      try {
+        const res = await fetchWithTimeout(MAKE_URL, opts, 7000);
+        if (res.ok) return true;
+      } catch (_) {}
+      // Retry once after 1s pause
+      await new Promise((r) => setTimeout(r, 1000));
+      try {
+        const res = await fetchWithTimeout(MAKE_URL, opts, 7000);
+        if (res.ok) return true;
+      } catch (_) {}
+      return false;
+    };
+
+    // ── Send to Web3Forms ────────────────────────────────────────────────────
+    const tryW3F = async () => {
+      try {
+        const res = await fetchWithTimeout("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...payload,
+            access_key: W3F_KEY,
+            subject: `New Lead — ${payload.name} [${pageId}]`,
+          }),
+        });
+        return res.ok;
+      } catch (_) {}
+      return false;
+    };
+
     try {
-      const results = await Promise.allSettled([
-        fetch(MAKE_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }),
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...payload, access_key: W3F_KEY }),
-        }),
-      ]);
+      // Fire both simultaneously — every submission goes to both
+      const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
 
-      const anyOk = results.some(
-        (r) => r.status === "fulfilled" && r.value?.ok,
-      );
+      console.info(`[Form] Make.com=${makeOk} | Web3Forms=${w3fOk} | pageId=${pageId}`);
 
-      if (!anyOk) {
-        setSubmitError("Couldn't submit right now. Please try again.");
+      if (!makeOk && !w3fOk) {
+        setSubmitError(
+          "Submission failed. Please WhatsApp us directly at +91 84310 86185 or try again.",
+        );
         setLoading(false);
+        isSubmitting.current = false; // unlock so user can retry
         return;
       }
 
-      recordSubmit(cleanEmail, cleanPhone);
       gtag_report_conversion();
+      // isSubmitting stays true — page is redirecting, no need to unlock
       router.push(thankYouUrl);
     } catch (err) {
-      console.error("Submission error:", err);
+      console.error("[Form] Unexpected error:", err);
       setSubmitError("Network error — please check your connection and retry.");
       setLoading(false);
+      isSubmitting.current = false; // unlock so user can retry
     }
   };
 
@@ -327,9 +344,11 @@ const SharedLeadForm = ({
             id={`hp_${formId}`}
             name="website_url"
             tabIndex={-1}
-            autoComplete="off"
+            autoComplete="new-password"
             value={form.website_url}
             onChange={handleChange}
+            readOnly
+            onFocus={(e) => e.target.removeAttribute("readOnly")}
           />
         </div>
 
@@ -422,7 +441,7 @@ const SharedLeadForm = ({
           {/* Company */}
           <div className="col-md-6">
             <label className={styles.formLabel} htmlFor={`company_${formId}`}>
-              Company Name
+              Company Name <span className={styles.formRequired}>*</span>
             </label>
             <div className={styles.formInputWrap}>
               <i className={`bi bi-building ${styles.formInputIcon}`}></i>
@@ -430,14 +449,15 @@ const SharedLeadForm = ({
                 type="text"
                 id={`company_${formId}`}
                 name="company"
-                placeholder="Your Company"
-                className={styles.formInput}
+                placeholder="Your Company Name"
+                className={`${styles.formInput} ${errors.company ? styles.formInputError : ""}`}
                 value={form.company}
                 onChange={handleChange}
                 autoComplete="organization"
                 maxLength={100}
               />
             </div>
+            {errors.company && <p className={styles.formError}>{errors.company}</p>}
           </div>
 
           {/* Service */}
@@ -559,14 +579,20 @@ const SharedLeadForm = ({
               type="submit"
               className={styles.formSubmit}
               disabled={loading}
+              style={loading ? {
+                opacity: 0.75,
+                cursor: "not-allowed",
+                pointerEvents: "none",
+              } : {}}
             >
               {loading ? (
                 <>
                   <span
                     className="spinner-border spinner-border-sm me-2"
                     role="status"
+                    aria-hidden="true"
                   />
-                  Submitting...
+                  Please wait…
                 </>
               ) : (
                 <>

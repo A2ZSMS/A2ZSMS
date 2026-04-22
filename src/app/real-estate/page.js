@@ -26,7 +26,7 @@ export const metadata = {
     title: "WhatsApp Business API for Real Estate Leads | A2ZSMS",
     description: "WhatsApp Business API for Real Estate Leads: capture enquiries, automate follow-ups, share listings, and book site visits faster with A2ZSMS—24/7 securely.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

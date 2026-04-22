@@ -37,7 +37,7 @@ export const metadata = {
       "India's top RCS messaging platform. Rich media, verified sender, interactive buttons. 35% higher CTR than SMS. Free setup this month.",
     images: ["/images/1.png"],
   },
-  robots: "noindex, nofollow",
+  robots: "index, follow",
   alternates: {
     canonical: "https://www.a2zsms.in/rcs-service-landing/",
   },

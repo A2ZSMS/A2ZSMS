@@ -32,7 +32,7 @@ export const metadata = {
     description:
       "Top Bulk SMS provider in Bangalore, India. Services include OTP, promotional, transactional, and business SMS campaigns.",
     images: ["/images/oct.png"],
-    site: "@yourtwitterhandle",
+
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",

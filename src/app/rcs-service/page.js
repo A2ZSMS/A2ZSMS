@@ -33,7 +33,6 @@ export const metadata = {
     description:
       "Top RCS messaging services in Bangalore, India. Enterprise RCS provider for rich communication, customer engagement, and business messaging.",
     images: ["/images/2.png"],
-    site: "@yourtwitterhandle",
   },
 
   robots:
@@ -42,15 +41,15 @@ export const metadata = {
   alternates: {
     canonical: "https://www.a2zsms.in/rcs-service/",
   },
-  viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#0072ff",
   category: "RCS Business Messaging",
   applicationName: "RCS Messaging Services",
   generator: "Next.js",
-  other: {
-    "twitter:creator": "@yourtwitterhandle",
-    "og:updated_time": new Date().toISOString(),
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  themeColor: "#0072ff",
 };
 
 const page = () => {
