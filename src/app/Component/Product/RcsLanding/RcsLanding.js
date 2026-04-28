@@ -123,35 +123,6 @@ const SocialProofBubble = memo(() => {
 });
 
 /* ═══════════════════════════════════════════════════
-   FLOATING STICKY BAR
-   ═══════════════════════════════════════════════════ */
-const FloatingStickyBar = memo(() => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setShow(window.scrollY > 400);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  if (!show) return null;
-  return (
-    <div className={styles.floatingBar}>
-      <span className={styles.floatingBarText}>🎯 Get free RCS demo — only 4 spots left today</span>
-
-      <a href="#get-started" className={styles.floatingBarCta}>Get Free Demo</a>
-    </div>
-  );
-});
-
-/* ═══════════════════════════════════════════════════
    PRICING TEASER STRIP
    ═══════════════════════════════════════════════════ */
 const PricingTeaserStrip = memo(() => (
@@ -229,19 +200,20 @@ const StickyMiniNav = memo(() => {
     <nav
       className={`${styles.miniNav} ${scrolled ? styles.miniNavScrolled : ""}`}
     >
-      <div className="container d-flex align-items-center justify-content-between">
+      <div className="container d-flex align-items-center justify-content-between aos">
         <a href="/" className={styles.miniNavLogo}>
-          <img src="/image/logo.png" alt="A2ZSMS" />
+          <img src="/image/logo1.png" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
           <div className={styles.miniNavSpotsWrap}>
             <span className={styles.miniNavSpotsDot}></span>
-            <span className="d-none d-sm-inline">Only 4 spots left</span>
+            <span
+              className="d-none d-sm-inline"
+              style={{ fontSize: 12, color: "#dc2626", fontWeight: 600 }}
+            >
+              Only 4 spots left
+            </span>
           </div>
-          {/* <a href="tel:+918431086185" className={styles.miniNavPhone}>
-            <i className="bi bi-telephone-fill"></i>
-            <span className="d-none d-md-inline">+91 84310 86185</span>
-          </a> */}
           <a href="#get-started" className={styles.miniNavCta}>
             Get Free Demo <i className="bi bi-arrow-right ms-1"></i>
           </a>
@@ -276,9 +248,9 @@ const HeroSection = () => (
       <div className="row align-items-center gy-5">
         <div className="col-lg-6" data-aos="fade-right">
           {/* Urgency top bar */}
-          <div className={styles.heroTopBar}>
+          {/* <div className={styles.heroTopBar}>
             <i className="bi bi-lightning-charge-fill"></i>
-          </div>
+          </div> */}
 
           <div className={styles.heroBadge}>
             <span className={styles.heroBadgeDot}></span>
@@ -286,17 +258,17 @@ const HeroSection = () => (
           </div>
 
           <h1 className={styles.heroTitle}>
-            Stop Sending Plain SMS That Gets Ignored.{" "}
+            Upgrade Your SMS to Interactive RCS Messaging.{" "}
             <span className={styles.heroGradient}>
-              Switch to RCS — Rich, Verified &amp; Unopenable
+              Send Rich Media, Verified & Branded Messages That &amp; Convert 3X
+              More
             </span>
           </h1>
 
           <p className={styles.heroText}>
-            Your customers ignore boring plain-text SMS. RCS delivers branded
-            messages with images, carousels, quick-reply buttons and verified
-            sender ID — straight to their default messages app. No app download
-            needed.
+            Turn every text message into a powerful customer experience with RCS
+            messaging. Engage, convert, and retain customers using rich
+            communication services designed for modern marketing.
           </p>
 
           <div className={styles.heroChecks}>
@@ -464,14 +436,16 @@ const ProblemSolution = memo(() => (
   <section className={`${styles.sectionAlt} aos`}>
     <div className="container">
       <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Why Switch to RCS?</span>
+        <span className={styles.sectionBadge}>
+          WHY SWITCH TO RCS MESSAGING?
+        </span>
         <h2 className={styles.sectionTitle}>The Problem &amp; Our Solution</h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          Plain SMS is dying. RCS is the next generation of business messaging
-          — richer, verified, and 35% more engaging.
+          Upgrade from SMS to RCS messaging for richer, high-converting customer
+          engagement.
         </p>
       </div>
 
@@ -503,17 +477,20 @@ const ProblemSolution = memo(() => (
         ))}
       </div>
 
-      <div className={styles.psArrow} data-aos="fade-up">
+      {/* <div className={styles.psArrow} data-aos="fade-up">
         <div className={styles.psArrowLine}></div>
         <div className={styles.psArrowIcon}>
           <i className="bi bi-arrow-down-circle-fill"></i>
         </div>
         <div className={styles.psArrowLine}></div>
-      </div>
+      </div> */}
 
       <div className="row g-4 mt-2">
         <div className="col-12">
-          <h6 className="text-uppercase fw-bold small mb-3" style={{ color: "var(--rcs-accent)" }}>
+          <h6
+            className="text-uppercase fw-bold small mb-3"
+            style={{ color: "var(--rcs-accent)" }}
+          >
             <i className="bi bi-check-circle-fill me-2"></i>RCS Solution
           </h6>
         </div>
@@ -627,16 +604,17 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
   <section className={`${styles.section} aos`}>
     <div className="container">
       <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>Features</span>
+        <span className={styles.sectionBadge}>RCS MESSAGING FEATURES</span>
         <h2 className={styles.sectionTitle}>
-          Everything You Need to Win with RCS
+          Everything You Need for High-Converting RCS Campaigns
         </h2>
         <p
           className={`${styles.sectionLead} mx-auto`}
           style={{ maxWidth: 600 }}
         >
-          From rich media messaging to AI chatbot automation — one platform for
-          complete RCS success.
+          From rich media RCS messaging to AI-powered chatbot automation, Our
+          RCS messaging service helps you create, send, and manage powerful RCS
+          campaigns from one platform.
         </p>
         <div className={styles.tabSwitcher}>
           <button
@@ -906,12 +884,16 @@ const ComparisonSection = memo(() => (
   <section className={`${styles.sectionAlt} aos`}>
     <div className="container">
       <div className="text-center mb-5" data-aos="fade-up">
-        <span className={styles.sectionBadge}>RCS vs SMS</span>
+        <span className={styles.sectionBadge}>RCS SERVICE VS SMS</span>
         <h2 className={styles.sectionTitle}>
-          Why RCS Beats Plain SMS Every Time
+          Why Our RCS Service Outperforms Traditional SMS
         </h2>
-        <p className={`${styles.sectionLead} mx-auto`} style={{ maxWidth: 580 }}>
-          See exactly what you&apos;ve been missing by staying on plain SMS.
+        <p
+          className={`${styles.sectionLead} mx-auto`}
+          style={{ maxWidth: 580 }}
+        >
+          Discover what your business is missing with plain SMS and how RCS
+          service delivers richer, more &apos;engaging customer experiences.
         </p>
       </div>
       <div className="row justify-content-center" data-aos="fade-up">
@@ -927,18 +909,28 @@ const ComparisonSection = memo(() => (
               </div>
             </div>
             {comparisons.map((row, i) => (
-              <div key={i} className={`${styles.compareRow} ${i % 2 === 0 ? styles.compareRowAlt : ""}`}>
+              <div
+                key={i}
+                className={`${styles.compareRow} ${i % 2 === 0 ? styles.compareRowAlt : ""}`}
+              >
                 <div className={styles.compareFeatureCol}>{row.feature}</div>
                 <div className={styles.compareCol}>
                   {typeof row.sms === "boolean" ? (
-                    <i className={`bi ${row.sms ? "bi-check-circle-fill text-success" : "bi-x-circle-fill text-danger"}`}></i>
+                    <i
+                      className={`bi ${row.sms ? "bi-check-circle-fill text-success" : "bi-x-circle-fill text-danger"}`}
+                    ></i>
                   ) : (
                     <span className={styles.compareStatBad}>{row.sms}</span>
                   )}
                 </div>
                 <div className={styles.compareCol}>
                   {typeof row.rcs === "boolean" ? (
-                    <i className={`bi ${row.rcs ? "bi-check-circle-fill" : "bi-x-circle-fill text-danger"}`} style={{ color: row.rcs ? "var(--rcs-accent)" : undefined }}></i>
+                    <i
+                      className={`bi ${row.rcs ? "bi-check-circle-fill" : "bi-x-circle-fill text-danger"}`}
+                      style={{
+                        color: row.rcs ? "var(--rcs-accent)" : undefined,
+                      }}
+                    ></i>
                   ) : (
                     <span className={styles.compareStatGood}>{row.rcs}</span>
                   )}
@@ -1300,26 +1292,31 @@ const FinalCTA = memo(() => (
     <div className="container position-relative" data-aos="zoom-in">
       <div className={styles.ctaOfferBadge}>
         <i className="bi bi-lightning-charge-fill"></i>
-        Limited Offer: Free RCS Setup + 1 Month Platform Free — 4 Spots Left
+        Ready When You Are
       </div>
+
       <h2 className={styles.sectionTitleLight}>
-        Every Day on Plain SMS, Your Competitors Win More Customers
+        Your competitors are sending{" "}
+        <span style={{ color: "#1f7a5c", fontStyle: "italic" }}>
+          verified, rich
+        </span>{" "}
+        RCS.
+        <br />
+        You're still sending grey text walls.
       </h2>
+
       <p
         className={styles.sectionLeadLight}
         style={{ maxWidth: 580, margin: "14px auto 36px" }}
       >
-        They send rich, verified RCS messages with product images and one-tap
-        CTAs. You send plain texts. Don&rsquo;t let another campaign go to
-        waste — upgrade to RCS today.
+        Book a 15-minute demo. See your brand running live in our sandbox. Walk
+        away with a quote even if you don’t sign.
       </p>
+
       <div className="d-flex flex-wrap gap-3 justify-content-center">
         <a href="#get-started" className={styles.primaryBtn}>
-          Claim Free RCS Demo Now <i className="bi bi-arrow-right ms-1"></i>
+          Book my free demo <i className="bi bi-arrow-right ms-1"></i>
         </a>
-        {/* <a href="tel:+918431086185" className={styles.ctaCallBtn}>
-          <i className="bi bi-telephone-fill"></i> Call Us Now
-        </a> */}
       </div>
     </div>
   </section>
@@ -1364,7 +1361,38 @@ const RcsLanding = () => {
         <FaqSection openIndex={openFaqIndex} setOpenIndex={setOpenFaqIndex} />
         <FormCtaSection />
         <FinalCTA />
-        <FloatingStickyBar />
+
+        {/* Footer */}
+        <div
+          style={{
+            background: "#1e1b4b",
+            padding: "20px 24px",
+            textAlign: "center",
+            borderTop: "1px solid rgba(255,255,255,0.1)",
+          }}
+        >
+          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 13, margin: 0 }}>
+            © {new Date().getFullYear()} A2ZSMS. All rights reserved. &nbsp;|&nbsp;
+            <a
+              href="https://www.a2zsms.in/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", marginLeft: 4 }}
+            >
+              Privacy Policy
+            </a>
+            &nbsp;|&nbsp;
+            <a
+              href="https://www.a2zsms.in/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", marginLeft: 4 }}
+            >
+              Terms &amp; Conditions
+            </a>
+          </p>
+        </div>
+
       </div>
     </>
   );
