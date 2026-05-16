@@ -89,7 +89,7 @@ const PopupForm = () => {
       };
 
       const [makeResponse, web3Response] = await Promise.all([
-        fetch("https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6", {
+        fetch("https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(makeWebhookData),

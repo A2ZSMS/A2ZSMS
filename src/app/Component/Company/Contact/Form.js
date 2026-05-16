@@ -1,7 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gtag_report_conversion } from "../../../GoogleTracking";
+
+const MAKE_WEBHOOK_URL =
+  "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
+const MIN_FILL_MS = 800;
+
+const FAKE_PHONE_BLOCKLIST = new Set([
+  "9999999999", "8888888888", "7777777777", "6666666666", "1234567890",
+  "9876543210", "0000000000", "1111111111", "9090909090", "9123456789",
+]);
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,12 +23,15 @@ const ContactForm = () => {
     subject: "",
     message: "",
     consent: false,
+    website_url: "",
   });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const mountTime = useRef(Date.now());
+  const submitLock = useRef(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -49,8 +63,10 @@ const ContactForm = () => {
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!/^\d{10,15}$/.test(formData.phone.trim())) {
-      newErrors.phone = "Enter valid phone (min 10 digits)";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile";
+    } else if (FAKE_PHONE_BLOCKLIST.has(formData.phone.trim())) {
+      newErrors.phone = "Enter a real mobile number";
     }
 
     if (!formData.subject.trim()) {
@@ -68,16 +84,23 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Ref-level mutex — blocks double-clicks instantly (before React re-renders)
+    if (submitLock.current) return;
+
+    if (formData.website_url) return;
+    if (Date.now() - mountTime.current < MIN_FILL_MS) return;
+
     if (!validateForm()) return;
 
+    submitLock.current = true;
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
       const timestamp = new Date().toISOString();
 
-      await Promise.all([
-        fetch("https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6", {
+      const results = await Promise.allSettled([
+        fetch(MAKE_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -90,7 +113,7 @@ const ContactForm = () => {
             timestamp,
           }),
         }),
-        fetch("https://api.web3forms.com/submit", {
+        fetch(WEB3FORMS_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -100,13 +123,19 @@ const ContactForm = () => {
             company: formData.company,
             service: formData.subject,
             message: formData.message,
-            access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
+            access_key: WEB3FORMS_KEY,
+            subject: `Contact Form - ${formData.name}`,
           }),
         }),
       ]);
 
+      const anySuccess = results.some(
+        (r) => r.status === "fulfilled" && r.value.ok,
+      );
+
+      if (!anySuccess) throw new Error("Both endpoints failed");
+
       gtag_report_conversion();
-      setShowSuccess(true);
       setFormData({
         name: "",
         email: "",
@@ -115,12 +144,15 @@ const ContactForm = () => {
         subject: "",
         message: "",
         consent: false,
+        website_url: "",
       });
+      setShowSuccess(true);
     } catch (error) {
       console.error("Submission error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
+      submitLock.current = false;
     }
   };
 
@@ -151,6 +183,24 @@ const ContactForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} noValidate>
+        {/* Honeypot — hidden from real users */}
+        <input
+          type="text"
+          name="website_url"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          value={formData.website_url}
+          onChange={handleInputChange}
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            width: 1,
+            height: 1,
+            opacity: 0,
+          }}
+        />
+
         <div className="row g-3 aos">
           {/* Full Name */}
           <div className="col-md-6">
@@ -163,6 +213,7 @@ const ContactForm = () => {
                 type="text"
                 name="name"
                 placeholder="Your Full Name"
+                maxLength={60}
                 style={{
                   ...styles.input,
                   ...(errors.name ? styles.inputError : {}),
@@ -185,6 +236,7 @@ const ContactForm = () => {
                 type="email"
                 name="email"
                 placeholder="you@company.com"
+                maxLength={120}
                 style={{
                   ...styles.input,
                   ...(errors.email ? styles.inputError : {}),
@@ -213,7 +265,7 @@ const ContactForm = () => {
                 }}
                 value={formData.phone}
                 onChange={handleInputChange}
-                maxLength={15}
+                maxLength={10}
               />
             </div>
             {errors.phone && <p style={styles.errorText}>{errors.phone}</p>}
@@ -228,6 +280,7 @@ const ContactForm = () => {
                 type="text"
                 name="company"
                 placeholder="Your Company (optional)"
+                maxLength={100}
                 style={styles.input}
                 value={formData.company}
                 onChange={handleInputChange}
@@ -272,6 +325,7 @@ const ContactForm = () => {
               name="message"
               rows="4"
               placeholder="Tell us more about your requirements..."
+              maxLength={1000}
               style={{ ...styles.input, ...styles.textarea }}
               value={formData.message}
               onChange={handleInputChange}

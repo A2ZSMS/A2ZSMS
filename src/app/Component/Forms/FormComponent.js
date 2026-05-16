@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Form, Input, Select, Button, Checkbox, notification } from "antd";
 import Link from "next/link";
 import axios from "axios";
@@ -8,54 +8,88 @@ import { gtag_report_conversion } from "../../GoogleTracking";
 
 const { Option } = Select;
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
+const MAKE_WEBHOOK_URL =
+  "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const MIN_FILL_MS = 800;
+
+const FAKE_PHONE_BLOCKLIST = new Set([
+  "9999999999", "8888888888", "7777777777", "6666666666", "1234567890",
+  "9876543210", "0000000000", "1111111111", "9090909090", "9123456789",
+]);
+
 const FormComponent = ({ title, buttonText }) => {
   const [form] = Form.useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const mountTime = useRef(Date.now());
+  const honeypotRef = useRef("");
+  const submitLock = useRef(false);
 
   const onFinish = async (values) => {
+    // Ref-level mutex — blocks double-clicks instantly (before React re-renders)
+    if (submitLock.current) return;
+    submitLock.current = true;
     setIsSubmitting(true);
 
+    if (honeypotRef.current) {
+      submitLock.current = false;
+      setIsSubmitting(false);
+      return;
+    }
+    if (Date.now() - mountTime.current < MIN_FILL_MS) {
+      submitLock.current = false;
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
+      const servicesStr = values.services ? values.services.join(", ") : "";
+      const timestamp = new Date().toISOString();
+
       const web3Data = {
-        ...values,
-        services: values.services ? values.services.join(", ") : "",
-        access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
+        name: values.name || "",
+        email: values.email || "",
+        phone: values.phone || "",
+        company: values.company || "",
+        service: servicesStr,
+        message: values.industry || "",
+        access_key: WEB3FORMS_KEY,
+        subject: `New Lead - ${values.name || "Unknown"}`,
       };
 
       const makeWebhookData = {
         name: values.name || "",
-        company: values.company || "",
         email: values.email || "",
         phone: values.phone || "",
+        company: values.company || "",
+        service: servicesStr,
         message: values.industry || "",
-        services: values.services ? values.services.join(", ") : "",
-        timestamp: new Date().toISOString(),
+        timestamp,
       };
 
-      const [web3FormsResponse, makeWebhookResponse] = await Promise.all([
-        axios.post("https://api.web3forms.com/submit", web3Data, {
+      const results = await Promise.allSettled([
+        axios.post(WEB3FORMS_URL, web3Data, {
           headers: { "Content-Type": "application/json" },
         }),
-        axios.post(
-          "https://hook.eu2.make.com/sonw53djgjkoppwwfaaiw23gytkrriqv",
-          makeWebhookData,
-          {
-            headers: { "Content-Type": "application/json" },
-          }
-        ),
+        axios.post(MAKE_WEBHOOK_URL, makeWebhookData, {
+          headers: { "Content-Type": "application/json" },
+        }),
       ]);
 
-      if (
-        web3FormsResponse.status === 200 &&
-        (makeWebhookResponse.status === 200 ||
-          makeWebhookResponse.status === 201)
-      ) {
-        // Fire Google Ads conversion tracking
-        gtag_report_conversion();
+      const anySuccess = results.some(
+        (r) =>
+          r.status === "fulfilled" &&
+          (r.value.status === 200 || r.value.status === 201),
+      );
 
-        setShowModal(true);
+      if (anySuccess) {
+        gtag_report_conversion();
         form.resetFields();
+        setShowModal(true);
+      } else {
+        throw new Error("Both endpoints failed");
       }
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);
@@ -66,6 +100,7 @@ const FormComponent = ({ title, buttonText }) => {
       });
     } finally {
       setIsSubmitting(false);
+      submitLock.current = false;
     }
   };
 
@@ -94,18 +129,42 @@ const FormComponent = ({ title, buttonText }) => {
             size="large"
             className="lead-form"
           >
+            {/* Honeypot — hidden from real users */}
+            <input
+              type="text"
+              name="website_url"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              onChange={(e) => (honeypotRef.current = e.target.value)}
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                width: 1,
+                height: 1,
+                opacity: 0,
+              }}
+            />
+
             <div className="form-grid">
               <Form.Item
                 className="form-field"
                 label="Full Name"
                 name="name"
-                rules={[{ required: true, message: "Please enter your name" }]}
+                rules={[
+                  { required: true, message: "Please enter your name" },
+                  { min: 3, message: "At least 3 characters" },
+                  {
+                    pattern: /^[A-Za-z][A-Za-z .'-]{1,59}$/,
+                    message: "Letters and spaces only",
+                  },
+                ]}
               >
-                <Input placeholder="Enter your full name" />
+                <Input placeholder="Enter your full name" maxLength={60} />
               </Form.Item>
 
               <Form.Item className="form-field" label="Company" name="company">
-                <Input placeholder="Company name (optional)" />
+                <Input placeholder="Company name (optional)" maxLength={100} />
               </Form.Item>
 
               <Form.Item
@@ -120,7 +179,7 @@ const FormComponent = ({ title, buttonText }) => {
                   },
                 ]}
               >
-                <Input placeholder="Enter your work email" />
+                <Input placeholder="Enter your work email" maxLength={120} />
               </Form.Item>
 
               <Form.Item
@@ -130,12 +189,22 @@ const FormComponent = ({ title, buttonText }) => {
                 rules={[
                   { required: true, message: "Please enter your phone number" },
                   {
-                    pattern: /^[0-9]{10}$/,
-                    message: "Phone number must be 10 digits",
+                    pattern: /^[6-9]\d{9}$/,
+                    message: "Enter a valid 10-digit Indian mobile",
+                  },
+                  {
+                    validator: (_, value) =>
+                      !value || !FAKE_PHONE_BLOCKLIST.has(value)
+                        ? Promise.resolve()
+                        : Promise.reject(new Error("Enter a real mobile number")),
                   },
                 ]}
               >
-                <Input addonBefore="+91" placeholder="10-digit mobile number" />
+                <Input
+                  addonBefore="+91"
+                  placeholder="10-digit mobile number"
+                  maxLength={10}
+                />
               </Form.Item>
 
               <Form.Item

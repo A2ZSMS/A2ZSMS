@@ -30,7 +30,7 @@ const EMAIL_RE  = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 const MOBILE_RE = /^[6-9]\d{9}$/;
 
 // ── All constants BEFORE any function that references them ────────────────────
-const MAKE_URL      = "https://hook.eu2.make.com/mmfvqeha16nyft89xe7eo54kzxcdwab6";
+const MAKE_URL      = "https://hook.eu1.make.com/hjr28ubvji8cy5vxmtccwam3w0bnho70";
 const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
 const MIN_MS        = 800;             // minimum fill time — allows browser autofill
 const FETCH_TIMEOUT = 7000;            // 7s per endpoint attempt
@@ -262,19 +262,26 @@ const SharedLeadForm = ({
       return false;
     };
 
-    // ── Send to Web3Forms ────────────────────────────────────────────────────
+    // ── Send to Web3Forms (with 1 auto-retry) ────────────────────────────────
     const tryW3F = async () => {
+      const opts = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          access_key: W3F_KEY,
+          subject: `New Lead — ${payload.name} [${pageId}]`,
+        }),
+      };
       try {
-        const res = await fetchWithTimeout("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...payload,
-            access_key: W3F_KEY,
-            subject: `New Lead — ${payload.name} [${pageId}]`,
-          }),
-        });
-        return res.ok;
+        const res = await fetchWithTimeout("https://api.web3forms.com/submit", opts);
+        if (res.ok) return true;
+      } catch (_) {}
+      // Retry once after 1s pause
+      await new Promise((r) => setTimeout(r, 1000));
+      try {
+        const res = await fetchWithTimeout("https://api.web3forms.com/submit", opts);
+        if (res.ok) return true;
       } catch (_) {}
       return false;
     };
