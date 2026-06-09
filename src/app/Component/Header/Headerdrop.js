@@ -233,18 +233,6 @@ const HeaderDrop = () => {
                       </ul>
                     </li>
 
-                    {/* Platform Nav Item */}
-                    <li className="nav-item">
-                      <Link
-                        className={`nav-link fw-bold poda ${
-                          isHomePage && !isScrolled ? "text-white" : "text-dark"
-                        }`}
-                        href="/platform/"
-                      >
-                        Platform
-                      </Link>
-                    </li>
-
                     {/* Solutions Dropdown */}
                     <li className="nav-item dropdown ">
                       <a
@@ -477,6 +465,18 @@ const HeaderDrop = () => {
                         </li>
                       </ul>
                     </li>
+                    {/* Platform Nav Item */}
+                    <li className="nav-item">
+                      <Link
+                        className={`nav-link fw-bold poda ${
+                          isHomePage && !isScrolled ? "text-white" : "text-dark"
+                        }`}
+                        href="/platform/"
+                      >
+                        Platform
+                      </Link>
+                    </li>
+
                     <li className="nav-item">
                       <Link
                         className={`nav-link  fw-bold poda ${

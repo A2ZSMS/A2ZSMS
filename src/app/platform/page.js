@@ -1,372 +1,358 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-
-export const metadata = {
-  title: "A2ZSMS Platform - SMS, WhatsApp, RCS & Voice Messaging Dashboard",
-  description:
-    "A2ZSMS is a unified messaging platform that brings SMS, WhatsApp Business API, RCS Messaging, and Bulk Voice Calls into a single powerful dashboard built for businesses.",
-  keywords:
-    "A2ZSMS platform, messaging platform, SMS dashboard, WhatsApp API platform, RCS messaging platform, bulk voice call platform",
-  alternates: {
-    canonical: "https://www.a2zsms.in/platform/",
-  },
-};
+import "../Component/Home/Home.css";
 
 const features = [
   {
     icon: "bi-whatsapp",
-    color: "#25D366",
+    bg: "#25D366",
     title: "WhatsApp Business API",
-    desc: "Send bulk messages, run chatbots, and manage customer conversations at scale. 98% open rates — directly inside the A2ZSMS dashboard.",
+    desc: "Send bulk messages, automate replies with chatbots, and manage customer conversations at scale with 98% open rates — all from your A2ZSMS dashboard.",
     link: "/whatsapp-api/",
   },
   {
     icon: "bi-chat-square-dots",
-    color: "#097bdf",
+    bg: "#097bdf",
     title: "RCS Messaging",
-    desc: "Deliver rich, interactive messages with carousels, verified sender identity, and app-like experiences — all powered by your A2ZSMS account.",
+    desc: "Deliver rich, app-like experiences with interactive carousels, branded messages, and verified sender identity — built directly into the platform.",
     link: "/rcs-service/",
   },
   {
     icon: "bi-envelope-fill",
-    color: "#43cea2",
+    bg: "#43cea2",
     title: "Bulk SMS",
-    desc: "Send promotional and transactional SMS campaigns with 99.9% delivery rates across all networks, right from your platform dashboard.",
+    desc: "Lightning-fast promotional and transactional SMS campaigns with 99.9% delivery rates across all networks from one unified inbox.",
     link: "/bulk-sms/",
   },
   {
     icon: "bi-telephone-fill",
-    color: "#185a9d",
+    bg: "#185a9d",
     title: "Bulk Voice Calls",
-    desc: "Launch automated voice campaigns with IVR, retry logic, and real-time analytics — fully managed within the A2ZSMS platform.",
+    desc: "Crystal-clear voice campaigns with IVR, auto-retry logic, and detailed analytics — fully managed inside your platform account.",
     link: "/voice-call/",
   },
   {
     icon: "bi-robot",
-    color: "#1e89ec",
+    bg: "#1e89ec",
     title: "AI Chatbot",
-    desc: "Automate customer support with intelligent chatbots that handle queries, capture leads, and escalate to agents — built into the platform.",
+    desc: "24/7 automated customer support powered by AI. Handle queries, capture leads, and escalate to agents — all within the platform.",
     link: "/chatbot",
   },
   {
-    icon: "bi-bar-chart-fill",
-    color: "#f7971e",
+    icon: "bi-bar-chart-line-fill",
+    bg: "#f7971e",
     title: "Analytics & Reports",
-    desc: "Track delivery rates, open rates, click-throughs, and campaign ROI in real time from a unified analytics dashboard.",
+    desc: "Track delivery rates, open rates, conversions, and campaign ROI in real time from a single unified analytics dashboard.",
     link: "/request-demo/",
   },
 ];
 
-const stats = [
-  { value: "10,000+", label: "Businesses Trust Us" },
-  { value: "99.9%", label: "Delivery Rate" },
-  { value: "500M+", label: "Messages Sent" },
-  { value: "24/7", label: "Platform Uptime" },
+const steps = [
+  {
+    num: "1",
+    icon: "bi-person-plus-fill",
+    title: "Create Your Account",
+    desc: "Sign up in 2 minutes and get instant access to your A2ZSMS platform dashboard.",
+  },
+  {
+    num: "2",
+    icon: "bi-toggles",
+    title: "Choose Your Channels",
+    desc: "Activate SMS, WhatsApp, RCS, or Voice — or all four — from the same account.",
+  },
+  {
+    num: "3",
+    icon: "bi-send-fill",
+    title: "Launch Campaigns",
+    desc: "Upload contacts, craft your message, schedule delivery, and go live in minutes.",
+  },
+  {
+    num: "4",
+    icon: "bi-graph-up-arrow",
+    title: "Track & Optimise",
+    desc: "Monitor live analytics, delivery rates, and engagement to continuously improve ROI.",
+  },
+];
+
+const whyUs = [
+  { icon: "bi-shield-check", color: "text-success", title: "Enterprise Security", desc: "End-to-end encrypted messaging with full GDPR and TRAI compliance built in." },
+  { icon: "bi-lightning-charge-fill", color: "text-warning", title: "99.9% Uptime", desc: "High-availability infrastructure ensures your campaigns never miss a beat." },
+  { icon: "bi-plug-fill", color: "text-primary", title: "Easy API Integration", desc: "Plug into your CRM, ERP, or custom app with our clean REST API and detailed docs." },
+  { icon: "bi-headset", color: "text-info", title: "Dedicated Support", desc: "24/7 expert support via chat, email, and phone — a real team, not a bot." },
 ];
 
 export default function PlatformPage() {
   return (
-    <main style={{ fontFamily: "sans-serif", color: "#1a1a2e" }}>
+    <main>
 
-      {/* Hero Section */}
+      {/* ── HERO ── */}
       <section
         style={{
-          background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
-          color: "#fff",
-          padding: "100px 24px 80px",
-          textAlign: "center",
+          background: "linear-gradient(135deg, #0a0f1e 0%, #0d2247 50%, #0a1628 100%)",
+          padding: "110px 0 80px",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <span
-            style={{
-              background: "rgba(255,255,255,0.12)",
-              border: "1px solid rgba(255,255,255,0.3)",
-              borderRadius: 20,
-              padding: "6px 18px",
-              fontSize: 13,
-              letterSpacing: 1,
-              textTransform: "uppercase",
-              display: "inline-block",
-              marginBottom: 24,
-            }}
-          >
-            The A2ZSMS Platform
-          </span>
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontWeight: 800,
-              lineHeight: 1.2,
-              marginBottom: 24,
-            }}
-          >
-            One Platform. Every Channel.<br />Unlimited Growth.
-          </h1>
-          <p
-            style={{
-              fontSize: "1.15rem",
-              color: "rgba(255,255,255,0.8)",
-              maxWidth: 620,
-              margin: "0 auto 40px",
-              lineHeight: 1.7,
-            }}
-          >
-            A2ZSMS is a unified business messaging platform. SMS, WhatsApp, RCS,
-            and Voice — all managed from one powerful dashboard built to scale
-            your business communication.
-          </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              href="/try-for-free/"
-              style={{
-                background: "#fff",
-                color: "#302b63",
-                padding: "14px 32px",
-                borderRadius: 8,
-                fontWeight: 700,
-                fontSize: "1rem",
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              Start Free Trial
-            </Link>
-            <Link
-              href="/request-demo/"
-              style={{
-                border: "2px solid rgba(255,255,255,0.6)",
-                color: "#fff",
-                padding: "14px 32px",
-                borderRadius: 8,
-                fontWeight: 600,
-                fontSize: "1rem",
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              Book a Demo
-            </Link>
+        {/* background glow blobs */}
+        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(9,123,223,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(67,206,162,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+
+        <div className="container position-relative" style={{ zIndex: 1 }}>
+          <div className="row align-items-center g-5">
+            <div className="col-lg-6">
+              {/* badge */}
+              <div className="hero-tag mb-4" style={{ display: "inline-flex" }}>
+                <span className="pulse-dot"></span>
+                A2ZSMS Unified Messaging Platform
+              </div>
+
+              <h1 style={{ fontFamily: "EB Garamond, serif", fontSize: "clamp(2.2rem, 5vw, 3.4rem)", fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 20 }}>
+                One Platform.<br />
+                <span style={{ color: "#43cea2" }}>Every Channel.</span><br />
+                Unlimited Reach.
+              </h1>
+
+              <p className="hero-desc">
+                A2ZSMS brings SMS, WhatsApp, RCS, and Voice together in a single
+                powerful dashboard — so your team manages every customer
+                conversation from one place, with zero channel-switching.
+              </p>
+
+              <div className="hero-actions">
+                <Link href="/try-for-free/" className="btn-cta">
+                  Start Free Trial <i className="bi bi-arrow-right"></i>
+                </Link>
+                <Link href="/request-demo/" className="btn-ghost">
+                  <i className="bi bi-play-circle"></i> Book a Demo
+                </Link>
+              </div>
+
+              {/* mini stats */}
+              <div className="hero-metrics">
+                {[
+                  { num: "10K+", label: "Active Businesses" },
+                  { num: "500M+", label: "Messages Sent" },
+                  { num: "99.9%", label: "Delivery Rate" },
+                  { num: "24/7", label: "Platform Uptime" },
+                ].map((s, i) => (
+                  <div className="hero-metric" key={i}>
+                    <div className="num">{s.num}</div>
+                    <div className="label">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* right visual */}
+            <div className="col-lg-6 d-none d-lg-block">
+              <div className="hero-visual" style={{ position: "relative" }}>
+                <img
+                  src="/image/product/whatsapp1.png"
+                  alt="A2ZSMS Platform Dashboard"
+                  style={{ borderRadius: 20, boxShadow: "0 24px 64px rgba(0,0,0,0.4)", width: "100%", maxWidth: 480 }}
+                />
+                {/* floating cards */}
+                <div className="hero-float-card top-card">
+                  <div className="fc-icon" style={{ background: "#25D366" }}>
+                    <i className="bi bi-whatsapp"></i>
+                  </div>
+                  <div>
+                    <div className="fc-num">98%</div>
+                    <div className="fc-label">WhatsApp Open Rate</div>
+                  </div>
+                </div>
+                <div className="hero-float-card bottom-card">
+                  <div className="fc-icon" style={{ background: "#097bdf" }}>
+                    <i className="bi bi-envelope-fill"></i>
+                  </div>
+                  <div>
+                    <div className="fc-num">500M+</div>
+                    <div className="fc-label">Messages Delivered</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section style={{ background: "#f8f9ff", padding: "48px 24px" }}>
-        <div
-          style={{
-            maxWidth: 900,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: 32,
-            textAlign: "center",
-          }}
-        >
-          {stats.map((s, i) => (
-            <div key={i}>
-              <div
-                style={{ fontSize: "2.2rem", fontWeight: 800, color: "#302b63" }}
-              >
-                {s.value}
-              </div>
-              <div style={{ color: "#666", marginTop: 6, fontSize: "0.95rem" }}>
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Platform Features */}
-      <section style={{ padding: "80px 24px", background: "#fff" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <span
-              style={{
-                background: "#ede9ff",
-                color: "#302b63",
-                padding: "6px 16px",
-                borderRadius: 20,
-                fontSize: 13,
-                fontWeight: 600,
-                display: "inline-block",
-                marginBottom: 16,
-              }}
-            >
-              Platform Features
-            </span>
-            <h2
-              style={{
-                fontSize: "clamp(1.7rem, 4vw, 2.4rem)",
-                fontWeight: 800,
-                marginBottom: 16,
-              }}
-            >
-              Everything Built Into One Dashboard
+      {/* ── PLATFORM FEATURES ── */}
+      <section className="services-section">
+        <div className="container">
+          <div className="text-center mb-5" data-aos="fade-up">
+            <span className="section-label">Platform Features</span>
+            <h2 className="section-heading">
+              All Your Channels.<br />One Powerful Dashboard.
             </h2>
-            <p style={{ color: "#555", fontSize: "1.05rem", maxWidth: 560, margin: "0 auto" }}>
-              Every channel you need to reach customers is available inside your
-              A2ZSMS account — no switching tools, no integrations needed.
+            <p className="section-desc mx-auto">
+              Every communication channel your business needs is built directly into the
+              A2ZSMS platform — no third-party tools, no complex integrations.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 28,
-            }}
-          >
+          <div className="row g-4">
             {features.map((f, i) => (
-              <div
-                key={i}
-                style={{
-                  border: "1px solid #eee",
-                  borderRadius: 16,
-                  padding: "32px 28px",
-                  transition: "box-shadow 0.2s",
-                }}
-              >
-                <div
-                  style={{
-                    width: 52,
-                    height: 52,
-                    borderRadius: 12,
-                    background: f.color,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: 20,
-                  }}
-                >
-                  <i
-                    className={`bi ${f.icon}`}
-                    style={{ fontSize: 22, color: "#fff" }}
-                  ></i>
+              <div className="col-md-6 col-lg-4" key={i} data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="service-card">
+                  <div className="service-icon" style={{ background: f.bg }}>
+                    <i className={`bi ${f.icon}`}></i>
+                  </div>
+                  <h5>{f.title}</h5>
+                  <p>{f.desc}</p>
+                  <Link href={f.link} className="service-link">
+                    Explore feature <i className="bi bi-arrow-right"></i>
+                  </Link>
                 </div>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 10 }}>
-                  {f.title}
-                </h3>
-                <p style={{ color: "#666", fontSize: "0.95rem", lineHeight: 1.65, marginBottom: 20 }}>
-                  {f.desc}
-                </p>
-                <Link
-                  href={f.link}
-                  style={{
-                    color: "#302b63",
-                    fontWeight: 600,
-                    fontSize: "0.9rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  Learn more &rarr;
-                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section style={{ padding: "80px 24px", background: "#f8f9ff" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 800, marginBottom: 16 }}>
-            How the A2ZSMS Platform Works
-          </h2>
-          <p style={{ color: "#555", fontSize: "1.05rem", maxWidth: 540, margin: "0 auto 56px" }}>
-            From account setup to first campaign — up and running in minutes.
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: 32,
-            }}
-          >
-            {[
-              { step: "01", title: "Create Account", desc: "Sign up and access your A2ZSMS dashboard instantly." },
-              { step: "02", title: "Choose Channel", desc: "Select SMS, WhatsApp, RCS, or Voice — or use all four." },
-              { step: "03", title: "Build Campaign", desc: "Upload contacts, write your message, set schedule." },
-              { step: "04", title: "Launch & Track", desc: "Send campaigns and monitor live analytics in real time." },
-            ].map((item, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <div
-                  style={{
-                    width: 56,
-                    height: 56,
-                    borderRadius: "50%",
-                    background: "#302b63",
-                    color: "#fff",
-                    fontSize: "1.1rem",
-                    fontWeight: 800,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 16px",
-                  }}
-                >
-                  {item.step}
+      {/* ── HOW IT WORKS ── */}
+      <section className="how-section">
+        <div className="container">
+          <div className="text-center mb-5" data-aos="fade-up">
+            <span className="section-label">How It Works</span>
+            <h2 className="section-heading">Get Started in 4 Simple Steps</h2>
+            <p className="section-desc mx-auto">
+              From sign-up to first campaign — the A2ZSMS platform is built for speed.
+              No technical skills needed. Go live in minutes.
+            </p>
+          </div>
+
+          <div className="row justify-content-center g-4">
+            {steps.map((step, i) => (
+              <div className="col-md-6 col-lg-3" key={i} data-aos="fade-up" data-aos-delay={i * 120}>
+                <div className="step-card h-100">
+                  {i < steps.length - 1 && (
+                    <div className="step-connector d-none d-lg-block"></div>
+                  )}
+                  <div className="step-num">{step.num}</div>
+                  <div style={{ fontSize: 28, marginBottom: 12, color: "#097bdf" }}>
+                    <i className={`bi ${step.icon}`}></i>
+                  </div>
+                  <h5 style={{ fontWeight: 700, marginBottom: 8 }}>{step.title}</h5>
+                  <p style={{ color: "#64748b", fontSize: "0.93rem", lineHeight: 1.65 }}>{step.desc}</p>
                 </div>
-                <h4 style={{ fontWeight: 700, marginBottom: 8 }}>{item.title}</h4>
-                <p style={{ color: "#666", fontSize: "0.92rem", lineHeight: 1.6 }}>{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-5" data-aos="fade-up">
+            <Link href="/try-for-free/" className="btn-cta">
+              Start Your Free Trial <i className="bi bi-arrow-right"></i>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section
-        style={{
-          background: "linear-gradient(135deg, #302b63, #0f0c29)",
-          color: "#fff",
-          padding: "80px 24px",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: 640, margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, marginBottom: 20 }}>
-            Ready to Use the A2ZSMS Platform?
-          </h2>
-          <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", marginBottom: 40, lineHeight: 1.7 }}>
-            Join 10,000+ businesses already using A2ZSMS to communicate smarter.
-            Start your free trial today — no credit card required.
+      {/* ── WHY A2ZSMS ── */}
+      <section style={{ padding: "90px 0", background: "#fff" }}>
+        <div className="container">
+          <div className="row align-items-center g-5">
+            <div className="col-lg-5" data-aos="zoom-in-right">
+              <img
+                src="/image/product/rcs1.png"
+                alt="Why choose A2ZSMS platform"
+                className="img-fluid rounded-4 shadow"
+                style={{ maxHeight: 400, objectFit: "cover", width: "100%" }}
+              />
+            </div>
+            <div className="col-lg-7" data-aos="fade-up">
+              <span className="section-label">Why A2ZSMS</span>
+              <h2 className="section-heading" style={{ fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)" }}>
+                Built for Businesses That<br />Can't Afford to Miss a Message
+              </h2>
+              <p className="section-desc" style={{ maxWidth: "100%" }}>
+                From solo founders to enterprise teams — A2ZSMS is the platform that
+                scales with you, backed by infrastructure you can trust.
+              </p>
+              <div className="row g-4 mt-2">
+                {whyUs.map((item, i) => (
+                  <div className="col-sm-6" key={i}>
+                    <div className="d-flex align-items-start gap-3">
+                      <i className={`bi ${item.icon} ${item.color}`} style={{ fontSize: "1.8rem", marginTop: 3 }}></i>
+                      <div>
+                        <h6 className="fw-bold mb-1">{item.title}</h6>
+                        <p className="text-muted mb-0" style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CHANNEL COMPARISON ── */}
+      <section style={{ padding: "90px 0", background: "#f8f9ff" }}>
+        <div className="container">
+          <div className="text-center mb-5" data-aos="fade-up">
+            <span className="section-label">Channel Overview</span>
+            <h2 className="section-heading">Pick the Right Channel for Every Message</h2>
+            <p className="section-desc mx-auto">
+              Not sure which channel to use? Here&apos;s a quick comparison to help you decide.
+            </p>
+          </div>
+
+          <div className="table-responsive" data-aos="fade-up">
+            <table className="table table-bordered text-center align-middle bg-white rounded-4 overflow-hidden shadow-sm">
+              <thead style={{ background: "linear-gradient(to right, #097bdf, #43cea2)", color: "#fff" }}>
+                <tr>
+                  <th className="text-start ps-4 py-3">Feature</th>
+                  <th className="py-3">📱 SMS</th>
+                  <th className="py-3">💬 WhatsApp</th>
+                  <th className="py-3">🌟 RCS</th>
+                  <th className="py-3">📞 Voice</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Open Rate", "98%", "98%", "90%+", "85%+"],
+                  ["Rich Media", "❌", "✅", "✅", "❌"],
+                  ["Verified Sender", "✅", "✅", "✅", "✅"],
+                  ["Works Without Internet", "✅", "❌", "❌", "✅"],
+                  ["Interactive Buttons", "❌", "✅", "✅", "✅ (IVR)"],
+                  ["Best For", "OTP / Alerts", "Marketing / Support", "Brand Campaigns", "Reminders / Surveys"],
+                ].map((row, i) => (
+                  <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#f8f9ff" }}>
+                    <td className="text-start ps-4 fw-semibold text-dark">{row[0]}</td>
+                    <td className="text-muted">{row[1]}</td>
+                    <td className="text-muted">{row[2]}</td>
+                    <td className="text-muted">{row[3]}</td>
+                    <td className="text-muted">{row[4]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA BANNER ── */}
+      <section className="cta-banner">
+        <div className="container text-center position-relative" style={{ zIndex: 1 }}>
+          <h2 data-aos="fade-up">Ready to Power Your Business with A2ZSMS?</h2>
+          <p data-aos="fade-up" data-aos-delay="100">
+            Join 10,000+ businesses using the A2ZSMS platform to drive engagement,
+            automate communication, and grow revenue — across every channel.
           </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              href="/try-for-free/"
-              style={{
-                background: "#fff",
-                color: "#302b63",
-                padding: "14px 36px",
-                borderRadius: 8,
-                fontWeight: 700,
-                fontSize: "1rem",
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              Try for Free
+          <div className="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="200">
+            <Link href="/try-for-free/" className="btn-white">
+              Get Started Free <i className="bi bi-arrow-right"></i>
             </Link>
-            <Link
-              href="/contact/"
-              style={{
-                border: "2px solid rgba(255,255,255,0.5)",
-                color: "#fff",
-                padding: "14px 36px",
-                borderRadius: 8,
-                fontWeight: 600,
-                fontSize: "1rem",
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              Contact Sales
+            <Link href="/contact/" className="btn-outline-white">
+              <i className="bi bi-telephone"></i> Talk to Sales
             </Link>
           </div>
         </div>
       </section>
+
     </main>
   );
 }
