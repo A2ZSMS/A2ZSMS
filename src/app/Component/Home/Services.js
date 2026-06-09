@@ -31,13 +31,14 @@ const services = [
     desc: "Crystal-clear voice campaigns with IVR, auto-retry logic, and detailed analytics for maximum reach.",
     link: "/voice-call/",
   },
-  {
-    icon: "bi-code-slash",
-    bg: "#065a9c",
-    title: "Web Design & Development",
-    desc: "Conversion-optimized, mobile-first websites built with modern frameworks for superior performance and SEO.",
-    link: "/design-developement/",
-  },
+  // AWS CREDITS: Web Design & Development temporarily hidden
+  // {
+  //   icon: "bi-code-slash",
+  //   bg: "#065a9c",
+  //   title: "Web Design & Development",
+  //   desc: "Conversion-optimized, mobile-first websites built with modern frameworks for superior performance and SEO.",
+  //   link: "/design-developement/",
+  // },
   {
     icon: "bi-robot",
     bg: "#1e89ec",

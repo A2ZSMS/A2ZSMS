@@ -46,21 +46,22 @@ export const Contents = {
       icon: "bi bi-megaphone-fill",
       animation: "zoom-in-left",
     },
-    {
-      title: "Custom Website Design & Development",
-      bg: "bg-white",
-      description: [
-        "Craft conversion-optimized websites with cutting-edge design principles that captivate visitors and transform them into customers through strategic user experience architecture.",
-        "Build lightning-fast, mobile-first responsive websites using modern frameworks like React, Next.js, and Progressive Web App technologies for superior performance.",
-        "Implement advanced SEO strategies, Core Web Vitals optimization, and technical excellence that dominate search rankings and drive organic traffic growth.",
-        "Integrate seamless e-commerce functionality, payment gateways, CRM systems, and analytics platforms that streamline operations and boost revenue potential.",
-        "Deliver ongoing maintenance, security updates, and performance monitoring that ensures your digital presence remains competitive and secure long-term.",
-      ],
-      image: "/image/product/website.png",
-      link: "/design-developement/",
-      icon: "bi bi-code-slash",
-      animation: "zoom-in-right",
-    },
+    // AWS CREDITS: Web Design & Development temporarily hidden
+    // {
+    //   title: "Custom Website Design & Development",
+    //   bg: "bg-white",
+    //   description: [
+    //     "Craft conversion-optimized websites with cutting-edge design principles that captivate visitors and transform them into customers through strategic user experience architecture.",
+    //     "Build lightning-fast, mobile-first responsive websites using modern frameworks like React, Next.js, and Progressive Web App technologies for superior performance.",
+    //     "Implement advanced SEO strategies, Core Web Vitals optimization, and technical excellence that dominate search rankings and drive organic traffic growth.",
+    //     "Integrate seamless e-commerce functionality, payment gateways, CRM systems, and analytics platforms that streamline operations and boost revenue potential.",
+    //     "Deliver ongoing maintenance, security updates, and performance monitoring that ensures your digital presence remains competitive and secure long-term.",
+    //   ],
+    //   image: "/image/product/website.png",
+    //   link: "/design-developement/",
+    //   icon: "bi bi-code-slash",
+    //   animation: "zoom-in-right",
+    // },
     {
       title: "Bulk Voice Call Service Provider",
       bg: "bg-light",

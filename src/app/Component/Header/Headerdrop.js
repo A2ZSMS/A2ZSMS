@@ -131,6 +131,21 @@ const HeaderDrop = () => {
                       <ul className="dropdown-menu" id="line-space">
                         <li>
                           <Link
+                            className="dropdown-item fw-bold"
+                            href="/platform/"
+                            onClick={() => {
+                              closeDropdown();
+                              document
+                                .querySelector('[data-bs-dismiss="offcanvas"]')
+                                .click();
+                            }}
+                          >
+                            🚀 A2ZSMS Platform
+                          </Link>
+                        </li>
+                        <li><hr className="dropdown-divider my-1" /></li>
+                        <li>
+                          <Link
                             className="dropdown-item"
                             href="/whatsapp-api/"
                             onClick={() => {
@@ -199,6 +214,7 @@ const HeaderDrop = () => {
                             📞 Bulk Voice Call
                           </Link>
                         </li>
+                        {/* AWS CREDITS: Web Design & Development temporarily hidden
                         <li>
                           <Link
                             className="dropdown-item"
@@ -213,6 +229,7 @@ const HeaderDrop = () => {
                             💻 Web Design & Development
                           </Link>
                         </li>
+                        */}
                       </ul>
                     </li>
 
