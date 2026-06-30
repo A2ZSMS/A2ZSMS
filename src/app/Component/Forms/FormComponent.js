@@ -5,6 +5,7 @@ import { Form, Input, Select, Button, Checkbox, notification } from "antd";
 import Link from "next/link";
 import axios from "axios";
 import { gtag_report_conversion } from "../../GoogleTracking";
+import { sendToTeleCRM } from "@/lib/telecrm";
 
 const { Option } = Select;
 
@@ -86,6 +87,7 @@ const FormComponent = ({ title, buttonText }) => {
 
       if (anySuccess) {
         gtag_report_conversion();
+        sendToTeleCRM(values.name, values.phone, values.email, 'book-demo').catch(() => {});
         form.resetFields();
         setShowModal(true);
       } else {

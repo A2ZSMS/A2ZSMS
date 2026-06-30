@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gtag_report_conversion } from "../../../GoogleTracking";
+import { sendToTeleCRM } from "@/lib/telecrm";
 
 const MAKE_WEBHOOK_URL =
   "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
@@ -136,6 +137,7 @@ const ContactForm = () => {
       if (!anySuccess) throw new Error("Both endpoints failed");
 
       gtag_report_conversion();
+      sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
       setFormData({
         name: "",
         email: "",

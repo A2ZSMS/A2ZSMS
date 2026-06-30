@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gtag_report_conversion } from "../../../GoogleTracking";
+import { sendToTeleCRM } from "@/lib/telecrm";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -302,6 +303,7 @@ const SharedLeadForm = ({
       }
 
       gtag_report_conversion();
+      sendToTeleCRM(form.name, form.phone, form.email, pageId).catch(() => {});
       // isSubmitting stays true — page is redirecting, no need to unlock
       router.push(thankYouUrl);
     } catch (err) {

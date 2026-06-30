@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { gtag_report_conversion } from "../../GoogleTracking";
+import { sendToTeleCRM } from "@/lib/telecrm";
 
 const PopupForm = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -104,7 +105,7 @@ const PopupForm = () => {
       if (makeResponse.ok && web3Response.ok) {
         // Fire Google Ads conversion tracking
         gtag_report_conversion();
-
+        sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
         setSubmitStatus("success");
         setShowPopup(false);
         setShowSuccessModal(true);
