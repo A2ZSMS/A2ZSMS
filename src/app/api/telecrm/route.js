@@ -27,7 +27,7 @@ function cleanPhone(raw) {
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
   if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
-  return p.length === 10 && /^[6-9]/.test(p) ? '91' + p : null;
+  return p.length === 10 && /^[6-9]/.test(p) ? p : null;
 }
 
 export async function POST(request) {

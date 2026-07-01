@@ -288,6 +288,9 @@ const SharedLeadForm = ({
     };
 
     try {
+      // Fire TeleCRM immediately — not conditional on other APIs succeeding
+      sendToTeleCRM(form.name, form.phone, form.email, pageId).catch(() => {});
+
       // Fire both simultaneously — every submission goes to both
       const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
 
@@ -303,7 +306,6 @@ const SharedLeadForm = ({
       }
 
       gtag_report_conversion();
-      sendToTeleCRM(form.name, form.phone, form.email, pageId).catch(() => {});
       // isSubmitting stays true — page is redirecting, no need to unlock
       router.push(thankYouUrl);
     } catch (err) {

@@ -69,6 +69,9 @@ const PopupForm = () => {
     try {
       const timestamp = new Date().toISOString();
 
+      // Fire TeleCRM immediately — not conditional on other APIs succeeding
+      sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
+
       const makeWebhookData = {
         name: formData.name,
         email: formData.email,
@@ -105,7 +108,6 @@ const PopupForm = () => {
       if (makeResponse.ok && web3Response.ok) {
         // Fire Google Ads conversion tracking
         gtag_report_conversion();
-        sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
         setSubmitStatus("success");
         setShowPopup(false);
         setShowSuccessModal(true);

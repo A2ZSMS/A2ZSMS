@@ -49,6 +49,9 @@ const FormComponent = ({ title, buttonText }) => {
       const servicesStr = values.services ? values.services.join(", ") : "";
       const timestamp = new Date().toISOString();
 
+      // Fire TeleCRM immediately — not conditional on other APIs succeeding
+      sendToTeleCRM(values.name, values.phone, values.email, 'book-demo').catch(() => {});
+
       const web3Data = {
         name: values.name || "",
         email: values.email || "",
@@ -87,7 +90,6 @@ const FormComponent = ({ title, buttonText }) => {
 
       if (anySuccess) {
         gtag_report_conversion();
-        sendToTeleCRM(values.name, values.phone, values.email, 'book-demo').catch(() => {});
         form.resetFields();
         setShowModal(true);
       } else {

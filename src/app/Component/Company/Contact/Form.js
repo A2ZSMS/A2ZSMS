@@ -100,6 +100,9 @@ const ContactForm = () => {
     try {
       const timestamp = new Date().toISOString();
 
+      // Fire TeleCRM immediately — not conditional on other APIs succeeding
+      sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
+
       const results = await Promise.allSettled([
         fetch(MAKE_WEBHOOK_URL, {
           method: "POST",
@@ -137,7 +140,6 @@ const ContactForm = () => {
       if (!anySuccess) throw new Error("Both endpoints failed");
 
       gtag_report_conversion();
-      sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
       setFormData({
         name: "",
         email: "",
