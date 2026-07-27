@@ -1,7 +1,21 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { gtag_report_conversion } from "../../GoogleTracking";
-import { sendToTeleCRM } from "@/lib/telecrm";
+
+const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
+const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
+function fireTeleCRM(name, phone, email) {
+  let p = String(phone || '').replace(/\D/g, '');
+  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
+  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
+  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
+  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
+  fetch(TELECRM_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
+    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: String(email || '').trim().toLowerCase() } }),
+  }).then(r => r.text()).then(t => console.log('[TeleCRM] response:', t)).catch(e => console.error('[TeleCRM] error:', e));
+}
 
 const PopupForm = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -69,8 +83,7 @@ const PopupForm = () => {
     try {
       const timestamp = new Date().toISOString();
 
-      // Fire TeleCRM immediately — not conditional on other APIs succeeding
-      sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
+      fireTeleCRM(formData.name, formData.phone, formData.email);
 
       const makeWebhookData = {
         name: formData.name,
@@ -105,22 +118,21 @@ const PopupForm = () => {
         }),
       ]);
 
-      if (makeResponse.ok && web3Response.ok) {
-        // Fire Google Ads conversion tracking
-        gtag_report_conversion();
-        setSubmitStatus("success");
-        setShowPopup(false);
-        setShowSuccessModal(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          subject: "",
-          message: "",
-          consent: false,
-        });
-      }
+      if (!(makeResponse.ok && web3Response.ok)) throw new Error("Both endpoints failed");
+
+      try { gtag_report_conversion(); } catch (_) {}
+      setSubmitStatus("success");
+      setShowPopup(false);
+      setShowSuccessModal(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        subject: "",
+        message: "",
+        consent: false,
+      });
     } catch (error) {
       console.error("Submission error:", error);
       setSubmitStatus("error");

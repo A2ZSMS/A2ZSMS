@@ -2,18 +2,30 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gtag_report_conversion } from "../../../GoogleTracking";
-import { sendToTeleCRM } from "@/lib/telecrm";
 
 const MAKE_WEBHOOK_URL =
   "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
-const MIN_FILL_MS = 800;
-
 const FAKE_PHONE_BLOCKLIST = new Set([
   "9999999999", "8888888888", "7777777777", "6666666666", "1234567890",
   "9876543210", "0000000000", "1111111111", "9090909090", "9123456789",
 ]);
+
+const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
+const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
+function fireTeleCRM(name, phone, email) {
+  let p = String(phone || '').replace(/\D/g, '');
+  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
+  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
+  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
+  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
+  fetch(TELECRM_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
+    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: String(email || '').trim().toLowerCase() } }),
+  }).then(r => r.text()).then(t => console.log('[TeleCRM] response:', t)).catch(e => console.error('[TeleCRM] error:', e));
+}
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +43,6 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
-  const mountTime = useRef(Date.now());
   const submitLock = useRef(false);
 
   const handleInputChange = (e) => {
@@ -89,7 +100,6 @@ const ContactForm = () => {
     if (submitLock.current) return;
 
     if (formData.website_url) return;
-    if (Date.now() - mountTime.current < MIN_FILL_MS) return;
 
     if (!validateForm()) return;
 
@@ -100,8 +110,7 @@ const ContactForm = () => {
     try {
       const timestamp = new Date().toISOString();
 
-      // Fire TeleCRM immediately — not conditional on other APIs succeeding
-      sendToTeleCRM(formData.name, formData.phone, formData.email, 'contact-us').catch(() => {});
+      fireTeleCRM(formData.name, formData.phone, formData.email);
 
       const results = await Promise.allSettled([
         fetch(MAKE_WEBHOOK_URL, {
@@ -139,7 +148,7 @@ const ContactForm = () => {
 
       if (!anySuccess) throw new Error("Both endpoints failed");
 
-      gtag_report_conversion();
+      try { gtag_report_conversion(); } catch (_) {}
       setFormData({
         name: "",
         email: "",
@@ -153,7 +162,7 @@ const ContactForm = () => {
       setShowSuccess(true);
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitStatus("error");
+      setShowSuccess(true);
     } finally {
       setIsSubmitting(false);
       submitLock.current = false;
@@ -192,17 +201,11 @@ const ContactForm = () => {
           type="text"
           name="website_url"
           tabIndex={-1}
-          autoComplete="off"
+          autoComplete="new-password"
           aria-hidden="true"
           value={formData.website_url}
           onChange={handleInputChange}
-          style={{
-            position: "absolute",
-            left: "-9999px",
-            width: 1,
-            height: 1,
-            opacity: 0,
-          }}
+          style={{ display: "none" }}
         />
 
         <div className="row g-3 aos">

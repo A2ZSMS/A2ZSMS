@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gtag_report_conversion } from "../../../GoogleTracking";
-import { sendToTeleCRM } from "@/lib/telecrm";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -33,7 +32,6 @@ const MOBILE_RE = /^[6-9]\d{9}$/;
 // ── All constants BEFORE any function that references them ────────────────────
 const MAKE_URL      = "https://hook.eu1.make.com/hjr28ubvji8cy5vxmtccwam3w0bnho70";
 const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
-const MIN_MS        = 800;             // minimum fill time — allows browser autofill
 const FETCH_TIMEOUT = 7000;            // 7s per endpoint attempt
 
 // ── Fetch with timeout to avoid hanging submissions ───────────────────────────
@@ -43,6 +41,21 @@ const fetchWithTimeout = (url, options, ms = FETCH_TIMEOUT) => {
   return fetch(url, { ...options, signal: controller.signal })
     .finally(() => clearTimeout(timer));
 };
+
+const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
+const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
+function fireTeleCRM(name, phone, email) {
+  let p = String(phone || '').replace(/\D/g, '');
+  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
+  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
+  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
+  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
+  fetch(TELECRM_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
+    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: String(email || '').trim().toLowerCase() } }),
+  }).then(r => r.text()).then(t => console.log('[TeleCRM] response:', t)).catch(e => console.error('[TeleCRM] error:', e));
+}
 
 // ── Tiny countdown timer (1-per-form, isolated state) ────────────────────────
 const CountdownTimer = ({ styles }) => {
@@ -196,13 +209,7 @@ const SharedLeadForm = ({
       return;
     }
 
-    // Time-trap — silent drop, reset lock
     const formMs = Date.now() - mountTime.current;
-    if (formMs < MIN_MS) {
-      isSubmitting.current = false;
-      setLoading(false);
-      return;
-    }
 
     // Privacy checkbox
     if (!agreed) {
@@ -288,25 +295,20 @@ const SharedLeadForm = ({
     };
 
     try {
-      // Fire TeleCRM immediately — not conditional on other APIs succeeding
-      sendToTeleCRM(form.name, form.phone, form.email, pageId).catch(() => {});
+      fireTeleCRM(form.name, form.phone, form.email);
 
-      // Fire both simultaneously — every submission goes to both
       const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
-
       console.info(`[Form] Make.com=${makeOk} | Web3Forms=${w3fOk} | pageId=${pageId}`);
-
       if (!makeOk && !w3fOk) {
         setSubmitError(
           "Submission failed. Please WhatsApp us directly at +91 84310 86185 or try again.",
         );
         setLoading(false);
-        isSubmitting.current = false; // unlock so user can retry
+        isSubmitting.current = false;
         return;
       }
 
-      gtag_report_conversion();
-      // isSubmitting stays true — page is redirecting, no need to unlock
+      try { gtag_report_conversion(); } catch (_) {}
       router.push(thankYouUrl);
     } catch (err) {
       console.error("[Form] Unexpected error:", err);
