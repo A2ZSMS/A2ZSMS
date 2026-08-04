@@ -103,6 +103,12 @@ const ContactForm = () => {
       newErrors.phone = "Enter a real mobile number";
     }
 
+    if (!formData.company.trim()) {
+      newErrors.company = "Company name is required";
+    } else if (formData.company.trim().length < 2) {
+      newErrors.company = "At least 2 characters";
+    }
+
     if (!formData.subject.trim()) {
       newErrors.subject = "Please select a subject";
     }
@@ -303,19 +309,25 @@ const ContactForm = () => {
 
           {/* Company */}
           <div className="col-md-6">
-            <label style={styles.label}>Company Name</label>
+            <label style={styles.label}>
+              Company Name <span style={styles.required}>*</span>
+            </label>
             <div style={styles.inputWrap}>
               <i className="bi bi-building" style={styles.inputIcon}></i>
               <input
                 type="text"
                 name="company"
-                placeholder="Your Company (optional)"
+                placeholder="Your Company Name"
                 maxLength={100}
-                style={styles.input}
+                style={{
+                  ...styles.input,
+                  ...(errors.company ? styles.inputError : {}),
+                }}
                 value={formData.company}
                 onChange={handleInputChange}
               />
             </div>
+            {errors.company && <p style={styles.errorText}>{errors.company}</p>}
           </div>
 
           {/* Subject */}

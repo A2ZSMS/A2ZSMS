@@ -185,8 +185,16 @@ const FormComponent = ({ title, buttonText }) => {
                 <Input placeholder="Enter your full name" maxLength={60} />
               </Form.Item>
 
-              <Form.Item className="form-field" label="Company" name="company">
-                <Input placeholder="Company name (optional)" maxLength={100} />
+              <Form.Item
+                className="form-field"
+                label="Company"
+                name="company"
+                rules={[
+                  { required: true, message: "Please enter your company name" },
+                  { min: 2, message: "At least 2 characters" },
+                ]}
+              >
+                <Input placeholder="Enter your company name" maxLength={100} />
               </Form.Item>
 
               <Form.Item

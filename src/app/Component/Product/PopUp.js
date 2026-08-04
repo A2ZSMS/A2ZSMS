@@ -1,6 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { gtag_report_conversion } from "../../GoogleTracking";
+
+const FAKE_PHONE_BLOCKLIST = new Set([
+  "9999999999","8888888888","7777777777","6666666666","1234567890",
+  "9876543210","0000000000","1111111111","9090909090","9123456789",
+]);
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
@@ -55,6 +60,7 @@ const PopupForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const submitLock = useRef(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -65,10 +71,14 @@ const PopupForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+    if (name === "phone") {
+      setFormData((prev) => ({ ...prev, [name]: value.replace(/\D/g, "").slice(0, 10) }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: type === "checkbox" ? checked : value,
+      }));
+    }
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -76,7 +86,11 @@ const PopupForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = "At least 3 characters";
+    }
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -84,10 +98,15 @@ const PopupForm = () => {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (
-      !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ""))
-    ) {
-      newErrors.phone = "Please enter a valid phone number";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile";
+    } else if (FAKE_PHONE_BLOCKLIST.has(formData.phone.trim())) {
+      newErrors.phone = "Enter a real mobile number";
+    }
+    if (!formData.company.trim()) {
+      newErrors.company = "Company name is required";
+    } else if (formData.company.trim().length < 2) {
+      newErrors.company = "At least 2 characters";
     }
     if (!formData.subject.trim()) newErrors.subject = "Subject is required";
     if (!formData.consent) newErrors.consent = "You must agree to continue";
@@ -97,8 +116,10 @@ const PopupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitLock.current) return;
     if (!validateForm()) return;
 
+    submitLock.current = true;
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -161,6 +182,7 @@ const PopupForm = () => {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
+      submitLock.current = false;
     }
   };
 
@@ -266,7 +288,9 @@ const PopupForm = () => {
                         type="tel"
                         name="phone"
                         className={`popup-input ${errors.phone ? "popup-input-error" : ""}`}
-                        placeholder="+91 84310 86185"
+                        placeholder="10-digit mobile number"
+                        maxLength={10}
+                        inputMode="numeric"
                         value={formData.phone}
                         onChange={handleInputChange}
                       />
@@ -278,18 +302,24 @@ const PopupForm = () => {
 
                   {/* Company */}
                   <div className="col-md-6">
-                    <label className="popup-label">Company Name</label>
+                    <label className="popup-label">
+                      Company Name <span className="popup-req">*</span>
+                    </label>
                     <div className="popup-input-wrap">
                       <i className="bi bi-building popup-input-icon"></i>
                       <input
                         type="text"
                         name="company"
-                        className="popup-input"
-                        placeholder="Your Company"
+                        className={`popup-input ${errors.company ? "popup-input-error" : ""}`}
+                        placeholder="Your Company Name"
+                        maxLength={100}
                         value={formData.company}
                         onChange={handleInputChange}
                       />
                     </div>
+                    {errors.company && (
+                      <div className="popup-error">{errors.company}</div>
+                    )}
                   </div>
 
                   {/* Subject */}
