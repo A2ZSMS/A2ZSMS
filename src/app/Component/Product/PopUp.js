@@ -149,7 +149,7 @@ const PopupForm = () => {
         access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
       };
 
-      const [makeResponse, web3Response] = await Promise.all([
+      const results = await Promise.allSettled([
         fetch("https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -162,7 +162,10 @@ const PopupForm = () => {
         }),
       ]);
 
-      if (!(makeResponse.ok && web3Response.ok)) throw new Error("Both endpoints failed");
+      const anySuccess = results.some(
+        (r) => r.status === "fulfilled" && r.value.ok,
+      );
+      if (!anySuccess) throw new Error("Both endpoints failed");
 
       try { gtag_report_conversion(); } catch (_) {}
       setSubmitStatus("success");

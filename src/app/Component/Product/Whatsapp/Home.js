@@ -153,6 +153,7 @@ const Home = () => {
       fireTeleCRM(trimmedName, mobileDigits, "");
       fireAiSensy(trimmedName, mobileDigits);
       fireMakeAndW3F(trimmedName, mobileDigits);
+      try { gtag_report_conversion(); } catch (_) {}
 
       const response = await fetch(url, { method: "GET" });
 
@@ -160,7 +161,6 @@ const Home = () => {
         throw new Error("Request failed");
       }
 
-      try { gtag_report_conversion(); } catch (_) {}
       setStatusMessage("Message sent successfully.");
       setStatusType("success");
       form.resetFields();
