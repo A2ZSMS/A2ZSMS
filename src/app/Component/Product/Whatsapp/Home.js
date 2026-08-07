@@ -8,6 +8,12 @@ import { gtag_report_conversion } from "../../../GoogleTracking";
 
 const { Text } = Typography;
 
+// ── TESTING FLAG ──────────────────────────────────────────────
+// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag + msgmaker are SKIPPED
+// false → all triggers fire normally (production behavior)
+const TELECRM_ONLY_TEST = false;
+// ──────────────────────────────────────────────────────────────
+
 const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
@@ -166,14 +172,17 @@ const Home = () => {
       setIsSending(true);
 
       fireTeleCRM(trimmedName, mobileDigits, "");
-      fireAiSensy(trimmedName, mobileDigits);
-      fireMakeAndW3F(trimmedName, mobileDigits);
-      try { gtag_report_conversion(); } catch (_) {}
 
-      const response = await fetch(url, { method: "GET" });
+      if (!TELECRM_ONLY_TEST) {
+        fireAiSensy(trimmedName, mobileDigits);
+        fireMakeAndW3F(trimmedName, mobileDigits);
+        try { gtag_report_conversion(); } catch (_) {}
 
-      if (!response.ok) {
-        throw new Error("Request failed");
+        const response = await fetch(url, { method: "GET" });
+
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
       }
 
       setStatusMessage("Message sent successfully.");

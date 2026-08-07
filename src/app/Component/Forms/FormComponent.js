@@ -8,6 +8,11 @@ import { gtag_report_conversion } from "../../GoogleTracking";
 
 const { Option } = Select;
 
+// ── TESTING FLAG ──────────────────────────────────────────────
+// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
+// false → all 5 triggers fire normally (production behavior)
+const TELECRM_ONLY_TEST = false;
+// ──────────────────────────────────────────────────────────────
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
 const MAKE_WEBHOOK_URL =
@@ -92,46 +97,49 @@ const FormComponent = ({ title, buttonText }) => {
       const timestamp = new Date().toISOString();
 
       fireTeleCRM(values.name, values.phone, values.email);
-      fireAiSensy(values.name, values.phone);
 
-      const web3Data = {
-        name: values.name || "",
-        email: values.email || "",
-        phone: values.phone || "",
-        company: values.company || "",
-        service: servicesStr,
-        message: values.industry || "",
-        access_key: WEB3FORMS_KEY,
-        subject: `New Lead - ${values.name || "Unknown"}`,
-      };
+      if (!TELECRM_ONLY_TEST) {
+        fireAiSensy(values.name, values.phone);
 
-      const makeWebhookData = {
-        name: values.name || "",
-        email: values.email || "",
-        phone: values.phone || "",
-        company: values.company || "",
-        service: servicesStr,
-        message: values.industry || "",
-        timestamp,
-      };
+        const web3Data = {
+          name: values.name || "",
+          email: values.email || "",
+          phone: values.phone || "",
+          company: values.company || "",
+          service: servicesStr,
+          message: values.industry || "",
+          access_key: WEB3FORMS_KEY,
+          subject: `New Lead - ${values.name || "Unknown"}`,
+        };
 
-      const results = await Promise.allSettled([
-        axios.post(WEB3FORMS_URL, web3Data, {
-          headers: { "Content-Type": "application/json" },
-        }),
-        axios.post(MAKE_WEBHOOK_URL, makeWebhookData, {
-          headers: { "Content-Type": "application/json" },
-        }),
-      ]);
+        const makeWebhookData = {
+          name: values.name || "",
+          email: values.email || "",
+          phone: values.phone || "",
+          company: values.company || "",
+          service: servicesStr,
+          message: values.industry || "",
+          timestamp,
+        };
 
-      const anySuccess = results.some(
-        (r) =>
-          r.status === "fulfilled" &&
-          (r.value.status === 200 || r.value.status === 201),
-      );
-      if (!anySuccess) throw new Error("Both endpoints failed");
+        const results = await Promise.allSettled([
+          axios.post(WEB3FORMS_URL, web3Data, {
+            headers: { "Content-Type": "application/json" },
+          }),
+          axios.post(MAKE_WEBHOOK_URL, makeWebhookData, {
+            headers: { "Content-Type": "application/json" },
+          }),
+        ]);
 
-      try { gtag_report_conversion(); } catch (_) {}
+        const anySuccess = results.some(
+          (r) =>
+            r.status === "fulfilled" &&
+            (r.value.status === 200 || r.value.status === 201),
+        );
+        if (!anySuccess) throw new Error("Both endpoints failed");
+
+        try { gtag_report_conversion(); } catch (_) {}
+      }
       form.resetFields();
       setShowModal(true);
     } catch (error) {

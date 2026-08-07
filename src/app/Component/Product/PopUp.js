@@ -2,6 +2,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gtag_report_conversion } from "../../GoogleTracking";
 
+// ── TESTING FLAG ──────────────────────────────────────────────
+// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
+// false → all 5 triggers fire normally (production behavior)
+const TELECRM_ONLY_TEST = false;
+// ──────────────────────────────────────────────────────────────
+
 const FAKE_PHONE_BLOCKLIST = new Set([
   "9999999999","8888888888","7777777777","6666666666","1234567890",
   "9876543210","0000000000","1111111111","9090909090","9123456789",
@@ -142,47 +148,50 @@ const PopupForm = () => {
       const timestamp = new Date().toISOString();
 
       fireTeleCRM(formData.name, formData.phone, formData.email);
-      fireAiSensy(formData.name, formData.phone);
 
-      const makeWebhookData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        service: formData.subject,
-        message: formData.message,
-        timestamp: timestamp,
-      };
+      if (!TELECRM_ONLY_TEST) {
+        fireAiSensy(formData.name, formData.phone);
 
-      const web3FormsData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        service: formData.subject,
-        message: formData.message,
-        access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
-      };
+        const makeWebhookData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.subject,
+          message: formData.message,
+          timestamp: timestamp,
+        };
 
-      const results = await Promise.allSettled([
-        fetch("https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(makeWebhookData),
-        }),
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(web3FormsData),
-        }),
-      ]);
+        const web3FormsData = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.subject,
+          message: formData.message,
+          access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
+        };
 
-      const anySuccess = results.some(
-        (r) => r.status === "fulfilled" && r.value.ok,
-      );
-      if (!anySuccess) throw new Error("Both endpoints failed");
+        const results = await Promise.allSettled([
+          fetch("https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(makeWebhookData),
+          }),
+          fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(web3FormsData),
+          }),
+        ]);
 
-      try { gtag_report_conversion(); } catch (_) {}
+        const anySuccess = results.some(
+          (r) => r.status === "fulfilled" && r.value.ok,
+        );
+        if (!anySuccess) throw new Error("Both endpoints failed");
+
+        try { gtag_report_conversion(); } catch (_) {}
+      }
       setSubmitStatus("success");
       setShowPopup(false);
       setShowSuccessModal(true);

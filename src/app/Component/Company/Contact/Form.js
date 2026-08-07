@@ -3,6 +3,11 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 
+// ── TESTING FLAG ──────────────────────────────────────────────
+// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
+// false → all 5 triggers fire normally (production behavior)
+const TELECRM_ONLY_TEST = false;
+// ──────────────────────────────────────────────────────────────
 const MAKE_WEBHOOK_URL =
   "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
@@ -154,45 +159,48 @@ const ContactForm = () => {
       const timestamp = new Date().toISOString();
 
       fireTeleCRM(formData.name, formData.phone, formData.email);
-      fireAiSensy(formData.name, formData.phone);
 
-      const results = await Promise.allSettled([
-        fetch(MAKE_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            service: formData.subject,
-            message: formData.message,
-            timestamp,
+      if (!TELECRM_ONLY_TEST) {
+        fireAiSensy(formData.name, formData.phone);
+
+        const results = await Promise.allSettled([
+          fetch(MAKE_WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              company: formData.company,
+              service: formData.subject,
+              message: formData.message,
+              timestamp,
+            }),
           }),
-        }),
-        fetch(WEB3FORMS_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            service: formData.subject,
-            message: formData.message,
-            access_key: WEB3FORMS_KEY,
-            subject: `Contact Form - ${formData.name}`,
+          fetch(WEB3FORMS_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              company: formData.company,
+              service: formData.subject,
+              message: formData.message,
+              access_key: WEB3FORMS_KEY,
+              subject: `Contact Form - ${formData.name}`,
+            }),
           }),
-        }),
-      ]);
+        ]);
 
-      const anySuccess = results.some(
-        (r) => r.status === "fulfilled" && r.value.ok,
-      );
+        const anySuccess = results.some(
+          (r) => r.status === "fulfilled" && r.value.ok,
+        );
 
-      if (!anySuccess) throw new Error("Both endpoints failed");
+        if (!anySuccess) throw new Error("Both endpoints failed");
 
-      try { gtag_report_conversion(); } catch (_) {}
+        try { gtag_report_conversion(); } catch (_) {}
+      }
       setFormData({
         name: "",
         email: "",

@@ -29,6 +29,12 @@ const NAME_RE   = /^[A-Za-z][A-Za-z .'-]{1,59}$/;
 const EMAIL_RE  = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 const MOBILE_RE = /^[6-9]\d{9}$/;
 
+// ── TESTING FLAG ──────────────────────────────────────────────
+// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
+// false → all 5 triggers fire normally (production behavior)
+const TELECRM_ONLY_TEST = false;
+// ──────────────────────────────────────────────────────────────
+
 // ── All constants BEFORE any function that references them ────────────────────
 const MAKE_URL      = "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
 const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
@@ -333,20 +339,23 @@ const SharedLeadForm = ({
 
     try {
       fireTeleCRM(form.name, form.phone, form.email);
-      fireAiSensy(form.name, form.phone);
 
-      const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
-      console.info(`[Form] Make.com=${makeOk} | Web3Forms=${w3fOk} | pageId=${pageId}`);
-      if (!makeOk && !w3fOk) {
-        setSubmitError(
-          "Submission failed. Please WhatsApp us directly at +91 84310 86185 or try again.",
-        );
-        setLoading(false);
-        isSubmitting.current = false;
-        return;
+      if (!TELECRM_ONLY_TEST) {
+        fireAiSensy(form.name, form.phone);
+
+        const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
+        console.info(`[Form] Make.com=${makeOk} | Web3Forms=${w3fOk} | pageId=${pageId}`);
+        if (!makeOk && !w3fOk) {
+          setSubmitError(
+            "Submission failed. Please WhatsApp us directly at +91 84310 86185 or try again.",
+          );
+          setLoading(false);
+          isSubmitting.current = false;
+          return;
+        }
+
+        try { gtag_report_conversion(); } catch (_) {}
       }
-
-      try { gtag_report_conversion(); } catch (_) {}
       router.push(thankYouUrl);
     } catch (err) {
       console.error("[Form] Unexpected error:", err);
