@@ -25,11 +25,26 @@ function fireTeleCRM(name, phone, email) {
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
   if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
   if (p.length !== 10 || !/^[6-9]/.test(p)) return;
-  fetch(TELECRM_API, {
+  const cleanEmail = String(email || '').trim().toLowerCase() || `${p}@lead.a2zsms.in`;
+  const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
-    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: String(email || '').trim().toLowerCase() } }),
-  }).then(r => r.text()).then(t => console.log('[TeleCRM] response:', t)).catch(e => console.error('[TeleCRM] error:', e));
+    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: cleanEmail } }),
+    keepalive: true,
+  };
+  (async () => {
+    for (let i = 0; i < 2; i++) {
+      try {
+        const r = await fetch(TELECRM_API, opts);
+        const t = await r.text();
+        console.log('[TeleCRM] response:', r.status, t);
+        if (r.ok) return;
+      } catch (e) {
+        console.error('[TeleCRM] error:', e);
+      }
+      if (i === 0) await new Promise(res => setTimeout(res, 1000));
+    }
+  })();
 }
 
 const AISENSY_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0ZmEzMTJlMDk0MjAzNGE2YWI1NiIsIm5hbWUiOiJPaml2YSBBaSIsImFwcE5hbWUiOiJBaVNlbnN5IiwiY2xpZW50SWQiOiI2YTJkNGZhMzVjZGU4NTBlZjZiYTkzMTEiLCJhY3RpdmVQbGFuIjoiTk9ORSIsImlhdCI6MTc4MTM1NDQwM30.fcLtJxl4XRgYT2v8exQN5WSIiD1YsomDe5zzF_WQDBw';
