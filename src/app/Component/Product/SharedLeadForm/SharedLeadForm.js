@@ -29,19 +29,75 @@ const NAME_RE   = /^[A-Za-z][A-Za-z .'-]{1,59}$/;
 const EMAIL_RE  = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 const MOBILE_RE = /^[6-9]\d{9}$/;
 
-// Lead proxy — /api/lead.php on Hostinger holds the TeleCRM / AiSensy /
-// Make.com / Web3Forms secrets and fans out server-side. Nothing sensitive
-// ships in the client bundle.
-function fireLead(payload) {
-  fetch('/api/lead.php', {
+// ── TESTING FLAG ──────────────────────────────────────────────
+// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
+// false → all 5 triggers fire normally (production behavior)
+const TELECRM_ONLY_TEST = false;
+// ──────────────────────────────────────────────────────────────
+
+// ── All constants BEFORE any function that references them ────────────────────
+const MAKE_URL      = "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
+const FETCH_TIMEOUT = 7000;            // 7s per endpoint attempt
+
+// ── Fetch with timeout to avoid hanging submissions ───────────────────────────
+const fetchWithTimeout = (url, options, ms = FETCH_TIMEOUT) => {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return fetch(url, { ...options, signal: controller.signal })
+    .finally(() => clearTimeout(timer));
+};
+
+const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
+const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
+function fireTeleCRM(name, phone, email) {
+  let p = String(phone || '').replace(/\D/g, '');
+  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
+  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
+  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
+  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
+  const cleanEmail = String(email || '').trim().toLowerCase() || `${p}@lead.a2zsms.in`;
+  const opts = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
+    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: cleanEmail } }),
+    keepalive: true,
+  };
+  (async () => {
+    for (let i = 0; i < 2; i++) {
+      try {
+        const r = await fetch(TELECRM_API, opts);
+        const t = await r.text();
+        console.log('[TeleCRM] response:', r.status, t);
+        if (r.ok) return;
+      } catch (e) {
+        console.error('[TeleCRM] error:', e);
+      }
+      if (i === 0) await new Promise(res => setTimeout(res, 1000));
+    }
+  })();
+}
+
+const AISENSY_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0ZmEzMTJlMDk0MjAzNGE2YWI1NiIsIm5hbWUiOiJPaml2YSBBaSIsImFwcE5hbWUiOiJBaVNlbnN5IiwiY2xpZW50SWQiOiI2YTJkNGZhMzVjZGU4NTBlZjZiYTkzMTEiLCJhY3RpdmVQbGFuIjoiQkFTSUNfTU9OVEhMWSIsImlhdCI6MTc4Njk0NDg0MH0.T0UT85gOQ9g6Gj0z0NNs45iVcLkw0YJmjgJgl_0ymSI';
+const AISENSY_URL    = 'https://backend.api-wa.co/campaign/ojiva-ai/api/v2';
+function fireAiSensy(name, phone) {
+  let p = String(phone || '').replace(/\D/g, '');
+  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
+  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
+  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
+  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
+  const fullName  = String(name || '').trim() || 'User';
+  const firstName = fullName.split(' ')[0];
+  fetch(AISENSY_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-    keepalive: true,
-  })
-    .then(r => r.text())
-    .then(t => console.log('[Lead] response:', t))
-    .catch(e => console.error('[Lead] error:', e));
+    body: JSON.stringify({
+      apiKey: AISENSY_API_KEY, campaignName: 'ojiva_lead_welcome',
+      destination: '91' + p, userName: fullName, templateParams: [firstName],
+      source: 'new-landing-page form', media: {}, buttons: [], carouselCards: [],
+      location: {}, attributes: {}, paramsFallbackValue: { FirstName: 'user' },
+    }),
+  }).then(r => r.text()).then(t => console.log('[AiSensy] response:', t)).catch(e => console.error('[AiSensy] error:', e));
 }
 
 // ── Tiny countdown timer (1-per-form, isolated state) ────────────────────────
@@ -214,27 +270,92 @@ const SharedLeadForm = ({
       return;
     }
 
+    const cleanEmail = form.email.trim().toLowerCase();
+    const cleanPhone = form.phone.trim();
+
+    const payload = {
+      name:             form.name.trim(),
+      email:            cleanEmail,
+      phone:            cleanPhone,
+      company:          form.company.trim().slice(0, 100),
+      service:          form.service,
+      message:          form.message.trim().slice(0, 1000),
+      page:             pageId,
+      formFillSeconds:  Math.round(formMs / 1000),
+      userAgent:        typeof navigator !== "undefined" ? navigator.userAgent : "",
+      language:         typeof navigator !== "undefined" ? navigator.language  : "",
+      screen:           typeof window !== "undefined"
+                          ? `${window.screen.width}x${window.screen.height}` : "",
+      timezone:         typeof Intl !== "undefined"
+                          ? Intl.DateTimeFormat().resolvedOptions().timeZone : "",
+      timestamp:        new Date().toISOString(),
+      privacyAccepted:  true,
+      ...utmRef.current,
+    };
+
+    // ── Send to Make.com (with 1 auto-retry) ────────────────────────────────
+    const tryMake = async () => {
+      const opts = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      };
+      try {
+        const res = await fetchWithTimeout(MAKE_URL, opts, 7000);
+        if (res.ok) return true;
+      } catch (_) {}
+      // Retry once after 1s pause
+      await new Promise((r) => setTimeout(r, 1000));
+      try {
+        const res = await fetchWithTimeout(MAKE_URL, opts, 7000);
+        if (res.ok) return true;
+      } catch (_) {}
+      return false;
+    };
+
+    // ── Send to Web3Forms (with 1 auto-retry) ────────────────────────────────
+    const tryW3F = async () => {
+      const opts = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          access_key: W3F_KEY,
+          subject: `New Lead — ${payload.name} [${pageId}]`,
+        }),
+      };
+      try {
+        const res = await fetchWithTimeout("https://api.web3forms.com/submit", opts);
+        if (res.ok) return true;
+      } catch (_) {}
+      // Retry once after 1s pause
+      await new Promise((r) => setTimeout(r, 1000));
+      try {
+        const res = await fetchWithTimeout("https://api.web3forms.com/submit", opts);
+        if (res.ok) return true;
+      } catch (_) {}
+      return false;
+    };
+
     try {
-      fireLead({
-        name:             form.name.trim(),
-        email:            form.email.trim().toLowerCase(),
-        phone:            form.phone.trim(),
-        company:          form.company.trim().slice(0, 100),
-        service:          form.service,
-        message:          form.message.trim().slice(0, 1000),
-        source:           pageId,
-        page:             pageId,
-        formFillSeconds:  Math.round(formMs / 1000),
-        userAgent:        typeof navigator !== "undefined" ? navigator.userAgent : "",
-        language:         typeof navigator !== "undefined" ? navigator.language  : "",
-        screen:           typeof window !== "undefined"
-                            ? `${window.screen.width}x${window.screen.height}` : "",
-        timezone:         typeof Intl !== "undefined"
-                            ? Intl.DateTimeFormat().resolvedOptions().timeZone : "",
-        privacyAccepted:  true,
-        ...utmRef.current,
-      });
-      try { gtag_report_conversion(); } catch (_) {}
+      fireTeleCRM(form.name, form.phone, form.email);
+
+      if (!TELECRM_ONLY_TEST) {
+        fireAiSensy(form.name, form.phone);
+
+        const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
+        console.info(`[Form] Make.com=${makeOk} | Web3Forms=${w3fOk} | pageId=${pageId}`);
+        if (!makeOk && !w3fOk) {
+          setSubmitError(
+            "Submission failed. Please WhatsApp us directly at +91 84310 86185 or try again.",
+          );
+          setLoading(false);
+          isSubmitting.current = false;
+          return;
+        }
+
+        try { gtag_report_conversion(); } catch (_) {}
+      }
       router.push(thankYouUrl);
     } catch (err) {
       console.error("[Form] Unexpected error:", err);
