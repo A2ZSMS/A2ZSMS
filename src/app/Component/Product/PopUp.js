@@ -2,67 +2,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gtag_report_conversion } from "../../GoogleTracking";
 
-// ── TESTING FLAG ──────────────────────────────────────────────
-// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
-// false → all 5 triggers fire normally (production behavior)
-const TELECRM_ONLY_TEST = false;
-// ──────────────────────────────────────────────────────────────
-
 const FAKE_PHONE_BLOCKLIST = new Set([
   "9999999999","8888888888","7777777777","6666666666","1234567890",
   "9876543210","0000000000","1111111111","9090909090","9123456789",
 ]);
 
-const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
-const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
-function fireTeleCRM(name, phone, email) {
-  let p = String(phone || '').replace(/\D/g, '');
-  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
-  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
-  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
-  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
-  const cleanEmail = String(email || '').trim().toLowerCase() || `${p}@lead.a2zsms.in`;
-  const opts = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
-    body: JSON.stringify({ fields: { name: String(name || '').trim() || 'Unknown', phone: p, email: cleanEmail } }),
-    keepalive: true,
-  };
-  (async () => {
-    for (let i = 0; i < 2; i++) {
-      try {
-        const r = await fetch(TELECRM_API, opts);
-        const t = await r.text();
-        console.log('[TeleCRM] response:', r.status, t);
-        if (r.ok) return;
-      } catch (e) {
-        console.error('[TeleCRM] error:', e);
-      }
-      if (i === 0) await new Promise(res => setTimeout(res, 1000));
-    }
-  })();
-}
-
-const AISENSY_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0ZmEzMTJlMDk0MjAzNGE2YWI1NiIsIm5hbWUiOiJPaml2YSBBaSIsImFwcE5hbWUiOiJBaVNlbnN5IiwiY2xpZW50SWQiOiI2YTJkNGZhMzVjZGU4NTBlZjZiYTkzMTEiLCJhY3RpdmVQbGFuIjoiQkFTSUNfTU9OVEhMWSIsImlhdCI6MTc4Njk0NDg0MH0.T0UT85gOQ9g6Gj0z0NNs45iVcLkw0YJmjgJgl_0ymSI';
-const AISENSY_URL    = 'https://backend.api-wa.co/campaign/ojiva-ai/api/v2';
-function fireAiSensy(name, phone) {
-  let p = String(phone || '').replace(/\D/g, '');
-  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
-  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
-  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
-  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
-  const fullName  = String(name || '').trim() || 'User';
-  const firstName = fullName.split(' ')[0];
-  fetch(AISENSY_URL, {
+// Lead proxy — /api/lead.php on Hostinger holds the TeleCRM / AiSensy /
+// Make.com / Web3Forms secrets and fans out server-side. Nothing sensitive
+// ships in the client bundle.
+function fireLead(payload) {
+  fetch('/api/lead.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      apiKey: AISENSY_API_KEY, campaignName: 'ojiva_lead_welcome',
-      destination: '91' + p, userName: fullName, templateParams: [firstName],
-      source: 'new-landing-page form', media: {}, buttons: [], carouselCards: [],
-      location: {}, attributes: {}, paramsFallbackValue: { FirstName: 'user' },
-    }),
-  }).then(r => r.text()).then(t => console.log('[AiSensy] response:', t)).catch(e => console.error('[AiSensy] error:', e));
+    body: JSON.stringify(payload),
+    keepalive: true,
+  })
+    .then(r => r.text())
+    .then(t => console.log('[Lead] response:', t))
+    .catch(e => console.error('[Lead] error:', e));
 }
 
 const PopupForm = () => {
@@ -145,53 +102,17 @@ const PopupForm = () => {
     setSubmitStatus(null);
 
     try {
-      const timestamp = new Date().toISOString();
+      fireLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        service: formData.subject,
+        message: formData.message,
+        source: 'popup',
+      });
+      try { gtag_report_conversion(); } catch (_) {}
 
-      fireTeleCRM(formData.name, formData.phone, formData.email);
-
-      if (!TELECRM_ONLY_TEST) {
-        fireAiSensy(formData.name, formData.phone);
-
-        const makeWebhookData = {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          service: formData.subject,
-          message: formData.message,
-          timestamp: timestamp,
-        };
-
-        const web3FormsData = {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          service: formData.subject,
-          message: formData.message,
-          access_key: "f51b2c3b-8f16-4d07-b40d-ec3d342fa530",
-        };
-
-        const results = await Promise.allSettled([
-          fetch("https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(makeWebhookData),
-          }),
-          fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(web3FormsData),
-          }),
-        ]);
-
-        const anySuccess = results.some(
-          (r) => r.status === "fulfilled" && r.value.ok,
-        );
-        if (!anySuccess) throw new Error("Both endpoints failed");
-
-        try { gtag_report_conversion(); } catch (_) {}
-      }
       setSubmitStatus("success");
       setShowPopup(false);
       setShowSuccessModal(true);
