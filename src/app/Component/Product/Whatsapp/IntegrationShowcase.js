@@ -51,7 +51,7 @@ const IntegrationShowcase = () => {
 
   return (
     <section className="py-5 bg-light">
-      <div className="container">
+      <div className="container aos">
         {/* Header */}
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold head1" style={{ color: "#203239" }}>
@@ -137,7 +137,7 @@ const IntegrationShowcase = () => {
             >
               Integration Benefits
             </h5>
-            <div className="row g-4">
+            <div className="row g-4 aos">
               <div className="col-md-4">
                 <div className="text-center">
                   <div

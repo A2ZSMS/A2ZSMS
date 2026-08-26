@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
     <section className="bg-light py-5 py-md-8">
       <div className="container aos">
         {/* Section Header */}
-        <div className="row justify-content-center mb-5">
+        <div className="row justify-content-center mb-5 aos">
           <div className="col-lg-8 text-center">
             <h2 className="fw-bold mb-3">
               Smart Communication Solutions for{" "}
@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Solutions Grid */}
-        <div className="row g-5 align-items-center">
+        <div className="row g-5 align-items-center aos">
           {/* Left Image */}
           <div className="col-lg-5 text-center mb-4 mb-lg-0">
             <img

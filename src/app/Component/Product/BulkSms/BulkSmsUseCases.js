@@ -90,7 +90,7 @@ const bulkSmsUseCases = [
 const BulkSmsUseCases = () => {
   return (
     <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
-      <div className="container">
+      <div className="container aos">
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold head1" style={{ color: "#203239" }}>
             Industry Solutions

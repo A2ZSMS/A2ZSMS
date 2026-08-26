@@ -8,12 +8,13 @@ export const RealEstate = {
       bg: "bg-light",
       description: [
         "Share property details, brochures, and virtual tours instantly with potential buyers through WhatsApp.",
-        "Allow clients to schedule property visits or consultations directly using interactive WhatsApp buttons.",
+        "Allow clients to schedule property visits or consultations directly using interactive WhatsApp buttons. WhatsApp Business API for Real Estate Leads",
         "Send personalized property recommendations and offers tailored to buyers’ preferences.",
-        "Facilitate real-time communication for inquiries, ensuring faster responses and better customer satisfaction."
+        "Facilitate real-time communication for inquiries, ensuring faster responses and better customer satisfaction. WhatsApp Business API for Real Estate Leads",
       ],
-      image: "/image/Solutions/Estate1.png" // ✅ Corrected image path
+      image: "/image/Solutions/Estate1.png", // ✅ Corrected image path
     },
+
     {
       id: 2,
       title: "Automate Lead Nurturing and Follow-ups",
@@ -22,9 +23,9 @@ export const RealEstate = {
         "Use WhatsApp automation to send timely reminders about site visits, payment schedules, and more.",
         "Leverage AI-powered chatbots to answer common queries instantly and qualify leads 24/7.",
         "Segment contacts based on property interests and send targeted messages for better engagement.",
-        "Improve response rates by using WhatsApp broadcasts for exclusive offers and new listings."
+        "Improve response rates by using WhatsApp broadcasts for exclusive offers and new listings.",
       ],
-      image: "/image/Solutions/Estate2.png"
+      image: "/image/Solutions/Estate2.png",
     },
     {
       id: 3,
@@ -34,11 +35,11 @@ export const RealEstate = {
         "Enable clients to inquire, book site visits, and receive property documents instantly via WhatsApp.",
         "Centralize all real estate inquiries within a WhatsApp Business API dashboard for efficient management.",
         "Use WhatsApp quick replies and templates to streamline client interactions and maintain professionalism.",
-        "Enhance customer support with interactive FAQs and instant response automation."
+        "Enhance customer support with interactive FAQs and instant response automation.",
       ],
-      image: "/image/Solutions/Estate3.png"
-    }
-  ]
+      image: "/image/Solutions/Estate3.png",
+    },
+  ],
 };
 
 

@@ -16,7 +16,6 @@ const Chatbot = () => {
     <div className={styles.page}>
       <Home />
       <Features />
-      {/* <StatsSection /> */}
       <StepsSection />
       <AutomationSection />
       <UseCases />

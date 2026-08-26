@@ -17,7 +17,7 @@ export const metadata = {
     title: "Top Bulk WhatsApp Messaging & FAQ | Best Services in Bangalore",
     description: "Get WhatsApp API solutions for businesses in Bangalore, top bulk messaging services, and answers to frequently asked questions (FAQ) for seamless communication.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

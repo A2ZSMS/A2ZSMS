@@ -31,7 +31,7 @@ import Mar18 from "@/app/Component/Blogs/March/Mar18";
 import Mar19 from "@/app/Component/Blogs/March/Mar19";
 import Mar25 from "@/app/Component/Blogs/March/Mar25";
 import Mar24 from "@/app/Component/Blogs/March/Mar24";
-import Aug26 from "@/app/Component/Blogs/Aug2025/Aug26";
+// import Aug26 from "@/app/Component/Blogs/Aug2025/Aug26";
 import Sep2 from "@/app/Component/Blogs/Sep2025/Sep2";
 import Sep9 from "@/app/Component/Blogs/Sep2025/Sep9";
 import Sep16 from "@/app/Component/Blogs/Sep2025/Sep16";
@@ -52,6 +52,15 @@ import Dec10 from "@/app/Component/Blogs/Dec2025/Dec10";
 import Dec2025 from "@/app/Component/Blogs/Dec2025/Dec2025";
 import Dec25 from "@/app/Component/Blogs/Dec2025/Dec25";
 import Jan08 from "@/app/Component/Blogs/Jan2026/Jan08";
+import Jan21 from "@/app/Component/Blogs/Jan2026/Jan21";
+import Feb02 from "@/app/Component/Blogs/Feb2026/Feb02";
+import Feb06 from "@/app/Component/Blogs/Feb2026/Feb06";
+import Feb10 from "@/app/Component/Blogs/Feb2026/Feb10";
+import Apr13 from "@/app/Component/Blogs/Apr2026/Apr13";
+import Apr20 from "@/app/Component/Blogs/Apr2026/Apr20";
+import May16 from "@/app/Component/Blogs/May2026/May16";
+import Aug26 from "@/app/Component/Blogs/Aug2026/Aug26";
+
 
 // Simple component mapping
 const BlogComponents = {
@@ -103,7 +112,15 @@ const BlogComponents = {
   dec10: Dec10,
   dec2025: Dec2025,
   dec25: Dec25,
-  jan08: Jan08
+  jan08: Jan08,
+  jan21: Jan21,
+  feb02: Feb02,
+  feb06: Feb06,
+  feb10: Feb10,
+  apr13: Apr13,
+  apr20: Apr20,
+  may16: May16,
+  aug26: Aug26
 };
 
 // ✅ Add this function to generate static pages

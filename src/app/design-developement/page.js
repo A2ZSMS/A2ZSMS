@@ -32,7 +32,7 @@ export const metadata = {
     description:
       "Get expert website development services in India. A2ZSMS delivers custom, business, and eCommerce website solutions.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   alternates: {

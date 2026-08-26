@@ -24,14 +24,16 @@ const Home = () => {
             <p className="text-muted">
               Transform how educators, students, and parents connect with
               WhatsApp. Deliver instant updates, personalized learning
-              resources, and seamless communication.
+              resources, and seamless communication using{" "}
+              <strong>WhatsApp Business API for Education</strong>.
             </p>
             <ul className="list-unstyled mt-4">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
                   Notify students about schedules, exams, and deadlines
-                  instantly.
+                  instantly with{" "}
+                  <strong>WhatsApp Business API for Education</strong>.
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">

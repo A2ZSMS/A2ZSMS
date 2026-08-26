@@ -32,7 +32,7 @@ export const metadata = {
     description:
       "Top Bulk Voice Call provider in Bangalore, India. Services include promotional, transactional, and business voice calls for enterprises and marketing campaigns.",
     images: ["/images/3.png"],
-    site: "@yourtwitterhandle",
+
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",

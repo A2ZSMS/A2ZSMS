@@ -21,7 +21,7 @@ export const metadata = {
     description:
       "Contact us for Bulk SMS and WhatsApp API solutions for businesses in Bangalore. Get the best WhatsApp marketing and bulk messaging services today!",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
 

@@ -5,7 +5,6 @@ import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
 import { Checkbox } from "antd";
 import FormComponent from "./FormComponent";
-import Head from "next/head";
 
 const TryForFree = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,45 +25,6 @@ const TryForFree = () => {
 
   return (
     <>
-      <Head>
-        <title>Try A2ZSMS for Free - SMS, WhatsApp & Voice Calls</title>
-        <meta
-          name="description"
-          content="Start your free trial with A2ZSMS and experience efficient SMS, WhatsApp, and voice call solutions for your business communication."
-        />
-        <meta
-          name="keywords"
-          content="A2ZSMS, free trial, bulk SMS, WhatsApp API, voice calls"
-        />
-        <meta name="author" content="A2ZSMS" />
-        <meta
-          property="og:title"
-          content="Try A2ZSMS for Free - SMS, WhatsApp & Voice Calls"
-        />
-        <meta
-          property="og:description"
-          content="Start your free trial with A2ZSMS and experience efficient SMS, WhatsApp, and voice call solutions for your business communication."
-        />
-        <meta property="og:image" content="URL-to-your-featured-image" />
-        <meta property="og:url" content="https://www.a2zsms.in/try-for-free/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="A2ZSMS" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Try A2ZSMS for Free - SMS, WhatsApp & Voice Calls"
-        />
-        <meta
-          name="twitter:description"
-          content="Start your free trial with A2ZSMS and experience efficient SMS, WhatsApp, and voice call solutions for your business communication."
-        />
-        <meta name="twitter:image" content="URL-to-your-featured-image" />
-        <meta name="twitter:site" content="@yourtwitterhandle" />
-        <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#007bff" />
-        <link rel="canonical" href="https://www.a2zsms.in/try-for-free/" />
-      </Head>
-
       <div className="bg-light">
         <div className="container py-5 para-color">
           <div className="row aos">

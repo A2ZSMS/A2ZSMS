@@ -33,8 +33,8 @@ const VideoDemo = () => {
 
   return (
     <section className="py-5" style={{ backgroundColor: "#f8f9fa" }}>
-      <div className="container">
-        <div className="row align-items-center">
+      <div className="container aos">
+        <div className="row align-items-center aos">
           {/* Left: Video Player */}
           <div className="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
             <div className="position-relative">

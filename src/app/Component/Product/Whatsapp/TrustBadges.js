@@ -48,7 +48,7 @@ const TrustBadges = () => {
 
   return (
     <section className="py-5 bg-white">
-      <div className="container">
+      <div className="container aos">
         {/* Trust Badges Grid */}
         <div className="text-center mb-5" data-aos="fade-up">
           <h2 className="fw-bold head1" style={{ color: "#203239" }}>

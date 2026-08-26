@@ -43,7 +43,7 @@ const Home = () => {
     <div>
       {/* Why Join Us Section */}
       <section className="py-5 ">
-        <div className="container">
+        <div className="container aos">
           <div className="row align-items-center aos">
             {/* Left Content */}
             <div className="col-md-6 para-color" data-aos="fade-right">

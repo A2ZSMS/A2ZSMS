@@ -1,16 +1,16 @@
 import React from "react";
 import Food from "../Component/Solutions/Food/Food";
 export const metadata = {
-  title: "WhatsApp Solutions for Food & Beverage Industry",
+  title: "WhatsApp Chatbots For The Food Technology Industry",
   description:
-    "Enhance your food business with WhatsApp: send promotions, manage orders, provide real-time updates, and engage customers effectively.",
+    "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
   keywords:
     "WhatsApp Business API for Food Industry, WhatsApp Marketing for Food and Beverage,WhatsApp Broadcast for Restaurants, WhatsApp Business for Food & Beverage",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/food-beverage/" }],
   openGraph: {
-    title: "WhatsApp Solutions for Food & Beverage Industry",
+    title: "WhatsApp Chatbots For The Food Technology Industry",
     description:
-      "Enhance your food business with WhatsApp: send promotions, manage orders, provide real-time updates, and engage customers effectively.",
+      "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
 
     url: "https://www.a2zsms.in/food-beverage/",
     siteName: "A2ZSMS",
@@ -18,12 +18,12 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WhatsApp Solutions for Food & Beverage Industry",
+    title: "WhatsApp Chatbots For The Food Technology Industry",
     description:
-      "Enhance your food business with WhatsApp: send promotions, manage orders, provide real-time updates, and engage customers effectively.",
+      "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
 
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
 

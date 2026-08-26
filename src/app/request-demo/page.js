@@ -25,7 +25,7 @@ export const metadata = {
     title: "Request a Demo | WhatsApp & Voice Solutions in Bangalore",
     description: "Request a demo for WhatsApp & Voice Solutions in Bangalore. Get seamless business communication with top Bulk WhatsApp Messaging & API services.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

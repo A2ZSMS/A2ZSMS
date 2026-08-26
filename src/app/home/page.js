@@ -1,13 +1,54 @@
-import Home from '../Component/Home/Home'
+import Home from "../Component/Home/Home";
 
+export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
+  title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+  description:
+    "Get top messaging services in Bangalore, India. Reliable Bulk SMS, WhatsApp Business API, RCS, and Voice Call solutions for businesses and marketing campaigns.",
+  keywords:
+    "Bulk SMS Bangalore, WhatsApp Business API India, RCS Messaging Bangalore, Voice Call Services, SMS Marketing India, Messaging Solutions Bangalore, A2ZSMS",
+  authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/home/" }],
+  openGraph: {
+    title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+    description:
+      "Reliable Bulk SMS, WhatsApp Business API, RCS, and Voice Call solutions for businesses in India. DLT compliant, 99.9% delivery rate. Trusted by 1000+ businesses.",
+    url: "https://www.a2zsms.in/home/",
+    siteName: "A2ZSMS",
+    images: [
+      {
+        url: "/images/hardesr_part_bsns.png",
+        width: 1200,
+        height: 630,
+        alt: "Top Messaging Services in Bangalore by A2ZSMS",
+      },
+    ],
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+    description:
+      "Reliable Bulk SMS, WhatsApp, RCS, and Voice Call services in Bangalore, India. Perfect solutions for business communication and marketing.",
+    images: ["/images/hardesr_part_bsns.png"],
+  },
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://www.a2zsms.in/home/",
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
 
 const page = () => {
   return (
     <div>
-      <Home/>
-
+      <Home />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

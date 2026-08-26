@@ -25,7 +25,7 @@ export const metadata = {
     title: "Free SMS, WhatsApp & Voice Calls - Top Bulk Messaging Services",
     description: "Get free SMS, WhatsApp & voice call solutions for businesses in Bangalore. Enhance communication & marketing with top Bulk WhatsApp Messaging Services.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   

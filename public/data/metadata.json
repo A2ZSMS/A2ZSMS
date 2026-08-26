@@ -1,14 +1,94 @@
 [
- {
-  "id": 29,
-  "title": "Best RCS Messaging Provider in Andhra Pradesh",
-  "componentKey": "Jan08",
-  "slug": "best-rcs-messaging-provider-in-andhra-pradesh",
+  {
+  "id": 37,
+  "title": "RCS Messaging Provider in India",
+  "componentKey": "Aug26",
+  "slug": "rcs-messaging-provider-in-india",
   "category": "RCS Messaging",
-  "date": "2026-01-10",
-  "description": "Looking for the best RCS messaging provider in Andhra Pradesh? Discover how RCS Business Messaging delivers verified, rich messages that boost engagement!!",
-  "image": "/Images/RCS jan08.jpeg"
+  "date": "2026-08-26",
+  "description": "RCS Messaging Provider in India A2ZSMS offers verified sender branding, DLT-compliant delivery, Google agent setup & transparent INR pricing.",
+  "image": "/Images/aug26(1).webp"
 },
+  {
+  "id": 36,
+  "title": "How to Use Bulk SMS Service to Grow Your Business in India",
+  "componentKey": "May16",
+  "slug": "how-to-use-bulk-sms-service-grow-business-india-2026",
+  "category": "Bulk SMS Service",
+  "date": "2026-05-16",
+  "description": "Not using bulk SMS yet? This 2026 step-by-step guide explains how bulk SMS service works in India — from DLT registration and Sender ID setup to writing campaigns that convert. Reach thousands instantly with A2ZSMS.",
+  "image": "/Images/may16(1).png"
+},
+  {
+    "id": 35,
+    "title": "RCS Marketing Automation: Build High-Converting Campaigns",
+    "componentKey": "Apr20",
+    "slug": "rcs-marketing-automation-high-converting-campaigns",
+    "category": "RCS Business Messaging",
+    "date": "2026-04-20",
+    "description": "Learn how to use RCS messaging for marketing automation with interactive carousels, quick replies, and personalized flows.",
+    "image": "/Images/Rcs(1)Apr20.jpeg"
+  },
+  {
+    "id": 34,
+    "title": "RCS vs WhatsApp vs SMS: Best Business Messaging",
+    "componentKey": "Apr13",
+    "slug": "rcs-vs-sms-vs-whatsapp-which-channel-wins-for-indian-businesses",
+    "category": "RCS Business Messaging",
+    "date": "2026-04-13",
+    "description": "Compare RCS vs WhatsApp vs SMS for business in 2026. Explore features, costs, reach, and use cases to choose the best messaging channel for growth.",
+    "image": "/Images/Apr13(1).jpeg"
+  },
+  {
+    "id": 33,
+    "title": "Best RCS Message Service Provider in India",
+    "componentKey": "Feb10",
+    "slug": "best-rcs-message-service-provider-in-india",
+    "category": "RCS Business Messaging",
+    "date": "2026-02-10",
+    "description": "Discover the best RCS message service provider in India. Verified branding, rich media, carousels, CTA buttons & analytics to boost engagement & ROI.",
+    "image": "/Images/Feb10(1).jpeg"
+  },
+  {
+    "id": 32,
+    "title": "Best WhatsApp API Message Templates for Indian Businesses",
+    "componentKey": "Feb06",
+    "slug": "best-whatsapp-api-message-templates-for-indian-businesses",
+    "category": "WhatsApp Business API",
+    "date": "2026-02-06",
+    "description": "Explore WhatsApp API templates for Indian businesses Utility, Marketing & OTP. Learn 24-hour rule, structure, naming tips & copy-paste examples.",
+    "image": "/Images/feb(1).jpg"
+  },
+  {
+    "id": 31,
+    "title": "RCS Business Messaging: Features, Benefits & How It Works",
+    "componentKey": "Feb02",
+    "slug": "rcs-business-messaging-features-benefits-how-it-works",
+    "category": "RCS Business Messaging",
+    "date": "2026-02-02",
+    "description": "Learn how RCS Business Messaging works, its features, benefits, and use cases to deliver rich messages that boost trust, engagement, and conversions today.",
+    "image": "/Images/feb02(1).jpeg"
+  },
+  {
+    "id": 30,
+    "title": "Best WhatsApp Business API Provider in  Hyderabad",
+    "componentKey": "Jan21",
+    "slug": "whatsapp-business-api-provider-hyderabad",
+    "category": "WhatsApp Business API",
+    "date": "2026-01-21",
+    "description": "Discover the best WhatsApp Business API provider in Hyderabad. Learn features, benefits, use cases, pricing, and scaling strategies for customer communication",
+    "image": "/Images/jan 21(1).png"
+  },
+  {
+    "id": 29,
+    "title": "Best RCS Messaging Provider in Andhra Pradesh",
+    "componentKey": "Jan08",
+    "slug": "best-rcs-messaging-provider-in-andhra-pradesh",
+    "category": "RCS Messaging",
+    "date": "2026-01-10",
+    "description": "Looking for the best RCS messaging provider in Andhra Pradesh? Discover how RCS Business Messaging delivers verified, rich messages that boost engagement!!",
+    "image": "/Images/RCS jan08.jpeg"
+  },
   {
     "id": 28,
     "title": "RCS Messaging Helps Boost Marketing Conversions Up to 10x",

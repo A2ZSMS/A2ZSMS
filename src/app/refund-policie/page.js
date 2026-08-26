@@ -1,12 +1,15 @@
-import React from "react";
-import Refund from "../Component/TermsPrivacy/Refund";
+"use client";
 
-const page = () => {
-  return (
-    <div>
-      <Refund />
-    </div>
-  );
-};
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default page;
+// Redirects the old typo URL /refund-policie/ to the canonical /refund-policy/
+export default function RefundRedirectPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/refund-policy/");
+  }, [router]);
+
+  return null;
+}

@@ -25,10 +25,7 @@ const ContactPage = () => {
   };
 
   const handleLinkedinClick = () => {
-    window.open(
-      "https://www.linkedin.com/company/103567741/admin/dashboard/",
-      "_blank"
-    );
+    window.open("https://www.linkedin.com/company/105067284", "_blank");
   };
 
   return (
@@ -43,7 +40,7 @@ const ContactPage = () => {
           minHeight: "100vh",
         }}
       >
-        <div className="container py-5">
+        <div className="container py-5 aos">
           {/* Header */}
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
@@ -63,7 +60,7 @@ const ContactPage = () => {
           </div>
 
           {/* Main Content */}
-          <div className="row g-5">
+          <div className="row g-5 aos">
             {/* Contact Information */}
             <div className="col-lg-5">
               <div className="bg-white rounded-4 shadow-sm border-0 h-100 overflow-hidden">

@@ -26,14 +26,20 @@ const Home = () => {
               Revolutionize customer engagement, streamline shopping
               experiences, and drive sales with our advanced WhatsApp API
               solutions. Enhance your e-commerce journey with seamless
-              communication!
+              communication using{" "}
+              <strong>WhatsApp Business Platform for Retail & eCommerce</strong>
+              !
             </p>
             <ul className="list-unstyled mt-4 text-muted">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
                   Share real-time order updates, shipping details, and delivery
-                  notifications.
+                  notifications with{" "}
+                  <strong>
+                    WhatsApp Business Platform for Retail & eCommerce
+                  </strong>
+                  .
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">

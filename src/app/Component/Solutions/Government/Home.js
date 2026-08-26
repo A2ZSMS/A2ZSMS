@@ -16,7 +16,7 @@ const Home = () => {
       <div className="container">
         <div className="row align-items-center aos para-color">
           {/* Left Content */}
-          <div className="col-md-6 " data-aos="fade-right">
+          <div className="col-md-6" data-aos="fade-right">
             <h1 className="fw-bold mb-4">
               Streamline Governance with{" "}
               <span className="text-primary">WhatsApp Solutions</span>
@@ -24,14 +24,15 @@ const Home = () => {
             <p className="text-muted">
               Enhance public services and communication by utilizing WhatsApp
               for instant notifications, citizen engagement, and streamlined
-              operations.
+              operations with <strong>WhatsApp Marketing for Government</strong>
+              .
             </p>
             <ul className="list-unstyled mt-4">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
                 <span>
-                  Notify citizens with real-time updates on policies and
-                  schemes.
+                  Notify citizens with real-time updates on policies and schemes
+                  using <strong>WhatsApp Marketing for Government</strong>.
                 </span>
               </li>
               <li className="d-flex align-items-start mb-3">

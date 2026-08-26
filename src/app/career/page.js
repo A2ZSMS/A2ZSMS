@@ -18,7 +18,7 @@ export const metadata = {
     title: "Careers at A2ZSMS – Join Our Team for Growth in Bangalore",
     description: "Explore careers at A2ZSMS and join our team for growth. We offer exciting opportunities to excel in the Bulk SMS & WhatsApp API industry in Bangalore.",
     images: ["/images/meta-image.jpg"],
-    site: "@yourtwitterhandle",
+
   },
   robots: "index, follow",
   alternates: {
@@ -26,9 +26,9 @@ export const metadata = {
   },
 };
 
-// ✅ Move `themeColor` to the `viewport` export
 export const viewport = {
-  
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 const Page = () => {
