@@ -1,24 +1,34 @@
 [
   {
-  "id": 37,
-  "title": "RCS Messaging Provider in India",
-  "componentKey": "Aug26",
-  "slug": "rcs-messaging-provider-in-india",
-  "category": "RCS Messaging",
-  "date": "2026-08-26",
-  "description": "RCS Messaging Provider in India A2ZSMS offers verified sender branding, DLT-compliant delivery, Google agent setup & transparent INR pricing.",
-  "image": "/Images/aug26(1).webp"
-},
+    "id": 38,
+    "title": "WhatsApp Business API for Travel Agencies",
+    "componentKey": "Sep02",
+    "slug": "whatsapp-business-api-for-travel-agencies",
+    "category": "WhatsApp Messaging",
+    "date": "2026-09-02",
+    "description": "WhatsApp Business API for Travel Agencies A2ZSMS offers verified sender branding, automated booking replies, CRM sync & transparent INR pricing.",
+    "image": "/Images/Sep02(1).webp"
+  },
   {
-  "id": 36,
-  "title": "How to Use Bulk SMS Service to Grow Your Business in India",
-  "componentKey": "May16",
-  "slug": "how-to-use-bulk-sms-service-grow-business-india-2026",
-  "category": "Bulk SMS Service",
-  "date": "2026-05-16",
-  "description": "Not using bulk SMS yet? This 2026 step-by-step guide explains how bulk SMS service works in India — from DLT registration and Sender ID setup to writing campaigns that convert. Reach thousands instantly with A2ZSMS.",
-  "image": "/Images/may16(1).png"
-},
+    "id": 37,
+    "title": "RCS Messaging Provider in India",
+    "componentKey": "Aug26",
+    "slug": "rcs-messaging-provider-in-india",
+    "category": "RCS Messaging",
+    "date": "2026-08-26",
+    "description": "RCS Messaging Provider in India A2ZSMS offers verified sender branding, DLT-compliant delivery, Google agent setup & transparent INR pricing.",
+    "image": "/Images/aug26(1).webp"
+  },
+  {
+    "id": 36,
+    "title": "How to Use Bulk SMS Service to Grow Your Business in India",
+    "componentKey": "May16",
+    "slug": "how-to-use-bulk-sms-service-grow-business-india-2026",
+    "category": "Bulk SMS Service",
+    "date": "2026-05-16",
+    "description": "Not using bulk SMS yet? This 2026 step-by-step guide explains how bulk SMS service works in India — from DLT registration and Sender ID setup to writing campaigns that convert. Reach thousands instantly with A2ZSMS.",
+    "image": "/Images/may16(1).png"
+  },
   {
     "id": 35,
     "title": "RCS Marketing Automation: Build High-Converting Campaigns",
