@@ -5,6 +5,7 @@ import { Form, Input, Select, Button, Checkbox, notification } from "antd";
 import Link from "next/link";
 import axios from "axios";
 import { gtag_report_conversion } from "../../GoogleTracking";
+import { checkLead } from "../../../lib/leadQuality";
 
 const { Option } = Select;
 
@@ -24,7 +25,7 @@ const FAKE_PHONE_BLOCKLIST = new Set([
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
-function fireTeleCRM(name, phone, email, company, service, message) {
+function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
@@ -42,6 +43,17 @@ function fireTeleCRM(name, phone, email, company, service, message) {
   if (c) fields.company_name       = c;
   if (s) fields.service_interested = s;
   if (m) fields.remark             = m;
+  // Quality-signal fields (populated by leadQuality checkLead).
+  // NOTE: TeleCRM's "Tags" Tag-type field silently rejects a lead when sent
+  // as an array of arbitrary strings — do NOT add fields.tags without figuring
+  // out the correct format (likely tag IDs from a predefined list).
+  if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
+  if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
+  // Industry dropdown — accepts any string, but sending exact TeleCRM options
+  // (E-commerce & Retail, Banking & Finance, Healthcare, Education & EdTech,
+  // Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology,
+  // Other) makes CRM filters/segmentation work. Only FormComponent populates it.
+  if (extras && extras.industry) fields.industry = String(extras.industry).slice(0, 100);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
@@ -85,12 +97,27 @@ function fireAiSensy(name, phone) {
   }).then(r => r.text()).then(t => console.log('[AiSensy] response:', t)).catch(e => console.error('[AiSensy] error:', e));
 }
 
+// Maps FormComponent's Industry dropdown values → TeleCRM's Industry dropdown options.
+// TeleCRM has: E-commerce & Retail, Banking & Finance, Healthcare, Education & EdTech,
+// Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology, Other.
+// Anything not in the map falls back to "Other" so CRM filters still work.
+const INDUSTRY_MAP = {
+  "Real Estate":         "Real Estate",
+  "Healthcare":          "Healthcare",
+  "Retail & eCommerce":  "E-commerce & Retail",
+  "Tours & Travels":     "Travel & Hospitality",
+  "Education":           "Education & EdTech",
+  // Not in TeleCRM dropdown → default "Other":
+  //   Food & Beverage, Gaming, Media, Government
+};
+
 const FormComponent = ({ title, buttonText }) => {
   const [form] = Form.useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const honeypotRef = useRef("");
-  const submitLock = useRef(false);
+  const submitLock  = useRef(false);
+  const mountTime   = useRef(Date.now());
 
   const onFinish = async (values) => {
     // Ref-level mutex — blocks double-clicks instantly (before React re-renders)
@@ -101,14 +128,53 @@ const FormComponent = ({ title, buttonText }) => {
     if (honeypotRef.current) {
       submitLock.current = false;
       setIsSubmitting(false);
+      setShowModal(true); // fake success so bots don't learn
       return;
     }
+
+    // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
+    // Note: FormComponent has no free-text message field, so message is omitted.
+    const quality = checkLead({
+      name:       values.name,
+      email:      values.email,
+      phone:      values.phone,
+      company:    values.company,
+      formFillMs: Date.now() - mountTime.current,
+      honeypot:   honeypotRef.current,
+    });
+    if (quality.silent) {
+      submitLock.current = false;
+      setIsSubmitting(false);
+      setShowModal(true); // fake success
+      return;
+    }
+    if (quality.block) {
+      submitLock.current = false;
+      setIsSubmitting(false);
+      const msg = Object.values(quality.errors)[0] || "Please provide accurate details so we can help you.";
+      notification.error({ message: "Please review your details", description: msg });
+      return;
+    }
+
     try {
       const servicesStr = values.services ? values.services.join(", ") : "";
       const timestamp = new Date().toISOString();
 
-      // TeleCRM's Service Interested is a Dropdown — send only the first selected service (dropdowns can't accept multi-value)
-      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', values.industry || '');
+      // Map form industry → TeleCRM Industry dropdown value (falls back to "Other")
+      const mappedIndustry = values.industry
+        ? (INDUSTRY_MAP[values.industry] || "Other")
+        : undefined;
+
+      const extras = {
+        priority: quality.score,
+        subject: quality.score < 60 ? `Auto-review: ${quality.flagReason}` : undefined,
+        industry: mappedIndustry,
+      };
+
+      // TeleCRM's Service Interested is a Dropdown — send only the first selected service.
+      // Industry now goes to extras.industry (TeleCRM Industry field); the 6th message arg
+      // was previously routing industry into `remark` too — now left empty to avoid duplication.
+      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', '', extras);
 
       if (!TELECRM_ONLY_TEST) {
         fireAiSensy(values.name, values.phone);

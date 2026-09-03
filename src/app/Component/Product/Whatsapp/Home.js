@@ -5,6 +5,7 @@ import AOS from "aos";
 import { useEffect, useRef, useState } from "react";
 import { Button, Form, Input, Space, Typography } from "antd";
 import { gtag_report_conversion } from "../../../GoogleTracking";
+import { checkLead } from "../../../../lib/leadQuality";
 
 const { Text } = Typography;
 
@@ -24,7 +25,7 @@ const FAKE_PHONE_BLOCKLIST = new Set([
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
-function fireTeleCRM(name, phone, email, company, service, message) {
+function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
@@ -42,6 +43,17 @@ function fireTeleCRM(name, phone, email, company, service, message) {
   if (c) fields.company_name       = c;
   if (s) fields.service_interested = s;
   if (m) fields.remark             = m;
+  // Quality-signal fields (populated by leadQuality checkLead).
+  // NOTE: TeleCRM's "Tags" Tag-type field silently rejects a lead when sent
+  // as an array of arbitrary strings — do NOT add fields.tags without figuring
+  // out the correct format (likely tag IDs from a predefined list).
+  if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
+  if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
+  // Industry dropdown — accepts any string, but sending exact TeleCRM options
+  // (E-commerce & Retail, Banking & Finance, Healthcare, Education & EdTech,
+  // Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology,
+  // Other) makes CRM filters/segmentation work. Only FormComponent populates it.
+  if (extras && extras.industry) fields.industry = String(extras.industry).slice(0, 100);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
@@ -153,7 +165,9 @@ const Home = () => {
     });
   }, []);
 
-  const submitLock = useRef(false);
+  const submitLock  = useRef(false);
+  const mountTime   = useRef(Date.now());
+  const honeypotRef = useRef("");
 
   const handleFinish = async (values) => {
     if (submitLock.current) return;
@@ -174,6 +188,27 @@ const Home = () => {
       return;
     }
 
+    // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
+    const quality = checkLead({
+      name:       trimmedName,
+      phone:      mobileDigits,
+      formFillMs: Date.now() - mountTime.current,
+      honeypot:   honeypotRef.current,
+    });
+    if (quality.silent) {
+      // Fake success so bots don't learn
+      setStatusMessage("Message sent successfully.");
+      setStatusType("success");
+      form.resetFields();
+      return;
+    }
+    if (quality.block) {
+      const msg = quality.errors.name || quality.errors.phone || "Please provide accurate details.";
+      setStatusMessage(msg);
+      setStatusType("danger");
+      return;
+    }
+
     const url = `https://api.msgmaker.in/api/v1/wa-templates/send/cmkkzen8910zk7axpfclvgaen/16133/1949/API/${encodeURIComponent(
       mobileDigits,
     )}?body1=${encodeURIComponent(trimmedName)}`;
@@ -183,7 +218,11 @@ const Home = () => {
       setIsSending(true);
 
       // Widget has no company/message fields; pass sensible defaults so TeleCRM lead is distinguishable
-      fireTeleCRM(trimmedName, mobileDigits, "", "", "Waba Service", "Lead from Test WhatsApp Widget on /whatsapp-api");
+      const extras = {
+        priority: quality.score,
+        subject: quality.score < 60 ? `Auto-review: ${quality.flagReason}` : undefined,
+      };
+      fireTeleCRM(trimmedName, mobileDigits, "", "", "Waba Service", "Lead from Test WhatsApp Widget on /whatsapp-api", extras);
 
       if (!TELECRM_ONLY_TEST) {
         fireAiSensy(trimmedName, mobileDigits);
@@ -298,6 +337,16 @@ const Home = () => {
                 onFinishFailed={handleFinishFailed}
                 onValuesChange={handleValuesChange}
               >
+                {/* Honeypot — hidden from real users, bots fill it */}
+                <input
+                  type="text"
+                  name="website_url"
+                  tabIndex={-1}
+                  autoComplete="new-password"
+                  aria-hidden="true"
+                  onChange={(e) => (honeypotRef.current = e.target.value)}
+                  style={{ display: "none" }}
+                />
                 <div style={compactWrapperStyle}>
                   <div className="d-flex flex-column gap-2">
                     <Space.Compact
