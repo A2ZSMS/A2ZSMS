@@ -44,6 +44,11 @@ function fireTeleCRM(name, phone, email, company, service, message, extras) {
   // out the correct format (likely tag IDs from a predefined list).
   if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
   if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
+  // Industry dropdown — accepts any string, but sending exact TeleCRM options
+  // (E-commerce & Retail, Banking & Finance, Healthcare, Education & EdTech,
+  // Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology,
+  // Other) makes CRM filters/segmentation work. Only FormComponent populates it.
+  if (extras && extras.industry) fields.industry = String(extras.industry).slice(0, 100);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },

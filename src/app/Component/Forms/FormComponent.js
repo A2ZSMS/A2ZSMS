@@ -49,6 +49,11 @@ function fireTeleCRM(name, phone, email, company, service, message, extras) {
   // out the correct format (likely tag IDs from a predefined list).
   if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
   if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
+  // Industry dropdown — accepts any string, but sending exact TeleCRM options
+  // (E-commerce & Retail, Banking & Finance, Healthcare, Education & EdTech,
+  // Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology,
+  // Other) makes CRM filters/segmentation work. Only FormComponent populates it.
+  if (extras && extras.industry) fields.industry = String(extras.industry).slice(0, 100);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
@@ -92,6 +97,20 @@ function fireAiSensy(name, phone) {
   }).then(r => r.text()).then(t => console.log('[AiSensy] response:', t)).catch(e => console.error('[AiSensy] error:', e));
 }
 
+// Maps FormComponent's Industry dropdown values → TeleCRM's Industry dropdown options.
+// TeleCRM has: E-commerce & Retail, Banking & Finance, Healthcare, Education & EdTech,
+// Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology, Other.
+// Anything not in the map falls back to "Other" so CRM filters still work.
+const INDUSTRY_MAP = {
+  "Real Estate":         "Real Estate",
+  "Healthcare":          "Healthcare",
+  "Retail & eCommerce":  "E-commerce & Retail",
+  "Tours & Travels":     "Travel & Hospitality",
+  "Education":           "Education & EdTech",
+  // Not in TeleCRM dropdown → default "Other":
+  //   Food & Beverage, Gaming, Media, Government
+};
+
 const FormComponent = ({ title, buttonText }) => {
   const [form] = Form.useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,12 +133,12 @@ const FormComponent = ({ title, buttonText }) => {
     }
 
     // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
+    // Note: FormComponent has no free-text message field, so message is omitted.
     const quality = checkLead({
       name:       values.name,
       email:      values.email,
       phone:      values.phone,
       company:    values.company,
-      message:    values.industry, // industry field used as freeform "about your need" here
       formFillMs: Date.now() - mountTime.current,
       honeypot:   honeypotRef.current,
     });
@@ -141,13 +160,21 @@ const FormComponent = ({ title, buttonText }) => {
       const servicesStr = values.services ? values.services.join(", ") : "";
       const timestamp = new Date().toISOString();
 
+      // Map form industry → TeleCRM Industry dropdown value (falls back to "Other")
+      const mappedIndustry = values.industry
+        ? (INDUSTRY_MAP[values.industry] || "Other")
+        : undefined;
+
       const extras = {
         priority: quality.score,
         subject: quality.score < 60 ? `Auto-review: ${quality.flagReason}` : undefined,
+        industry: mappedIndustry,
       };
 
-      // TeleCRM's Service Interested is a Dropdown — send only the first selected service (dropdowns can't accept multi-value)
-      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', values.industry || '', extras);
+      // TeleCRM's Service Interested is a Dropdown — send only the first selected service.
+      // Industry now goes to extras.industry (TeleCRM Industry field); the 6th message arg
+      // was previously routing industry into `remark` too — now left empty to avoid duplication.
+      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', '', extras);
 
       if (!TELECRM_ONLY_TEST) {
         fireAiSensy(values.name, values.phone);
