@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gtag_report_conversion } from "../../../GoogleTracking";
+import { checkLead } from "../../../../lib/leadQuality";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -50,7 +51,7 @@ const fetchWithTimeout = (url, options, ms = FETCH_TIMEOUT) => {
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
-function fireTeleCRM(name, phone, email, company, service, message) {
+function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
@@ -68,6 +69,12 @@ function fireTeleCRM(name, phone, email, company, service, message) {
   if (c) fields.company_name       = c;
   if (s) fields.service_interested = s;
   if (m) fields.remark             = m;
+  // Quality-signal fields (populated by leadQuality checkLead).
+  // NOTE: TeleCRM's "Tags" Tag-type field silently rejects a lead when sent
+  // as an array of arbitrary strings — do NOT add fields.tags without figuring
+  // out the correct format (likely tag IDs from a predefined list).
+  if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
+  if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
@@ -281,6 +288,32 @@ const SharedLeadForm = ({
       return;
     }
 
+    // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
+    const quality = checkLead({
+      name:       form.name,
+      email:      form.email,
+      phone:      form.phone,
+      company:    form.company,
+      message:    form.message,
+      formFillMs: formMs,
+      honeypot:   form.website_url,
+    });
+    if (quality.silent) {
+      // Silent drop for honeypot / bot-fast fill — fake success by redirecting
+      isSubmitting.current = false;
+      setLoading(false);
+      router.push(thankYouUrl);
+      return;
+    }
+    if (quality.block) {
+      const merged = { ...errs, ...quality.errors };
+      if (!Object.keys(quality.errors).length) merged.name = "Please provide accurate details so we can help you.";
+      setErrors(merged);
+      isSubmitting.current = false;
+      setLoading(false);
+      return;
+    }
+
     const cleanEmail = form.email.trim().toLowerCase();
     const cleanPhone = form.phone.trim();
 
@@ -349,7 +382,11 @@ const SharedLeadForm = ({
     };
 
     try {
-      fireTeleCRM(form.name, form.phone, form.email, form.company, form.service, form.message);
+      const extras = {
+        priority: quality.score,
+        subject: quality.score < 60 ? `Auto-review: ${quality.flagReason}` : undefined,
+      };
+      fireTeleCRM(form.name, form.phone, form.email, form.company, form.service, form.message, extras);
 
       if (!TELECRM_ONLY_TEST) {
         fireAiSensy(form.name, form.phone);

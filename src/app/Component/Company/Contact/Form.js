@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gtag_report_conversion } from "../../../GoogleTracking";
+import { checkLead } from "../../../../lib/leadQuality";
 
 // ── TESTING FLAG ──────────────────────────────────────────────
 // true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
@@ -19,7 +20,7 @@ const FAKE_PHONE_BLOCKLIST = new Set([
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
-function fireTeleCRM(name, phone, email, company, service, message) {
+function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
@@ -37,6 +38,12 @@ function fireTeleCRM(name, phone, email, company, service, message) {
   if (c) fields.company_name       = c;
   if (s) fields.service_interested = s;
   if (m) fields.remark             = m;
+  // Quality-signal fields (populated by leadQuality checkLead).
+  // NOTE: TeleCRM's "Tags" Tag-type field silently rejects a lead when sent
+  // as an array of arbitrary strings — do NOT add fields.tags without figuring
+  // out the correct format (likely tag IDs from a predefined list).
+  if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
+  if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
@@ -97,6 +104,7 @@ const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const submitLock = useRef(false);
+  const mountTime  = useRef(Date.now());
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -158,18 +166,49 @@ const ContactForm = () => {
     // Ref-level mutex — blocks double-clicks instantly (before React re-renders)
     if (submitLock.current) return;
 
-    if (formData.website_url) return;
-
     if (!validateForm()) return;
+
+    // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
+    const quality = checkLead({
+      name:       formData.name,
+      email:      formData.email,
+      phone:      formData.phone,
+      company:    formData.company,
+      message:    formData.message,
+      formFillMs: Date.now() - mountTime.current,
+      honeypot:   formData.website_url,
+    });
+    if (quality.silent) {
+      // Honeypot filled or bot-fast fill — fake success so bots don't learn they were caught
+      setShowSuccess(true);
+      return;
+    }
+    if (quality.block) {
+      // Show quality-specific field errors, plus a generic hint if score-band alone triggered the block
+      setErrors((prev) => ({
+        ...prev,
+        ...quality.errors,
+        ...(!quality.hardBlock && !Object.keys(quality.errors).length
+          ? { name: "Please provide accurate details so we can help you." }
+          : {}),
+      }));
+      return;
+    }
 
     submitLock.current = true;
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    // Build TeleCRM extras from the quality score
+    const extras = {
+      priority: quality.score,
+      subject: quality.score < 60 ? `Auto-review: ${quality.flagReason}` : undefined,
+    };
+
     try {
       const timestamp = new Date().toISOString();
 
-      fireTeleCRM(formData.name, formData.phone, formData.email, formData.company, formData.subject, formData.message);
+      fireTeleCRM(formData.name, formData.phone, formData.email, formData.company, formData.subject, formData.message, extras);
 
       if (!TELECRM_ONLY_TEST) {
         fireAiSensy(formData.name, formData.phone);

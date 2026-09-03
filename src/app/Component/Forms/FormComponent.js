@@ -5,6 +5,7 @@ import { Form, Input, Select, Button, Checkbox, notification } from "antd";
 import Link from "next/link";
 import axios from "axios";
 import { gtag_report_conversion } from "../../GoogleTracking";
+import { checkLead } from "../../../lib/leadQuality";
 
 const { Option } = Select;
 
@@ -24,7 +25,7 @@ const FAKE_PHONE_BLOCKLIST = new Set([
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
-function fireTeleCRM(name, phone, email, company, service, message) {
+function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
   if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
@@ -42,6 +43,12 @@ function fireTeleCRM(name, phone, email, company, service, message) {
   if (c) fields.company_name       = c;
   if (s) fields.service_interested = s;
   if (m) fields.remark             = m;
+  // Quality-signal fields (populated by leadQuality checkLead).
+  // NOTE: TeleCRM's "Tags" Tag-type field silently rejects a lead when sent
+  // as an array of arbitrary strings — do NOT add fields.tags without figuring
+  // out the correct format (likely tag IDs from a predefined list).
+  if (extras && typeof extras.priority === 'number') fields.priority = extras.priority;
+  if (extras && extras.subject) fields.subject = String(extras.subject).slice(0, 250);
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },
@@ -90,7 +97,8 @@ const FormComponent = ({ title, buttonText }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const honeypotRef = useRef("");
-  const submitLock = useRef(false);
+  const submitLock  = useRef(false);
+  const mountTime   = useRef(Date.now());
 
   const onFinish = async (values) => {
     // Ref-level mutex — blocks double-clicks instantly (before React re-renders)
@@ -101,14 +109,45 @@ const FormComponent = ({ title, buttonText }) => {
     if (honeypotRef.current) {
       submitLock.current = false;
       setIsSubmitting(false);
+      setShowModal(true); // fake success so bots don't learn
       return;
     }
+
+    // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
+    const quality = checkLead({
+      name:       values.name,
+      email:      values.email,
+      phone:      values.phone,
+      company:    values.company,
+      message:    values.industry, // industry field used as freeform "about your need" here
+      formFillMs: Date.now() - mountTime.current,
+      honeypot:   honeypotRef.current,
+    });
+    if (quality.silent) {
+      submitLock.current = false;
+      setIsSubmitting(false);
+      setShowModal(true); // fake success
+      return;
+    }
+    if (quality.block) {
+      submitLock.current = false;
+      setIsSubmitting(false);
+      const msg = Object.values(quality.errors)[0] || "Please provide accurate details so we can help you.";
+      notification.error({ message: "Please review your details", description: msg });
+      return;
+    }
+
     try {
       const servicesStr = values.services ? values.services.join(", ") : "";
       const timestamp = new Date().toISOString();
 
+      const extras = {
+        priority: quality.score,
+        subject: quality.score < 60 ? `Auto-review: ${quality.flagReason}` : undefined,
+      };
+
       // TeleCRM's Service Interested is a Dropdown — send only the first selected service (dropdowns can't accept multi-value)
-      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', values.industry || '');
+      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', values.industry || '', extras);
 
       if (!TELECRM_ONLY_TEST) {
         fireAiSensy(values.name, values.phone);
