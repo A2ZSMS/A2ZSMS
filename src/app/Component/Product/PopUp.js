@@ -29,6 +29,34 @@ function fireOaiConversion() {
   } catch (_) {}
 }
 
+// Reads first-touch attribution captured on landing (see src/app/layout.js).
+// Returns {utm_source, utm_medium, utm_campaign, source} or {} if unavailable.
+function getAttribution() {
+  try {
+    if (typeof window === 'undefined') return {};
+    var raw = sessionStorage.getItem('a2z_attribution');
+    if (!raw) return {};
+    var a = JSON.parse(raw);
+    var parts = [];
+    if (a.ai_source) parts.push('AI:' + a.ai_source);
+    else if (a.utm_source) parts.push(a.utm_source);
+    else if (a.referrer) parts.push('ref:' + a.referrer);
+    if (a.utm_medium)   parts.push(a.utm_medium);
+    if (a.utm_campaign) parts.push(a.utm_campaign);
+    if (a.gclid)   parts.push('gclid');
+    if (a.fbclid)  parts.push('fbclid');
+    if (a.msclkid) parts.push('msclkid');
+    if (a.oai_click_id) parts.push('oai');
+    if (a.landing) parts.push('landing:' + a.landing);
+    return {
+      utm_source:   String(a.utm_source   || '').slice(0, 100),
+      utm_medium:   String(a.utm_medium   || '').slice(0, 100),
+      utm_campaign: String(a.utm_campaign || '').slice(0, 100),
+      source:       parts.filter(Boolean).join(' | ').slice(0, 250),
+    };
+  } catch (_) { return {}; }
+}
+
 function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
@@ -58,6 +86,12 @@ function fireTeleCRM(name, phone, email, company, service, message, extras) {
   // Travel & Hospitality, Real Estate, Logistics & Delivery, SaaS & Technology,
   // Other) makes CRM filters/segmentation work. Only FormComponent populates it.
   if (extras && extras.industry) fields.industry = String(extras.industry).slice(0, 100);
+  // Attribution — first-touch UTM + AI referrer captured on landing (src/app/layout.js).
+  const attr = getAttribution();
+  if (attr.utm_source)   fields.utm_source   = attr.utm_source;
+  if (attr.utm_medium)   fields.utm_medium   = attr.utm_medium;
+  if (attr.utm_campaign) fields.utm_campaign = attr.utm_campaign;
+  if (attr.source)       fields.source       = attr.source;
   const opts = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TELECRM_TOKEN}` },

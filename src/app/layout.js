@@ -91,6 +91,70 @@ export default function RootLayout({ children }) {
         />
         {/* End OpenAI Ads Measurement Pixel */}
 
+        {/* A2ZSMS Attribution Capture — reads UTM params + AI referrer on first landing
+            of the session, stores in sessionStorage for form submissions to read back
+            and send to TeleCRM. First-touch: never overwritten within the same session. */}
+        <Script id="a2z-attribution" strategy="afterInteractive">
+          {`
+            (function () {
+              try {
+                var KEY = 'a2z_attribution';
+                if (sessionStorage.getItem(KEY)) return;
+                var url = new URL(window.location.href);
+                var q = url.searchParams;
+                var get = function (k) { return (q.get(k) || '').trim().slice(0, 200); };
+                var utm_source   = get('utm_source');
+                var utm_medium   = get('utm_medium');
+                var utm_campaign = get('utm_campaign');
+                var utm_term     = get('utm_term');
+                var utm_content  = get('utm_content');
+                var gclid        = get('gclid');
+                var fbclid       = get('fbclid');
+                var msclkid      = get('msclkid');
+                var oai          = get('oai_pixel_click_id');
+                var aiHosts = {
+                  'chat.openai.com': 'chatgpt',
+                  'chatgpt.com': 'chatgpt',
+                  'perplexity.ai': 'perplexity',
+                  'www.perplexity.ai': 'perplexity',
+                  'gemini.google.com': 'gemini',
+                  'bard.google.com': 'gemini',
+                  'claude.ai': 'claude',
+                  'copilot.microsoft.com': 'copilot',
+                  'you.com': 'you',
+                  'phind.com': 'phind'
+                };
+                var ai_source = '';
+                var ref_host = '';
+                var ref = document.referrer || '';
+                if (ref) {
+                  try {
+                    ref_host = new URL(ref).hostname.toLowerCase();
+                    if (aiHosts[ref_host]) ai_source = aiHosts[ref_host];
+                  } catch (_) {}
+                }
+                var attribution = {
+                  utm_source:   utm_source   || ai_source || '',
+                  utm_medium:   utm_medium   || (ai_source ? 'ai' : ''),
+                  utm_campaign: utm_campaign || (ai_source ? 'organic_ai' : ''),
+                  utm_term:     utm_term,
+                  utm_content:  utm_content,
+                  gclid:        gclid,
+                  fbclid:       fbclid,
+                  msclkid:      msclkid,
+                  oai_click_id: oai,
+                  ai_source:    ai_source,
+                  referrer:     ref_host,
+                  landing:      location.pathname,
+                  ts:           new Date().toISOString()
+                };
+                sessionStorage.setItem(KEY, JSON.stringify(attribution));
+              } catch (_) {}
+            })();
+          `}
+        </Script>
+        {/* End A2ZSMS Attribution Capture */}
+
         {/* Intercom Code */}
         <Script id="intercom-settings" strategy="afterInteractive">
           {`
