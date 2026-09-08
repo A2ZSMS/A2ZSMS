@@ -75,6 +75,22 @@ export default function RootLayout({ children }) {
         </noscript>
         {/* End Meta Pixel Code */}
 
+        {/* OpenAI Ads Measurement Pixel */}
+        <Script id="openai-ads-pixel" strategy="afterInteractive">
+          {`
+            window.oaiq = window.oaiq || function () {
+              (window.oaiq.q = window.oaiq.q || []).push(arguments);
+            };
+            oaiq("init", { pixelId: "9YNGvhAjh1Y9MHjxeA8EyS" });
+          `}
+        </Script>
+        <Script
+          id="openai-ads-sdk"
+          src="https://bzrcdn.openai.com/sdk/oaiq.min.js"
+          strategy="afterInteractive"
+        />
+        {/* End OpenAI Ads Measurement Pixel */}
+
         {/* Intercom Code */}
         <Script id="intercom-settings" strategy="afterInteractive">
           {`

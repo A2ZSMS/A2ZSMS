@@ -25,6 +25,19 @@ const FAKE_PHONE_BLOCKLIST = new Set([
 
 const TELECRM_TOKEN = '9a518e10-1d74-485d-ac8e-479f37d5c4bf1782817303004:3abb1a1f-2527-49e0-a4a9-ec7361c2b4a6';
 const TELECRM_API   = 'https://next-api.telecrm.in/enterprise/6a3cfd845aaa3fd96c26da19/autoupdatelead';
+// OpenAI Ads Measurement — browser-only conversion event.
+// Fires 'lead_created' (type: customer_action) when a validated lead is captured. Pixel is initialized
+// in src/app/layout.js. Silent no-op if the SDK failed to load.
+function fireOaiConversion() {
+  try {
+    if (typeof window !== "undefined" && window.oaiq) {
+      window.oaiq("measure", "lead_created", { type: "customer_action" }, {
+        event_id: `lead_${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
+      });
+    }
+  } catch (_) {}
+}
+
 function fireTeleCRM(name, phone, email, company, service, message, extras) {
   let p = String(phone || '').replace(/\D/g, '');
   if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
@@ -217,6 +230,7 @@ const FormComponent = ({ title, buttonText }) => {
         if (!anySuccess) throw new Error("Both endpoints failed");
 
         try { gtag_report_conversion(); } catch (_) {}
+      try { fireOaiConversion(); } catch (_) {}
       }
       form.resetFields();
       setShowModal(true);
