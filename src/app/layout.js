@@ -129,13 +129,41 @@ export default function RootLayout({ children }) {
                 var ref = document.referrer || '';
                 if (ref) {
                   try {
-                    ref_host = new URL(ref).hostname.toLowerCase();
+                    ref_host = new URL(ref).hostname.toLowerCase().replace(/^www\\./, '');
                     if (aiHosts[ref_host]) ai_source = aiHosts[ref_host];
                   } catch (_) {}
                 }
+                // Fallback classifier — used when the visitor arrives with no
+                // UTM tag AND we didn't detect an AI host. Turns "organic /
+                // social / referral / direct" into a usable utm_source pair
+                // so TeleCRM always shows a real attribution row.
+                function classifyReferrer(host) {
+                  if (!host) return { source: 'direct', medium: 'none' };
+                  var searchEngines = ['google', 'bing', 'duckduckgo', 'yahoo', 'yandex', 'baidu', 'ecosia', 'brave', 'startpage'];
+                  var socialNets    = {
+                    'facebook.com': 'facebook', 'm.facebook.com': 'facebook', 'lm.facebook.com': 'facebook',
+                    'instagram.com': 'instagram', 'l.instagram.com': 'instagram',
+                    'linkedin.com': 'linkedin', 'lnkd.in': 'linkedin',
+                    'twitter.com': 'twitter', 'x.com': 'twitter', 't.co': 'twitter',
+                    'youtube.com': 'youtube', 'm.youtube.com': 'youtube', 'youtu.be': 'youtube',
+                    'reddit.com': 'reddit', 'out.reddit.com': 'reddit',
+                    'quora.com': 'quora',
+                    'pinterest.com': 'pinterest',
+                    'wa.me': 'whatsapp', 'api.whatsapp.com': 'whatsapp',
+                    't.me': 'telegram'
+                  };
+                  for (var i = 0; i < searchEngines.length; i++) {
+                    if (host.indexOf(searchEngines[i]) !== -1) {
+                      return { source: searchEngines[i], medium: 'organic' };
+                    }
+                  }
+                  if (socialNets[host]) return { source: socialNets[host], medium: 'social' };
+                  return { source: host, medium: 'referral' };
+                }
+                var fallback = (!utm_source && !ai_source) ? classifyReferrer(ref_host) : null;
                 var attribution = {
-                  utm_source:   utm_source   || ai_source || '',
-                  utm_medium:   utm_medium   || (ai_source ? 'ai' : ''),
+                  utm_source:   utm_source   || ai_source || (fallback && fallback.source) || '',
+                  utm_medium:   utm_medium   || (ai_source ? 'ai' : '') || (fallback && fallback.medium) || '',
                   utm_campaign: utm_campaign || (ai_source ? 'organic_ai' : ''),
                   utm_term:     utm_term,
                   utm_content:  utm_content,
