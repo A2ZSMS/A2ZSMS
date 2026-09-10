@@ -10,9 +10,16 @@ import { checkLead } from "../../../lib/leadQuality";
 const { Option } = Select;
 
 // ── TESTING FLAG ──────────────────────────────────────────────
-// true  → only TeleCRM fires; AiSensy/Make.com/Web3Forms/gtag are SKIPPED
+// true  → only TeleCRM fires; Make.com/Web3Forms/gtag are SKIPPED
 // false → all 5 triggers fire normally (production behavior)
 const TELECRM_ONLY_TEST = false;
+// ── SMS_ONLY_TEST FLAG ────────────────────────────────────────
+// true  → ONLY Ojiva SMS fires; TeleCRM / Make.com /
+//         Web3Forms / GA & Meta & OAI pixels are ALL skipped.
+//         The success screen still shows and the form still resets.
+// false → normal production behaviour (all sends fire).
+const SMS_ONLY_TEST = false;
+const OJIVA_SMS_ENDPOINT = '/api/send-sms.php';
 // ──────────────────────────────────────────────────────────────
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
@@ -64,6 +71,22 @@ function getAttribution() {
       source:       parts.filter(Boolean).join(' | ').slice(0, 250),
     };
   } catch (_) { return {}; }
+}
+
+// Ojiva Nexus SMS — POSTs {name, phone} to /send-sms.php on the same origin.
+// The PHP proxy hides the X-API-Key from the browser and forwards the
+// DLT-approved template SMS (with {#alp#} replaced by the lead's first name)
+// to Ojiva Nexus. Fire-and-forget with keepalive; silent on network errors.
+function fireOjivaSMS(name, phone) {
+  const p = String(phone || '').replace(/\D/g, '');
+  if (!p) return;
+  fetch(OJIVA_SMS_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: name || '', phone: p }),
+    keepalive: true,
+  }).then(r => r.text()).then(t => console.log('[Ojiva SMS]', t))
+    .catch(e => console.error('[Ojiva SMS] error:', e));
 }
 
 function fireTeleCRM(name, phone, email, company, service, message, extras) {
@@ -120,28 +143,6 @@ function fireTeleCRM(name, phone, email, company, service, message, extras) {
       if (i === 0) await new Promise(res => setTimeout(res, 1000));
     }
   })();
-}
-
-const AISENSY_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0ZmEzMTJlMDk0MjAzNGE2YWI1NiIsIm5hbWUiOiJPaml2YSBBaSIsImFwcE5hbWUiOiJBaVNlbnN5IiwiY2xpZW50SWQiOiI2YTJkNGZhMzVjZGU4NTBlZjZiYTkzMTEiLCJhY3RpdmVQbGFuIjoiQkFTSUNfTU9OVEhMWSIsImlhdCI6MTc4Njk0NDg0MH0.T0UT85gOQ9g6Gj0z0NNs45iVcLkw0YJmjgJgl_0ymSI';
-const AISENSY_URL    = 'https://backend.api-wa.co/campaign/ojiva-ai/api/v2';
-function fireAiSensy(name, phone) {
-  let p = String(phone || '').replace(/\D/g, '');
-  if (p.length === 13 && p.startsWith('091')) p = p.slice(3);
-  if (p.length === 12 && p.startsWith('91'))  p = p.slice(2);
-  if (p.length === 11 && p.startsWith('0'))   p = p.slice(1);
-  if (p.length !== 10 || !/^[6-9]/.test(p)) return;
-  const fullName  = String(name || '').trim() || 'User';
-  const firstName = fullName.split(' ')[0];
-  fetch(AISENSY_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      apiKey: AISENSY_API_KEY, campaignName: 'ojiva_lead_welcome',
-      destination: '91' + p, userName: fullName, templateParams: [firstName],
-      source: 'new-landing-page form', media: {}, buttons: [], carouselCards: [],
-      location: {}, attributes: {}, paramsFallbackValue: { FirstName: 'user' },
-    }),
-  }).then(r => r.text()).then(t => console.log('[AiSensy] response:', t)).catch(e => console.error('[AiSensy] error:', e));
 }
 
 // Maps FormComponent's Industry dropdown values → TeleCRM's Industry dropdown options.
@@ -221,11 +222,10 @@ const FormComponent = ({ title, buttonText }) => {
       // TeleCRM's Service Interested is a Dropdown — send only the first selected service.
       // Industry now goes to extras.industry (TeleCRM Industry field); the 6th message arg
       // was previously routing industry into `remark` too — now left empty to avoid duplication.
-      fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', '', extras);
+      fireOjivaSMS(values.name, values.phone);
+      if (!SMS_ONLY_TEST) fireTeleCRM(values.name, values.phone, values.email, values.company, (values.services && values.services[0]) || '', '', extras);
 
-      if (!TELECRM_ONLY_TEST) {
-        fireAiSensy(values.name, values.phone);
-
+      if (!TELECRM_ONLY_TEST && !SMS_ONLY_TEST) {
         const web3Data = {
           name: values.name || "",
           email: values.email || "",
