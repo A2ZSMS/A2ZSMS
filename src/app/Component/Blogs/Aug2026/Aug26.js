@@ -50,7 +50,7 @@ const Aug26 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Aug26(1).webp"
+            src="/Images/aug26(1).webp"
             alt="RCS Messaging Provider in India - A2ZSMS business messaging platform"
           />
         </div>
@@ -413,7 +413,7 @@ const Aug26 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Aug26(3).webp"
+            src="/Images/aug26(3).webp"
             alt="RCS Business Messaging use cases across Indian industries - A2ZSMS"
           />
         </div>

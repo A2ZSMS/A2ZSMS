@@ -46,7 +46,7 @@ const Sep2 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Sep02(1).webp"
+            src="/Images/sep02(1).webp"
             alt="WhatsApp Business API for travel agencies - A2ZSMS booking chat dashboard"
           />
         </div>
@@ -155,7 +155,7 @@ const Sep2 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Sep02(2).webp"
+            src="/Images/sep02(2).webp"
             alt="WhatsApp chatbot and catalog for travel package bookings - A2ZSMS"
           />
         </div>
@@ -319,7 +319,7 @@ const Sep2 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Sep02(3).webp"
+            src="/Images/sep02(3).webp"
             alt="WhatsApp automation use cases for tour operators, hotels and airlines - A2ZSMS"
           />
         </div>
