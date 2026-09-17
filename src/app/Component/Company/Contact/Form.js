@@ -215,11 +215,22 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('[ContactForm] Submit clicked. Data:', {
+      name: formData.name, email: formData.email, phone: formData.phone,
+      company: formData.company, subject: formData.subject,
+      consent: formData.consent, hasMessage: !!formData.message,
+    });
 
     // Ref-level mutex — blocks double-clicks instantly (before React re-renders)
-    if (submitLock.current) return;
+    if (submitLock.current) {
+      console.log('[ContactForm] BLOCKED: another submission is already in flight (submitLock).');
+      return;
+    }
 
-    if (!validateForm()) return;
+    if (!validateForm()) {
+      console.log('[ContactForm] BLOCKED: validation failed. See red field errors on the form.');
+      return;
+    }
 
     // Lead quality filter — junk/bot detection + scoring (see src/lib/leadQuality.js)
     const quality = checkLead({
@@ -231,12 +242,15 @@ const ContactForm = () => {
       formFillMs: Date.now() - mountTime.current,
       honeypot:   formData.website_url,
     });
+    console.log('[ContactForm] Quality check:', { block: quality.block, silent: quality.silent, score: quality.score, reasons: quality.reasons, errors: quality.errors });
     if (quality.silent) {
       // Honeypot filled or bot-fast fill — fake success so bots don't learn they were caught
+      console.log('[ContactForm] SILENT DROP: honeypot filled OR form-filled-too-fast (< 2s). Fake success shown. NO SMS/TeleCRM fired.');
       setShowSuccess(true);
       return;
     }
     if (quality.block) {
+      console.log('[ContactForm] BLOCKED by quality filter. Reasons:', quality.reasons, 'flagReason:', quality.flagReason);
       // Show quality-specific field errors, plus a generic hint if score-band alone triggered the block
       setErrors((prev) => ({
         ...prev,
