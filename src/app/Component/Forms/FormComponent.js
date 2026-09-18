@@ -191,12 +191,14 @@ const FormComponent = ({ title, buttonText }) => {
       honeypot:   honeypotRef.current,
     });
     if (quality.silent) {
+      console.log('[FormComponent] SILENT DROP:', quality.flagReason, '— honeypot or form-filled-too-fast (< 800ms). Fake success shown, NO backend calls fired.');
       submitLock.current = false;
       setIsSubmitting(false);
       setShowModal(true); // fake success
       return;
     }
     if (quality.block) {
+      console.log('[FormComponent] BLOCKED by quality filter. Score:', quality.score, 'Reasons:', quality.reasons);
       submitLock.current = false;
       setIsSubmitting(false);
       const msg = Object.values(quality.errors)[0] || "Please provide accurate details so we can help you.";

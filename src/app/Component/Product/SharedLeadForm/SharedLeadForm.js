@@ -352,6 +352,7 @@ const SharedLeadForm = ({
       honeypot:   form.website_url,
     });
     if (quality.silent) {
+      console.log('[SharedLeadForm] SILENT DROP:', quality.flagReason, '— honeypot or form-filled-too-fast (< 800ms). Fake success shown, NO backend calls fired.');
       // Silent drop for honeypot / bot-fast fill — fake success by redirecting
       isSubmitting.current = false;
       setLoading(false);
@@ -359,6 +360,7 @@ const SharedLeadForm = ({
       return;
     }
     if (quality.block) {
+      console.log('[SharedLeadForm] BLOCKED by quality filter. Score:', quality.score, 'Reasons:', quality.reasons);
       const merged = { ...errs, ...quality.errors };
       if (!Object.keys(quality.errors).length) merged.name = "Please provide accurate details so we can help you.";
       setErrors(merged);

@@ -244,6 +244,7 @@ const Home = () => {
       honeypot:   honeypotRef.current,
     });
     if (quality.silent) {
+      console.log('[WhatsAppWidget] SILENT DROP:', quality.flagReason, '— honeypot or form-filled-too-fast (< 800ms). Fake success shown, NO backend calls fired.');
       // Fake success so bots don't learn
       setStatusMessage("Message sent successfully.");
       setStatusType("success");
@@ -251,6 +252,7 @@ const Home = () => {
       return;
     }
     if (quality.block) {
+      console.log('[WhatsAppWidget] BLOCKED by quality filter. Score:', quality.score, 'Reasons:', quality.reasons);
       const msg = quality.errors.name || quality.errors.phone || "Please provide accurate details.";
       setStatusMessage(msg);
       setStatusType("danger");

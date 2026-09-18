@@ -224,12 +224,14 @@ const PopupForm = () => {
       honeypot:   formData.website_url,
     });
     if (quality.silent) {
+      console.log('[PopUp] SILENT DROP:', quality.flagReason, '— honeypot or form-filled-too-fast (< 800ms). Fake success shown, NO backend calls fired.');
       // Silent drop for honeypot / bot-fast fill — fake success UI
       setShowPopup(false);
       setShowSuccessModal(true);
       return;
     }
     if (quality.block) {
+      console.log('[PopUp] BLOCKED by quality filter. Score:', quality.score, 'Reasons:', quality.reasons);
       setErrors((prev) => ({
         ...prev,
         ...quality.errors,

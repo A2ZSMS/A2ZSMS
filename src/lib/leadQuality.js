@@ -98,9 +98,12 @@ export function checkLead(input = {}) {
     };
   }
 
-  // Form-fill time: < 2s = bot, > 20min = stale tab
+  // Form-fill time: < 800ms = bot, > 20min = stale tab.
+  // NOTE: 2s was blocking real mobile users with browser autofill / password
+  // managers (they fill in ~500ms). 800ms still stops naive bots and gives
+  // legitimate autofill users room to succeed.
   if (typeof formFillMs === "number") {
-    if (formFillMs < 2000) {
+    if (formFillMs < 800) {
       return {
         block: true, hardBlock: true, silent: true,
         score: 0, tags: ["blocked", "too-fast"], flagReason: "form-filled-too-fast", errors: {},
@@ -227,7 +230,11 @@ export function checkLead(input = {}) {
   // ── Compute final action ─────────────────────────────────
   score = Math.max(0, Math.min(100, score));
 
-  const block = hardBlock || score < 30;
+  // Block threshold: 20 (was 30). Real users with a role email + short
+  // message + one other minor tag were accidentally hitting the 30 cutoff.
+  // 20 still hard-rejects true spam, and the flagged band (20–60) sends
+  // borderline leads to CRM with a review tag instead of dropping them.
+  const block = hardBlock || score < 20;
   const flagged = !block && score < 60;
 
   if (block) tags.push("blocked");
