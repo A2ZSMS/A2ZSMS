@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, memo } from "react";
 import styles from "./BulkSmsLanding.module.css";
 import SharedLeadForm from "../SharedLeadForm/SharedLeadForm";
 
-const WA_NUMBER = "919740274595";
+const WA_NUMBER = "918431086185";
 const WA_MSG = encodeURIComponent("Hi, I am interested in Bulk SMS Service");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 

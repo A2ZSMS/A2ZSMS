@@ -5,7 +5,7 @@ import styles from "./RcsLanding.module.css";
 import SharedLeadForm from "../SharedLeadForm/SharedLeadForm";
 
 
-const WA_NUMBER = "919740274595";
+const WA_NUMBER = "918431086185";
 const WA_MSG = encodeURIComponent("Hi, I am interested in RCS Messaging Service");
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
