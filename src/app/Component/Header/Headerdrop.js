@@ -104,7 +104,7 @@ const HeaderDrop = () => {
             >
               <div className="offcanvas-header">
                 <Link className="navbar-brand" href="/">
-                  <img src="../image/logo1.png" alt="logo" height={60} />
+                  <img src="/image/logo1.png" alt="logo" height={60} />
                 </Link>
                 <button
                   type="button"

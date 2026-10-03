@@ -1,6 +1,7 @@
 import Chatbot from "../Component/Product/Chatbot/Chatbot";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title:
     "AI WhatsApp Chatbot - Automate Customer Support & Engagement | A2ZSMS",
   description:
@@ -15,9 +16,9 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/image/product/whatsapp-chatbot.png",
-        width: 800,
-        height: 600,
+        url: "/image/product/chatbot_1.png",
+        width: 1024,
+        height: 1024,
         alt: "AI WhatsApp Chatbot",
       },
     ],

@@ -5,7 +5,7 @@ export const Organization = {
   "alternateName": "A2ZSMS Services",
   "description": "India's leading cloud messaging service provider offering Bulk SMS, WhatsApp Business API, RCS messaging, and Voice Call solutions for businesses across India.",
   "url": "https://www.a2zsms.in/",
-  "logo": "https://www.a2zsms.in/images/logo.png",
+  "logo": "https://www.a2zsms.in/image/logo1.png",
   "foundingDate": "2020",
   "address": {
     "@type": "PostalAddress",

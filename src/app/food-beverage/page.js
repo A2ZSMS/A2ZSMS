@@ -1,6 +1,7 @@
 import React from "react";
 import Food from "../Component/Solutions/Food/Food";
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp Chatbots For The Food Technology Industry",
   description:
     "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
@@ -8,6 +9,7 @@ export const metadata = {
     "WhatsApp Business API for Food Industry, WhatsApp Marketing for Food and Beverage,WhatsApp Broadcast for Restaurants, WhatsApp Business for Food & Beverage",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/food-beverage/" }],
   openGraph: {
+    images: ["/Images/meta-image.jpg"],
     title: "WhatsApp Chatbots For The Food Technology Industry",
     description:
       "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
@@ -22,7 +24,7 @@ export const metadata = {
     description:
       "WhatsApp Chatbots For The Food Technology Industry: automate orders, menu queries, delivery updates, feedback, and support 24/7 to boost sales for brands!.",
 
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

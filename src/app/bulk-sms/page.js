@@ -1,6 +1,7 @@
 import BulkSms from "../Component/Product/BulkSms/BulkSms";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Best Bulk SMS Service Provider in Bangalore",
   description:
     "Top Bulk SMS service provider in Bangalore. Reliable business SMS solutions for OTP, promotional, transactional, and marketing campaigns.",
@@ -17,7 +18,7 @@ export const metadata = {
     siteName: "Bulk SMS Services",
     images: [
       {
-        url: "/images/oct.png",
+        url: "/Images/oct.png",
         width: 1200,
         height: 630,
         alt: "Best Bulk SMS Service Provider in Bangalore | India",
@@ -31,7 +32,7 @@ export const metadata = {
     title: "Best Bulk SMS Service Provider in Bangalore | India",
     description:
       "Top Bulk SMS provider in Bangalore, India. Services include OTP, promotional, transactional, and business SMS campaigns.",
-    images: ["/images/oct.png"],
+    images: ["/Images/oct.png"],
 
   },
   robots:

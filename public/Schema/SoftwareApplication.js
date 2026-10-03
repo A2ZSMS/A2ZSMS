@@ -7,7 +7,7 @@ export const SoftwareApplication = {
   "operatingSystem": "Web, Android, iOS",
   "url": "https://www.a2zsms.in/",
   "description": "India's leading cloud messaging platform for Bulk SMS, WhatsApp Business API, RCS messaging, and Voice Calls. Send millions of messages with 99.9% delivery rate. DLT compliant, TRAI regulated.",
-  "screenshot": "https://www.a2zsms.in/images/1.png",
+  "screenshot": "https://www.a2zsms.in/Images/1.png",
   "softwareVersion": "2.0",
   "releaseNotes": "https://www.a2zsms.in/",
   "offers": {

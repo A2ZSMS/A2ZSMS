@@ -2,6 +2,7 @@ import React from "react";
 import RcsSms from "../Component/Product/Rcs/RcsSms";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Best RCS Messaging Provider in Bangalore",
   description:
     "Top RCS messaging provider in Bangalore. Reliable business RCS services for enterprises, campaigns, and customer engagement.",
@@ -18,7 +19,7 @@ export const metadata = {
     siteName: "RCS Messaging Services",
     images: [
       {
-        url: "/images/2.png",
+        url: "/Images/2.png",
         width: 1200,
         height: 630,
         alt: "Best RCS Messaging Provider in Bangalore | India",
@@ -32,7 +33,7 @@ export const metadata = {
     title: "Best RCS Messaging Provider in Bangalore | India",
     description:
       "Top RCS messaging services in Bangalore, India. Enterprise RCS provider for rich communication, customer engagement, and business messaging.",
-    images: ["/images/2.png"],
+    images: ["/Images/2.png"],
   },
 
   robots:

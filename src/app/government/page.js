@@ -1,6 +1,7 @@
 import React from 'react'
 import Government from '../Component/Solutions/Government/Government'
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp Marketing for Government | A2ZSMS",
   description:
     "WhatsApp Marketing for Government: send citizen updates, service alerts, document reminders, and grievance support with verified messaging and 2-way help.",
@@ -15,7 +16,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Bulk WhatsApp Messaging Services",
@@ -28,7 +29,7 @@ export const metadata = {
     title: "WhatsApp Marketing for Government | A2ZSMS",
     description:
       "WhatsApp Marketing for Government: send citizen updates, service alerts, document reminders, and grievance support with verified messaging and 2-way help.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

@@ -147,6 +147,7 @@ export async function generateMetadata({ params }) {
   if (!blog) return {};
 
   return {
+    metadataBase: new URL("https://www.a2zsms.in"),
     title: blog.title,
     description: blog.description,
     keywords: blog.keywords,
@@ -157,7 +158,7 @@ export async function generateMetadata({ params }) {
       type: "article",
       images: [
         {
-          url: blog.image || "/images/meta-image.jpg",
+          url: blog.image || "/Images/meta-image.jpg",
           width: 1200,
           height: 630,
           alt: blog.title,
@@ -169,7 +170,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: blog.title,
       description: blog.description,
-      images: [blog.image || "/images/meta-image.jpg"],
+      images: [blog.image || "/Images/meta-image.jpg"],
     },
     robots: {
       index: true,

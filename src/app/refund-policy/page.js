@@ -10,6 +10,7 @@ export const metadata = {
     "A2ZSMS refund policy, SMS service refund, WhatsApp API refund terms, messaging service cancellation policy",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/refund-policy/" }],
   openGraph: {
+    images: ["/Images/meta-image.jpg"],
     title: "Refund Policy – A2ZSMS | Fair & Transparent Refunds",
     description:
       "Read A2ZSMS's refund policy for Bulk SMS, WhatsApp API, and RCS messaging services. Transparent terms and fair refund process.",

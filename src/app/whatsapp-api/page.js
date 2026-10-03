@@ -1,6 +1,7 @@
 import WhatsappApi from "../Component/Product/Whatsapp/WhatsappApi";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp Business API Provider in Bangalore",
   description:
     "A2ZSMS is the top WhatsApp Business API provider in Bangalore. Get free WhatsApp API setup, bulk messaging, automation, and the best WhatsApp marketing services in 2025.",
@@ -15,7 +16,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/1.png",
+        url: "/Images/1.png",
         width: 1200,
         height: 630,
         alt: "A2ZSMS WhatsApp Business API Provider Bangalore",
@@ -29,7 +30,7 @@ export const metadata = {
     title: "WhatsApp Business API Provider in Bangalore | A2ZSMS",
     description:
       "Get WhatsApp Business API services in Bangalore with A2ZSMS. Free setup, automation, and bulk WhatsApp marketing for your business.",
-    images: ["/images/1.png"],
+    images: ["/Images/1.png"],
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",

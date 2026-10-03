@@ -70,7 +70,7 @@ export default function BlogList() {
                   <Link href={`/blogs/${blog.slug}`} className="text-decoration-none">
                     <div className="card h-100 shadow-sm">
                       <img
-                        src={blog.image || "/images/blog.jpg"}
+                        src={blog.image || "/Images/meta-image.jpg"}
                         alt={blog.title}
                         className="card-img-top"
                         style={{ height: "200px", objectFit: "cover" }}
