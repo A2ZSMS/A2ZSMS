@@ -2,6 +2,7 @@ import React from "react";
 import Designs from "../Component/Product/DesignAndDevolpment/Designs";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Best Website Development Services in India",
   description:
     "A2ZSMS offers top website development services in India. Professional service providers for custom, eCommerce, and business websites.",
@@ -18,7 +19,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Website Development Services India",
@@ -31,7 +32,7 @@ export const metadata = {
     title: "Best Website Development Services in India",
     description:
       "Get expert website development services in India. A2ZSMS delivers custom, business, and eCommerce website solutions.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

@@ -2,6 +2,7 @@ import React from 'react'
 import RealEstate from '../Component/Solutions/RealEstate/RealEstate'
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp Business API for Real Estate Leads | A2ZSMS",
   description: "WhatsApp Business API for Real Estate Leads: capture enquiries, automate follow-ups, share listings, and book site visits faster with A2ZSMS—24/7 securely.",
   keywords: "Instant Lead Generation,WhatsApp Business API for real estate digital marketing,Instant Buyer Engagement",
@@ -13,7 +14,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Bulk WhatsApp Messaging Services",
@@ -25,7 +26,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "WhatsApp Business API for Real Estate Leads | A2ZSMS",
     description: "WhatsApp Business API for Real Estate Leads: capture enquiries, automate follow-ups, share listings, and book site visits faster with A2ZSMS—24/7 securely.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

@@ -3,6 +3,7 @@ import BlogList from "./client";
 
 // Updated metadata for the blogs page
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Bulk SMS & WhatsApp Marketing Blogs | A2ZSMS",
   description:
     "Read expert blogs on Bulk SMS, WhatsApp API, RCS messaging, and voice call marketing. Stay updated with the latest tips, trends, and insights in India.",
@@ -18,7 +19,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/oct8.png",
+        url: "/Images/oct8.png",
         width: 1200,
         height: 630,
         alt: "Bulk SMS & WhatsApp Marketing Blogs",
@@ -30,7 +31,7 @@ export const metadata = {
     title: "Bulk SMS & WhatsApp Marketing Blogs | A2ZSMS",
     description:
       "Explore blogs on Bulk SMS, WhatsApp API, RCS messaging, and voice marketing services in India. Get the latest updates and insights.",
-    images: ["/images/oct8.png"],
+    images: ["/Images/oct8.png"],
 
   },
   robots: "index, follow",

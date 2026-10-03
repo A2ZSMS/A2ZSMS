@@ -340,7 +340,7 @@ const HeroSection = () => (
           {/* Logo */}
           <div className={styles.heroLogoWrap}>
             <img
-              src="/image/logo.png"
+              src="/image/logo1.png"
               alt="A2ZSMS"
               className={styles.heroLogo}
             />

@@ -21,7 +21,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/1.png",
+        url: "/Images/1.png",
         width: 1200,
         height: 630,
         alt: "RCS Messaging Service by A2ZSMS",
@@ -35,7 +35,7 @@ export const metadata = {
     title: "RCS Messaging - Rich, Interactive Business Messages | A2ZSMS",
     description:
       "India's top RCS messaging platform. Rich media, verified sender, interactive buttons. 35% higher CTR than SMS. Free setup this month.",
-    images: ["/images/1.png"],
+    images: ["/Images/1.png"],
   },
   robots: "index, follow",
   alternates: {

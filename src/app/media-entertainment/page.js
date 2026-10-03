@@ -1,6 +1,7 @@
 import React from "react";
 import Media from "../Component/Solutions/Media/Media";
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp API & Chatbot for Media and Entertainment Industry",
   description:
     "WhatsApp API & Chatbot for Media and Entertainment Industry: automate ticket alerts, show updates, fan support, polls, and promos to boost engagement 24/7.",
@@ -17,7 +18,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Bulk WhatsApp Messaging Services",
@@ -30,7 +31,7 @@ export const metadata = {
     title: "WhatsApp API & Chatbot for Media and Entertainment Industry",
     description:
       "WhatsApp API & Chatbot for Media and Entertainment Industry: automate ticket alerts, show updates, fan support, polls, and promos to boost engagement 24/7.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

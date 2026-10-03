@@ -2,6 +2,7 @@ import React from 'react'
 import Privacy from '../Component/TermsPrivacy/Privacy'
  
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Best Bulk WhatsApp Messaging & Business Solutions in India",
   description: "Boost your business with the best Bulk WhatsApp Messaging Services in India. Get seamless communication, marketing, and automation for your business growth.",
   keywords: "Bulk WhatsApp Messaging Services India, WhatsApp marketing solutions, Business WhatsApp automation, Best WhatsApp bulk messaging provider, WhatsApp Business services",
@@ -13,7 +14,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Bulk WhatsApp Messaging Services",
@@ -25,7 +26,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Best Bulk WhatsApp Messaging & Business Solutions in India",
     description: "Boost your business with the best Bulk WhatsApp Messaging Services in India. Get seamless communication, marketing, and automation for your business growth.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

@@ -21,7 +21,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/1.png",
+        url: "/Images/1.png",
         width: 1200,
         height: 630,
         alt: "Bulk SMS Service by A2ZSMS",
@@ -35,7 +35,7 @@ export const metadata = {
     title: "Bulk SMS Service - OTP, Promotional & Transactional SMS | A2ZSMS",
     description:
       "India's leading Bulk SMS provider. Send millions of SMS instantly with 99.9% delivery rate. DLT compliant, developer-friendly API.",
-    images: ["/images/1.png"],
+    images: ["/Images/1.png"],
   },
   robots: "index, follow",
   alternates: {

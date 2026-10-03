@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./thankyou.module.css";
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Thank You – A2ZSMS | We'll Be in Touch Soon",
   description:
     "Thank you for reaching out to A2ZSMS. Our team will contact you within 2 hours to get you started with WhatsApp API.",

@@ -1,6 +1,7 @@
 import React from "react";
 import VoiceCall from "../Component/Product/VoiceCall/VoiceCall";
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Best Bulk Voice Call Service Provider in Bangalore | India",
   description:
     "Top Bulk Voice Call service provider in Bangalore, India. Reliable promotional, transactional, and business voice call solutions for enterprises and marketing campaigns.",
@@ -17,7 +18,7 @@ export const metadata = {
     siteName: "Bulk Voice Call Services",
     images: [
       {
-        url: "/images/3.png",
+        url: "/Images/3.png",
         width: 1200,
         height: 630,
         alt: "Best Bulk Voice Call Service Provider in Bangalore | India",
@@ -31,7 +32,7 @@ export const metadata = {
     title: "Best Bulk Voice Call Service Provider in Bangalore | India",
     description:
       "Top Bulk Voice Call provider in Bangalore, India. Services include promotional, transactional, and business voice calls for enterprises and marketing campaigns.",
-    images: ["/images/3.png"],
+    images: ["/Images/3.png"],
 
   },
   robots:

@@ -1,11 +1,13 @@
 import React from 'react'
 import Faq from '../Component/Resources/Faq/Faq'
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Top Bulk WhatsApp Messaging & FAQ | Best Services in Bangalore",
   description: "Get WhatsApp API solutions for businesses in Bangalore, top bulk messaging services, and answers to frequently asked questions (FAQ) for seamless communication.",
   keywords: "Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore, Frequently Asked Questions (FAQ)",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/faq/" }],
   openGraph: {
+    images: ["/Images/meta-image.jpg"],
     title: "Top Bulk WhatsApp Messaging & FAQ | Best Services in Bangalore",
     description: "Get WhatsApp API solutions for businesses in Bangalore, top bulk messaging services, and answers to frequently asked questions (FAQ) for seamless communication.",
     url: "https://www.a2zsms.in/faq/",
@@ -16,7 +18,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Top Bulk WhatsApp Messaging & FAQ | Best Services in Bangalore",
     description: "Get WhatsApp API solutions for businesses in Bangalore, top bulk messaging services, and answers to frequently asked questions (FAQ) for seamless communication.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

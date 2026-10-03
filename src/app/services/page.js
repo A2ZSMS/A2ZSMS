@@ -1,6 +1,7 @@
 import React from 'react'
 import Service from '../Component/Resources/Services/Service'
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Top Bulk WhatsApp Messaging & Communication Services in Bangalore",
   description: "Get comprehensive messaging & communication services with WhatsApp API solutions for businesses in Bangalore to enhance seamless marketing & engagement.",
   keywords: "Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore, Comprehensive Messaging & Communication Services",
@@ -12,7 +13,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Bulk WhatsApp Messaging Services",
@@ -24,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Top Bulk WhatsApp Messaging & Communication Services in Bangalore",
     description: "Get comprehensive messaging & communication services with WhatsApp API solutions for businesses in Bangalore to enhance seamless marketing & engagement.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

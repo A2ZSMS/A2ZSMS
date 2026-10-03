@@ -257,7 +257,7 @@ const StickyMiniNav = memo(() => {
     >
       <div className="container d-flex align-items-center justify-content-between">
         <a href="/" className={styles.miniNavLogo}>
-          <img src="/image/logo.png" alt="A2ZSMS" />
+          <img src="/image/logo1.png" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
           <div className={styles.miniNavSpotsWrap}>
@@ -337,7 +337,7 @@ const HeroSection = () => (
           {/* Logo */}
           <div className={styles.heroLogoWrap}>
             <img
-              src="/image/logo.png"
+              src="/image/logo1.png"
               alt="A2ZSMS"
               className={styles.heroLogo}
             />

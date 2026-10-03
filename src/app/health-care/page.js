@@ -2,6 +2,7 @@ import React from 'react'
 import HealthCare from '../Component/Solutions/HealthCare/HealthCare'
 
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "RCS Business Messaging for healthcare | A2ZSMS",
   description: "RCS Business Messaging for healthcare: send appointment reminders, test result alerts, billing updates, and 2-way support securely to cut no-shows 24/7 AI.",
   keywords: "WhatsApp API for healthcare,RCS messaging in healthcare,Automated appointment reminders,Medical appointment scheduling,Healthcare messaging solutions",
@@ -13,7 +14,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS WhatsApp for Healthcare Guide",
@@ -25,7 +26,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "RCS Business Messaging for healthcare | A2ZSMS",
     description: "RCS Business Messaging for healthcare: send appointment reminders, test result alerts, billing updates, and 2-way support securely to cut no-shows 24/7 AI.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

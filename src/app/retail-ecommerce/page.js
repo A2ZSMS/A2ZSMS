@@ -1,6 +1,7 @@
 import React from 'react'
 import Retail from '../Component/Solutions/Retail/Retail'
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp Business Platform for Retail & eCommerce | A2ZSMS",
   description: "WhatsApp Business Platform for Retail & eCommerce: automate order updates, cart recovery, offers, and support to boost conversions and repeat sales 24/7.",
   keywords: "WhatsApp API for Retail,Personalized Retail Promotions,WhatsApp Business API for E-commerce, WhatsApp Business for Retail & E-commerce",
@@ -12,7 +13,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS Bulk WhatsApp Messaging Services",
@@ -24,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "WhatsApp Business Platform for Retail & eCommerce | A2ZSMS",
     description: "WhatsApp Business Platform for Retail & eCommerce: automate order updates, cart recovery, offers, and support to boost conversions and repeat sales 24/7.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

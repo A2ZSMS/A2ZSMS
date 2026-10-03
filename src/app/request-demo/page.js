@@ -1,6 +1,7 @@
 import React from 'react'
 import RequestDemo from '../Component/Forms/RequestDemo'
 export const metadata = {
+  metadataBase: new URL("https://www.a2zsms.in"),
   title: "Request a Demo | WhatsApp & Voice Solutions in Bangalore",
   description: "Request a demo for WhatsApp & Voice Solutions in Bangalore. Get seamless business communication with top Bulk WhatsApp Messaging & API services.",
   keywords: "Request a Demo, WhatsApp & Voice Solutions, Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore",
@@ -12,7 +13,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/meta-image.jpg",
+        url: "/Images/meta-image.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS WhatsApp & Voice Solutions",
@@ -24,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Request a Demo | WhatsApp & Voice Solutions in Bangalore",
     description: "Request a demo for WhatsApp & Voice Solutions in Bangalore. Get seamless business communication with top Bulk WhatsApp Messaging & API services.",
-    images: ["/images/meta-image.jpg"],
+    images: ["/Images/meta-image.jpg"],
 
   },
   robots: "index, follow",

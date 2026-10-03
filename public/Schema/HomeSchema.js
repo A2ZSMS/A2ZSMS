@@ -3,7 +3,7 @@ export const A2ZSMS_Service = {
   "@type": "ProfessionalService",
   "name": "A2ZSMS",
   "description": "India's leading cloud messaging platform providing Bulk SMS, WhatsApp Business API, RCS messaging, and Voice Call services for businesses across India. DLT compliant, TRAI regulated with 99.9% delivery rate.",
-  "image": "https://www.a2zsms.in/images/1.png",
+  "image": "https://www.a2zsms.in/Images/1.png",
   "@id": "https://www.a2zsms.in/",
   "url": "https://www.a2zsms.in/",
   "telephone": "+918431086185",

@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/images/hardesr_part_bsns.png",
+        url: "/Images/hardesr_part_bsns.png",
         width: 1200,
         height: 630,
         alt: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
@@ -30,7 +30,7 @@ export const metadata = {
     title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
     description:
       "Reliable Bulk SMS, WhatsApp, RCS, and Voice Call services in Bangalore, India. Perfect solutions for business communication and marketing.",
-    images: ["/images/hardesr_part_bsns.png"],
+    images: ["/Images/hardesr_part_bsns.png"],
 
   },
   robots:
