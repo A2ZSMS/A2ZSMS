@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sep22 = () => {
+const Oct03 = () => {
   return (
     <>
       <div className="container para-color py-4">
@@ -1181,4 +1181,4 @@ const Sep22 = () => {
   );
 };
 
-export default Sep22;
+export default Oct03;

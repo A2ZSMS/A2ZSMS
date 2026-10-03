@@ -1,24 +1,24 @@
 [
   {
-  "id": 41,
-  "title": "WhatsApp Business API: Step by Step Guide",
-  "componentKey": "Sep22",
-  "slug": "whatsapp-business-api-guide",
-  "category": "WhatsApp Messaging",
-  "date": "2026-09-22",
-  "description": "WhatsApp Business API: Step by Step Guide with A2ZSMS — setup, verification, message templates, pricing & automation for Indian businesses.",
-  "image": "/Images/sep22(1).webp"
-},
+    "id": 41,
+    "title": "WhatsApp Business API: Step by Step Guide",
+    "componentKey": "Oct03",
+    "slug": "whatsapp-business-api-guide",
+    "category": "WhatsApp Messaging",
+    "date": "2026-10-03",
+    "description": "WhatsApp Business API: Step by Step Guide with A2ZSMS — setup, verification, message templates, pricing & automation for Indian businesses.",
+    "image": "/Images/sep22(1).webp"
+  },
   {
-  "id": 40,
-  "title": "RCS vs WhatsApp: Which is Better for Business Messaging",
-  "componentKey": "Sep17",
-  "slug": "rcs-vs-whatsapp-which-is-better-for-business-messaging",
-  "category": "RCS Messaging",
-  "date": "2026-09-17",
-  "description": "RCS vs WhatsApp: Which is Better for Business Messaging A2ZSMS compares cost, reach & DLT compliance with transparent INR pricing.",
-  "image": "/Images/sep17(1).webp"
-},
+    "id": 40,
+    "title": "RCS vs WhatsApp: Which is Better for Business Messaging",
+    "componentKey": "Sep17",
+    "slug": "rcs-vs-whatsapp-which-is-better-for-business-messaging",
+    "category": "RCS Messaging",
+    "date": "2026-09-17",
+    "description": "RCS vs WhatsApp: Which is Better for Business Messaging A2ZSMS compares cost, reach & DLT compliance with transparent INR pricing.",
+    "image": "/Images/sep17(1).webp"
+  },
   {
     "id": 39,
     "title": "What Is an SMS API and How Does It Work for Indian Businesses",
