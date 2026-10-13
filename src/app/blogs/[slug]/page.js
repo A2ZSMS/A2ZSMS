@@ -64,6 +64,7 @@ import Sep02 from "@/app/Component/Blogs/Sep2026/Sep02";
 import Sep15 from "@/app/Component/Blogs/Sep2026/Sep15";
 import Sep17 from "@/app/Component/Blogs/Sep2026/Sep17";
 import Oct03 from "@/app/Component/Blogs/Oct2026/Oct03";
+import Oct13 from "@/app/Component/Blogs/Oct2026/Oct13";
 
 
 
@@ -131,6 +132,7 @@ const BlogComponents = {
   sep15: Sep15,
   sep17: Sep17,
   oct03: Oct03,
+  oct13: Oct13,
 };
 
 // ✅ Add this function to generate static pages

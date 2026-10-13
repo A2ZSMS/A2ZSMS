@@ -1,5 +1,15 @@
 [
   {
+    "id": 42,
+    "title": "RCS Fallback to SMS: How It Works and Why You Need It",
+    "componentKey": "Oct13",
+    "slug": "rcs-fallback-to-sms",
+    "category": "RCS Messaging",
+    "date": "2026-10-13",
+    "description": "RCS Fallback to SMS: How It Works and Why You Need It. A2ZSMS pairs RCS business messaging with automatic SMS fallback, DLT-compliant, from one dashboard.",
+    "image": "/Images/oct13(1).webp"
+  },
+  {
     "id": 41,
     "title": "WhatsApp Business API: Step by Step Guide",
     "componentKey": "Oct03",
