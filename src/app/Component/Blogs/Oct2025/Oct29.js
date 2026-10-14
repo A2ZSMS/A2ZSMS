@@ -524,7 +524,7 @@ const Oct29 = () => {
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/oct251.jpg"
+          src="/Images/Oct251.jpg"
           alt="Website Development Success Results"
         />
 

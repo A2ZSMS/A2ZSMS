@@ -57,7 +57,7 @@ const Home = () => {
           <div className="col-lg-6" data-aos="fade-left">
             <div className="about-hero-img">
               <img
-                src="/image/About.png"
+                src="/image/About.webp"
                 alt="About A2ZSMS"
                 className="img-fluid"
               />

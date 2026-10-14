@@ -5,7 +5,7 @@ export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
   title: "Refund Policy – A2ZSMS | Fair & Transparent Refunds",
   description:
-    "Read A2ZSMS's refund policy. We offer transparent, fair refund terms for Bulk SMS, WhatsApp API, and RCS messaging services. Know your rights before purchasing.",
+    "A2ZSMS refund policy: transparent, fair refund terms for Bulk SMS, WhatsApp API and RCS messaging services. Know your rights before you purchase.",
   keywords:
     "A2ZSMS refund policy, SMS service refund, WhatsApp API refund terms, messaging service cancellation policy",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/refund-policy/" }],

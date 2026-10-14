@@ -1,82 +1,75 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { topicOf } from "../Component/Blogs/BlogRelated";
 
-// Simple loading component
-function LoadingBlog() {
-  return <div className="container py-5 text-center">Loading blogs...</div>;
-}
+// Filter buttons group the blog categories by topic
+const categories = [
+  { label: "All", topic: "all" },
+  { label: "WhatsApp", topic: "whatsapp" },
+  { label: "Bulk SMS", topic: "sms" },
+  { label: "RCS", topic: "rcs" },
+  { label: "OTP", topic: "otp" },
+  { label: "Voice Call", topic: "voice" },
+];
 
-// Main blog list content
-export default function BlogList() {
-  const [blogsData, setBlogsData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+// Blog data comes from the server page, so every post link is in the static HTML
+export default function BlogList({ blogsData }) {
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 9;
-  const categories = ["All", "WhatsApp Service", "Bulk SMS Service", "OTP Service", "Voice Call"];
-  // ✅ Fetch blogs dynamically from `public/data/blog.json`
-  useEffect(() => {
-    fetch("/data/blog.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setBlogsData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error loading blogs:", err);
-        setLoading(false);
-      });
-  }, []);
 
-  // Filter blogs by category
+  // Filter blogs by topic
   const filteredBlogs =
-    selectedCategory === "All" ? blogsData : blogsData.filter((blog) => blog.category === selectedCategory);
+    selectedCategory === "all" ? blogsData : blogsData.filter((blog) => topicOf(blog) === selectedCategory);
 
-  // Get current page of blogs
+  // Posts outside the current page stay in the HTML (hidden) so search engines can follow them
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
   return (
     <div className="container py-5">
-      {/* ✅ Show loading while fetching data */}
-      {loading ? (
-        <LoadingBlog />
-      ) : (
-        <>
+      <h1 className="text-center mb-2">A2ZSMS Blog: Bulk SMS, WhatsApp API &amp; RCS Insights</h1>
+      <p className="text-center text-muted mb-4">
+        Practical guides on business messaging for Indian companies.
+      </p>
+      <>
           {/* Category Filter */}
           <div className="mb-4 text-center">
             {categories.map((category) => (
               <button
-                key={category}
-                className={`btn ${selectedCategory === category ? "btn-primary" : "btn-outline-primary"} me-2 mb-2`}
+                key={category.topic}
+                className={`btn ${selectedCategory === category.topic ? "btn-primary" : "btn-outline-primary"} me-2 mb-2`}
                 onClick={() => {
-                  setSelectedCategory(category);
+                  setSelectedCategory(category.topic);
                   setCurrentPage(1); // Reset to first page when category changes
                 }}
               >
-                {category}
+                {category.label}
               </button>
             ))}
           </div>
 
           {/* Blog Cards */}
           <div className="row">
-            {currentBlogs.length > 0 ? (
-              currentBlogs.map((blog) => (
-                <div className="col-md-4 mb-4" key={blog.id}>
-                  <Link href={`/blogs/${blog.slug}`} className="text-decoration-none">
+            {filteredBlogs.length > 0 ? (
+              filteredBlogs.map((blog, i) => (
+                <div
+                  className={`col-md-4 mb-4${i >= indexOfFirstBlog && i < indexOfLastBlog ? "" : " d-none"}`}
+                  key={blog.slug}
+                >
+                  <Link href={`/blogs/${blog.slug}/`} className="text-decoration-none">
                     <div className="card h-100 shadow-sm">
                       <img
                         src={blog.image || "/Images/meta-image.jpg"}
                         alt={blog.title}
                         className="card-img-top"
+                        loading="lazy"
                         style={{ height: "200px", objectFit: "cover" }}
                       />
                       <div className="card-body">
-                        <h5 className="card-title">{blog.title}</h5>
+                        <h2 className="h5 card-title">{blog.title}</h2>
                         <p className="card-text text-muted">{blog.category}</p>
                         <p className="para-color">{blog.description}</p>
                         <button className="btn btn-primary">Read More</button>
@@ -106,8 +99,7 @@ export default function BlogList() {
               </ul>
             </nav>
           )}
-        </>
-      )}
+      </>
     </div>
   );
 }

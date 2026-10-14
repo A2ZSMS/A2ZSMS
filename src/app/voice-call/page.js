@@ -4,7 +4,7 @@ export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
   title: "Best Bulk Voice Call Service Provider in Bangalore | India",
   description:
-    "Top Bulk Voice Call service provider in Bangalore, India. Reliable promotional, transactional, and business voice call solutions for enterprises and marketing campaigns.",
+    "Bulk voice call service provider in Bangalore, India. Reliable promotional, transactional and business voice call solutions for enterprises and campaigns.",
   keywords:
     "Best Bulk Voice Call Service Provider Bangalore, Bulk Voice Call Services India, Promotional Voice Calls Bangalore, Transactional Voice Call Provider Bangalore, Business Voice Call Services India",
   authors: [

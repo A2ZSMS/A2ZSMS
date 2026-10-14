@@ -286,7 +286,7 @@ const Dec21 = () => {
           <p>
             The WhatsApp Business API has evolved into a crucial pillar for{" "}
             <a
-              href="https://www.a2zsms.in/contact/small"
+              href="https://www.a2zsms.in/contact/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "underline", color: "blue" }}

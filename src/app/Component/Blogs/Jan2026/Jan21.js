@@ -60,7 +60,7 @@ const Jan21 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/jan 21(1).png"
+            src="/Images/jan 21(1).webp"
             alt="WhatsApp Business API Provider Hyderabad"
           />
         </div>
@@ -298,7 +298,7 @@ const Jan21 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/jan 21(2).png"
+            src="/Images/jan 21(2).webp"
             alt="WhatsApp Business API Provider Hyderabad"
           />
         </div>
@@ -496,7 +496,7 @@ const Jan21 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/jan 21(3).png"
+            src="/Images/jan 21(3).webp"
             alt="WhatsApp Business API Provider Hyderabad"
           />
         </div>

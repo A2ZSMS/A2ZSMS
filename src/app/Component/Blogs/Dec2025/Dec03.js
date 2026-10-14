@@ -286,7 +286,7 @@ const Dec03 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Bulk SMS Marketing.png"
+            src="/Images/Bulk SMS Marketing.webp"
             alt="Defining Problems in Bulk SMS Marketing"
           />
         </div>

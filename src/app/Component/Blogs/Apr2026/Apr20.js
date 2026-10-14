@@ -56,7 +56,7 @@ const Apr20 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Rcs(1)Apr20.jpeg"
+            src="/Images/Rcs(1)Apr20.webp"
             alt="RCS campaign automation strategy - A2ZSMS"
           />
         </div>
@@ -314,7 +314,7 @@ const Apr20 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Rcs(2)Apr20.jpeg"
+            src="/Images/Rcs(2)Apr20.webp"
             alt="RCS campaign automation strategy - A2ZSMS"
           />
         </div>
@@ -805,7 +805,7 @@ const Apr20 = () => {
           <a href="/contact/" className="btn btn-light me-3">
             Talk to an RCS Expert
           </a>
-          <a href="/rcs-messaging/" className="btn btn-outline-light">
+          <a href="/rcs-service/" className="btn btn-outline-light">
             Explore RCS Platform
           </a>
         </section>

@@ -64,7 +64,7 @@ const May16 = () => {
             className="mt-3"
             width="100%"
             height={"auto"}
-            src="/Images/may16(1).png"
+            src="/Images/may16(1).webp"
             alt="Bulk SMS Service in India - A2ZSMS"
           />
         </div>
@@ -423,7 +423,7 @@ const May16 = () => {
             className="mt-3"
             width="100%"
             height={"auto"}
-            src="/Images/may16(2).png"
+            src="/Images/may16(2).webp"
             alt="Bulk SMS Service in India - A2ZSMS"
           />
         </div>
@@ -765,7 +765,7 @@ const May16 = () => {
             className="mt-3"
             width="100%"
             height={"auto"}
-            src="/Images/may16(3).png"
+            src="/Images/may16(3).webp"
             alt="Bulk SMS Service in India - A2ZSMS"
           />
         </div>

@@ -7,7 +7,6 @@ import FAQHome from "../../Resources/Faq/FAQHome";
 import { Whatsapp } from "../../Resources/Faq/FaqData";
 import PopupForm from "../PopUp";
 import UseCases from "./UseCases";
-import VideoDemo from "./VideoDemo";
 import IntegrationShowcase from "./IntegrationShowcase";
 
 const WhatsappApi = () => {
@@ -19,7 +18,6 @@ const WhatsappApi = () => {
       <ComparisonTable />
 
       {/* Video Demo Section */}
-      {/* <VideoDemo /> */}
 
       {/* How It Works Steps */}
       <StepsSection />

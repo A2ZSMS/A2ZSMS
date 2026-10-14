@@ -160,7 +160,7 @@ const Footer = () => {
               <div className="footer-legal">
                 <Link href="/terms/">Terms & Conditions</Link>
                 <Link href="/privacy/">Privacy Policy</Link>
-                <Link href="/refund-policie/">Refund Policy</Link>
+                <Link href="/refund-policy/">Refund Policy</Link>
               </div>
             </div>
           </div>

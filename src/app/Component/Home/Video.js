@@ -20,8 +20,8 @@ const Video = () => {
               </div>
 
               <h1>
-                Boost Your Business Revenue by{" "}
-                <span className="green">5X with WhatsApp Marketing</span>
+                WhatsApp, Bulk SMS &amp; RCS Services in Bangalore{" "}
+                <span className="green">to Boost Revenue 5X</span>
               </h1>
 
               <p className="hero-desc">
@@ -62,7 +62,7 @@ const Video = () => {
             {/* Right — Visual */}
             {/* <div className="col-lg-6 d-none d-lg-block">
               <div className="hero-visual">
-                <img src="/image/Whatsapp.png" alt="WhatsApp Business API Dashboard" />
+                <img src="/image/Whatsapp.webp" alt="WhatsApp Business API Dashboard" />
                 Floating cards
                 <div className="hero-float-card top-card">
                   <div className="fc-icon" style={{ background: "#43cea2" }}>

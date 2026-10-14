@@ -1,5 +1,6 @@
 // This is a server component (no "use client" directive)
 import BlogList from "./client";
+import blogsData from "../../../public/data/blog.json";
 
 // Updated metadata for the blogs page
 export const metadata = {
@@ -42,5 +43,5 @@ export const metadata = {
 
 // Page component
 export default function BlogsPage() {
-  return <BlogList />;
+  return <BlogList blogsData={blogsData} />;
 }

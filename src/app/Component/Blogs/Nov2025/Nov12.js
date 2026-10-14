@@ -46,7 +46,7 @@ const Nov12 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Nov12.png"
+            src="/Images/Nov12.webp"
             alt="First 3 Months Bulk SMS Growth Strategy"
           />
         </div>

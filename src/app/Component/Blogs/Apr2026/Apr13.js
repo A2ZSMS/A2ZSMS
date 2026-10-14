@@ -56,7 +56,7 @@ const Apr13 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Apr13(1).jpeg"
+            src="/Images/Apr13(1).webp"
             alt="RCS vs SMS vs WhatsApp for Indian Businesses"
           />
         </div>
@@ -316,7 +316,7 @@ const Apr13 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Apr13(2).jpeg"
+            src="/Images/Apr13(2).webp"
             alt="RCS vs SMS vs WhatsApp for Indian Businesses"
           />
         </div>
@@ -576,7 +576,7 @@ const Apr13 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Apr13(3).jpeg"
+            src="/Images/Apr13(3).webp"
             alt="RCS vs SMS vs WhatsApp for Indian Businesses"
           />
         </div>

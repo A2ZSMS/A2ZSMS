@@ -42,7 +42,7 @@ const Oct1425 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/oct.png"
+            src="/Images/oct.webp"
             alt="Bulk Messaging Experts in Bangalore Karnataka"
           />
         </div>

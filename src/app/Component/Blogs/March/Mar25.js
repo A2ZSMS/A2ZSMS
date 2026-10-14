@@ -13,7 +13,7 @@ const Mar25 = () => {
 
       </p>
       <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/mar25-2.png" alt="Descriptive alt text" />
+        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/mar25-2.webp" alt="Descriptive alt text" />
         </div>
         <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">

@@ -44,7 +44,7 @@ const Dec25 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Dec25(1).jpeg"
+            src="/Images/Dec25(1).webp"
             alt="RCS Messaging Marketing Automation"
           />
         </div>
@@ -246,7 +246,7 @@ const Dec25 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Dec25(2).jpeg"
+            src="/Images/Dec25(2).webp"
             alt="RCS Messaging Conversion Automation"
           />
         </div>
@@ -516,7 +516,7 @@ const Dec25 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Dec25(3).jpeg"
+            src="/Images/Dec25(3).webp"
             alt="RCS Messaging Conversion Automation"
           />
         </div>
@@ -777,7 +777,7 @@ const Dec25 = () => {
           <a href="/contact/" className="btn btn-light me-3">
             Talk to RCS Expert
           </a>
-          <a href="/rcs-messaging/" className="btn btn-outline-light">
+          <a href="/rcs-service/" className="btn btn-outline-light">
             View RCS Solutions
           </a>
         </section>

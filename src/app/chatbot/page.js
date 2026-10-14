@@ -3,16 +3,16 @@ import Chatbot from "../Component/Product/Chatbot/Chatbot";
 export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
   title:
-    "AI WhatsApp Chatbot - Automate Customer Support & Engagement | A2ZSMS",
+    "AI WhatsApp Chatbot for Customer Support & Leads | A2ZSMS",
   description:
-    "Transform your business with our AI-powered WhatsApp chatbot. Automate customer support, generate leads, and boost sales with conversations. Available in India.",
+    "AI WhatsApp chatbot by A2ZSMS: automate customer support, capture leads and boost sales with smart 24/7 conversations. Built for businesses across India.",
   keywords:
     "WhatsApp chatbot, AI chatbot, WhatsApp automation, customer support automation, lead generation, WhatsApp API, India",
   openGraph: {
-    title: "AI WhatsApp Chatbot - Automate Customer Support & Engagement",
+    title: "AI WhatsApp Chatbot for Customer Support & Leads | A2ZSMS",
     description:
-      "Transform your business with our AI-powered WhatsApp chatbot. Automate customer support, generate leads, and boost sales with intelligent conversations.",
-    url: "https://a2zsms.in/chatbot",
+      "AI WhatsApp chatbot by A2ZSMS: automate customer support, capture leads and boost sales with smart 24/7 conversations. Built for businesses across India.",
+    url: "https://www.a2zsms.in/chatbot/",
     siteName: "A2ZSMS",
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "https://a2zsms.in/chatbot",
+    canonical: "https://www.a2zsms.in/chatbot/",
   },
 };
 

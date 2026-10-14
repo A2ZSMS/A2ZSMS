@@ -37,7 +37,7 @@ export const metadata = {
       "India's leading Bulk SMS provider. Send millions of SMS instantly with 99.9% delivery rate. DLT compliant, developer-friendly API.",
     images: ["/Images/1.png"],
   },
-  robots: "index, follow",
+  robots: "noindex, follow",
   alternates: {
     canonical: "https://www.a2zsms.in/bulk-sms-service/",
   },

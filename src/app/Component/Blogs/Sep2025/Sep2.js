@@ -34,7 +34,7 @@ const Sep2 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/11.png"
+            src="/Images/11.webp"
             alt="WhatsApp Marketing Secrets for Business Growth"
           />
         </div>

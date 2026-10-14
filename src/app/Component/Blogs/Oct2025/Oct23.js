@@ -44,7 +44,7 @@ const Oct23 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/oct3rd.png"
+            src="/Images/oct3rd.webp"
             alt="WhatsApp Marketing Services Transform Business Finances"
           />
         </div>

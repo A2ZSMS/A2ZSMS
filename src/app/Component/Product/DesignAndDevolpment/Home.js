@@ -7,7 +7,7 @@ const Home = () => {
           <div className="col-12 position-relative">
             <div className="hero-image-container position-relative">
               <img
-                src="/image/product/website.png"
+                src="/image/product/website.webp"
                 alt="Professional Web Design and Development Services"
                 className="w-100 h-auto d-block"
                 style={{

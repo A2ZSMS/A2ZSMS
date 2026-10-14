@@ -31,7 +31,7 @@ const Sep23 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/3.png"
+            src="/Images/3.webp"
             alt="Voice Call Alert System Business Communication"
           />
         </div>

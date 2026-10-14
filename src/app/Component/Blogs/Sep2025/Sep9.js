@@ -36,7 +36,7 @@ const Sep9 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/4.png"
+            src="/Images/4.webp"
             alt="Professional Bulk SMS Marketing Strategies"
           />
         </div>
@@ -293,14 +293,6 @@ const Sep9 = () => {
             toward desired outcomes. This strategic approach maximizes the
             impact of limited character space.
           </p>
-
-          <img
-            className="mt-3 py-4"
-            width="100%"
-            height="auto"
-            src="/Images/sms-content.jpg"
-            alt="SMS Content Creation Strategies"
-          />
 
           <h3>Content Creation Guidelines</h3>
           <ul className="list-unstyled">
@@ -809,7 +801,7 @@ const Sep9 = () => {
                     requirements for businesses.
                   </p>
                   <Link
-                    href="/blog/best-bulk-sMS-provider-in-bangalore-for-businesses/"
+                    href="/blogs/best-bulk-sMS-provider-in-bangalore-for-businesses/"
                     className="btn btn-primary btn-sm"
                   >
                     Read More
@@ -831,7 +823,7 @@ const Sep9 = () => {
                     their key features for businesses.
                   </p>
                   <Link
-                    href="/blog/boost-business-reach-with-reliable-bulk-sMS-services/"
+                    href="/blogs/boost-business-reach-with-reliable-bulk-sMS-services/"
                     className="btn btn-primary btn-sm"
                   >
                     Read More
@@ -853,7 +845,7 @@ const Sep9 = () => {
                     campaign performance effectively.
                   </p>
                   <Link
-                    href="/blog/bulk-sms-service-provider-in-bangalore/"
+                    href="/blogs/bulk-sms-service-provider-in-bangalore/"
                     className="btn btn-primary btn-sm"
                   >
                     Read More

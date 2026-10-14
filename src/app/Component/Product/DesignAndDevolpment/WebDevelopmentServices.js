@@ -70,7 +70,7 @@ const WebDevelopmentServices = () => {
           >
             <div className="position-relative">
               <img
-                src="/image/product/designs.jpg"
+                src="/image/product/designs.webp"
                 alt="Advanced Web Development Technologies"
                 className="img-fluid rounded-4 shadow-lg"
                 style={{ maxHeight: "500px" }}

@@ -5,11 +5,6 @@ export const Website_Schema = {
   "url": "https://www.a2zsms.in/",
   "description": "A2ZSMS offers WhatsApp Business Solutions, RCS Services, Bulk SMS, and Bulk Voice Calls to help businesses connect seamlessly with customers.",
   "inLanguage": "en",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.a2zsms.in/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
   "hasPart": [
     {
       "@type": "WebPage",

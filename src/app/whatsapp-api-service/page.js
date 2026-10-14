@@ -40,8 +40,7 @@ export const metadata = {
       "Official WhatsApp Business API provider. Send bulk messages, automate notifications, and integrate chatbots. Starting at Rs 2999.",
     images: ["/Images/1.png"],
   },
-  robots:
-    "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+  robots: "noindex, follow",
   alternates: {
     canonical: "https://www.a2zsms.in/whatsapp-api-service/",
   },

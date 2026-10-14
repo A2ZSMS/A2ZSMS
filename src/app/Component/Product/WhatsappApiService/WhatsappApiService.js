@@ -789,7 +789,7 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
               src={
                 activeTab === "api"
                   ? "/image/product/whatsapp1.png"
-                  : "/image/product/chatbot_2.png"
+                  : "/image/product/chatbot_2.webp"
               }
               alt={
                 activeTab === "api"

@@ -247,7 +247,7 @@ const oct7 = () => {
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/5.png"
+          src="/Images/5.webp"
           alt="WhatsApp Business Cloud API Implementation in Bangalore"
         />
 

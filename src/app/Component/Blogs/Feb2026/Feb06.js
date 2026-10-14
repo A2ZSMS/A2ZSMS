@@ -319,7 +319,7 @@ const Feb06 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/feb(3).jpeg"
+            src="/Images/feb(3).webp"
             alt="Best WhatsApp API Message Templates for Indian Businesses"
           />
         </div>
@@ -547,7 +547,7 @@ const Feb06 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/feb(2).jpeg"
+            src="/Images/feb(2).webp"
             alt="Best WhatsApp API Message Templates for Indian Businesses"
           />
         </div>

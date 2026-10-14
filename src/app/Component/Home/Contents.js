@@ -57,7 +57,7 @@ export const Contents = {
     //     "Integrate seamless e-commerce functionality, payment gateways, CRM systems, and analytics platforms that streamline operations and boost revenue potential.",
     //     "Deliver ongoing maintenance, security updates, and performance monitoring that ensures your digital presence remains competitive and secure long-term.",
     //   ],
-    //   image: "/image/product/website.png",
+    //   image: "/image/product/website.webp",
     //   link: "/design-developement/",
     //   icon: "bi bi-code-slash",
     //   animation: "zoom-in-right",

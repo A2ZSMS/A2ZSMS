@@ -315,7 +315,7 @@ const HeroSection = () => (
           <div className={styles.heroImageWrap}>
             <div className={styles.heroImageGlow}></div>
             <img
-              src="/image/product/google-ads-rcs.png"
+              src="/image/product/google-ads-rcs.webp"
               alt="RCS Messaging Service Dashboard"
               className={styles.heroImage}
               width={560}
@@ -639,8 +639,8 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             <img
               src={
                 activeTab === "rcs"
-                  ? "/image/product/RCS1.png"
-                  : "/image/product/RCS1.png"
+                  ? "/image/product/rcs1.png"
+                  : "/image/product/rcs1.png"
               }
               alt={
                 activeTab === "rcs"

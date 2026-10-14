@@ -46,7 +46,7 @@ const Dec10 = () => {
               className="mt-3"
               width="100%"
               height="auto"
-              src="/Images/2dec16.png"
+              src="/Images/2dec16.webp"
               alt="What is RCS Business Messaging"
             />
           </div>
@@ -196,7 +196,7 @@ const Dec10 = () => {
                 className="my-4"
                 width="100%"
                 height="auto"
-                src="/Images/3dec16.png"
+                src="/Images/3dec16.webp"
                 alt="RCS Business Messaging Platform"
               />
             </div>

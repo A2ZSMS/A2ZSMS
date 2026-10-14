@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import blogsData from "../../../../public/data/blog.json";
 import meta from "../../../../public/data/metadata.json";
+import BlogRelated, { BlogSchema } from "@/app/Component/Blogs/BlogRelated";
 
 // Import blog components directly
 import Dec13 from "@/app/Component/Blogs/December/Dec13";
@@ -185,9 +186,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPost({ params }) {
+export default async function BlogPost({ params }) {
+  const { slug } = await params;
   // Find the blog post data
-  const blog = blogsData.find((post) => post.slug === params.slug);
+  const blog = blogsData.find((post) => post.slug === slug);
 
   if (!blog) {
     return notFound();
@@ -205,5 +207,11 @@ export default function BlogPost({ params }) {
     );
   }
 
-  return <BlogComponent />;
+  return (
+    <>
+      <BlogSchema blog={blog} />
+      <BlogComponent />
+      <BlogRelated blog={blog} allBlogs={blogsData} />
+    </>
+  );
 }

@@ -55,10 +55,10 @@ const WebsiteBenefits = () => {
             <span className="badge bg-primary-subtle text-primary px-4 py-2 rounded-pill mb-3 fs-6">
               Digital Success Awaits
             </span>
-            <h2 className="display-4 fw-bold text-dark mb-4">
+            <h1 className="display-4 fw-bold text-dark mb-4">
               Why Every Business Needs a
               <span className="text-primary"> Professional Website</span>
-            </h2>
+            </h1>
             <p className="lead text-muted">
               Whether you're a small startup or an established enterprise, a
               website isn't just an option anymore— it's essential for survival

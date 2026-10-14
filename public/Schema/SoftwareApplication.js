@@ -24,13 +24,6 @@ export const SoftwareApplication = {
     "url": "https://www.a2zsms.in/bulk-sms-service/",
     "description": "Starting from ₹0.08 per SMS. Free trial available."
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "ratingCount": "150",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "featureList": [
     "Bulk SMS with 99.9% delivery rate",
     "WhatsApp Business API integration",

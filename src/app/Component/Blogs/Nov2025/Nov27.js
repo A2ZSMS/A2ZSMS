@@ -32,7 +32,7 @@ const Nov27 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/lat7.png"
+            src="/Images/lat7.webp"
             alt="How A2ZSMS helps business growth with WhatsApp and SMS"
           />
         </div>

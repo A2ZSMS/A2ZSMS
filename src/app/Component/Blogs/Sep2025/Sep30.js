@@ -35,7 +35,7 @@ const Sep30 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/hardesr_part_bsns.png"
+            src="/Images/hardesr_part_bsns.webp"
             alt="The Hardest Part of Business Communication Solutions"
           />
         </div>

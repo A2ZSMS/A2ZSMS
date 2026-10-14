@@ -44,7 +44,7 @@ const Jan08 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/RCS jan08.jpeg"
+            src="/Images/RCS jan08.webp"
             alt="RCS Messaging Marketing Automation"
           />
         </div>
@@ -476,7 +476,7 @@ const Jan08 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/jan 08(2).jpeg"
+            src="/Images/jan 08(2).webp"
             alt="RCS Messaging Marketing Automation"
           />
         </div>

@@ -21,7 +21,7 @@ const Dec09 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Rcsdec09.png"
+            src="/Images/Rcsdec09.webp"
             alt="Best RCS Messaging Provider in Karnataka"
           />
         </div>
@@ -212,7 +212,7 @@ const Dec09 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/2.png"
+            src="/Images/2.webp"
             alt="Best RCS Messaging Provider Karnataka"
           />
         </div>

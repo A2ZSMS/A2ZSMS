@@ -56,7 +56,7 @@ const Feb02 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/feb02(3).jpeg"
+            src="/Images/feb02(3).webp"
             alt="RCS Business Messaging Features Benefits and How It Works"
           />
         </div>
@@ -287,7 +287,7 @@ const Feb02 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/feb02(1).jpeg"
+            src="/Images/feb02(1).webp"
             alt="RCS Business Messaging Features Benefits and How It Works"
           />
         </div>
@@ -540,7 +540,7 @@ const Feb02 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/feb02(2).jpeg"
+            src="/Images/feb02(2).webp"
             alt="RCS Business Messaging Features Benefits and How It Works"
           />
         </div>

@@ -4,7 +4,7 @@ export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
   title: "WhatsApp Business API Provider in Bangalore",
   description:
-    "A2ZSMS is the top WhatsApp Business API provider in Bangalore. Get free WhatsApp API setup, bulk messaging, automation, and the best WhatsApp marketing services in 2025.",
+    "WhatsApp Business API provider in Bangalore: A2ZSMS offers free API setup, bulk messaging, automation and WhatsApp marketing services for growing brands.",
   keywords:
     "WhatsApp Business API Provider Bangalore, Free WhatsApp API Setup, Best WhatsApp Marketing Services Bangalore, WhatsApp Bulk Messaging, WhatsApp API Solutions, WhatsApp Automation for Business",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/whatsapp-api/" }],

@@ -49,7 +49,7 @@ const Dec2025 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Dec2025(1).png"
+            src="/Images/Dec2025(1).webp"
             alt="WhatsApp Pricing Change in India 2026 Business Impact"
           />
         </div>
@@ -175,7 +175,7 @@ const Dec2025 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Dec2025(2).png"
+            src="/Images/Dec2025(2).webp"
             alt="WhatsApp Pricing Change in India 2026 Business Impact"
           />
         </div>
@@ -310,7 +310,7 @@ const Dec2025 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Dec2025(3).png"
+            src="/Images/Dec2025(3).webp"
             alt="WhatsApp Pricing Change in India 2026 Business Impact"
           />
         </div>

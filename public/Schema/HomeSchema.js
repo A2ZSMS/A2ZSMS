@@ -33,13 +33,6 @@ export const A2ZSMS_Service = {
     "opens": "09:30",
     "closes": "18:30"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "150",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+918431086185",

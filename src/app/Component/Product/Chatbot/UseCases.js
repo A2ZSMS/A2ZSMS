@@ -12,7 +12,7 @@ const industrySections = [
     title: "Manage Marketing Needs Using Your Chatbot for WhatsApp",
     description:
       "Turn your WhatsApp chatbot into a growth engine. Nurture leads with automated campaigns and win loyalty effortlessly.",
-    image: "/image/product/chatbot_market.png",
+    image: "/image/product/chatbot_market.webp",
     items: [
       {
         icon: "bi-funnel",
@@ -52,7 +52,7 @@ const industrySections = [
     title: "Close High-Value Real Estate Deals With WhatsApp",
     description:
       "Let clients contact you instantly to schedule consultations or property viewings.",
-    image: "/image/product/chatbot_realestate.png",
+    image: "/image/product/chatbot_realestate.webp",
     items: [
       {
         icon: "bi-search",
@@ -143,7 +143,7 @@ const industrySections = [
     title: "Digital Healthcare Services With WhatsApp Chatbot",
     description:
       "Improve healthcare communication with instant assistance and seamless appointments.",
-    image: "/image/product/health.png",
+    image: "/image/product/health.webp",
     items: [
       {
         icon: "bi-calendar-check",
@@ -222,7 +222,7 @@ const industrySections = [
     title: "AI-Driven Ed-Tech Chatbot for WhatsApp",
     description:
       "Answer admissions questions, share evaluations, and keep parents informed with automation.",
-    image: "/image/product/chatbot_edu.png",
+    image: "/image/product/chatbot_edu.webp",
     items: [
       {
         icon: "bi-info-circle",

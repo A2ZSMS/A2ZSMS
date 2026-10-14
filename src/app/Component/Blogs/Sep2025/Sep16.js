@@ -36,7 +36,7 @@ const Sep16 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/2.png"
+            src="/Images/2.webp"
             alt="RCS Rich Communication Services Future"
           />
         </div>

@@ -31,7 +31,7 @@ const Nov25 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/lat4.png"
+            src="/Images/lat4.webp"
             alt="Grow Leads 10X Faster With Smart WhatsApp API"
           />
         </div>

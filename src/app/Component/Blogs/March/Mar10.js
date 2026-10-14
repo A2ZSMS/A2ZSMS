@@ -9,7 +9,7 @@ const Mar10 = () => {
       <p>In today's fast-paced digital world, businesses need innovative and effective communication strategies to stay ahead of the competition. One such powerful tool is WhatsApp marketing, which has proven to be a game-changer for businesses looking to connect with their audience in a personalized and direct manner. When it comes to finding the best WhatsApp marketing service provider in Bangalore, A2ZSMS stands out as the top choice. With our tailored solutions, businesses can enhance their communication, improve customer engagement, and drive growth effectively.
       </p>
       <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/5.png" alt="Descriptive alt text" />
+        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/5.webp" alt="Descriptive alt text" />
         </div>
       <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">

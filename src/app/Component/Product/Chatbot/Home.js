@@ -76,7 +76,7 @@ const Home = () => {
             <div className={styles.heroImageWrap}>
               <div className={styles.heroImageGlow}></div>
               <img
-                src="/image/product/chatbot_1.png"
+                src="/image/product/chatbot_1.webp"
                 alt="WhatsApp chatbot interface"
                 className={styles.heroImage}
               />

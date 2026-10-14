@@ -60,7 +60,7 @@ const Aboutus = () => {
             <div className="about-img-wrap">
               <img
                 className="img-fluid"
-                src="/image/Whatsapp.png"
+                src="/image/Whatsapp.webp"
                 alt="WhatsApp CRM"
               />
               <div className="about-img-badge">

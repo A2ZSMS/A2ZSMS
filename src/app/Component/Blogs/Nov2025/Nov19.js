@@ -256,7 +256,7 @@ const Nov19 = () => {
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/oct7.png"
+          src="/Images/oct7.webp"
           alt="RCS Business Messaging Implementation in Bangalore"
         />
 

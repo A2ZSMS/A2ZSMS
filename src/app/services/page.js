@@ -2,12 +2,12 @@ import React from 'react'
 import Service from '../Component/Resources/Services/Service'
 export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
-  title: "Top Bulk WhatsApp Messaging & Communication Services in Bangalore",
+  title: "Bulk WhatsApp Messaging Services in Bangalore | A2ZSMS",
   description: "Get comprehensive messaging & communication services with WhatsApp API solutions for businesses in Bangalore to enhance seamless marketing & engagement.",
   keywords: "Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore, Comprehensive Messaging & Communication Services",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/services/" }],
   openGraph: {
-    title: "Top Bulk WhatsApp Messaging & Communication Services in Bangalore",
+    title: "Bulk WhatsApp Messaging Services in Bangalore | A2ZSMS",
     description: "Get comprehensive messaging & communication services with WhatsApp API solutions for businesses in Bangalore to enhance seamless marketing & engagement.",
     url: "https://www.a2zsms.in/services/",
     siteName: "A2ZSMS",
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Bulk WhatsApp Messaging & Communication Services in Bangalore",
+    title: "Bulk WhatsApp Messaging Services in Bangalore | A2ZSMS",
     description: "Get comprehensive messaging & communication services with WhatsApp API solutions for businesses in Bangalore to enhance seamless marketing & engagement.",
     images: ["/Images/meta-image.jpg"],
 

@@ -40,7 +40,7 @@ const Oct6 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/oct7.png"
+            src="/Images/oct7.webp"
             alt="Grow Your Business with RCS Messaging Solutions"
           />
         </div>
@@ -537,7 +537,7 @@ const Oct6 = () => {
               <Link href="/contact/" className="btn btn-primary">
                 Start Growing with RCS
               </Link>
-              <Link href="/rcs-messaging/" className="btn btn-outline-primary">
+              <Link href="/rcs-service/" className="btn btn-outline-primary">
                 Explore RCS Features
               </Link>
             </div>
@@ -1251,7 +1251,7 @@ const Oct6 = () => {
                     communication that drives measurable results.
                   </p>
                   <Link
-                    href="/rcs-messaging/"
+                    href="/rcs-service/"
                     className="btn btn-primary btn-sm"
                   >
                     Explore RCS Features
@@ -1358,7 +1358,7 @@ const Oct6 = () => {
               <Link href="/contact/" className="btn btn-light">
                 Start Growing with RCS
               </Link>
-              <Link href="/rcs-messaging/" className="btn btn-outline-light">
+              <Link href="/rcs-service/" className="btn btn-outline-light">
                 Explore RCS Features
               </Link>
             </div>

@@ -2,16 +2,16 @@ import Home from "./Component/Home/Home";
 
 export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
-  title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+  title: "Bulk SMS, WhatsApp & RCS Services in Bangalore | A2ZSMS",
   description:
-    "Get top messaging services in Bangalore, India. Reliable Bulk SMS, WhatsApp, RCS, and Voice Call solutions for businesses and marketing campaigns.",
+    "Bulk SMS, WhatsApp & RCS services in Bangalore by A2ZSMS. Reliable DLT-compliant SMS, WhatsApp Business API, RCS and voice calls for business campaigns.",
   keywords:
     "Bulk SMS Services Bangalore, WhatsApp Messaging Services Bangalore, RCS Messaging Provider Bangalore, Voice Call Services Bangalore, Messaging Solutions India",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in" }],
   openGraph: {
-    title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+    title: "Bulk SMS, WhatsApp & RCS Services in Bangalore | A2ZSMS",
     description:
-      "Get top messaging services in Bangalore, India. Reliable Bulk SMS, WhatsApp, RCS, and Voice Call solutions for businesses and marketing campaigns.",
+      "Bulk SMS, WhatsApp & RCS services in Bangalore by A2ZSMS. Reliable DLT-compliant SMS, WhatsApp Business API, RCS and voice calls for business campaigns.",
     url: "https://www.a2zsms.in",
     siteName: "A2ZSMS",
     images: [
@@ -19,7 +19,7 @@ export const metadata = {
         url: "/Images/hardesr_part_bsns.png",
         width: 1200,
         height: 630,
-        alt: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+        alt: "Bulk SMS, WhatsApp & RCS Services in Bangalore | A2ZSMS",
       },
     ],
     type: "website",
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Messaging Services in Bangalore: SMS, WhatsApp, RCS & Voice",
+    title: "Bulk SMS, WhatsApp & RCS Services in Bangalore | A2ZSMS",
     description:
       "Reliable Bulk SMS, WhatsApp, RCS, and Voice Call services in Bangalore, India. Perfect solutions for business communication and marketing.",
     images: ["/Images/hardesr_part_bsns.png"],

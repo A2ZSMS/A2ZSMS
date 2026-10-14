@@ -162,7 +162,7 @@ const Responsivedesign = () => {
           >
             <div className="position-relative">
               <img
-                src="/image/product/web-speed1.jpg"
+                src="/image/product/web-speed1.webp"
                 alt="Responsive Website Design Across All Devices"
                 className="w-100 rounded-4 shadow-lg"
               />

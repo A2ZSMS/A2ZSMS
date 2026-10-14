@@ -273,7 +273,7 @@ const Feb10 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Feb10(3).jpeg"
+            src="/Images/Feb10(3).webp"
             alt="Best RCS Message Service Provider in India"
           />
         </div>
@@ -570,7 +570,7 @@ const Feb10 = () => {
           <img
             width="100%"
             height="auto"
-            src="/Images/Feb10(2).jpeg"
+            src="/Images/Feb10(2).webp"
             alt="Best RCS Message Service Provider in India"
           />
         </div>

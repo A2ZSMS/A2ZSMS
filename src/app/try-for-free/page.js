@@ -2,12 +2,12 @@ import React from 'react'
 import TryForFree from '../Component/Forms/TryForFree'
 export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
-  title: "Free SMS, WhatsApp & Voice Calls - Top Bulk Messaging Services",
+  title: "Free SMS, WhatsApp & Voice Calls Trial | A2ZSMS",
   description: "Get free SMS, WhatsApp & voice call solutions for businesses in Bangalore. Enhance communication & marketing with top Bulk WhatsApp Messaging Services.",
   keywords: "Free SMS, WhatsApp & Voice Calls, Top Bulk WhatsApp Messaging Services in Bangalore, Best WhatsApp marketing services in Bangalore, SMS marketing, WhatsApp bulk messaging service providers Bangalore",
   authors: [{ name: "A2ZSMS", url: "https://www.a2zsms.in/try-for-free/" }],
   openGraph: {
-    title: "Free SMS, WhatsApp & Voice Calls - Top Bulk Messaging Services",
+    title: "Free SMS, WhatsApp & Voice Calls Trial | A2ZSMS",
     description: "Get free SMS, WhatsApp & voice call solutions for businesses in Bangalore. Enhance communication & marketing with top Bulk WhatsApp Messaging Services.",
     url: "https://www.a2zsms.in/try-for-free/",
     siteName: "A2ZSMS",
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free SMS, WhatsApp & Voice Calls - Top Bulk Messaging Services",
+    title: "Free SMS, WhatsApp & Voice Calls Trial | A2ZSMS",
     description: "Get free SMS, WhatsApp & voice call solutions for businesses in Bangalore. Enhance communication & marketing with top Bulk WhatsApp Messaging Services.",
     images: ["/Images/meta-image.jpg"],
 

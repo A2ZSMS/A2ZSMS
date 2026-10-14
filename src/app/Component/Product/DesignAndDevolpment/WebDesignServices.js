@@ -109,7 +109,7 @@ const WebDesignServices = () => {
           >
             <div className="position-relative">
               <img
-                src="/image/product/website.png"
+                src="/image/product/website.webp"
                 alt="Professional Website Design Services"
                 className="img-fluid rounded-4 shadow-lg"
                 style={{ maxHeight: "500px" }}

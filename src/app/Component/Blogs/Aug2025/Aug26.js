@@ -42,7 +42,7 @@ const Aug26 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Aug26.png"
+            src="/Images/Aug26.webp"
             alt="Best WhatsApp Business API Service Provider in India"
           />
         </div>
