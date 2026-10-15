@@ -157,7 +157,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: blog.title,
       description: blog.description,
-      url: `https://www.a2zsms.in/blogs/${blog.slug}`,
+      url: `https://www.a2zsms.in/blogs/${blog.slug}/`,
       type: "article",
       images: [
         {
@@ -180,7 +180,7 @@ export async function generateMetadata({ params }) {
       follow: true,
     },
     alternates: {
-      canonical: `https://www.a2zsms.in/blogs/${blog.slug}`,
+      canonical: `https://www.a2zsms.in/blogs/${blog.slug}/`,
     },
     authors: [{ name: "A2ZSMS" }],
   };

@@ -284,6 +284,7 @@ header.sticky-top.scrolled {
 
 .footer-payments-row img {
   height: 24px;
+  width: auto;
   opacity: 0.75;
   transition: opacity 0.2s;
   filter: brightness(0) invert(1);

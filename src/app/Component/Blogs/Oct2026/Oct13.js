@@ -7,19 +7,19 @@ import React from "react";
    ------------------------------------------------------------------ */
 
 const LINKS = {
-  rcs: "/rcs-service",
-  sms: "/bulk-sms",
-  whatsapp: "/whatsapp-api",
-  contact: "/contact",
-  rcsVsWhatsapp: "/blogs/rcs-vs-whatsapp-which-is-better-for-business-messaging",
-  rcsProviderIndia: "/blogs/rcs-messaging-provider-in-india",
-  smsApi: "/blogs/what-is-an-sms-api-and-how-does-it-work-for-indian-businesses",
+  rcs: "/rcs-service/",
+  sms: "/bulk-sms/",
+  whatsapp: "/whatsapp-api/",
+  contact: "/contact/",
+  rcsVsWhatsapp: "/blogs/rcs-vs-whatsapp-which-is-better-for-business-messaging/",
+  rcsProviderIndia: "/blogs/rcs-messaging-provider-in-india/",
+  smsApi: "/blogs/what-is-an-sms-api-and-how-does-it-work-for-indian-businesses/",
   trai: "https://trai.gov.in/",
   googleRcs:
     "https://developers.google.com/business-communications/rcs-business-messaging",
 };
 
-const PAGE_URL = "https://www.a2zsms.in/blogs/rcs-fallback-to-sms";
+const PAGE_URL = "https://www.a2zsms.in/blogs/rcs-fallback-to-sms/";
 const META_DESCRIPTION =
   "RCS Fallback to SMS: How It Works and Why You Need It. A2ZSMS pairs RCS business messaging with automatic SMS fallback, DLT-compliant, from one dashboard.";
 
@@ -94,7 +94,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.a2zsms.in/" },
-    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.a2zsms.in/blogs" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.a2zsms.in/blogs/" },
     {
       "@type": "ListItem",
       position: 3,

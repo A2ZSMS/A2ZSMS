@@ -51,7 +51,14 @@ const Footer = () => {
             {/* Brand Column */}
             <div className="col-lg-4 col-md-6">
               <div className="footer-brand">
-                <img src="/image/logo.png" alt="A2Z SMS Logo" width="80" />
+                <img
+                  src="/image/logo.png"
+                  alt="A2ZSMS"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <p className="footer-brand-desc">
                   Bulk SMS is the most popular marketing method compared to other
                   marketing methods. It is trusted, reliable, and cost-effective.
@@ -136,10 +143,38 @@ const Footer = () => {
               <div className="footer-payments">
                 <span className="footer-payments-label">Payment Methods</span>
                 <div className="footer-payments-row">
-                  <img src="/image/visa-logo.png" alt="Visa" />
-                  <img src="/image/payoneer-logo.png" alt="Payoneer" />
-                  <img src="/image/mastercard-logo.png" alt="Mastercard" />
-                  <img src="/image/affirm-logo.png" alt="Affirm" />
+                  <img
+                    src="/image/visa-logo.png"
+                    alt="Visa"
+                    width="40"
+                    height="14"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src="/image/payoneer-logo.png"
+                    alt="Payoneer"
+                    width="44"
+                    height="16"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src="/image/mastercard-logo.png"
+                    alt="Mastercard"
+                    width="38"
+                    height="23"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src="/image/affirm-logo.png"
+                    alt="Affirm"
+                    width="44"
+                    height="18"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>

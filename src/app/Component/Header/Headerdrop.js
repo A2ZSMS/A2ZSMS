@@ -77,8 +77,10 @@ const HeaderDrop = () => {
             <Link className="navbar-brand" href="/">
               <img
                 src="/image/logo1.png"
-                alt="logo"
+                alt="A2ZSMS"
+                width={80}
                 height={60}
+                decoding="async"
                 className={isScrolled ? "scrolled-logo" : ""}
               />
             </Link>
@@ -104,7 +106,13 @@ const HeaderDrop = () => {
             >
               <div className="offcanvas-header">
                 <Link className="navbar-brand" href="/">
-                  <img src="/image/logo1.png" alt="logo" height={60} />
+                  <img
+                    src="/image/logo1.png"
+                    alt="A2ZSMS"
+                    width={80}
+                    height={60}
+                    decoding="async"
+                  />
                 </Link>
                 <button
                   type="button"

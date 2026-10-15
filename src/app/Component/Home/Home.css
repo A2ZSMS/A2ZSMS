@@ -1201,9 +1201,29 @@
 }
 
 @media (max-width: 576px) {
+  .hero-inner {
+    padding: 120px 0 72px;
+  }
+
   .hero h1 {
     font-size: 1.8rem;
   }
+
+  .hero-desc {
+    overflow-wrap: anywhere;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn-cta,
+  .hero-actions .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero-metrics {
     flex-wrap: wrap;
     gap: 20px;

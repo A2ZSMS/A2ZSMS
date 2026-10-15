@@ -2,8 +2,12 @@
 module.exports = {
     siteUrl: "https://www.a2zsms.in", // Your website URL
     generateRobotsTxt: true, // (Optional) Generate a robots.txt file
-    priority: 0.70,
+    // Do not tell Google that every URL changed whenever the site is built.
+    // Individual content dates can be added later when a reliable source date exists.
+    autoLastmod: false,
     sitemapSize: 5000,
+    // Only list the URL: Google ignores priority/changefreq, and a blanket value adds nothing
+    transform: async (config, path) => ({ loc: path }),
     exclude: [
       "/404",
       "/admin/*",
@@ -25,5 +29,3 @@ module.exports = {
       ],
     },
   };
-  
- 

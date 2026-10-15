@@ -4,7 +4,14 @@ import "./Home.css";
 const Video = () => {
   return (
     <div className="hero">
-      <video autoPlay muted loop playsInline>
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/video/video-poster.webp"
+      >
         <source src="/video/video.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay"></div>
@@ -34,7 +41,7 @@ const Video = () => {
                 <Link href="/try-for-free/" className="btn-cta">
                   Get Started Free <i className="bi bi-arrow-right"></i>
                 </Link>
-                <Link href="/request-demo" className="btn-ghost">
+                <Link href="/request-demo/" className="btn-ghost">
                   <i className="bi bi-play-circle"></i> Request Demo
                 </Link>
               </div>
@@ -92,10 +99,34 @@ const Video = () => {
       <div className="hero-logos text-center">
         <p>Trusted by leading brands</p>
         <div className="hero-logos-row">
-          <img src="/image/ping4sms-client3.webp" alt="Client" />
-          <img src="/image/isk.png" alt="Client" />
-          <img src="/image/ping4sms-client1.webp" alt="Client" />
-          <img src="/image/ping4sms-client5.webp" alt="Client" />
+          <img
+            src="/image/ping4sms-client3.webp"
+            alt="Client"
+            width="191"
+            height="129"
+            decoding="async"
+          />
+          <img
+            src="/image/isk.png"
+            alt="Client"
+            width="140"
+            height="80"
+            decoding="async"
+          />
+          <img
+            src="/image/ping4sms-client1.webp"
+            alt="Client"
+            width="191"
+            height="129"
+            decoding="async"
+          />
+          <img
+            src="/image/ping4sms-client5.webp"
+            alt="Client"
+            width="191"
+            height="129"
+            decoding="async"
+          />
         </div>
       </div>
     </div>
