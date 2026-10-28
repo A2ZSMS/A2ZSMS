@@ -46,7 +46,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="text-center mt-5" data-aos="fade-up">
-          <Link href="/try-for-free/" className="btn-cta">
+          <Link prefetch={false} href="/try-for-free/" className="btn-cta">
             Start Your Free Trial <i className="bi bi-arrow-right"></i>
           </Link>
         </div>

@@ -24,12 +24,12 @@ export default function NotFound() {
       </p>
       <div className="d-flex flex-wrap justify-content-center gap-2 mb-4">
         {LINKS.map((l) => (
-          <Link key={l.href} href={l.href} className="btn btn-outline-primary">
+          <Link prefetch={false} key={l.href} href={l.href} className="btn btn-outline-primary">
             {l.label}
           </Link>
         ))}
       </div>
-      <Link href="/" className="btn btn-primary">
+      <Link prefetch={false} href="/" className="btn btn-primary">
         Go to Homepage
       </Link>
     </section>

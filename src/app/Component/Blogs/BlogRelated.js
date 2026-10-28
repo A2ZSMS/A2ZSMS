@@ -87,7 +87,7 @@ export default function BlogRelated({ blog, allBlogs }) {
           A2ZSMS helps businesses across India reach customers faster with DLT-compliant
           messaging, real-time reports and expert support.
         </p>
-        <Link href={service.href} className="btn btn-primary">
+        <Link prefetch={false} href={service.href} className="btn btn-primary">
           Explore {service.label}
         </Link>
       </div>
@@ -96,7 +96,7 @@ export default function BlogRelated({ blog, allBlogs }) {
       <div className="row">
         {related.map((b) => (
           <div className="col-md-4 mb-4" key={b.slug}>
-            <Link href={`/blogs/${b.slug}/`} className="text-decoration-none">
+            <Link prefetch={false} href={`/blogs/${b.slug}/`} className="text-decoration-none">
               <div className="card h-100 shadow-sm">
                 <img
                   src={b.image || "/Images/meta-image.jpg"}
@@ -115,7 +115,7 @@ export default function BlogRelated({ blog, allBlogs }) {
         ))}
       </div>
       <div className="text-center">
-        <Link href="/blogs/" className="btn btn-outline-primary">
+        <Link prefetch={false} href="/blogs/" className="btn btn-outline-primary">
           View all articles
         </Link>
       </div>

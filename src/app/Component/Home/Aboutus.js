@@ -61,6 +61,8 @@ const Aboutus = () => {
               <img
                 className="img-fluid"
                 src="/image/Whatsapp.webp"
+                loading="lazy"
+                decoding="async"
                 alt="WhatsApp CRM"
               />
               <div className="about-img-badge">

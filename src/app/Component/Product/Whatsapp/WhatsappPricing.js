@@ -229,7 +229,7 @@ const Pricing = () => {
                     ))}
                   </div>
 
-                  <Link href="/request-demo" passHref>
+                  <Link prefetch={false} href="/request-demo" passHref>
                     <button
                       className="btn text-white fw-bold w-100 py-3"
                       style={{
@@ -375,7 +375,7 @@ const Pricing = () => {
           <p className="para-blog mb-3" style={{ fontSize: "16px" }}>
             Need a custom enterprise solution? Let's talk!
           </p>
-          <Link href="/contact">
+          <Link prefetch={false} href="/contact">
             <button
               className="btn btn-lg px-5 py-3 fw-bold"
               style={{

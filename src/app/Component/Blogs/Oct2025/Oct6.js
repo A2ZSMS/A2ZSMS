@@ -534,10 +534,10 @@ const Oct6 = () => {
               messaging offers for sustainable revenue growth.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Start Growing with RCS
               </Link>
-              <Link href="/rcs-service/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/rcs-service/" className="btn btn-outline-primary">
                 Explore RCS Features
               </Link>
             </div>
@@ -1250,7 +1250,7 @@ const Oct6 = () => {
                     conversion rates through visually engaging customer
                     communication that drives measurable results.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/rcs-service/"
                     className="btn btn-primary btn-sm"
                   >
@@ -1272,7 +1272,7 @@ const Oct6 = () => {
                     RCS support. Achieve 98% delivery rates with instant message
                     reach across all networks and devices nationwide.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     SMS Solutions
                   </Link>
                 </div>
@@ -1291,7 +1291,7 @@ const Oct6 = () => {
                     support, automated responses, and rich media sharing through
                     India's most popular messaging platform.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -1355,10 +1355,10 @@ const Oct6 = () => {
               Services.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Start Growing with RCS
               </Link>
-              <Link href="/rcs-service/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/rcs-service/" className="btn btn-outline-light">
                 Explore RCS Features
               </Link>
             </div>
@@ -1417,10 +1417,10 @@ const Oct6 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary  me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary  me-3">
               Start Growing with RCS
             </Link>
-            <Link href="/rcs-service/" className="btn btn-outline-primary ">
+            <Link prefetch={false} href="/rcs-service/" className="btn btn-outline-primary ">
               Explore RCS Solutions
             </Link>
           </div>

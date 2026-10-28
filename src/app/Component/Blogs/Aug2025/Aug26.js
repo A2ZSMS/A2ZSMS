@@ -16,7 +16,7 @@ const Aug26 = () => {
           WhatsApp is no longer just a messaging app—it has transformed into the
           most powerful business communication channel worldwide. With over 2
           billion users, businesses now rely on the{" "}
-          <Link
+          <Link prefetch={false}
             href="https://www.a2zsms.in/whatsapp-business-api/"
             target="_blank"
             rel="noopener noreferrer"

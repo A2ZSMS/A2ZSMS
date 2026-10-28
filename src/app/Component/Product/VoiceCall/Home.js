@@ -1,6 +1,5 @@
 "use client";
 
-import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
 import Image from "next/image";
@@ -80,6 +79,7 @@ const Home = () => {
               alt="Voice Call Solutions"
               width={500} // Adjust width as needed
               height={300} // Adjust height as needed
+              priority
               className="img-fluid rounded"
             />
           </div>

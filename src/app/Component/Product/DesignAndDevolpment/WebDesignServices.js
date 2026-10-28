@@ -147,7 +147,7 @@ const WebDesignServices = () => {
                   </ul>
 
                   <div className="mt-4">
-                    <Link
+                    <Link prefetch={false}
                       href="/contact/"
                       className="btn btn-outline-primary w-100 rounded-pill"
                     >
@@ -172,7 +172,7 @@ const WebDesignServices = () => {
                 Every day without a professional website is a day of lost
                 opportunities and revenue.
               </p>
-              <Link
+              <Link prefetch={false}
                 href="/contact/"
                 className="btn btn-success px-md-5 py-md-3 rounded-pill fw-semibold"
               >

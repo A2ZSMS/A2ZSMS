@@ -146,10 +146,10 @@ export default function PlatformPage() {
               </p>
 
               <div className="hero-actions">
-                <Link href="/try-for-free/" className="btn-cta">
+                <Link prefetch={false} href="/try-for-free/" className="btn-cta">
                   Start Free Trial <i className="bi bi-arrow-right" />
                 </Link>
-                <Link href="/request-demo/" className="btn-ghost">
+                <Link prefetch={false} href="/request-demo/" className="btn-ghost">
                   <i className="bi bi-play-circle" /> Book a Demo
                 </Link>
               </div>
@@ -249,10 +249,10 @@ export default function PlatformPage() {
                     ))}
                   </div>
                   <div style={{ display:"flex", gap:14, flexWrap:"wrap" }}>
-                    <Link href={p.link} className="btn-cta" style={{ fontSize:"0.9rem", padding:"12px 28px" }}>
+                    <Link prefetch={false} href={p.link} className="btn-cta" style={{ fontSize:"0.9rem", padding:"12px 28px" }}>
                       Explore {p.title} <i className="bi bi-arrow-right" />
                     </Link>
-                    <Link href="/request-demo/" style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"12px 24px", border:"2px solid #e5e7eb", borderRadius:50, fontSize:"0.9rem", fontWeight:600, color:"#374151", textDecoration:"none", transition:"all 0.2s" }}>
+                    <Link prefetch={false} href="/request-demo/" style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"12px 24px", border:"2px solid #e5e7eb", borderRadius:50, fontSize:"0.9rem", fontWeight:600, color:"#374151", textDecoration:"none", transition:"all 0.2s" }}>
                       <i className="bi bi-calendar-check" /> Book Demo
                     </Link>
                   </div>
@@ -331,10 +331,10 @@ export default function PlatformPage() {
                 can integrate in the language and protocol you already use.
               </p>
               <div style={{ display:"flex", gap:12, flexWrap:"wrap", marginTop:28 }}>
-                <Link href="/request-demo/" className="btn-cta" style={{ fontSize:"0.9rem" }}>
+                <Link prefetch={false} href="/request-demo/" className="btn-cta" style={{ fontSize:"0.9rem" }}>
                   View API Docs <i className="bi bi-arrow-right" />
                 </Link>
-                <Link href="/request-demo/" style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"12px 24px", border:"2px solid #e5e7eb", borderRadius:50, fontSize:"0.9rem", fontWeight:600, color:"#374151", textDecoration:"none" }}>
+                <Link prefetch={false} href="/request-demo/" style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"12px 24px", border:"2px solid #e5e7eb", borderRadius:50, fontSize:"0.9rem", fontWeight:600, color:"#374151", textDecoration:"none" }}>
                   <i className="bi bi-file-earmark-code" /> Postman Collection
                 </Link>
               </div>
@@ -458,7 +458,7 @@ Content-Type: application/json
             ))}
           </div>
           <div className="text-center mt-5">
-            <Link href="/try-for-free/" className="btn-cta">
+            <Link prefetch={false} href="/try-for-free/" className="btn-cta">
               Start Free — No Card Needed <i className="bi bi-arrow-right" />
             </Link>
           </div>
@@ -476,10 +476,10 @@ Content-Type: application/json
             millions of messages every day — reliably, compliantly, at scale.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="200">
-            <Link href="/try-for-free/" className="btn-white">
+            <Link prefetch={false} href="/try-for-free/" className="btn-white">
               Get Started Free <i className="bi bi-arrow-right" />
             </Link>
-            <Link href="/contact/" className="btn-outline-white">
+            <Link prefetch={false} href="/contact/" className="btn-outline-white">
               <i className="bi bi-telephone" /> Talk to Sales
             </Link>
           </div>

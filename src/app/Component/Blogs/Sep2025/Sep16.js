@@ -733,10 +733,10 @@ const Sep16 = () => {
               strategies that ensure successful adoption and measurable results.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Schedule RCS Consultation
               </Link>
-              <Link href="/rcs-service/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/rcs-service/" className="btn btn-outline-primary">
                 Explore RCS Solutions
               </Link>
             </div>
@@ -813,7 +813,7 @@ const Sep16 = () => {
                     A2ZSMS is a Bangalore-based provider offering Bulk SMS,
                     WhatsApp API, and RCS messaging services.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/blogs/rcs-messaging-service-provider-in-bangalore/"
                     className="btn btn-primary btn-sm"
                   >
@@ -832,7 +832,7 @@ const Sep16 = () => {
                     WhatsApp Business API developers help create chatbots and
                     automate customer conversations.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/blogs/top-5-chatbot-platforms-for-whatsApp-business-api-developers/"
                     className="btn btn-primary btn-sm"
                   >
@@ -852,7 +852,7 @@ const Sep16 = () => {
                     engagement, save time, and streamline business
                     communication.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/blogs/top-10-benefits-of-whatsApp-chatbots-for-small-businesses-in-bangalore/"
                     className="btn btn-primary btn-sm"
                   >
@@ -1040,10 +1040,10 @@ const Sep16 = () => {
               customer satisfaction beyond traditional SMS limitations.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Start Your RCS Journey
               </Link>
-              <Link href="/request-demo/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/request-demo/" className="btn btn-outline-light">
                 Request Demo
               </Link>
             </div>

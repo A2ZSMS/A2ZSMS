@@ -1,6 +1,5 @@
 "use client"; // Important for Next.js app directory
 
-import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
 
@@ -67,10 +66,11 @@ const Home = () => {
           {/* Right Image Section */}
           <div className="col-md-6 text-center aos" data-aos="fade-left">
             <img
+              fetchPriority="high"
               src="/image/Solutions/Ecommerce.png"
               alt="Retail & E-commerce Services"
-              width="px"
-              height={"px"}
+              width={2080}
+              height={2080}
               className="img-fluid rounded"
             />
           </div>

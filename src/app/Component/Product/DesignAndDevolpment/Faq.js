@@ -215,14 +215,14 @@ const Faq = () => {
                 advice—even if you're not ready to start immediately.
               </p>
               <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                <Link
+                <Link prefetch={false}
                   href="/contact/"
                   className="btn btn-primary  px-md-5 py-md-3 rounded-pill fw-semibold"
                 >
                   <i className="bi bi-telephone-fill me-2"></i>
                   Schedule Free Consultation
                 </Link>
-                <Link
+                <Link prefetch={false}
                   href="https://wa.me/918431086185"
                   target="_blank"
                   rel="noopener noreferrer"

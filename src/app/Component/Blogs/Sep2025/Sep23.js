@@ -420,10 +420,10 @@ const Sep23 = () => {
               with reliable, scalable voice messaging services.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Get Started Today
               </Link>
-              <Link href="/voice-call/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/voice-call/" className="btn btn-outline-primary">
                 Explore Voice Services
               </Link>
             </div>
@@ -1022,7 +1022,7 @@ const Sep23 = () => {
                     notifications, and customer communication with high delivery
                     rates and comprehensive analytics.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     Explore SMS Services
                   </Link>
                 </div>
@@ -1040,7 +1040,7 @@ const Sep23 = () => {
                     engagement, support automation, and multimedia messaging
                     with official business verification.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -1061,7 +1061,7 @@ const Sep23 = () => {
                     features, rich media support, and enhanced customer
                     engagement capabilities.
                   </p>
-                  <Link href="/rcs-service/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/rcs-service/" className="btn btn-primary btn-sm">
                     RCS Solutions
                   </Link>
                 </div>
@@ -1108,10 +1108,10 @@ const Sep23 = () => {
               reliable voice messaging technology.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Get Started Now
               </Link>
-              <Link href="/voice-call/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/voice-call/" className="btn btn-outline-light">
                 View Voice Services
               </Link>
             </div>

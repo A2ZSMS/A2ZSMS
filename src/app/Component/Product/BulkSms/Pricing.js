@@ -5,7 +5,6 @@ import {
   faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import "./pricing.css";
 import Link from "next/link";
 
@@ -300,7 +299,7 @@ const PricingTabs = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/request-demo" passHref>
+                  <Link prefetch={false} href="/request-demo" passHref>
                     <button
                       className={`btn btn-${item.color} text-white fw-bold w-100 mt-3`}
                       style={{ borderRadius: "20px" }}

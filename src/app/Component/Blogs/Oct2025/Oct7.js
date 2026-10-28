@@ -233,10 +233,10 @@ const oct7 = () => {
               growth.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Get Started Today
               </Link>
-              <Link href="/whatsapp-api/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/whatsapp-api/" className="btn btn-outline-primary">
                 Explore WhatsApp API
               </Link>
             </div>
@@ -804,7 +804,7 @@ const oct7 = () => {
                     enable seamless shopping experiences that drive 40-50%
                     higher conversion rates.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -826,7 +826,7 @@ const oct7 = () => {
                     action buttons. Perfect for customers who prefer SMS channel
                     with advanced engagement capabilities.
                   </p>
-                  <Link href="/rcs-service/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/rcs-service/" className="btn btn-primary btn-sm">
                     Learn About RCS
                   </Link>
                 </div>
@@ -845,7 +845,7 @@ const oct7 = () => {
                     OTPs, and basic notifications ensuring complete customer
                     coverage across all channels.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     SMS Solutions
                   </Link>
                 </div>
@@ -1066,10 +1066,10 @@ const oct7 = () => {
               conversion rate increases and positive ROI within months.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Schedule Consultation
               </Link>
-              <Link href="/whatsapp-api/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/whatsapp-api/" className="btn btn-outline-light">
                 Explore Solutions
               </Link>
             </div>
@@ -1132,10 +1132,10 @@ const oct7 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary  me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary  me-3">
               Get Started with WhatsApp API
             </Link>
-            <Link href="/whatsapp-api/" className="btn btn-outline-primary ">
+            <Link prefetch={false} href="/whatsapp-api/" className="btn btn-outline-primary ">
               Learn More About Solutions
             </Link>
           </div>

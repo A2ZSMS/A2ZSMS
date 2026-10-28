@@ -1,7 +1,9 @@
 import Script from "next/script";
-import "aos/dist/aos.css";
+// aos.css is loaded from ClientRuntime (after in-viewport elements are made static),
+// so it no longer render-blocks or hides above-the-fold content before hydration.
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+// Subset of bootstrap-icons.css with only the icons the site uses (~17KB vs ~84KB).
+import "./bootstrap-icons-subset.css";
 import "./globals.css";
 
 import Headerdrop from "./Component/Header/Headerdrop";
@@ -165,9 +167,13 @@ export default function RootLayout({ children }) {
             };
           `}
         </Script>
+        {/* Intercom chat widget (~1s of main-thread work on mobile) is fetched on the
+            visitor's first interaction (scroll/tap/key/mouse move) or after 6s idle,
+            instead of during page load, so it no longer competes with LCP/INP.
+            window.Intercom is still stubbed immediately, so early calls are queued. */}
         <Script id="intercom-widget" strategy="lazyOnload">
           {`
-            (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/a5mrjdl9';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+            (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var done=false;var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];var l=function(){if(done)return;done=true;evs.forEach(function(e){w.removeEventListener(e,l,true);});clearTimeout(t);var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/a5mrjdl9';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};evs.forEach(function(e){w.addEventListener(e,l,{capture:true,passive:true,once:true});});var t=setTimeout(l,6000);}})();
           `}
         </Script>
         {/* End Intercom Code */}

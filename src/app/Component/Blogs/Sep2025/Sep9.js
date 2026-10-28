@@ -770,10 +770,10 @@ const Sep9 = () => {
               campaigns as you gain experience and data insights.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Get Expert Consultation
               </Link>
-              <Link href="/bulk-sms/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-primary">
                 View Our SMS Services
               </Link>
             </div>
@@ -800,7 +800,7 @@ const Sep9 = () => {
                     Complete guide to SMS marketing regulations and compliance
                     requirements for businesses.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/blogs/best-bulk-sMS-provider-in-bangalore-for-businesses/"
                     className="btn btn-primary btn-sm"
                   >
@@ -822,7 +822,7 @@ const Sep9 = () => {
                     Comprehensive review of top SMS automation platforms and
                     their key features for businesses.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/blogs/boost-business-reach-with-reliable-bulk-sMS-services/"
                     className="btn btn-primary btn-sm"
                   >
@@ -844,7 +844,7 @@ const Sep9 = () => {
                     Learn how to track, measure, and optimize your SMS marketing
                     campaign performance effectively.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/blogs/bulk-sms-service-provider-in-bangalore/"
                     className="btn btn-primary btn-sm"
                   >

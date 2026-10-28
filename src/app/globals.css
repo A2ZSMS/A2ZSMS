@@ -2,6 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap");
 
+/* Metric-matched fallback for Inter (same values next/font generates): while the
+   web font is still loading, text is laid out with Arial scaled to Inter's metrics,
+   so the swap to Inter (display=swap) no longer shifts content (CLS). */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Helvetica"), local("Roboto");
+  size-adjust: 107.12%;
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+}
+
 :root {
   /* Brand Colors - from header/CTA */
   --brand-blue: #097bdf;
@@ -40,7 +52,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   color: var(--text-body);
   overflow-x: hidden;
 }
@@ -106,34 +118,34 @@ h2 {
 .para-color1 {
   font-size: 16px;
   font-weight: 500;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   line-height: 30px;
 }
 
 .para-blog {
   font-size: 16px;
   font-weight: 500;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
 }
 
 .para-color {
   font-size: 15px;
   font-weight: 500;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   line-height: 26px;
 }
 
 .para-color2 {
   font-size: 15px;
   font-weight: 500;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   line-height: 40px;
 }
 
 .para-color3 {
   font-size: 18px;
   font-weight: 500;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   line-height: 32px;
 }
 
@@ -169,7 +181,7 @@ h2 {
 }
 
 .text1 {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Inter Fallback", sans-serif;
   color: #5f6880;
   line-height: 24px;
   font-size: 16px;
@@ -178,7 +190,7 @@ h2 {
 .para {
   font-size: 15px;
   font-weight: 400;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   line-height: 24px;
   color: #5f6880;
 }
@@ -186,7 +198,7 @@ h2 {
 .para-head {
   font-size: 20px;
   font-weight: 600;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter", "Inter Fallback", sans-serif !important;
   line-height: 24px;
   color: #3f3f3f !important;
 }

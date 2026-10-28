@@ -50,6 +50,8 @@ const Client = () => (
               src={image}
               alt={`Client ${index + 1}`}
               className="img-fluid"
+              loading="lazy"
+              decoding="async"
               style={{ maxHeight: "100px", objectFit: "contain" }}
             />
           </div>

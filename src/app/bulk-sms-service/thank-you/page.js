@@ -63,7 +63,7 @@ const ThankYouPage = () => {
 
           {/* CTA buttons */}
           <div className={styles.actions}>
-            <Link href="/" className={styles.btnPrimary}>
+            <Link prefetch={false} href="/" className={styles.btnPrimary}>
               <i className="bi bi-house-fill me-2"></i>Back to Home
             </Link>
             <a

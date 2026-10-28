@@ -59,13 +59,16 @@ export default function BlogList({ blogsData }) {
                   className={`col-md-4 mb-4${i >= indexOfFirstBlog && i < indexOfLastBlog ? "" : " d-none"}`}
                   key={blog.slug}
                 >
-                  <Link href={`/blogs/${blog.slug}/`} className="text-decoration-none">
+                  <Link prefetch={false} href={`/blogs/${blog.slug}/`} className="text-decoration-none">
                     <div className="card h-100 shadow-sm">
                       <img
                         src={blog.image || "/Images/meta-image.jpg"}
                         alt={blog.title}
                         className="card-img-top"
-                        loading="lazy"
+                        // First visible row is above the fold (LCP): load it eagerly.
+                        loading={i < 3 ? "eager" : "lazy"}
+                        fetchPriority={i === 0 ? "high" : undefined}
+                        decoding="async"
                         style={{ height: "200px", objectFit: "cover" }}
                       />
                       <div className="card-body">

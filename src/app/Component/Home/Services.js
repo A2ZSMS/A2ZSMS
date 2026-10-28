@@ -72,7 +72,7 @@ const Services = () => {
                 </div>
                 <h5>{item.title}</h5>
                 <p>{item.desc}</p>
-                <Link href={item.link} className="service-link">
+                <Link prefetch={false} href={item.link} className="service-link">
                   Learn more <i className="bi bi-arrow-right"></i>
                 </Link>
               </div>

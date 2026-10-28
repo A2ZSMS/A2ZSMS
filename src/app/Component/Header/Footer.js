@@ -70,7 +70,7 @@ const Footer = () => {
                 {/* Social Links */}
                 <div className="footer-socials">
                   {socialLinks.map((social, index) => (
-                    <Link
+                    <Link prefetch={false}
                       key={index}
                       href={social.href}
                       className="footer-social-link"
@@ -90,7 +90,7 @@ const Footer = () => {
               <ul className="footer-links">
                 {companyLinks.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.href}>
+                    <Link prefetch={false} href={link.href}>
                       <i className="bi bi-chevron-right"></i>
                       {link.label}
                     </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
               <ul className="footer-links">
                 {serviceLinks.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.href}>
+                    <Link prefetch={false} href={link.href}>
                       <i className="bi bi-chevron-right"></i>
                       {link.label}
                     </Link>
@@ -196,9 +196,9 @@ const Footer = () => {
             </div>
             <div className="col-md-6 text-center text-md-end">
               <div className="footer-legal">
-                <Link href="/terms/">Terms & Conditions</Link>
-                <Link href="/privacy/">Privacy Policy</Link>
-                <Link href="/refund-policy/">Refund Policy</Link>
+                <Link prefetch={false} href="/terms/">Terms & Conditions</Link>
+                <Link prefetch={false} href="/privacy/">Privacy Policy</Link>
+                <Link prefetch={false} href="/refund-policy/">Refund Policy</Link>
               </div>
             </div>
           </div>

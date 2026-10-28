@@ -67,7 +67,7 @@ const StepsSection = () => {
         </div>
 
         <div className="text-center mt-5" data-aos="fade-up">
-          <Link href="/try-for-free" className={styles.primaryBtnLight}>
+          <Link prefetch={false} href="/try-for-free" className={styles.primaryBtnLight}>
             Get Started FREE <i className="bi bi-arrow-right ms-1"></i>
           </Link>
         </div>

@@ -1,5 +1,4 @@
 "use client";
-import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
 import styles from "./Chatbot.module.css";
@@ -48,10 +47,10 @@ const Home = () => {
             </p>
 
             <div className="d-flex flex-wrap gap-3 mt-4 mb-4">
-              <Link href="/try-for-free" className={styles.primaryBtn}>
+              <Link prefetch={false} href="/try-for-free" className={styles.primaryBtn}>
                 Start for Free <i className="bi bi-arrow-right ms-1"></i>
               </Link>
-              <Link href="/request-demo" className={styles.secondaryBtn}>
+              <Link prefetch={false} href="/request-demo" className={styles.secondaryBtn}>
                 <i className="bi bi-play-circle me-1"></i> Watch Demo
               </Link>
             </div>
