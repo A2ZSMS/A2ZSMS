@@ -872,7 +872,7 @@ const Sep2 = () => {
                 to drive unprecedented growth.
               </p>
               <p className="mt-3">
-                <Link
+                <Link prefetch={false}
                   href="https://www.a2zsms.in/whatsapp-business-api/"
                   target="_blank"
                   rel="noopener noreferrer"

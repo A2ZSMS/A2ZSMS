@@ -250,10 +250,10 @@ const Oct23 = () => {
               measurable ROI.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Start WhatsApp Marketing
               </Link>
-              <Link href="/whatsapp-api/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/whatsapp-api/" className="btn btn-outline-primary">
                 Explore WhatsApp Services
               </Link>
             </div>
@@ -906,7 +906,7 @@ const Oct23 = () => {
                     WhatsApp communication transforming customer engagement and
                     finances.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -928,7 +928,7 @@ const Oct23 = () => {
                     notifications. Achieve 98% delivery rates reaching customers
                     across all mobile networks in India.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     Learn About SMS
                   </Link>
                 </div>
@@ -947,7 +947,7 @@ const Oct23 = () => {
                     Next-generation messaging combining SMS reliability with
                     WhatsApp-like rich experiences.
                   </p>
-                  <Link href="/rcs-service/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/rcs-service/" className="btn btn-primary btn-sm">
                     Discover RCS
                   </Link>
                 </div>
@@ -1010,10 +1010,10 @@ const Oct23 = () => {
               transformation today.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Schedule Free Consultation
               </Link>
-              <Link href="/whatsapp-api/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/whatsapp-api/" className="btn btn-outline-light">
                 Explore WhatsApp Solutions
               </Link>
             </div>
@@ -1085,10 +1085,10 @@ const Oct23 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary me-3">
               Start WhatsApp Marketing
             </Link>
-            <Link href="/whatsapp-api/" className="btn btn-outline-primary">
+            <Link prefetch={false} href="/whatsapp-api/" className="btn btn-outline-primary">
               Learn More About Services
             </Link>
           </div>

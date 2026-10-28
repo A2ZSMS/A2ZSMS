@@ -1,6 +1,5 @@
 "use client"; // Important for Next.js app directory
 
-import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
 
@@ -56,10 +55,11 @@ const Home = () => {
           {/* Right Image Section */}
           <div className="col-md-6 text-center aos" data-aos="fade-left">
             <img
+              fetchPriority="high"
               src="/image/Solutions/game.png"
               alt="Gaming WhatsApp Services"
-              width="px"
-              height={"px"}
+              width={1600}
+              height={1600}
               className="img-fluid rounded"
             />
           </div>

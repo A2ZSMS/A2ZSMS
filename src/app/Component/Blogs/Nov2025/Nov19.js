@@ -242,10 +242,10 @@ const Nov19 = () => {
               and sustainable revenue growth.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Start RCS Messaging
               </Link>
-              <Link href="/rcs-service/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/rcs-service/" className="btn btn-outline-primary">
                 Explore RCS Services
               </Link>
             </div>
@@ -838,7 +838,7 @@ const Nov19 = () => {
                     Achieve 35-45% higher engagement and 25-35% better
                     conversion rates.
                   </p>
-                  <Link href="/rcs-service/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/rcs-service/" className="btn btn-primary btn-sm">
                     Explore RCS Services
                   </Link>
                 </div>
@@ -857,7 +857,7 @@ const Nov19 = () => {
                     shopping experiences, and 60-80% message open rates for
                     maximum customer engagement.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -878,7 +878,7 @@ const Nov19 = () => {
                     with 98% delivery rates. Perfect for transactional alerts,
                     OTPs, and notifications ensuring complete audience coverage.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     SMS Solutions
                   </Link>
                 </div>
@@ -1112,10 +1112,10 @@ const Nov19 = () => {
               campaign performance improvements and positive ROI within months.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Schedule Consultation
               </Link>
-              <Link href="/rcs-service/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/rcs-service/" className="btn btn-outline-light">
                 Explore RCS Solutions
               </Link>
             </div>
@@ -1177,10 +1177,10 @@ const Nov19 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary btn-lg me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary btn-lg me-3">
               Get Started with RCS Messaging
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/rcs-service/"
               className="btn btn-outline-primary btn-lg"
             >

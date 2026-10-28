@@ -471,10 +471,10 @@ const Sep30 = () => {
               appointments, recovers sales, and improves satisfaction.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Start Solving Communication Challenges
               </Link>
-              <Link href="/bulk-sms/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-primary">
                 Explore SMS Solutions
               </Link>
             </div>
@@ -1132,7 +1132,7 @@ const Sep30 = () => {
                     transactional alerts with instant delivery and comprehensive
                     analytics.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     Explore Bulk SMS
                   </Link>
                 </div>
@@ -1151,7 +1151,7 @@ const Sep30 = () => {
                     for payment reminders, emergency notifications, and critical
                     announcements demanding immediate attention.
                   </p>
-                  <Link href="/voice-call/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/voice-call/" className="btn btn-primary btn-sm">
                     Voice Call Systems
                   </Link>
                 </div>
@@ -1170,7 +1170,7 @@ const Sep30 = () => {
                     automated support, rich media messaging, and interactive
                     communication customers prefer and trust.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -1228,10 +1228,10 @@ const Sep30 = () => {
               part of business with A2ZSMS.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Solve Your Communication Challenges
               </Link>
-              <Link href="/bulk-sms/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-light">
                 Start with Bulk SMS
               </Link>
             </div>
@@ -1290,10 +1290,10 @@ const Sep30 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary btn-lg me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary btn-lg me-3">
               Get Started Now
             </Link>
-            <Link href="/bulk-sms/" className="btn btn-outline-primary btn-lg">
+            <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-primary btn-lg">
               View All Services
             </Link>
           </div>

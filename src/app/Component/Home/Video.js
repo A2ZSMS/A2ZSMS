@@ -1,7 +1,12 @@
 import Link from "next/link";
+import { preload } from "react-dom";
 import "./Home.css";
 
 const Video = () => {
+  // The hero poster is the LCP element on desktop: let the browser fetch it
+  // from the <head> at high priority instead of discovering it late in <body>.
+  preload("/video/video-poster.webp", { as: "image", fetchPriority: "high" });
+
   return (
     <div className="hero">
       <video
@@ -38,10 +43,10 @@ const Video = () => {
               </p>
 
               <div className="hero-actions">
-                <Link href="/try-for-free/" className="btn-cta">
+                <Link prefetch={false} href="/try-for-free/" className="btn-cta">
                   Get Started Free <i className="bi bi-arrow-right"></i>
                 </Link>
-                <Link href="/request-demo/" className="btn-ghost">
+                <Link prefetch={false} href="/request-demo/" className="btn-ghost">
                   <i className="bi bi-play-circle"></i> Request Demo
                 </Link>
               </div>

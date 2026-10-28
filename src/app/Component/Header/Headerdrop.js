@@ -74,9 +74,9 @@ const HeaderDrop = () => {
       <header>
         <nav className={navClass} style={{ zIndex: 1000 }}>
           <div className="container w-100">
-            <Link className="navbar-brand" href="/">
+            <Link prefetch={false} className="navbar-brand" href="/">
               <img
-                src="/image/logo1.png"
+                src="/image/logo1-240.webp"
                 alt="A2ZSMS"
                 width={80}
                 height={60}
@@ -105,9 +105,9 @@ const HeaderDrop = () => {
               aria-labelledby="offcanvasNavbarLabel"
             >
               <div className="offcanvas-header">
-                <Link className="navbar-brand" href="/">
+                <Link prefetch={false} className="navbar-brand" href="/">
                   <img
-                    src="/image/logo1.png"
+                    src="/image/logo1-240.webp"
                     alt="A2ZSMS"
                     width={80}
                     height={60}
@@ -138,7 +138,7 @@ const HeaderDrop = () => {
                       </a>
                       <ul className="dropdown-menu" id="line-space">
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item fw-bold"
                             href="/platform/"
                             onClick={() => {
@@ -153,7 +153,7 @@ const HeaderDrop = () => {
                         </li>
                         <li><hr className="dropdown-divider my-1" /></li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/whatsapp-api/"
                             onClick={() => {
@@ -167,7 +167,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/chatbot"
                             onClick={() => {
@@ -181,7 +181,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/rcs-service/"
                             onClick={() => {
@@ -195,7 +195,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/bulk-sms/"
                             onClick={() => {
@@ -209,7 +209,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/voice-call"
                             onClick={() => {
@@ -224,7 +224,7 @@ const HeaderDrop = () => {
                         </li>
                         {/* AWS CREDITS: Web Design & Development temporarily hidden
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/design-developement/"
                             onClick={() => {
@@ -257,7 +257,7 @@ const HeaderDrop = () => {
                             <p className="m-2 ps-2 fw-bold">By Industry</p>
                             <ul className="list-unstyled" id="line-space">
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/real-estate/"
                                   onClick={() => {
@@ -274,7 +274,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/tours-travel/"
                                   onClick={() => {
@@ -292,7 +292,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/gaming/"
                                   onClick={() => {
@@ -309,7 +309,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/health-care/"
                                   onClick={() => {
@@ -330,7 +330,7 @@ const HeaderDrop = () => {
                           <div className="col-md-6">
                             <ul className="list-unstyled" id="line-space">
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/food-beverage/"
                                   onClick={() => {
@@ -348,7 +348,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/retail-ecommerce/"
                                   onClick={() => {
@@ -366,7 +366,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/media-entertainment/"
                                   onClick={() => {
@@ -384,7 +384,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/government/"
                                   onClick={() => {
@@ -401,7 +401,7 @@ const HeaderDrop = () => {
                                 </Link>
                               </li>
                               <li>
-                                <Link
+                                <Link prefetch={false}
                                   className="dropdown-item"
                                   href="/education/"
                                   onClick={() => {
@@ -430,7 +430,7 @@ const HeaderDrop = () => {
                       </a>
                       <ul className="dropdown-menu" id="line-space">
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/services"
                             onClick={() => {
@@ -444,7 +444,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/faq"
                             onClick={() => {
@@ -458,7 +458,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/blogs/"
                             onClick={() => {
@@ -475,7 +475,7 @@ const HeaderDrop = () => {
                     </li>
                     {/* Platform Nav Item */}
                     <li className="nav-item">
-                      <Link
+                      <Link prefetch={false}
                         className={`nav-link fw-bold poda ${
                           isHomePage && !isScrolled ? "text-white" : "text-dark"
                         }`}
@@ -486,7 +486,7 @@ const HeaderDrop = () => {
                     </li>
 
                     <li className="nav-item">
-                      <Link
+                      <Link prefetch={false}
                         className={`nav-link  fw-bold poda ${
                           isHomePage && !isScrolled ? "text-white" : "text-dark"
                         }`}
@@ -496,7 +496,7 @@ const HeaderDrop = () => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link
+                      <Link prefetch={false}
                         className={`nav-link  fw-bold poda ${
                           isHomePage && !isScrolled ? "text-white" : "text-dark"
                         }`}
@@ -512,7 +512,7 @@ const HeaderDrop = () => {
                       </a>
                       <ul className="dropdown-menu" id="line-space">
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/about/"
                             onClick={() => {
@@ -526,7 +526,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/contact/"
                             onClick={() => {
@@ -540,7 +540,7 @@ const HeaderDrop = () => {
                           </Link>
                         </li>
                          <li>
-                          <Link
+                          <Link prefetch={false}
                             className="dropdown-item"
                             href="/career/"
                             onClick={() => {
@@ -560,7 +560,7 @@ const HeaderDrop = () => {
 
                 {/* Action Buttons */}
                 <div className="btn-header ms-auto gap-3">
-                  <Link
+                  <Link prefetch={false}
                     href="/try-for-free"
                     className="action btn btn-primary px-4 buton fw-bold pt-2"
                     onClick={() => {
@@ -572,7 +572,7 @@ const HeaderDrop = () => {
                   >
                     Try For Free
                   </Link>
-                  <Link
+                  <Link prefetch={false}
                     href="/request-demo"
                     className="action btn btn-outline-primary px-4 buton fw-bold pt-2 "
                     onClick={() => {

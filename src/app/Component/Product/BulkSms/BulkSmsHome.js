@@ -51,6 +51,8 @@ const BulkSmsHome = () => {
               <img
                 className="img-fluid rounded"
                 src="/image/product/otp.png"
+                loading="lazy"
+                decoding="async"
                 alt="Transactional SMS Services"
               />
             </div>
@@ -108,6 +110,8 @@ const BulkSmsHome = () => {
               <img
                 className="img-fluid rounded"
                 src="/image/product/transactional.png"
+                loading="lazy"
+                decoding="async"
                 alt="Transactional SMS Services"
               />
             </div>
@@ -125,6 +129,8 @@ const BulkSmsHome = () => {
               <img
                 className="img-fluid rounded"
                 src="/image/product/promotional.png"
+                loading="lazy"
+                decoding="async"
                 alt="Transactional SMS Services"
               />
             </div>

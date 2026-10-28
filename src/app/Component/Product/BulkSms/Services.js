@@ -66,10 +66,11 @@ const Services = () => {
           {/* Left Image Section */}
           <div className="col-md-6" data-aos="zoom-in-right">
             <Image
-              src="/image/feature-icon/hero-girl.png"
+              src="/image/feature-icon/hero-girl.webp"
               alt="Bulk SMS Services"
               width={450}
               height={640}
+              priority
               style={{ borderRadius: "10px" }}
             />
           </div>

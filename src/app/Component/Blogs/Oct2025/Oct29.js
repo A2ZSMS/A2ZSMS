@@ -258,10 +258,10 @@ const Oct29 = () => {
               with measurable ROI.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Start Website Development
               </Link>
-              <Link href="/services/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/services/" className="btn btn-outline-primary">
                 Explore Our Services
               </Link>
             </div>
@@ -1208,7 +1208,7 @@ const Oct29 = () => {
                     leads and driving revenue through India's most-used
                     messaging platform.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -1230,7 +1230,7 @@ const Oct29 = () => {
                     notifications. Achieve 98% delivery rates reaching customers
                     instantly across all mobile networks in India.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     Learn About SMS
                   </Link>
                 </div>
@@ -1249,7 +1249,7 @@ const Oct29 = () => {
                     marketing, and content strategy. Drive qualified traffic to
                     your website generating sustainable revenue growth.
                   </p>
-                  <Link href="/contact/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/contact/" className="btn btn-primary btn-sm">
                     Get Marketing Plan
                   </Link>
                 </div>
@@ -1311,10 +1311,10 @@ const Oct29 = () => {
               Start your revenue transformation today.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Schedule Free Consultation
               </Link>
-              <Link href="/services/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/services/" className="btn btn-outline-light">
                 Explore Development Services
               </Link>
             </div>
@@ -1386,10 +1386,10 @@ const Oct29 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary me-3">
               Start Website Development
             </Link>
-            <Link href="/services/" className="btn btn-outline-primary">
+            <Link prefetch={false} href="/services/" className="btn btn-outline-primary">
               Learn More About Services
             </Link>
           </div>

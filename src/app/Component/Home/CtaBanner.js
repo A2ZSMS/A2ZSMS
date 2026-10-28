@@ -12,10 +12,10 @@ const CtaBanner = () => {
           boost sales, and automate communication.
         </p>
         <div className="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="200">
-          <Link href="/try-for-free/" className="btn-white">
+          <Link prefetch={false} href="/try-for-free/" className="btn-white">
             Get Started Free <i className="bi bi-arrow-right"></i>
           </Link>
-          <Link href="/contact/" className="btn-outline-white">
+          <Link prefetch={false} href="/contact/" className="btn-outline-white">
             <i className="bi bi-telephone"></i> Talk to Sales
           </Link>
         </div>

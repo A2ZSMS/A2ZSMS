@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 const Industries = () => {
   useEffect(() => {
@@ -47,7 +46,7 @@ const Industries = () => {
               data-aos-delay={index * 50}
               key={index}
             >
-              <Link href={industry.path} className="text-decoration-none">
+              <Link prefetch={false} href={industry.path} className="text-decoration-none">
                 <div className="industry-card">
                   <img src={industry.icon} alt={industry.alt} width="44" height="44" />
                   <h6 className="mb-0">{industry.title}</h6>

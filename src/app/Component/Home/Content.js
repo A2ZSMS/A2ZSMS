@@ -50,7 +50,7 @@ const ContentHome = ({ data }) => {
                 {/* Image Section */}
                 <div className="col-md-6 text-center py-4" data-aos="fade-left">
                   <div className="content-img-wrap">
-                    <img src={item.image} alt={item.title} className="w-100" />
+                    <img src={item.image} alt={item.title} className="w-100" loading="lazy" decoding="async" />
                   </div>
                 </div>
               </div>

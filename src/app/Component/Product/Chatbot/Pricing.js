@@ -118,7 +118,7 @@ const Pricing = () => {
                     ))}
                   </div>
 
-                  <Link
+                  <Link prefetch={false}
                     href="/request-demo"
                     className={`btn w-100 py-2 fw-semibold ${styles.pricingBtn} ${styles[`pricingBtn_${category.tier}`]}`}
                   >

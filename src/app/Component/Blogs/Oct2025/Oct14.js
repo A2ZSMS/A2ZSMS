@@ -240,10 +240,10 @@ const Oct1425 = () => {
               marketing effectiveness.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-primary">
+              <Link prefetch={false} href="/contact/" className="btn btn-primary">
                 Get Started Today
               </Link>
-              <Link href="/bulk-sms/" className="btn btn-outline-primary">
+              <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-primary">
                 Explore SMS Services
               </Link>
             </div>
@@ -938,7 +938,7 @@ const Oct1425 = () => {
                     for promotional campaigns, transactional alerts, and
                     customer notifications across Karnataka.
                   </p>
-                  <Link href="/bulk-sms/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/bulk-sms/" className="btn btn-primary btn-sm">
                     Explore Bulk SMS
                   </Link>
                 </div>
@@ -957,7 +957,7 @@ const Oct1425 = () => {
                     multimedia content reaching Bangalore customers on their
                     preferred platform.
                   </p>
-                  <Link
+                  <Link prefetch={false}
                     href="/whatsapp-api/"
                     className="btn btn-primary btn-sm"
                   >
@@ -979,7 +979,7 @@ const Oct1425 = () => {
                     Future-proof your messaging strategy with next-generation
                     mobile communication.
                   </p>
-                  <Link href="/rcs-service/" className="btn btn-primary btn-sm">
+                  <Link prefetch={false} href="/rcs-service/" className="btn btn-primary btn-sm">
                     Discover RCS
                   </Link>
                 </div>
@@ -1038,10 +1038,10 @@ const Oct1425 = () => {
               month.
             </p>
             <div className="d-flex gap-3">
-              <Link href="/contact/" className="btn btn-light">
+              <Link prefetch={false} href="/contact/" className="btn btn-light">
                 Schedule Consultation
               </Link>
-              <Link href="/bulk-sms/" className="btn btn-outline-light">
+              <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-light">
                 Explore SMS Solutions
               </Link>
             </div>
@@ -1113,10 +1113,10 @@ const Oct1425 = () => {
           </div>
 
           <div className="text-center mt-4">
-            <Link href="/contact/" className="btn btn-primary me-3">
+            <Link prefetch={false} href="/contact/" className="btn btn-primary me-3">
               Get Started with Bulk SMS
             </Link>
-            <Link href="/bulk-sms/" className="btn btn-outline-primary">
+            <Link prefetch={false} href="/bulk-sms/" className="btn btn-outline-primary">
               Learn More About Services
             </Link>
           </div>

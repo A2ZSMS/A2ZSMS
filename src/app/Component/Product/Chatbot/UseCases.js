@@ -341,7 +341,7 @@ const UseCases = () => {
                       ))}
                     </div>
 
-                    <Link
+                    <Link prefetch={false}
                       href="/request-demo"
                       className={`mt-3 ${styles.primaryBtn}`}
                     >

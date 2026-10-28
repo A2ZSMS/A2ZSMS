@@ -270,7 +270,7 @@ const Responsivedesign = () => {
                   Websites without regular maintenance lose 40% of their traffic
                   within 2 years
                 </p>
-                <Link
+                <Link prefetch={false}
                   href="/contact/"
                   className="btn btn-warning  px-md-5 py-md-3 rounded-pill fw-semibold text-dark"
                 >

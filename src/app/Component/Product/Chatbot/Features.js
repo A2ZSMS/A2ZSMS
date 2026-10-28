@@ -62,7 +62,7 @@ const Features = () => {
               Drive faster conversions, happier customers, and stronger retention
               with one unified WhatsApp chatbot experience.
             </p>
-            <Link href="/request-demo" className={`mt-4 ${styles.primaryBtn}`}>
+            <Link prefetch={false} href="/request-demo" className={`mt-4 ${styles.primaryBtn}`}>
               Schedule a Demo <i className="bi bi-arrow-right ms-1"></i>
             </Link>
           </div>
