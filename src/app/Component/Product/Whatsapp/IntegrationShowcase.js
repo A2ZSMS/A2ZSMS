@@ -219,7 +219,7 @@ const IntegrationShowcase = () => {
             Don't see your platform? We can build custom integrations!
           </p>
           <a
-            href="/contact"
+            href="/contact/"
             className="btn btn-outline-success btn-lg px-5 py-2"
             style={{ borderRadius: "30px" }}
           >

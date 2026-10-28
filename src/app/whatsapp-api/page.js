@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import WhatsappApi from "../Component/Product/Whatsapp/WhatsappApi";
 
 export const metadata = {
@@ -51,7 +52,9 @@ export const viewport = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="whatsapp-api" />
       <WhatsappApi />
+      <RelatedGuides slug="whatsapp-api" />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from "react";
 import Food from "../Component/Solutions/Food/Food";
 export const metadata = {
@@ -37,7 +38,10 @@ export const metadata = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="food-beverage" />
       <Food />
+    
+      <RelatedGuides slug="food-beverage" />
     </div>
   );
 };

@@ -75,8 +75,8 @@ const Home = () => {
         <div className="row align-items-center aos">
           <div className="col-md-6 para-color" data-aos="fade-right">
             <h1 className="fw-bold mb-2">
-              Improve Your Business with{" "}
-              <span className="text-info">RCS Messaging Solutions</span>
+              <span className="text-info">RCS Business Messaging</span>{" "}
+              Provider in Bangalore
             </h1>
             <p className="text-muted mb-4">
               Replace the SMS and MMS texting with feature-rich RCS messaging to
@@ -111,14 +111,14 @@ const Home = () => {
             {/* CTA Buttons */}
             <div className="d-flex gap-3 mt-4">
               <a
-                href="/try-for-free"
+                href="/try-for-free/"
                 className="btn btn-info px-4 py-2 text-white"
               >
                 <i className="bi bi-rocket-takeoff me-2"></i>
                 Try For Free
               </a>
               <a
-                href="/request-demo"
+                href="/request-demo/"
                 className="btn btn-outline-info px-4 py-2"
               >
                 <i className="bi bi-calendar-check me-2"></i>
@@ -219,7 +219,7 @@ const Home = () => {
             <img
               className="img-fluid rounded"
               src="/image/product/rcs1.png"
-              alt="Image"
+              alt="RCS carousel of offer cards from a verified brand on a smartphone"
             />
           </div>
         </div>

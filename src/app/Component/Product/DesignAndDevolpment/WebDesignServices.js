@@ -173,7 +173,7 @@ const WebDesignServices = () => {
                 opportunities and revenue.
               </p>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="btn btn-success px-md-5 py-md-3 rounded-pill fw-semibold"
               >
                 <i className="bi bi-chat-dots-fill me-2"></i>

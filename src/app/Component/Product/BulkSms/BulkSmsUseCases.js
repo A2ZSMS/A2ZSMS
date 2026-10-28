@@ -173,7 +173,7 @@ const BulkSmsUseCases = () => {
             Ready to boost your business communication?
           </p>
           <a
-            href="/request-demo"
+            href="/request-demo/"
             className="btn btn-primary btn-lg px-5 py-3"
             style={{ borderRadius: "30px" }}
           >

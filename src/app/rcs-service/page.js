@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from "react";
 import RcsSms from "../Component/Product/Rcs/RcsSms";
 
@@ -56,7 +57,9 @@ export const viewport = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="rcs-service" />
       <RcsSms />
+      <RelatedGuides slug="rcs-service" />
     </div>
   );
 };

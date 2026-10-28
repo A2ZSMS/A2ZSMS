@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from 'react'
 import Service from '../Component/Resources/Services/Service'
 export const metadata = {
@@ -38,7 +39,9 @@ export const metadata = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="services" />
         <Service/>
+      <RelatedGuides slug="services" />
     </div>
   )
 }

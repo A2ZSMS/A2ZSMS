@@ -63,11 +63,11 @@ const BulkSmsHome = () => {
           <div className="row align-items-center aos">
             {/* Left Content */}
             <div className="col-md-6 para-color" data-aos="fade-right">
-              <h1 className="fw-bold mb-4">
+              <h2 className="h1 fw-bold mb-4">
                 Empower Your Business with{" "}
                 <span className="text-primary">Transactional SMS</span>{" "}
                 Solutions!
-              </h1>
+              </h2>
               <p>
                Deliver crucial updates, build customer trust and enhance user engagement with a reliable transactional messaging platform. As a trusted transactional sms service provider instant delivery of OTPs, alerts, and notifications is ensured with enterprise grade reliability keeping your audience informed  anywhere and anytime!
               </p>

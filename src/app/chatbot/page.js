@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import Chatbot from "../Component/Product/Chatbot/Chatbot";
 
 export const metadata = {
@@ -33,7 +34,9 @@ export const metadata = {
 const ChatbotPage = () => {
   return (
     <div>
+      <PageSchema slug="chatbot" />
       <Chatbot />
+      <RelatedGuides slug="chatbot" />
     </div>
   );
 };

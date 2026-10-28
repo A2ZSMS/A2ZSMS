@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from "react";
 import Designs from "../Component/Product/DesignAndDevolpment/Designs";
 
@@ -44,7 +45,10 @@ export const metadata = {
 const page = () => {
   return (
     <>
+      <PageSchema slug="design-developement" />
       <Designs />
+    
+      <RelatedGuides slug="design-developement" />
     </>
   );
 };

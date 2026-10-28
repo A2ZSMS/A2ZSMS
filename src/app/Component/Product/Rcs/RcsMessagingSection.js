@@ -12,7 +12,7 @@ const RcsMessagingSection = () => {
               <img
                 className="img-fluid rounded"
                 src="/image/product/rcs2.png"
-                alt="Image"
+                alt="RCS rich card with product images and a Purchase Now button"
               />
             </div>
             <div className="col-md-6 para-color1 fw-bold" data-aos="fade-in">
@@ -53,7 +53,7 @@ const RcsMessagingSection = () => {
               <img
                 className="img-fluid rounded"
                 src="/image/product/rcs3.png"
-                alt="Image"
+                alt="RCS message from a verified brand with suggested-reply buttons"
               />
             </div>
           </div>

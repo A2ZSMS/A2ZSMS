@@ -21,7 +21,8 @@ const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "FAQ's", href: "/faq" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Careers", href: "/career/" },
+  { label: "Contact Us", href: "/contact/" },
 ];
 
 const serviceLinks = [
@@ -29,6 +30,8 @@ const serviceLinks = [
   { label: "WhatsApp API", href: "/whatsapp-api" },
   { label: "RCS Messaging", href: "/rcs-service" },
   { label: "Bulk Voice Call", href: "/voice-call" },
+  { label: "WhatsApp Chatbot", href: "/chatbot/" },
+  { label: "CPaaS Platform", href: "/platform/" },
   { label: "Blogs", href: "/blogs" },
 ];
 

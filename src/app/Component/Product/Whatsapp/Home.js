@@ -321,8 +321,8 @@ const Home = () => {
           {/* Left Content */}
           <div className="col-md-6 para-color" data-aos="fade-right">
             <h1 className="fw-bold mb-3 lh-sm display-6">
-              Elevate Your Business with{" "}
-              <span className="text-success">Cloud WhatsApp API</span>
+              <span className="text-success">WhatsApp Business API</span>{" "}
+              Provider in Bangalore
             </h1>
             <p className="text-muted mb-3 lh-lg">
               Transform your business engagement with the customer through our
@@ -361,14 +361,14 @@ const Home = () => {
             </ul>
             <div className="d-flex gap-3 mt-4">
               <a
-                href="/try-for-free"
+                href="/try-for-free/"
                 className="btn btn-success px-4 py-2 fw-semibold"
               >
                 <i className="bi bi-rocket-takeoff me-2"></i>
                 Try For Free
               </a>
               <a
-                href="/request-demo"
+                href="/request-demo/"
                 className="btn btn-outline-success px-4 py-2 fw-semibold"
               >
                 <i className="bi bi-calendar-check me-2"></i>
@@ -490,7 +490,7 @@ const Home = () => {
             <img
               className="img-fluid rounded"
               src="/image/product/whatsapp.png"
-              alt="Image"
+              alt="WhatsApp Business API chat with offer message, chatbot reply and CRM integration"
             />
           </div>
         </div>

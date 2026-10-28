@@ -177,7 +177,7 @@ const UseCases = () => {
             Ready to transform your business communication?
           </p>
           <a
-            href="/request-demo"
+            href="/request-demo/"
             className="btn btn-success btn-lg px-5 py-3"
             style={{ borderRadius: "30px" }}
           >

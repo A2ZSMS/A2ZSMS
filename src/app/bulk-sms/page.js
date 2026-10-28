@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import BulkSms from "../Component/Product/BulkSms/BulkSms";
 
 export const metadata = {
@@ -45,7 +46,9 @@ export const metadata = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="bulk-sms" />
       <BulkSms />
+      <RelatedGuides slug="bulk-sms" />
     </div>
   );
 };

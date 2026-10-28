@@ -33,7 +33,7 @@ const FAQHome = ({ data }) => {
               {faqs && faqs.length > 0 ? (
                 faqs.map((faq) => (
                   <div className="accordion-item" key={faq.id}>
-                    <h2 className="accordion-header" id={`heading${faq.id}`}>
+                    <h3 className="accordion-header" id={`heading${faq.id}`}>
                       <button
                         className={`accordion-button ${faq.id === 1 ? "" : "collapsed"}`}
                         type="button"
@@ -45,7 +45,7 @@ const FAQHome = ({ data }) => {
                         <i className={`me-2 ${faq.icon}`}></i>
                         {faq.question}
                       </button>
-                    </h2>
+                    </h3>
                     <div
                       id={`collapse${faq.id}`}
                       className={`accordion-collapse collapse ${faq.id === 1 ? "show" : ""}`}

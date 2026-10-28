@@ -20,8 +20,8 @@ const Home = () => {
           {/* Left Content */}
           <div className="col-md-6" data-aos="fade-right">
             <h1 className="fw-bold mb-4">
-              Revolutionize Communication with{" "}
-              <span className="text-primary">Voice Call Solutions</span>
+              <span className="text-primary">Bulk Voice Call</span> &amp; Voice
+              Broadcasting Service in Bangalore
             </h1>
             <p className="text-muted">
               Enhance your communication strategy with automated and interactive
@@ -59,12 +59,12 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className="d-flex gap-3 mt-4">
-              <a href="/try-for-free" className="btn btn-primary btn px-4 py-2">
+              <a href="/try-for-free/" className="btn btn-primary btn px-4 py-2">
                 <i className="bi bi-rocket-takeoff me-2"></i>
                 Try For Free
               </a>
               <a
-                href="/request-demo"
+                href="/request-demo/"
                 className="btn btn-outline-primary btn px-4 py-2"
               >
                 <i className="bi bi-calendar-check me-2"></i>
