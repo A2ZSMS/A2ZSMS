@@ -60,7 +60,7 @@ const Home = () => {
             </ul>
 
             <div className="svc-hero-actions">
-              <a href="/contact" className="btn-cta">
+              <a href="/contact/" className="btn-cta">
                 Get Started <i className="bi bi-arrow-right"></i>
               </a>
               <a href="tel:+918431086185" className="btn-ghost">

@@ -265,7 +265,7 @@ const AboutHome = () => {
               something amazing together.
             </p>
             <div className="d-flex gap-3 justify-content-center flex-wrap">
-              <a href="/contact" className="btn-white">
+              <a href="/contact/" className="btn-white">
                 Contact Us <i className="bi bi-arrow-right"></i>
               </a>
               <a href="tel:+918431086185" className="btn-outline-white">

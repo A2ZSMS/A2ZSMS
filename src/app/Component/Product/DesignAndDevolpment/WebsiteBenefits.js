@@ -99,7 +99,7 @@ const WebsiteBenefits = () => {
               <div className="row g-4">
                 <div className="col-md-4">
                   <div className="border-end border-white border-opacity-25 pe-4">
-                    <h2 className="fw-bold text-warning">89%</h2>
+                    <p className="h2 fw-bold text-warning mb-2">89%</p>
                     <p className="mb-0">
                       of consumers research businesses online before visiting or
                       purchasing
@@ -108,14 +108,14 @@ const WebsiteBenefits = () => {
                 </div>
                 <div className="col-md-4">
                   <div className="border-end border-white border-opacity-25 pe-4">
-                    <h2 className="fw-bold text-warning">75%</h2>
+                    <p className="h2 fw-bold text-warning mb-2">75%</p>
                     <p className="mb-0">
                       judge business credibility based on website design quality
                     </p>
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <h2 className="fw-bold text-warning">57%</h2>
+                  <p className="h2 fw-bold text-warning mb-2">57%</p>
                   <p className="mb-0">
                     won't recommend a business with poor mobile website
                     experience

@@ -171,7 +171,7 @@ const RcsUseCases = () => {
         <div className="text-center mt-5" data-aos="fade-up">
           <p className="para-blog mb-3">Ready to upgrade from SMS to RCS?</p>
           <a
-            href="/request-demo"
+            href="/request-demo/"
             className="btn btn-info btn-lg px-5 py-3 text-white"
             style={{ borderRadius: "30px" }}
           >

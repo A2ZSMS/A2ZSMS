@@ -77,7 +77,7 @@ const Services = () => {
           {/* Right Content Section */}
           <div className="col-md-6 col-12" data-aos="zoom-in-left">
             <h5 className="text-primary mb-2">Bulk SMS</h5>
-            <h2 className="fw-bold mb-4">Bulk Sms Service Provider</h2>
+            <h1 className="h2 fw-bold mb-4">Bulk SMS Service Provider in Bangalore</h1>
             {/* Tabs with Custom Icons */}
             <div className="d-flex mb-3">
               {servicesData.map((service) => (

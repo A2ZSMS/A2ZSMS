@@ -24,7 +24,7 @@ const SolutionFaq = ({ data }) => {
                 className="accordion-item border-0 shadow-sm mb-2 py-2"
               >
                 {/* Question */}
-                <h2
+                <h3
                   className="accordion-header"
                   id={`heading-${faq.id || index}`}
                 >
@@ -36,7 +36,7 @@ const SolutionFaq = ({ data }) => {
                   >
                     {faq.question}
                   </button>
-                </h2>
+                </h3>
 
                 {/* Answer */}
                 <div

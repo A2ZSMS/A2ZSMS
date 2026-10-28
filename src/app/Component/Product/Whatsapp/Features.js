@@ -55,7 +55,7 @@ const Features = () => {
               <div className="d-flex align-items-start">
                 <img
                   src={feature.icon}
-                  alt="new"
+                  alt={`${feature.title} icon`}
                   width="50" // Adjust width as needed
                   height="50" // Adjust height as needed
                   className="me-3"

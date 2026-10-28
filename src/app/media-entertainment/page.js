@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from "react";
 import Media from "../Component/Solutions/Media/Media";
 export const metadata = {
@@ -44,7 +45,10 @@ export const metadata = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="media-entertainment" />
       <Media />
+    
+      <RelatedGuides slug="media-entertainment" />
     </div>
   );
 };

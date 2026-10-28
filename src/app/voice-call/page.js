@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from "react";
 import VoiceCall from "../Component/Product/VoiceCall/VoiceCall";
 export const metadata = {
@@ -45,7 +46,9 @@ export const metadata = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="voice-call" />
       <VoiceCall />
+      <RelatedGuides slug="voice-call" />
     </div>
   );
 };

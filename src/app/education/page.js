@@ -1,3 +1,4 @@
+import { PageSchema, RelatedGuides } from "../Component/Seo/PageSeo";
 import React from 'react'
 import Education from '../Component/Solutions/Education/Education'
 export const metadata = {
@@ -31,7 +32,10 @@ export const metadata = {
 const page = () => {
   return (
     <div>
+      <PageSchema slug="education" />
         <Education/>
+    
+      <RelatedGuides slug="education" />
     </div>
   )
 }

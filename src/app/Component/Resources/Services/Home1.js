@@ -102,7 +102,7 @@ const Home1 = () => {
                 customers with powerful messaging solutions.
               </p>
               <div className="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="/contact" className="btn-cta">
+                <a href="/contact/" className="btn-cta">
                   Get Free Demo <i className="bi bi-arrow-right"></i>
                 </a>
                 <a href="tel:+918431086185" className="btn-ghost">

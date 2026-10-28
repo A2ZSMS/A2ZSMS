@@ -17,7 +17,7 @@ const Header = () => {
         </div>
         <div className="d-flex align-items-center text-white">
           <small className="me-3">
-            <a href="/contact" className="text-white text-decoration-none">
+            <a href="/contact/" className="text-white text-decoration-none">
               Contact Us
             </a>
           </small>
