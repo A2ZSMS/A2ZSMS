@@ -1,13 +1,13 @@
 const Dec23 = () => {
   return (
     <>
-      <div class="container para-color">
+      <div className="container para-color">
         <h1 className="fw-bold pt-4 text-primary">
           Revolutionizing E-commerce in India
         </h1>
 
         <section>
-          <h2 class="mt-3 fw-bold">INTRODUTION</h2>
+          <h2 className="mt-3 fw-bold">INTRODUTION</h2>
           <p>
             WhatsApp has become one of the most dynamic and practical platforms
             for business communication, with over 2 billion active users. Beyond
@@ -36,7 +36,7 @@ const Dec23 = () => {
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/Why WhatsApp Business API is Revolutionizing  E-commerce in India.jpg"
+              src="/Images/Why WhatsApp Business API is Revolutionizing  E-commerce in India.webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -141,11 +141,11 @@ const Dec23 = () => {
             </ul>
           </div>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/Why WhatsApp Business API is Revolutionizing  E-commerce in India (3).jpg"
+              src="/Images/Why WhatsApp Business API is Revolutionizing  E-commerce in India (3).webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -214,11 +214,11 @@ const Dec23 = () => {
             </p>
           </div>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/Why WhatsApp Business API is Revolutionizing  E-commerce in India (2).jpg"
+              src="/Images/Why WhatsApp Business API is Revolutionizing  E-commerce in India (2).webp"
               alt="Descriptive alt text"
             />
           </div>

@@ -41,8 +41,8 @@ const StepsSection = () => {
             className="col-md-6 text-center mb-md-0"
             data-aos="zoom-in-right"
           >
-            <img
-              src="/image/product/whatsapp1.png" // Correct path to the image in the public folder
+            <img loading="lazy" decoding="async"
+              src="/image/product/whatsapp1.webp" // Correct path to the image in the public folder
               alt="How to sign up"
               width="100"
               height="auto"

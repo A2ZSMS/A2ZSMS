@@ -202,7 +202,7 @@ const StickyMiniNav = memo(() => {
     >
       <div className="container d-flex align-items-center justify-content-between aos">
         <a href="/" className={styles.miniNavLogo}>
-          <img src="/image/logo1.png" alt="A2ZSMS" />
+          <img src="/image/logo1.webp" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
           <div className={styles.miniNavSpotsWrap}>
@@ -323,7 +323,7 @@ const HeroSection = () => (
               loading="eager"
               decoding="async"
               onError={(e) => {
-                e.target.src = "/image/product/whatsapp.png";
+                e.target.src = "/image/product/whatsapp.webp";
               }}
             />
             <a
@@ -639,8 +639,8 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             <img
               src={
                 activeTab === "rcs"
-                  ? "/image/product/rcs1.png"
-                  : "/image/product/rcs1.png"
+                  ? "/image/product/rcs1.webp"
+                  : "/image/product/rcs1.webp"
               }
               alt={
                 activeTab === "rcs"
@@ -653,7 +653,7 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
               loading="lazy"
               decoding="async"
               onError={(e) => {
-                e.target.src = "/image/product/whatsapp.png";
+                e.target.src = "/image/product/whatsapp.webp";
               }}
             />
           </div>

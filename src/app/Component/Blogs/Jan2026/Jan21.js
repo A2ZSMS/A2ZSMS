@@ -295,7 +295,7 @@ const Jan21 = () => {
           </p>
         </section>
         <div className="mb-4">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/jan 21(2).webp"
@@ -493,7 +493,7 @@ const Jan21 = () => {
           </p>
         </section>
         <div className="mb-4">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/jan 21(3).webp"

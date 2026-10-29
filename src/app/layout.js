@@ -1,7 +1,8 @@
 import Script from "next/script";
-// aos.css is loaded from ClientRuntime (after in-viewport elements are made static),
-// so it no longer render-blocks or hides above-the-fold content before hydration.
-import "bootstrap/dist/css/bootstrap.min.css";
+// Scroll animations: lightweight reveal in ClientRuntime.js + globals.css (no AOS library).
+// Bootstrap CSS trimmed to the classes the site uses (scripts/purge-bootstrap.mjs,
+// regenerated automatically before every dev/build).
+import "./bootstrap-purged.css";
 // Subset of bootstrap-icons.css with only the icons the site uses (~17KB vs ~84KB).
 import "./bootstrap-icons-subset.css";
 import "./globals.css";
@@ -23,6 +24,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* Main body font, self-hosted: start downloading it before the CSS is parsed */}
+        <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">

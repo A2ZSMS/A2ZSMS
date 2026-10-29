@@ -97,7 +97,7 @@ const industrySections = [
     title: "Fit Your eCommerce Store in Chat With WhatsApp Bots",
     description:
       "Bring your digital shop to WhatsApp with catalogs, orders, and support in one place.",
-    image: "/image/product/e-commerce.png",
+    image: "/image/product/e-commerce.webp",
     items: [
       {
         icon: "bi-grid",
@@ -182,7 +182,7 @@ const industrySections = [
     title: "Automate Hiring & Employee Management With WhatsApp",
     description:
       "Get an all-rounder WhatsApp chatbot for HR that works 24/7 without delays.",
-    image: "/image/product/chatbot_hiring.png",
+    image: "/image/product/chatbot_hiring.webp",
     items: [
       {
         icon: "bi-envelope-heart",
@@ -306,7 +306,7 @@ const UseCases = () => {
                 <div className="row g-4 align-items-start">
                   <div className="col-md-6">
                     <div className={styles.ucImageWrap}>
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={activeSection.image}
                         alt={activeSection.title}
                         className={styles.ucImage}

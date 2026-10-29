@@ -86,7 +86,7 @@ const WhyChooseUs = () => {
         <div className="row g-5 align-items-center aos">
           {/* Left Image */}
           <div className="col-lg-5 text-center mb-4 mb-lg-0">
-            <img
+            <img loading="lazy" decoding="async"
               src="/image/content1.webp"
               alt="Smart Messaging Platform Dashboard"
               className="img-fluid rounded shadow-sm"

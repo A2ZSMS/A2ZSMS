@@ -1,16 +1,8 @@
 "use client";
 
-import AOS from "aos";
-import { useEffect } from "react";
 import Image from "next/image";
 
 const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200, // Animation duration
-      once: true, // Animation runs only once
-    });
-  }, []);
 
   return (
     <section className="py-5 bg2">
@@ -75,7 +67,7 @@ const Home = () => {
           {/* Right Image Section */}
           <div className="col-md-6 text-center aos" data-aos="fade-left">
             <Image
-              src="/image/product/voicecall.png"
+              src="/image/product/voicecall.webp"
               alt="Voice Call Solutions"
               width={500} // Adjust width as needed
               height={300} // Adjust height as needed

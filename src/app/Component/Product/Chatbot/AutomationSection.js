@@ -64,7 +64,7 @@ const AutomationSection = () => {
 
           <div className="row g-4 align-items-center aos">
             <div className="col-lg-6" data-aos="fade-right">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/image/product/chatbot_2.webp"
                 alt="AI automation showcase"
                 className="img-fluid rounded-4 shadow"
@@ -123,7 +123,7 @@ const AutomationSection = () => {
               </div>
             </div>
             <div className="col-lg-7" data-aos="fade-left">
-              <img
+              <img loading="lazy" decoding="async"
                 className="img-fluid rounded-4 shadow"
                 src="/image/product/chatbot_creation.webp"
                 alt="Visual chatbot builder"

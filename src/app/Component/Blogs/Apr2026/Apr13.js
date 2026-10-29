@@ -313,7 +313,7 @@ const Apr13 = () => {
 
         {/* Image 1 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/Apr13(2).webp"
@@ -573,7 +573,7 @@ const Apr13 = () => {
 
         {/* Image 1 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/Apr13(3).webp"

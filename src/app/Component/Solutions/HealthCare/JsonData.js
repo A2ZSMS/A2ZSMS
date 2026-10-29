@@ -12,7 +12,7 @@ export const HealthcareServices = {
         "Enable 24/7 support for patient inquiries through WhatsApp-powered chatbots, ensuring prompt assistance.",
         "Simplify consultation bookings and updates with personalized messaging directly on WhatsApp.",
       ],
-      image: "/image/Solutions/Care1.png", // Replace with the actual path
+      image: "/image/Solutions/Care1.webp", // Replace with the actual path
     },
     {
       title: "Boost Patient Outreach with WhatsApp Campaigns",
@@ -23,7 +23,7 @@ export const HealthcareServices = {
         "Promote timely seasonal vaccination drives and health camps to encourage participation.",
         "Ensure patients receive verified health advice and educational content through branded campaigns.",
       ],
-      image: "/image/Solutions/Care2.png", // Replace with the actual path
+      image: "/image/Solutions/Care2.webp", // Replace with the actual path
     },
     {
       title: "Ensure Secure Healthcare Transactions with OTP Services",
@@ -34,7 +34,7 @@ export const HealthcareServices = {
         "Send instant alerts for critical updates, lab reports, or discharge instructions securely.",
         "Enhance patient confidence with reliable communication channels for sensitive information.",
       ],
-      image: "/image/Solutions/Care3.png", // Replace with the actual path
+      image: "/image/Solutions/Care3.webp", // Replace with the actual path
     },
   ],
 };

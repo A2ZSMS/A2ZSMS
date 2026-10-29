@@ -50,7 +50,7 @@ const BulkSmsHome = () => {
             <div className="col-md-6 text-center aos" data-aos="fade-left">
               <img
                 className="img-fluid rounded"
-                src="/image/product/otp.png"
+                src="/image/product/otp.webp"
                 loading="lazy"
                 decoding="async"
                 alt="Transactional SMS Services"
@@ -109,7 +109,7 @@ const BulkSmsHome = () => {
             <div className="col-md-6 text-center aos" data-aos="fade-left">
               <img
                 className="img-fluid rounded"
-                src="/image/product/transactional.png"
+                src="/image/product/transactional.webp"
                 loading="lazy"
                 decoding="async"
                 alt="Transactional SMS Services"
@@ -128,7 +128,7 @@ const BulkSmsHome = () => {
             <div className="col-md-6 text-center aos" data-aos="fade-left">
               <img
                 className="img-fluid rounded"
-                src="/image/product/promotional.png"
+                src="/image/product/promotional.webp"
                 loading="lazy"
                 decoding="async"
                 alt="Transactional SMS Services"

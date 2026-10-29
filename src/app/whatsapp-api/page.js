@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/Images/1.png",
+        url: "/Images/og/1.jpg",
         width: 1200,
         height: 630,
         alt: "A2ZSMS WhatsApp Business API Provider Bangalore",
@@ -31,7 +31,7 @@ export const metadata = {
     title: "WhatsApp Business API Provider in Bangalore | A2ZSMS",
     description:
       "Get WhatsApp Business API services in Bangalore with A2ZSMS. Free setup, automation, and bulk WhatsApp marketing for your business.",
-    images: ["/Images/1.png"],
+    images: ["/Images/og/1.jpg"],
   },
   robots:
     "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",

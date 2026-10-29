@@ -53,7 +53,7 @@ const Features = () => {
               }}
             >
               <div className="d-flex align-items-start">
-                <img
+                <img loading="lazy" decoding="async"
                   src={feature.icon}
                   alt={`${feature.title} icon`}
                   width="50" // Adjust width as needed

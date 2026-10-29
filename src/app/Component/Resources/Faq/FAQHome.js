@@ -1,13 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import AOS from "aos";
 import "../../Home/Home.css";
 
 const FAQHome = ({ data }) => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
 
   if (!data) {
     return <p className="text-center py-5">Loading FAQs...</p>;

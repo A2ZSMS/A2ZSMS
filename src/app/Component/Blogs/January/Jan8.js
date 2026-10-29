@@ -7,7 +7,7 @@ const Jan8 = () => {
     <h2 className='fw-bold'>Introduction</h2> 
     <p>In an era where communication channels are abundant, standing out and making a personal connection with your audience is more important than ever. Voice call marketing offers a unique and impactful way to engage customers directly, delivering messages with clarity and emotion. Whether it's for promotional campaigns, reminders, or surveys, this powerful tool enables businesses to reach their target audience effectively and efficiently. As one of the most trusted providers in Bangalore, <a href="https://www.a2zsms.in/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "none", color: "blue" }} >A2ZSMS</a> empowers businesses to leverage the potential of voice call marketing, ensuring enhanced customer interactions and measurable results.</p>
       <div>
-                          <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Reliable voice call solutions for seamless communication (2).jpg" alt="Descriptive alt text" />
+                          <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Reliable voice call solutions for seamless communication (2).webp" alt="Descriptive alt text" />
                         </div>
     <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -85,7 +85,7 @@ const Jan8 = () => {
               </li>
                 </ul>
                   <div>
-                                      <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Reliable voice call solutions for seamless communication (3).jpg" alt="Descriptive alt text" />
+                                      <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Reliable voice call solutions for seamless communication (3).webp" alt="Descriptive alt text" />
                                     </div>
             </div>
             <div data-aos="fade-left">
@@ -248,7 +248,7 @@ const Jan8 = () => {
               </li>
                 </ul>
                   <div>
-                                      <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Reliable voice call solutions for seamless communication (4).jpg" alt="Descriptive alt text" />
+                                      <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Reliable voice call solutions for seamless communication (4).webp" alt="Descriptive alt text" />
                                     </div>
                 <h2 className="fw-bold mt-5">
                 Case Studies: Successful  {" "}

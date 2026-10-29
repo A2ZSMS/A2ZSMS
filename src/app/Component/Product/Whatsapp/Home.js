@@ -1,7 +1,6 @@
 "use client";
 
-import AOS from "aos";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Form, Input, Space, Typography } from "antd";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
@@ -204,13 +203,6 @@ const Home = () => {
     fontSize: 14,
     fontFamily: "inherit",
   };
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      once: true, // Animation runs only once
-    });
-  }, []);
 
   const submitLock  = useRef(false);
   const mountTime   = useRef(Date.now());
@@ -488,7 +480,7 @@ const Home = () => {
           <div className="col-md-6 text-center" data-aos="fade-left">
             <img
               className="img-fluid rounded"
-              src="/image/product/whatsapp.png"
+              src="/image/product/whatsapp.webp"
               alt="WhatsApp Business API chat with offer message, chatbot reply and CRM integration"
             />
           </div>

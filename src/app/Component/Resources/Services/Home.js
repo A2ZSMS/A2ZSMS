@@ -1,17 +1,9 @@
 "use client";
 
-import AOS from "aos";
-import { useEffect } from "react";
 import Image from "next/image";
 import "./Services.css";
 
 const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-    });
-  }, []);
 
   return (
     <section className="svc-hero">
@@ -72,7 +64,7 @@ const Home = () => {
           <div className="col-lg-6" data-aos="fade-left">
             <div className="svc-hero-img">
               <Image
-                src="/image/hosting-boy.png"
+                src="/image/hosting-boy.webp"
                 alt="SMS Services"
                 width={500}
                 height={500}

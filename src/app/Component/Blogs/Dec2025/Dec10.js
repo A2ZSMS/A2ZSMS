@@ -192,7 +192,7 @@ const Dec10 = () => {
               </li>
             </ul>
             <div>
-              <img
+              <img loading="lazy" decoding="async"
                 className="my-4"
                 width="100%"
                 height="auto"

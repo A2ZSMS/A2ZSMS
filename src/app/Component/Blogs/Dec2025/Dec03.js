@@ -33,7 +33,7 @@ const Dec03 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/lat1.png"
+            src="/Images/lat1.webp"
             alt="Defining Problems in Bulk SMS Marketing"
           />
         </div>
@@ -163,11 +163,11 @@ const Dec03 = () => {
         </p>
 
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (3).jpg"
+            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (3).webp"
             alt="Defining Problems in Bulk SMS Marketing"
           />
         </div>
@@ -282,7 +282,7 @@ const Dec03 = () => {
         </p>
 
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"

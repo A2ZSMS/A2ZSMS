@@ -117,11 +117,11 @@ const Dec09 = () => {
           </li>
         </ul>
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Mar12(1).png"
+            src="/Images/Mar12(1).webp"
             alt="Best RCS Messaging Provider Karnataka"
           />
         </div>
@@ -149,11 +149,11 @@ const Dec09 = () => {
     <li className="mb-3">✔ Trusted by SMEs and enterprises across Karnataka</li>
   </ul>
    <div>
-    <img
+    <img loading="lazy" decoding="async"
       className="mt-3"
       width="100%"
       height="auto"
-      src="/Images/Mar12(1).png"
+      src="/Images/Mar12(1).webp"
       alt="Best RCS Messaging Provider Karnataka"
     />
   </div>
@@ -208,7 +208,7 @@ const Dec09 = () => {
           </li>
         </ul>
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"

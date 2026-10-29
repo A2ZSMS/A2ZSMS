@@ -13,7 +13,7 @@ export const EducationServices = {
         "Provide automated reminders for assignments, tuition payments, and upcoming exams with WhatsApp notifications.",
         "Enable instant communication for student queries and feedback, fostering a connected and supportive learning environment."
       ],
-      image:'/image/Solutions/Education1.png', // Replace with the actual path
+      image:'/image/Solutions/Education1.webp', // Replace with the actual path
     },
     {
       id:2,
@@ -26,7 +26,7 @@ export const EducationServices = {
         "Leverage interactive buttons like 'Apply Now' or 'Register for Open House' to streamline the enrollment process.",
         "Analyze campaign success with WhatsApp's delivery and response tracking to optimize future communication efforts."
       ],
-      image: "/image/Solutions/Education2.png", // Replace with the actual path
+      image: "/image/Solutions/Education2.webp", // Replace with the actual path
     },
     {
       id:3,
@@ -39,7 +39,7 @@ export const EducationServices = {
         "Automate admission follow-ups with real-time updates on application status, reducing manual effort and response time.",
         "Build trust with secure and reliable WhatsApp communication, making information easily accessible for students and parents."
       ],
-      image: '/image/Solutions/Education3.png' // Replace with the actual path
+      image: '/image/Solutions/Education3.webp' // Replace with the actual path
     },
   ],
 };

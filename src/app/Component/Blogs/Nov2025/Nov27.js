@@ -168,7 +168,7 @@ const Nov27 = () => {
         </ul>
 
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"
@@ -309,7 +309,7 @@ const Nov27 = () => {
         </ul>
 
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"

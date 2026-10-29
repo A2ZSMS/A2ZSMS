@@ -9,7 +9,7 @@ const Jan4 = () => {
     <h2 className='fw-bold'>Introduction</h2> 
     <p> The <a href="https://www.a2zsms.in/tours-travel/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > travel and tourism </a>sector thrives on effective communication as well as extraordinary customer service. Travelers expect prompt responses, personalized experiences, and a seamless booking process-all of which can be improved using the WhatsApp API. Here are the reasons that make the WhatsApp API a compulsory tool for travel and tourism businesses</p>
     <div>
-                <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Travel Businesses in 2025 Need WhatsApp API for Growth (2).jpg" alt="Descriptive alt text" />
+                <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Travel Businesses in 2025 Need WhatsApp API for Growth (2).webp" alt="Descriptive alt text" />
               </div>
     <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -87,7 +87,7 @@ Multimedia for Better Engagement  {" "}
             <p>PDFs and documents can be shared over WhatsApp as well. Travel agencies like big travel corporations can forward travel documents, detailed itineraries, or visa requirements, even send travel guides, so their clients always have everything they need at hand. Such convinces facilitate planning and build confidence in the brand.</p>
             <p>Moreover, voice messages can personalize services, such as a quick thank-you message after making a reservation or reminding about an upcoming trip. As a result, the travel companies create memorable interactions, which lead to better customer engagement and the customer's satisfaction with the WhatsApp API by combining rich media with real-time communication. </p>
             <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Travel Businesses in 2025 Need WhatsApp API for Growth (3).jpg" alt="Descriptive alt text" />
+                        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Travel Businesses in 2025 Need WhatsApp API for Growth (3).webp" alt="Descriptive alt text" />
                       </div>
             </div>
             <div data-aos="fade-right">
@@ -139,7 +139,7 @@ This is how travel businesses can use WhatsApp for upselling opportunities to in
             <p>In reality, the capability to send real-time alerts offers a sense of security to the travelers that they are in good hands. When a flight gets delayed or there is a sudden check in time changes; quick messages calm the nerves and remove the uncertainty.Share with passengers any important documents-wise-itineraries, tickets, or travel insurance while making it very secure and easy to access. Keeping the consumer well informed and with all the necessary details enhances customer satisfaction and trust</p>
             <p>Thus pro-relationship messages delivered by travel business through WhatsApp are meant to improve customer experience, while also retaining long-term loyalty. This boost in active communication reinforces stronger relationships, making first-time customers repeat clients.</p>
             <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Travel Businesses in 2025 Need WhatsApp API for Growth (4).jpg" alt="Descriptive alt text" />
+                        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Travel Businesses in 2025 Need WhatsApp API for Growth (4).webp" alt="Descriptive alt text" />
                       </div>
             <h2 className="fw-bold mt-5">
             Feedback and {" "}

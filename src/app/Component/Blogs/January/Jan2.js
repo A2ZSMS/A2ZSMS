@@ -9,7 +9,7 @@ const Jan2 = () => {
     <p>For any startup, lead generation is the key to success and in India’s highly competitive market, it becomes increasingly important to find new and effective ways of attracting and converting potential customers. WhatsApp being a giant with 400 million users in India, has transformed communication as well as marketing for businesses. Startups can automate their lead-gen process, provide personalised interactions and real-time support to potential customers using WhatsApp chatbots.</p>
     <p>This blog discusses how <a href="https://www.a2zsms.in/blogs/how-whatsapp-chatbots-can-revolutionize-customer-support-for-indian-smes/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > WhatsApp chatbots </a> can transform the lead generation for Indian startups, and what are its features, advantages, use-cases and future.</p>
     <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (2).jpg" alt="Descriptive alt text" />
+        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (2).webp" alt="Descriptive alt text" />
       </div>
     <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -85,7 +85,7 @@ Trigger Initiation: The chatbot will get started when someone sends a message or
 WhatsApp chatbots can, therefore, save time, cost, and empowerment to grow startups' businesses by automating key functional areas of customer handling and driving simple processes
 </p>
 <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (3).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (3).webp" alt="Descriptive alt text" />
       </div>
             </div>
             <div data-aos="fade-left">
@@ -231,7 +231,7 @@ WhatsApp chatbots can, therefore, save time, cost, and empowerment to grow start
               </li>
                 </ul>
                 <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (4).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (4).webp" alt="Descriptive alt text" />
       </div>
             </div>
             <div data-aos="fade-right">

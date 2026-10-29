@@ -1,6 +1,5 @@
 "use client";
-import AOS from "aos";
-import { useEffect } from "react";
+
 import styles from "./Chatbot.module.css";
 import Link from "next/link";
 
@@ -20,9 +19,6 @@ const heroStats = [
 ];
 
 const Home = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
 
   return (
     <section className={styles.hero}>

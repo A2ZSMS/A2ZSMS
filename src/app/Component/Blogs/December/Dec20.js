@@ -7,8 +7,8 @@ const Dec20 = () => {
         </h1>
         <main>
           <section className="content mt-3">
+            <h2 className="fw-bold">INTRODUCTION</h2>
             <p className="para-color">
-              <h2 class=" fw-bold">INTRODUCTION</h2>
               Welcome to our blog! In this article, we explore 10 effective
               marketing strategies that businesses can use with the{" "}
               <a
@@ -29,7 +29,7 @@ const Dec20 = () => {
                 className=" mt-3"
                 width="100%"
                 height={"auto"}
-                src="/Images/10 Proven Marketing Strategies Using WhatsApp  Business API.jpg"
+                src="/Images/10 Proven Marketing Strategies Using WhatsApp  Business API.webp"
                 alt="Descriptive alt text"
               />
             </div>
@@ -116,11 +116,11 @@ const Dec20 = () => {
                 insights.
               </p>
               <div>
-                <img
+                <img loading="lazy" decoding="async"
                   className=" mt-3"
                   width="100%"
                   height={"auto"}
-                  src="/Images/10 Proven Marketing Strategies Using WhatsApp  Business API (2).jpg"
+                  src="/Images/10 Proven Marketing Strategies Using WhatsApp  Business API (2).webp"
                   alt="Descriptive alt text"
                 />
               </div>
@@ -209,17 +209,17 @@ const Dec20 = () => {
                 sales.
               </p>
               <div>
-                <img
+                <img loading="lazy" decoding="async"
                   className=" mt-3"
                   width="100%"
                   height={"auto"}
-                  src="/Images/10 Proven Marketing Strategies Using WhatsApp  Business API (3).jpg"
+                  src="/Images/10 Proven Marketing Strategies Using WhatsApp  Business API (3).webp"
                   alt="Descriptive alt text"
                 />
               </div>
             </div>
             <div data-aos="float-left">
-              <h2 class="text-primary fw-bold">Conclusion</h2>
+              <h2 className="text-primary fw-bold">Conclusion</h2>
               <p className="para-color">
                 WhatsApp Business API offers a great opportunity to automate,
                 privatize and scale your customer interaction for API

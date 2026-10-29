@@ -243,11 +243,11 @@ const Sep30 = () => {
             </li>
           </ul>
 
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/6.png"
+            src="/Images/6.webp"
             alt="Solving the Hardest Part of Business with Modern Communication"
           />
         </div>
@@ -479,7 +479,7 @@ const Sep30 = () => {
               </Link>
             </div>
           </div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
@@ -773,11 +773,11 @@ const Sep30 = () => {
             </li>
           </ul>
         </div>
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (2).jpg"
+          src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (2).webp"
           alt="Successfully Solving the Hardest Part of Business"
         />
 

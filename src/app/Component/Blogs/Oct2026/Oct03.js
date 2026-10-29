@@ -278,7 +278,7 @@ const Oct03 = () => {
 
         {/* Image 2 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/sep22(2).webp"
@@ -522,7 +522,7 @@ const Oct03 = () => {
 
         {/* Image 3 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/sep22(3).webp"

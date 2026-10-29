@@ -59,7 +59,7 @@ const Dec16 = () => {
              <p className='para-color'>The WhatsApp Business API is a big boost to businesses that want to connect the dots with their customers. But among the frequently asked questions by Indian businesses is "What would be the charges of availing<a href="https://www.a2zsms.in/whatsapp-api/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > WhatsApp Business API</a>  ?" Designed to be flexible, scalable, and value-driven, the pricing model of the API caters to businesses irrespective of size. </p>
              <p className='para-color'>This blog will discuss the comprehensive  <a href="https://www.a2zsms.in/whatsapp-api/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > Whatsapp API</a> pricing in India, covering major aspects such as session messaging, template messaging, and other factors that affect the overall pricing. </p>
              <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know (2).jpg" alt="Descriptive alt text" />
+        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know (2).webp" alt="Descriptive alt text" />
       </div>
            <div className="para-color" >
            <h2 className="fw-bold mt-5">
@@ -89,7 +89,7 @@ const Dec16 = () => {
               </li>
                 </ul>
                 <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know (5).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know (5).webp" alt="Descriptive alt text" />
       </div>
            </div>
            <div className="para-color" >
@@ -116,7 +116,7 @@ const Dec16 = () => {
               </li>
                 </ul>
                 <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know (4).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know (4).webp" alt="Descriptive alt text" />
       </div>
            </div>
            <div className="para-color" >
@@ -183,7 +183,7 @@ const Dec16 = () => {
               </li>
                 </ul>
                 <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know.jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/WhatsApp Business API Pricing in India_ Everything You Need to Know.webp" alt="Descriptive alt text" />
       </div>
            </div>
            <div className="para-color" >

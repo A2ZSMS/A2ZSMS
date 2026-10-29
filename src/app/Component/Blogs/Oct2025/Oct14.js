@@ -250,11 +250,11 @@ const Oct1425 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).jpg"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).webp"
           alt="Professional Bulk SMS Services in Bangalore"
         />
 
@@ -489,11 +489,11 @@ const Oct1425 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (4).jpg"
+          src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (4).webp"
           alt="Bulk SMS Implementation in Bangalore"
         />
 
@@ -819,11 +819,11 @@ const Oct1425 = () => {
             </div>
           </div>
         </div>
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (4).jpg"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (4).webp"
           alt="Bulk SMS Success Stories in Bangalore"
         />
         {/* Success Stories */}

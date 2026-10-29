@@ -17,7 +17,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/image/product/chatbot_1.png",
+        url: "/Images/og/chatbot_1.jpg",
         width: 1024,
         height: 1024,
         alt: "AI WhatsApp Chatbot",

@@ -12,7 +12,7 @@ export const GamingService = {
         "Boost participation in gaming events by sharing invites and easy-to-join links directly with players.",
         "Deliver interactive messages with game previews, tips, and promotional codes to keep players engaged.",
       ],
-      image:"/image/Solutions/Game1.png" , // Replace with the actual path
+      image:"/image/Solutions/Game1.webp" , // Replace with the actual path
     },
     {
       title: "Simplify Tournament Coordination",
@@ -23,7 +23,7 @@ export const GamingService = {
         "Use automated reminders to ensure players stay informed about upcoming matches and deadlines.",
         "Enable organizers to handle large-scale tournaments effortlessly with streamlined communication channels.",
       ],
-      image: "/image/Solutions/Game2.png", // Replace with the actual path
+      image: "/image/Solutions/Game2.webp", // Replace with the actual path
     },
     {
       title: "Deliver Seamless Player Support",
@@ -34,7 +34,7 @@ export const GamingService = {
         "Notify players about server maintenance, updates, or issue resolutions to keep them informed.",
         "Enhance trust by offering real-time support for account-related or gameplay concerns.",
       ],
-      image: "/image/Solutions/Game3.png", // Replace with the actual path
+      image: "/image/Solutions/Game3.webp", // Replace with the actual path
     },
   ],
 };

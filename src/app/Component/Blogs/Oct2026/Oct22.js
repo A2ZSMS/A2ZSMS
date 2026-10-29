@@ -274,7 +274,7 @@ const Oct22RcsHyd = () => {
 
         {/* Image 2 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/aug26(3).webp"
@@ -511,7 +511,7 @@ const Oct22RcsHyd = () => {
 
         {/* Image 3 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/Rcs(2)Apr20.webp"

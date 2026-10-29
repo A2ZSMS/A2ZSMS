@@ -71,7 +71,7 @@ const Mar24 = () => {
               </li>
                   </ul>
                   <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar24(3).png" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar24(3).png" alt="Descriptive alt text" />
         </div>
             </div>
             <div data-aos="fade-left">
@@ -138,8 +138,8 @@ const Mar24 = () => {
                 </span>
               </li>
                   </ul>
-                  <table class="table table-bordered">
-  <thead class="table-dark">
+                  <table className="table table-bordered">
+  <thead className="table-dark">
     <tr>
       <th>Advantage</th>
       <th>Description</th>
@@ -323,7 +323,7 @@ const Mar24 = () => {
     </tbody>
   </table>
   <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar24(4).png" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar24(4).webp" alt="Descriptive alt text" />
         </div>
 </div>
 <div data-aos="fade-left">

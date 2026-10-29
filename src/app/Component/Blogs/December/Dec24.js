@@ -1,13 +1,13 @@
 const Dec24 = () => {
   return (
     <>
-      <div class="container para-color">
+      <div className="container para-color">
         <h1 className="fw-bold text-primary pt-5">
           WhatsApp Business API Use Cases Transforming Healthcare in India
         </h1>
 
         <section>
-          <h2 class="fw-bold mt-3">INTRODUCTION</h2>
+          <h2 className="fw-bold mt-3">INTRODUCTION</h2>
           <p>
             India is experiencing a digital transformation in its healthcare
             system, driven by increased smartphone penetration and the demand
@@ -29,7 +29,7 @@ const Dec24 = () => {
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/WhatsApp Business API Use Cases Transforming Healthcare in India.jpg"
+              src="/Images/WhatsApp Business API Use Cases Transforming Healthcare in India.webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -108,7 +108,7 @@ const Dec24 = () => {
               </li>
             </ul>
             <div>
-              <img
+              <img loading="lazy" decoding="async"
                 className=" mt-3"
                 width="100%"
                 height={"auto"}
@@ -170,11 +170,11 @@ const Dec24 = () => {
             </ul>
           </div>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/WhatsApp Business API Use Cases Transforming Healthcare in India (2).jpg"
+              src="/Images/WhatsApp Business API Use Cases Transforming Healthcare in India (2).webp"
               alt="Descriptive alt text"
             />
           </div>

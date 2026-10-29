@@ -28,7 +28,7 @@ const Dec14 = () => {
             className="w-100 mt-3"
             width="px"
             height={"auto"}
-            src="/Images/What is WhatsApp Business API_   Complete Guide for Indian Businesses (2).jpg"
+            src="/Images/What is WhatsApp Business API_   Complete Guide for Indian Businesses (2).webp"
             alt="Descriptive alt text"
           />
         </div>
@@ -149,11 +149,11 @@ const Dec14 = () => {
             </li>
           </ul>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className="w-100 mt-3"
               width="px"
               height={"auto"}
-              src="/Images/What is WhatsApp Business API_   Complete Guide for Indian Businesses (3).jpg"
+              src="/Images/What is WhatsApp Business API_   Complete Guide for Indian Businesses (3).webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -319,7 +319,7 @@ const Dec14 = () => {
             </li>
           </ul>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className="w-100 mt-3"
               width="px"
               height={"auto"}

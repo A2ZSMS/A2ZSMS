@@ -32,7 +32,7 @@ const Jan7 = () => {
         <img
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).jpg"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).webp"
           alt="Best Bulk SMS Provider In Bangalore"
         />
       </div>
@@ -281,11 +281,11 @@ const Jan7 = () => {
           </li>
         </ul>
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className=" mt-3"
             width="100%"
             height={"auto"}
-            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (3).jpg"
+            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (3).webp"
             alt="Descriptive alt text"
           />
         </div>
@@ -336,7 +336,7 @@ const Jan7 = () => {
         <ul className="list-unstyled ">
           <li className="d-flex align-items-start mb-3">
             <i className="bi bi-check-circle-fill text-primary me-3"></i>
-            <span>
+            <div>
               <strong>100% Delivery Guarantee:</strong>We understand how crucial
               it is for your messages to reach your audience on time. That’s why
               we provide a 100% delivery guarantee. Our SMS gateway is designed
@@ -345,7 +345,7 @@ const Jan7 = () => {
               campaigns or transactional alerts, we guarantee high delivery
               rates, allowing you to stay connected with your customers and
               prospects without interruptions.
-              <li>
+              <ul className="mt-2 mb-0"><li>
                 <strong>Reliable Network:</strong> Our service connects to
                 multiple networks, ensuring optimal delivery routes for all
                 messages.
@@ -354,18 +354,18 @@ const Jan7 = () => {
                 <strong>Real-Time Monitoring:</strong> Track the delivery status
                 of your messages in real time to ensure they are successfully
                 delivered.
-              </li>
-            </span>
+              </li></ul>
+            </div>
           </li>
           <li className="d-flex align-items-start mb-3">
             <i className="bi bi-check-circle-fill text-primary me-3"></i>
-            <span>
+            <div>
               <strong> DND Refund:</strong> Do you ever worry about your
               messages being blocked by Do Not Disturb (DND) lists? At A2Z SMS,
               we offer a DND Refund feature. If your messages are not delivered
               to recipients who have opted out through DND regulations, you’ll
               receive a refund for those undelivered messages.
-              <li>
+              <ul className="mt-2 mb-0"><li>
                 <strong>Compliance with Regulations:</strong> We comply with
                 TRAI (Telecom Regulatory Authority of India) guidelines,
                 ensuring you avoid penalties for sending messages to users
@@ -379,18 +379,18 @@ const Jan7 = () => {
               <li>
                 <strong>Transparent: </strong>You can easily track undelivered
                 messages and claim refunds through our platform.
-              </li>
-            </span>
+              </li></ul>
+            </div>
           </li>
           <li className="d-flex align-items-start mb-3">
             <i className="bi bi-check-circle-fill text-primary me-3"></i>
-            <span>
+            <div>
               <strong> API Integration:</strong> To streamline your
               communication and integrate our services with your existing
               business systems, we offer easy-to-integrate APIs. Our APIs allow
               seamless integration into your CRM, ERP, or other business
               applications, giving you full control over your messaging system..
-              <li>
+              <ul className="mt-2 mb-0"><li>
                 <strong>Easy Setup:</strong> Our API documentation is clear and
                 simple, making it easy for developers to integrate the system
                 without a hassle.
@@ -403,18 +403,18 @@ const Jan7 = () => {
               <li>
                 <strong>Custom Solutions:</strong> If needed, we can provide
                 tailored API solutions to fit your business’s specific needs.
-              </li>
-            </span>
+              </li></ul>
+            </div>
           </li>
           <li className="d-flex align-items-start mb-3">
             <i className="bi bi-check-circle-fill text-primary me-3"></i>
-            <span>
+            <div>
               <strong>Lifetime Validity:</strong> One of the key advantages of
               choosing A2Z SMS is that we offer lifetime validity for your SMS
               credits. Unlike many other providers who impose an expiry on
               credits, we allow you to use your SMS balance at your own pace,
               with no expiration date.
-              <li>
+              <ul className="mt-2 mb-0"><li>
                 <strong>No Rush to Use Credits:</strong> You can plan your
                 campaigns without worrying about losing credits due to time
                 limits.
@@ -427,19 +427,19 @@ const Jan7 = () => {
               <li>
                 <strong>Better Financial Planning:</strong> You can top up
                 credits whenever needed without pressure to use them quickly.
-              </li>
-            </span>
+              </li></ul>
+            </div>
           </li>
 
           <li className="d-flex align-items-start mb-3">
             <i className="bi bi-check-circle-fill text-primary me-3"></i>
-            <span>
+            <div>
               <strong>Free DLT Registration:</strong> As part of our commitment
               to compliance with telecom regulations, we provide free DLT
               (Distributed Ledger Technology) registration assistance. This
               service ensures that your messaging campaigns comply with India’s
               new regulations around SMS marketing.
-              <li>
+              <ul className="mt-2 mb-0"><li>
                 <strong>Regulatory Compliance:</strong> DLT registration is
                 required by the Telecom Regulatory Authority of India (TRAI) for
                 sending commercial messages. We help you register at no
@@ -454,8 +454,8 @@ const Jan7 = () => {
                 <strong>Avoid Penalties: </strong>Stay on the right side of the
                 law by ensuring all your SMS communications meet the latest
                 compliance standards.
-              </li>
-            </span>
+              </li></ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -503,11 +503,11 @@ const Jan7 = () => {
           </li>
         </ul>
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className=" mt-3"
             width="100%"
             height={"auto"}
-            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (4).jpg"
+            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (4).webp"
             alt="Descriptive alt text"
           />
         </div>

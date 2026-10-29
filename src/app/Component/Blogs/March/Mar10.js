@@ -146,7 +146,7 @@ const Mar10 = () => {
               </li>
                 </ul>
                 <div>
-                    <img className=' mt-3' width="100%" height={"auto"}  src="/Images/7.png" alt="Descriptive alt text" />
+                    <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/7.webp" alt="Descriptive alt text" />
                     </div>
             </div>
             <div data-aos="fade-left">
@@ -239,7 +239,7 @@ const Mar10 = () => {
               </ul>
             </div>
             <div>
-                    {/* <img className=' mt-3' width="100%" height={"auto"}  src="/Images/8.png" alt="Descriptive alt text" /> */}
+                    {/* <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/8.webp" alt="Descriptive alt text" /> */}
                     </div>
             <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -297,7 +297,7 @@ const Mar10 = () => {
               </li>
              </ul>
             </div>
-            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/6.png" alt="Descriptive alt text" />
+            <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/6.webp" alt="Descriptive alt text" />
             <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
              {" "}

@@ -3,7 +3,7 @@ import React from "react";
 const Privacy = () => {
   return (
     <div>
-      <section class="container py-5 para-color1">
+      <section className="container py-5 para-color1">
         <h1>Privacy Policy</h1>
         <p>
           At a2zsms services, accessible from https://a2zsms.in/, one of our

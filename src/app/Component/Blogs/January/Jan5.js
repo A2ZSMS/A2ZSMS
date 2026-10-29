@@ -6,7 +6,7 @@ const Jan5 = () => {
       <h2 className='fw-bold'>Introduction</h2>
       <p>In an increasingly digital world, security is paramount. For businesses handling sensitive user data, ensuring secure transactions and user verifications has become essential. This is where OTP (One-Time Password) services come in, offering a quick, secure, and user-friendly method for authenticating users. In this blog, we explore the reasons why OTP services are becoming indispensable for online businesses and how they enhance security.</p>
         <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Secure Your Business with A2Z SMS OTP Services (2).jpg" alt="Descriptive alt text" />
+                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Secure Your Business with A2Z SMS OTP Services (2).webp" alt="Descriptive alt text" />
                       </div>
 
       <div data-aos="fade-left">
@@ -75,7 +75,7 @@ const Jan5 = () => {
           </li>
         </ul>
         <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Secure Your Business with A2Z SMS OTP Services (3).jpg" alt="Descriptive alt text" />
+                        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Secure Your Business with A2Z SMS OTP Services (3).webp" alt="Descriptive alt text" />
                       </div>
       </div>
       <div data-aos="fade-left">
@@ -164,7 +164,7 @@ const Jan5 = () => {
         <p>One of the most common use cases for OTPs <a href="https://www.a2zsms.in/bulk-sms/" className="text-primary text-Uppercase"> OTP Services </a>is for account recovery or password reset processes. When a user forgets their password or needs to regain access to their account, an OTP can be sent to their registered email or phone number to verify their identity and grant access.</p>
         <p>This ensures that only the legitimate account holder can recover their account, preventing unauthorized access even if the user's password is compromised.</p>
         <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Secure Your Business with A2Z SMS OTP Services (4).jpg" alt="Descriptive alt text" />
+                        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Secure Your Business with A2Z SMS OTP Services (4).webp" alt="Descriptive alt text" />
                       </div>
       </div>
 

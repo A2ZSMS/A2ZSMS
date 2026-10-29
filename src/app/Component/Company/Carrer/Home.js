@@ -1,15 +1,7 @@
 "use client"; // Important for Next.js app directory
 
-import AOS from "aos";
-import { useEffect } from "react";
 import Testimonials from "./Testimonials";
 const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200, // Animation duration
-      once: true, // Animation runs only once
-    });
-  }, []);
   // const backgroundImage ={Banner}
   const openPositions = [
     {
@@ -94,7 +86,7 @@ const Home = () => {
             <div className="col-md-6 text-center aos" data-aos="fade-left">
               <img
               fetchPriority="high"
-                src="/image/Career.png"
+                src="/image/Career.webp"
                 alt="Why Join Us"
                 width={2000}
                 height={1750}

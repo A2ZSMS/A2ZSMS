@@ -1,16 +1,8 @@
 "use client";
 
-import AOS from "aos";
-import { useEffect } from "react";
 import "./About.css";
 
 const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-    });
-  }, []);
 
   return (
     <section className="about-hero">

@@ -1,15 +1,6 @@
 "use client"; // Important for Next.js app directory
 
-import AOS from "aos";
-import { useEffect } from "react";
-
 const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200, // Animation duration
-      once: true, // Animation runs only once
-    });
-  }, []);
   return (
     <section className="py-5 bg2">
       <div className="container">
@@ -62,7 +53,7 @@ const Home = () => {
           {/* Right Image Section */}
           <div className="col-md-6 text-center aos" data-aos="fade-left">
             <img
-              src="/image/Solutions/Government.png"
+              src="/image/Solutions/Government.webp"
               alt="Government WhatsApp Services"
               className="img-fluid rounded"
             />

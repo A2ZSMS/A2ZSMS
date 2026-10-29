@@ -152,7 +152,7 @@ const Sep2 = () => {
 
         {/* Image 2 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/sep02(2).webp"
@@ -316,7 +316,7 @@ const Sep2 = () => {
 
         {/* Image 3 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/sep02(3).webp"

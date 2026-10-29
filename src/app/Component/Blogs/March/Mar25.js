@@ -306,7 +306,7 @@ const Mar25 = () => {
               </li>
         </ul>
             </div>
-            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/mar25-3.png"  alt="Descriptive alt text" />
+            <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/mar25-3.webp"  alt="Descriptive alt text" />
             <div data-aos="fade-right">
             <h2 className="fw-bold mt-5">
             How to Set Up a{" "}
@@ -656,7 +656,7 @@ const Mar25 = () => {
               </li>
             </ul>
             </div>
-            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/mar25-4.png"  alt="Descriptive alt text" />
+            <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/mar25-4.png"  alt="Descriptive alt text" />
             <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
            Conclusion: {" "}

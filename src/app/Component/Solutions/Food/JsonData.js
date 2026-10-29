@@ -11,7 +11,7 @@ export const FoodAndBeverage = {
         "Leverage pre-approved WhatsApp templates for personalized communication.",
         "Retarget customers with automated reminders for abandoned orders or repeat purchases."
       ],
-      image:"/image/Solutions/Food1.png"// Replace with the actual path
+      image:"/image/Solutions/Food1.webp"// Replace with the actual path
     },
     {
       title: "Boost Sales with Personalized WhatsApp Promotions",
@@ -22,7 +22,7 @@ export const FoodAndBeverage = {
         "Automate campaigns to promote seasonal menus, events, or combo deals.",
         "Drive customer engagement with quick replies and interactive buttons for orders or reservations."
       ],
-      image:"/image/Solutions/Food2.png" // Replace with the actual path
+      image:"/image/Solutions/Food2.webp" // Replace with the actual path
     },
     {
       title: "Retarget Customers with WhatsApp Reminders",
@@ -33,7 +33,7 @@ export const FoodAndBeverage = {
         "Use personalized campaigns to promote loyalty programs and reward points.",
         "Maintain customer retention with follow-up messages for feedback or reviews."
       ],
-      image: "/image/Solutions/Food3.png"// Replace with the actual path
+      image: "/image/Solutions/Food3.webp"// Replace with the actual path
     }
   ]
 };

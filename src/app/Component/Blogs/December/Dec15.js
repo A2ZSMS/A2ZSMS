@@ -39,7 +39,7 @@ const Dec15 = () => {
             className="w-100 mt-3"
             width="px"
             height={"auto"}
-            src="/Images/How to Use WhatsApp Business API to Automate Customer Communication.jpg"
+            src="/Images/How to Use WhatsApp Business API to Automate Customer Communication.webp"
             alt="Descriptive alt text"
           />
         </div>
@@ -146,11 +146,11 @@ const Dec15 = () => {
             interactions.{" "}
           </p>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className="w-100 mt-3"
               width="px"
               height={"auto"}
-              src="/Images/How to Use WhatsApp Business API to Automate Customer Communication (3).jpg"
+              src="/Images/How to Use WhatsApp Business API to Automate Customer Communication (3).webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -247,11 +247,11 @@ const Dec15 = () => {
             </li>
           </ul>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className="w-100 mt-3"
               width="px"
               height={"auto"}
-              src="/Images/How to Use WhatsApp Business API to Automate Customer Communication (2).jpg"
+              src="/Images/How to Use WhatsApp Business API to Automate Customer Communication (2).webp"
               alt="Descriptive alt text"
             />
           </div>

@@ -75,7 +75,7 @@ const Mar18 = () => {
               </li>
                   </ul>
                   <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18(3).png" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18(3).png" alt="Descriptive alt text" />
         </div>
             </div>
             <div data-aos="fade-left">
@@ -120,7 +120,7 @@ const Mar18 = () => {
             <p>In today's fast -paced digital scenario, effective communication is still the cornerstone of commercial success. A2ZSMS has proven to be Bangalore's most reliable wholesale SMS service provider, especially that provides unmatched message solutions for start -up and installed companies. Our promotional SMS services help cut businesses through noise and connect directly with their target groups, which convey the case.Unlike traditional marketing channels, bulk SMS messaging boasts incredible open rates of over 98%, ensuring your communications reach their intended recipients. When you need to send an action -run Bulk SMS campaign, our platform combines refined technology with a user -friendly interface, making mass communication available to all sizes. A2ZSMS offers wide bulk SMS market equipment that is initially integrated with your existing trading systems, which allow for individual messages that resonate with customers.</p>
             <p>Whether you are looking for wholesaler SMS free tests to test our abilities or are ready to implement bulk messaging solutions at the corporate level, our team offers our personal support at each stage. With our strong wholesale SMS API, technical teams can automate communication and trigger reference-associence messages based on customer behavior or predetermined events. For those who seek simplicity, our platform lets everyone send wholesale SMS online through an intuitive dashboard without the need for technical expertise. When you need to perform a strategic SMS explosion for thousands of recipients at the same time, our high distribution ensures infrastructure that your messages are immediately secured to measure the campaign efficiency with delivery reports and analyzes. A2ZSMS also provides a condition - -ART -Art Bulk WhatsApp message services, and extends the communication channels for the world's most popular message app for more interactive customer engagement.</p>
             <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18(4).png" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18(4).png" alt="Descriptive alt text" />
         </div>
             <h2 className="fw-bold mt-3">
             Why choose A2ZSMS for your communication requirements </h2>

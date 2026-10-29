@@ -211,7 +211,7 @@ const Aug26 = () => {
 
         {/* Image 2 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/aug26(2).webp"
@@ -410,7 +410,7 @@ const Aug26 = () => {
 
         {/* Image 3 */}
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/aug26(3).webp"

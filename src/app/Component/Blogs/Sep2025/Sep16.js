@@ -277,11 +277,11 @@ const Sep16 = () => {
               </span>
             </li>
           </ul>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/Mar12(2).png"
+            src="/Images/Mar12(2).webp"
             alt="RCS Business Communication Benefits"
           />
         </div>
@@ -467,7 +467,7 @@ const Sep16 = () => {
             </li>
           </ul>
 
-          {/* <img
+          {/* <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
@@ -536,11 +536,11 @@ const Sep16 = () => {
             </li>
           </ul>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className="mt-3"
               width="100%"
               height="auto"
-              src="/Images/Mar12(3).png"
+              src="/Images/Mar12(3).webp"
               alt="RCS Implementation Strategy"
             />
           </div>

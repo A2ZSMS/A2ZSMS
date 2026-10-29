@@ -12,7 +12,7 @@ export const ToursAndTravels = {
         "Enable two-way communication for customer inquiries, trip customization, and feedback collection.",
         "Send automated reminders for payments, trip schedules, and travel documents to ensure a hassle-free experience.",
       ],
-      image: "/image/Solutions/Travel.png", // Replace with the actual path
+      image: "/image/Solutions/Travel.webp", // Replace with the actual path
     },
     {
       title: "Enhance Customer Engagement with WhatsApp Campaigns",
@@ -23,7 +23,7 @@ export const ToursAndTravels = {
         "Use multimedia messages with images, videos, and links to inspire and engage potential travelers.",
         "Notify travelers about important updates like flight changes, hotel upgrades, or local alerts instantly.",
       ],
-      image: "/image/Solutions/Travel2.png", // Replace with the actual path
+      image: "/image/Solutions/Travel2.webp", // Replace with the actual path
     },
     {
       title: "Deliver Seamless Support with WhatsApp AI Chatbots",
@@ -34,7 +34,7 @@ export const ToursAndTravels = {
         "Offer location-based recommendations for attractions, restaurants, and events during the trip.",
         "Foster trust by delivering secure payment links and confirmations directly through WhatsApp.",
       ],
-      image: "/image/Solutions/Travel3.png", // Replace with the actual path
+      image: "/image/Solutions/Travel3.webp", // Replace with the actual path
     },
   ],
 };

@@ -161,7 +161,7 @@ const Responsivedesign = () => {
             data-aos="fade-left"
           >
             <div className="position-relative">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/image/product/web-speed1.webp"
                 alt="Responsive Website Design Across All Devices"
                 className="w-100 rounded-4 shadow-lg"

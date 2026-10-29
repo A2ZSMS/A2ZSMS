@@ -257,7 +257,7 @@ const StickyMiniNav = memo(() => {
     >
       <div className="container d-flex align-items-center justify-content-between">
         <a href="/" className={styles.miniNavLogo}>
-          <img src="/image/logo1.png" alt="A2ZSMS" />
+          <img src="/image/logo1.webp" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
           <div className={styles.miniNavSpotsWrap}>
@@ -280,7 +280,7 @@ const HeroVideoPlayer = () => (
   <div className={styles.heroImageWrap}>
     <div className={styles.heroImageGlow}></div>
     <img
-      src="/image/product/whatsapp.png"
+      src="/image/product/whatsapp.webp"
       alt="WhatsApp Business API Platform by A2ZSMS"
       className={styles.heroImage}
       width={560}
@@ -336,8 +336,8 @@ const HeroSection = () => (
         <div className="col-lg-6" data-aos="fade-right">
           {/* Logo */}
           <div className={styles.heroLogoWrap}>
-            <img
-              src="/image/logo1.png"
+            <img loading="lazy" decoding="async"
+              src="/image/logo1.webp"
               alt="A2ZSMS"
               className={styles.heroLogo}
             />
@@ -788,7 +788,7 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             <img
               src={
                 activeTab === "api"
-                  ? "/image/product/whatsapp1.png"
+                  ? "/image/product/whatsapp1.webp"
                   : "/image/product/chatbot_2.webp"
               }
               alt={

@@ -9,7 +9,7 @@ const Jan3 = () => {
     <h2 className='fw-bold'>Introduction</h2>
     <p>Customer support is a major pillar of business success, and it becomes more critical in today's ever-growing tech hub called Bangalore. Has a dynamic ecosystem of startups coupled with a tech-savvy population, Bangalore serves as the ideal testing ground for developing innovative solutions for customer service. <a href="https://www.a2zsms.in/whatsapp-api/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} >WhatsApp API </a>and chatbots spearhead the revolution, ushering a new era of customer support efficiency in which businesses can manage it more scalably and cost-effectively.</p>
     <div>
-            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Building Scalable Customer Support with WhatsApp API  and Chatbots in Bangalore (2).jpg" alt="Descriptive alt text" />
+            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Building Scalable Customer Support with WhatsApp API  and Chatbots in Bangalore (2).webp" alt="Descriptive alt text" />
           </div>
     <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -47,7 +47,7 @@ const Jan3 = () => {
               </li>
                 </ul>
                 <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Building Scalable Customer Support with WhatsApp API  and Chatbots in Bangalore (3).jpg" alt="Descriptive alt text" />
+                        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Building Scalable Customer Support with WhatsApp API  and Chatbots in Bangalore (3).webp" alt="Descriptive alt text" />
                       </div>
             </div>
             <div data-aos="fade-right">
@@ -171,7 +171,7 @@ const Jan3 = () => {
               </li>
                 </ul>
                 <div>
-                        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Building Scalable Customer Support with WhatsApp API  and Chatbots in Bangalore (4).jpg" alt="Descriptive alt text" />
+                        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Building Scalable Customer Support with WhatsApp API  and Chatbots in Bangalore (4).webp" alt="Descriptive alt text" />
                       </div>
             </div>
             <div data-aos="fade-right">

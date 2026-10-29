@@ -289,11 +289,11 @@ const Oct6 = () => {
             </li>
           </ul>
 
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/Mar12(3).png"
+            src="/Images/Mar12(3).webp"
             alt="How RCS Outperforms Traditional SMS for Business Growth"
           />
         </div>
@@ -542,11 +542,11 @@ const Oct6 = () => {
               </Link>
             </div>
           </div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/Mar12(2).png"
+            src="/Images/Mar12(2).webp"
             alt="Strategic Implementation to Grow Your Business with RCS"
           />
         </div>
@@ -874,11 +874,11 @@ const Oct6 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Mar12(1).png"
+          src="/Images/Mar12(1).webp"
           alt="Successfully Implementing RCS to Grow Your Business"
         />
 

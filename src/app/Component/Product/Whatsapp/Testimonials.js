@@ -121,7 +121,7 @@ const Testimonials = () => {
 
                   {/* Client Info */}
                   <div className="d-flex align-items-center">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="rounded-circle me-3"

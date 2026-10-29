@@ -2,7 +2,7 @@ const Dec21 = () => {
   return (
     <>
       <div className="container para-color">
-        <h1 class="text-primary fw-bold">
+        <h1 className="text-primary fw-bold">
           <b>How Bangalore’s Small Businesses Succeed with WhatsApp API</b>
         </h1>
 
@@ -39,7 +39,7 @@ const Dec21 = () => {
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/How Bangalore’s  Small Businesses Are Leveraging WhatsApp Business API  for Growth.jpg"
+              src="/Images/How Bangalore’s  Small Businesses Are Leveraging WhatsApp Business API  for Growth.webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -191,11 +191,11 @@ const Dec21 = () => {
             loyalty.
           </p>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/How Bangalore’s  Small Businesses Are Leveraging WhatsApp Business API  for Growth (2).jpg"
+              src="/Images/How Bangalore’s  Small Businesses Are Leveraging WhatsApp Business API  for Growth (2).webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -271,11 +271,11 @@ const Dec21 = () => {
             success stories emerging from Bangalore’s entrepreneurial ecosystem.
           </p>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/How Bangalore’s  Small Businesses Are Leveraging WhatsApp Business API  for Growth (3).jpg"
+              src="/Images/How Bangalore’s  Small Businesses Are Leveraging WhatsApp Business API  for Growth (3).webp"
               alt="Descriptive alt text"
             />
           </div>

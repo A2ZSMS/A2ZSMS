@@ -281,10 +281,10 @@ const Jan08 = () => {
           </div>
         </section>
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
-            src="/Images/jan08(3).jpeg"
+            src="/Images/jan08(3).webp"
             alt="RCS Messaging Marketing Automation"
           />
         </div>
@@ -473,7 +473,7 @@ const Jan08 = () => {
           </p>
         </section>
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/jan 08(2).webp"

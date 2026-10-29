@@ -69,7 +69,7 @@ const WebDevelopmentServices = () => {
             data-aos="fade-right"
           >
             <div className="position-relative">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/image/product/designs.webp"
                 alt="Advanced Web Development Technologies"
                 className="img-fluid rounded-4 shadow-lg"

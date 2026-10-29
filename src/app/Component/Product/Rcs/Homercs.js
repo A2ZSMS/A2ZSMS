@@ -1,7 +1,6 @@
 "use client";
 
-import AOS from "aos";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Form, Input, Space, Typography } from "antd";
 
 const { Text } = Typography;
@@ -39,12 +38,6 @@ const Home = () => {
     fontSize: 14,
     fontFamily: "inherit",
   };
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      once: true, // Animation runs only once
-    });
-  }, []);
 
   const handleFinish = () => {
     setStatusMessage("Sample RCS message request received.");
@@ -217,7 +210,7 @@ const Home = () => {
           <div className="col-md-6 text-center" data-aos="fade-left">
             <img
               className="img-fluid rounded"
-              src="/image/product/rcs1.png"
+              src="/image/product/rcs1.webp"
               alt="RCS carousel of offer cards from a verified brand on a smartphone"
             />
           </div>

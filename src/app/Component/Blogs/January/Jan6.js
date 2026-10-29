@@ -7,7 +7,7 @@ const Jan6 = () => {
       <h2 className='fw-bold'>Introduction</h2> 
       <p>In today's fast-paced digital landscape, effective communication is the cornerstone of successful business operations. For enterprises in Bangalore, leveraging reliable bulk SMS services has become an indispensable strategy to connect with customers, promote products, and streamline operations. A2ZSMS stands out as a premier bulk SMS service provider in Bangalore, offering tailored solutions that cater to the unique needs of businesses across various industries.</p>
       <div>
-                      <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Boost Business Reach, with Reliable Bulk SMS Services (2).jpg" alt="Descriptive alt text" />
+                      <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Boost Business Reach, with Reliable Bulk SMS Services (2).webp" alt="Descriptive alt text" />
                     </div>
       <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -91,7 +91,7 @@ const Jan6 = () => {
               </li>
                 </ul>
                 <div>
-                                <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Boost Business Reach, with Reliable Bulk SMS Services (3).jpg" alt="Descriptive alt text" />
+                                <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Boost Business Reach, with Reliable Bulk SMS Services (3).webp" alt="Descriptive alt text" />
                               </div>
             </div>
             <div data-aos="fade-left">
@@ -260,7 +260,7 @@ const Jan6 = () => {
   </li>
 </ul>
 <div>
-                <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Boost Business Reach, with Reliable Bulk SMS Services (4).jpg" alt="Descriptive alt text" />
+                <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Boost Business Reach, with Reliable Bulk SMS Services (4).webp" alt="Descriptive alt text" />
               </div>
                 <h2 className="fw-bold mt-5">
                 Applications of Bulk  {" "}

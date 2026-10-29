@@ -331,11 +331,11 @@ const Sep9 = () => {
           </ul>
         </div>
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).jpg"
+            src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).webp"
             alt="Professional Bulk SMS Marketing Strategies"
           />
         </div>
@@ -618,7 +618,7 @@ const Sep9 = () => {
               </span>
             </li>
           </ul>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
@@ -789,7 +789,7 @@ const Sep9 = () => {
           <div className="row mt-4">
             <div className="col-md-4 mb-3">
               <div className="card h-100">
-                {/* <img
+                {/* <img loading="lazy" decoding="async"
                   src="/Images/sms-compliance.jpg"
                   className="card-img-top"
                   alt="SMS Compliance Guide"
@@ -811,7 +811,7 @@ const Sep9 = () => {
             </div>
             <div className="col-md-4 mb-3">
               <div className="card h-100">
-                {/* <img
+                {/* <img loading="lazy" decoding="async"
                   src="/Images/sms-automation.jpg"
                   className="card-img-top"
                   alt="SMS Automation Tools"
@@ -833,7 +833,7 @@ const Sep9 = () => {
             </div>
             <div className="col-md-4 mb-3">
               <div className="card h-100">
-                {/* <img
+                {/* <img loading="lazy" decoding="async"
                   src="/Images/sms-analytics.jpg"
                   className="card-img-top"
                   alt="SMS Analytics Dashboard"

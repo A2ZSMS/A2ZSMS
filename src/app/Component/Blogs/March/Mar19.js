@@ -10,7 +10,7 @@ const Mar19 = () => {
       <p>In today's digital age, companies are constantly looking for innovative ways to contact customers, improve communication and conduct conversion. One of the most effective devices to achieve this is Bulk WhatsApp messages. With more than 2 billion active users, WhatsApp has become a powerful platform for companies to interact with the audience in real time. Whether it is a promotional campaign, transaction update or customer assistance,. bulk WhatsApp messaging provides a seamless, cost-effective, and highly engaging solution for businesses of all sizes.
       </p>
       <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18-2.png" alt="Descriptive alt text" />
+        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18-2.webp" alt="Descriptive alt text" />
         </div>
         <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -292,7 +292,7 @@ const Mar19 = () => {
               </p>
               </ul>
                 </div>
-                <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18-4.png" alt="Descriptive alt text" />
+                <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18-4.webp" alt="Descriptive alt text" />
                 <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
             Best Practices to Avoid {" "}
@@ -565,7 +565,7 @@ const Mar19 = () => {
              
               </ul>
             </div>
-            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18-3.png" alt="Descriptive alt text" />
+            <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Mar18-3.png" alt="Descriptive alt text" />
             <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
             Why Choose WhatsApp Business API {" "}

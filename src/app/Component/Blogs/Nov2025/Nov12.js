@@ -266,11 +266,11 @@ const Nov12 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses.png"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses.webp"
           alt="Bulk SMS System Integration Dashboard"
         />
 
@@ -473,11 +473,11 @@ const Nov12 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (4).jpg"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (4).webp"
           alt="Bulk SMS Campaign Performance Results"
         />
 
@@ -690,11 +690,11 @@ const Nov12 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (3).jpg"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (3).webp"
           alt="Bulk SMS ROI Performance Chart"
         />
 
@@ -1078,11 +1078,11 @@ const Nov12 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).jpg"
+          src="/Images/Best Bulk SMS Provider In Bangalore For Businesses (2).webp"
           alt="Bulk SMS Implementation Success Stories"
         />
 
@@ -1554,11 +1554,11 @@ const Nov12 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/lat6.png"
+          src="/Images/lat6.webp"
           alt="Multi-Channel Marketing Integration Strategy"
         />
 
@@ -1900,11 +1900,11 @@ const Nov12 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (4).jpg"
+          src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (4).webp"
           alt="Advanced Bulk SMS Platform Features"
         />
 

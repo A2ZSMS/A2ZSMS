@@ -419,7 +419,7 @@ const May16 = () => {
         </div>
 
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height={"auto"}
@@ -761,7 +761,7 @@ const May16 = () => {
         </div>
 
         <div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3"
             width="100%"
             height={"auto"}

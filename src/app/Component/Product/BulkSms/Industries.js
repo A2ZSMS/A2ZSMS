@@ -1,13 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
-import AOS from "aos";
 
 const Industries = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
 
   const industryData = [
     { icon: "/image/icons/house.svg", alt: "Real Estate SMS", title: "Real Estate", path: "/real-estate/" },
@@ -48,7 +43,7 @@ const Industries = () => {
             >
               <Link prefetch={false} href={industry.path} className="text-decoration-none">
                 <div className="industry-card">
-                  <img src={industry.icon} alt={industry.alt} width="44" height="44" />
+                  <img loading="lazy" decoding="async" src={industry.icon} alt={industry.alt} width="44" height="44" />
                   <h6 className="mb-0">{industry.title}</h6>
                 </div>
               </Link>

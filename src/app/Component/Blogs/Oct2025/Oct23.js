@@ -260,11 +260,11 @@ const Oct23 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (2).jpg"
+          src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (2).webp"
           alt="Professional WhatsApp Business API Services"
         />
 
@@ -499,11 +499,11 @@ const Oct23 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (3).jpg"
+          src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (3).webp"
           alt="WhatsApp Marketing Implementation Process"
         />
 
@@ -782,11 +782,11 @@ const Oct23 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (2).jpg"
+          src="/Images/How WhatsApp Chatbots Drive Lead Generation for Indian Startups (2).webp"
           alt="WhatsApp Marketing Success Stories"
         />
 

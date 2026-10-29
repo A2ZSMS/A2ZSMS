@@ -11,7 +11,7 @@ export const GovernmentMessagingServices = {
         "Enable interactive communication for citizens to ask queries, report issues, or share feedback.",
         "Streamline access to e-governance platforms using WhatsApp chatbots and smart messaging.",
       ],
-      image: "/image/Solutions/Government1.png",
+      image: "/image/Solutions/Government1.webp",
     },
     {
       title: "Efficient Outreach with WhatsApp Campaigns",
@@ -22,7 +22,7 @@ export const GovernmentMessagingServices = {
         "Share location-based disaster alerts, vaccination updates, and public safety information.",
         "Create targeted awareness campaigns tailored to demographics and local needs.",
       ],
-      image: '/image/Solutions/Government2.png',
+      image: '/image/Solutions/Government2.webp',
     },
     {
       title: "Ensure Secure Services with OTP & Alerts",
@@ -33,7 +33,7 @@ export const GovernmentMessagingServices = {
         "Provide real-time updates on emergency services, election notifications, and critical alerts.",
         "Enhance communication with automated voice calls for timely reminders and updates.",
       ],
-      image: '/image/Solutions/Government3.png',
+      image: '/image/Solutions/Government3.webp',
     },
   ],
 };

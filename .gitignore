@@ -24,3 +24,6 @@ Thumbs.db
 .vercel
 # Hosting ZIPs
 deploy/
+
+# Claude agent worktrees
+.claude/worktrees/

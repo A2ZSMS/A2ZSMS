@@ -219,11 +219,11 @@ const Sep23 = () => {
             </li>
           </ul>
 
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/Reliable voice call solutions for seamless communication (2).jpg"
+            src="/Images/Reliable voice call solutions for seamless communication (2).webp"
             alt="Voice Call Alert Industry Applications"
           />
         </div>
@@ -428,11 +428,11 @@ const Sep23 = () => {
               </Link>
             </div>
           </div>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/Reliable voice call solutions for seamless communication (4).jpg"
+            src="/Images/Reliable voice call solutions for seamless communication (4).webp"
             alt="Voice Call Alert Performance Analytics"
           />
         </div>
@@ -825,11 +825,11 @@ const Sep23 = () => {
             </div>
           </div>
         </div>
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Reliable voice call solutions for seamless communication (3).jpg"
+          src="/Images/Reliable voice call solutions for seamless communication (3).webp"
           alt="Voice Call Alert Performance Analytics"
         />
         {/* Getting Started */}

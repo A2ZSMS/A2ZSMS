@@ -3,7 +3,7 @@ import React from "react";
 const Terms = () => {
   return (
     <>
-      <section class=" container py-5 para-color">
+      <section className=" container py-5 para-color">
         <h1>Terms and Condition</h1>
         <h4>Welcome to a2zsms services!</h4>
         <p>

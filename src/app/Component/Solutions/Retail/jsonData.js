@@ -11,7 +11,7 @@ export const RetailAndEcommerce = {
         "Use WhatsApp chatbots to handle queries, return requests, and support 24/7 seamlessly.",
         "Boost loyalty by sharing tailored promotions, membership rewards, and feedback requests directly with customers.",
       ],
-      image: "/image/Solutions/Ecommerce1.png", // Replace with the actual path
+      image: "/image/Solutions/Ecommerce1.webp", // Replace with the actual path
     },
     {
       title: "Drive Sales with WhatsApp Campaigns",
@@ -22,7 +22,7 @@ export const RetailAndEcommerce = {
         "Reach customers in bulk with targeted campaigns, ensuring higher engagement and response rates.",
         "Track campaign performance with insights into customer interactions, clicks, and conversions.",
       ],
-      image:"/image/Solutions/Ecommerce2.png" , // Replace with the actual path
+      image:"/image/Solutions/Ecommerce2.webp" , // Replace with the actual path
     },
     {
       title: "Simplify Shopping with WhatsApp Integration",
@@ -33,7 +33,7 @@ export const RetailAndEcommerce = {
         "Offer seamless payment options by sharing secure payment links via WhatsApp.",
         "Keep customers updated on restocks, price drops, and seasonal discounts in real time.",
       ],
-      image: "/image/Solutions/Ecommerce3.png", // Replace with the actual path
+      image: "/image/Solutions/Ecommerce3.webp", // Replace with the actual path
     },
   ],
 };

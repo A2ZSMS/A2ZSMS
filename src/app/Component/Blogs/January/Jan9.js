@@ -8,7 +8,7 @@ const Jan9 = () => {
       <p>In today’s digital age, secure and seamless authentication is crucial for businesses and customers alike. One-Time Passwords (OTPs) have emerged as a standard security mechanism for verifying users, preventing fraud, and enhancing trust. A2Z SMS offers scalable OTP services designed to deliver fast, reliable, and secure authentication solutions for businesses across industries. Whether it’s for login authentication, transaction verification, or user registration, our OTP services ensure a smooth and secure user experience.
       .</p>
       <div>
-                            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (2).jpg" alt="Descriptive alt text" />
+                            <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (2).webp" alt="Descriptive alt text" />
                           </div>
       <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -143,7 +143,7 @@ const Jan9 = () => {
               </li>
                 </ul>
                 <div>
-                                      <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (3).jpg" alt="Descriptive alt text" />
+                                      <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (3).webp" alt="Descriptive alt text" />
                                     </div>
             </div>
             <div data-aos="fade-left">
@@ -227,54 +227,54 @@ const Jan9 = () => {
             <ul className="list-unstyled ">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong>  Banking & Financial Services:</strong> 
-                <li>Secure transactions</li>
+                <div><strong>  Banking & Financial Services:</strong> 
+                <ul className="mt-2 mb-0"><li>Secure transactions</li>
                 <li>Two-factor authentication (2FA)</li>
-                <li>Fraud prevention</li>
-                </span>
+                <li>Fraud prevention</li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong>  E-Commerce & Online Retail:</strong>
-                <li>Login verification</li>
+                <div><strong>  E-Commerce & Online Retail:</strong>
+                <ul className="mt-2 mb-0"><li>Login verification</li>
                 <li>Payment authentication</li>
-                <li>Order confirmations</li>
-                </span>
+                <li>Order confirmations</li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong>Healthcare & Telemedicine:</strong>
-                <li>Patient authentication</li>
+                <div><strong>Healthcare & Telemedicine:</strong>
+                <ul className="mt-2 mb-0"><li>Patient authentication</li>
                 <li>Appointment booking verification</li>
-                <li>Secure access to medical records</li>
-                </span>
+                <li>Secure access to medical records</li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong>Government & Public Services:</strong>
-                <li>Identity verification for citizens
+                <div><strong>Government & Public Services:</strong>
+                <ul className="mt-2 mb-0"><li>Identity verification for citizens
                 </li>
                 <li>Secure document access</li>
-                <li>e-Governance authentication</li>
-                </span>
+                <li>e-Governance authentication</li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong> Travel & Hospitality :</strong> 
-                <li>Ticket booking confirmation
+                <div><strong> Travel & Hospitality :</strong> 
+                <ul className="mt-2 mb-0"><li>Ticket booking confirmation
                 </li>
                 <li>Secure check-in processes</li>
-                <li>Customer identity verification</li>
-                </span>
+                <li>Customer identity verification</li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong> Education & E-Learning :</strong> 
-                <li>Secure student logins
+                <div><strong> Education & E-Learning :</strong> 
+                <ul className="mt-2 mb-0"><li>Secure student logins
                 </li>
                 <li>Exam authentication</li>
-                <li>Access to restricted materials</li>
-                </span>
+                <li>Access to restricted materials</li></ul>
+                </div>
               </li>
 
                 </ul>
@@ -337,7 +337,7 @@ const Jan9 = () => {
               
                </ul>
                <div>
-                                     <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (4).jpg" alt="Descriptive alt text" />
+                                     <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Scalable OTP Services_ Ensure Seamless Customer Verification with A2Z SMS (4).webp" alt="Descriptive alt text" />
                                    </div>
             </div>
             <div data-aos="fade-right">
@@ -354,47 +354,47 @@ const Jan9 = () => {
             <ul className="list-unstyled ">
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong> User Account Authentication:</strong>
-                <li>Login Verification: Whenever a user logs into their A2ZSMS account, an OTP can be sent to their registered mobile number or email to ensure that only the legitimate user can access their account.
-                </li>
-                </span>
+                <div><strong> User Account Authentication:</strong>
+                <ul className="mt-2 mb-0"><li>Login Verification: Whenever a user logs into their A2ZSMS account, an OTP can be sent to their registered mobile number or email to ensure that only the legitimate user can access their account.
+                </li></ul>
+                </div>
                 </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong>Two-Factor Authentication (2FA):</strong>
-                <li>For added security, OTPs can be implemented as part of a two-factor authentication (2FA) process, where users need to enter both their password and the OTP to gain access.
-                </li>
-                </span>
+                <div><strong>Two-Factor Authentication (2FA):</strong>
+                <ul className="mt-2 mb-0"><li>For added security, OTPs can be implemented as part of a two-factor authentication (2FA) process, where users need to enter both their password and the OTP to gain access.
+                </li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong> API Access Security:</strong>
-                <li>API Key Verification: When clients use the A2ZSMS API to send messages, OTPs can be used as an additional verification step to ensure the API request is coming from an authorized source.
+                <div><strong> API Access Security:</strong>
+                <ul className="mt-2 mb-0"><li>API Key Verification: When clients use the A2ZSMS API to send messages, OTPs can be used as an additional verification step to ensure the API request is coming from an authorized source.
                 </li>
-                <li>Bulk Message Authorization: Before sending a large volume of SMS via API, an OTP could be required to confirm the identity of the user, minimizing the risk of unauthorized usage.</li>
-                </span>
+                <li>Bulk Message Authorization: Before sending a large volume of SMS via API, an OTP could be required to confirm the identity of the user, minimizing the risk of unauthorized usage.</li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong> Password Reset:</strong>
-                <li>Forgotten Password: If a user forgets their password, OTPs can be sent to their registered contact (email or phone number) to validate their identity and enable them to reset their password securely.
-                </li>
-                </span>
+                <div><strong> Password Reset:</strong>
+                <ul className="mt-2 mb-0"><li>Forgotten Password: If a user forgets their password, OTPs can be sent to their registered contact (email or phone number) to validate their identity and enable them to reset their password securely.
+                </li></ul>
+                </div>
               </li>
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong> Payment and Transaction Verification:</strong> 
-                <li>SMS Payment Verification: For users making payments through A2ZSMS for SMS credits or other services, an OTP can be sent to verify the payment and ensure that the transaction is authorized.</li>
-                     <li>Transaction Confirmation: OTPs can be used for confirming important transactions, such as purchasing SMS credits or changing account details (e.g., email, phone number).</li>
-                </span>
+                <div><strong> Payment and Transaction Verification:</strong> 
+                <ul className="mt-2 mb-0"><li>SMS Payment Verification: For users making payments through A2ZSMS for SMS credits or other services, an OTP can be sent to verify the payment and ensure that the transaction is authorized.</li>
+                     <li>Transaction Confirmation: OTPs can be used for confirming important transactions, such as purchasing SMS credits or changing account details (e.g., email, phone number).</li></ul>
+                </div>
               </li>
 
               <li className="d-flex align-items-start mb-3">
                 <i className="bi bi-check-circle-fill text-primary me-3"></i>
-                <span><strong>Account Registration:</strong> 
-                <li>New User Signup: During the account registration process, an OTP can be used to verify the user’s contact details (mobile number or email), ensuring that the user is genuine and the contact information is valid.
-                </li>
-                </span>
+                <div><strong>Account Registration:</strong> 
+                <ul className="mt-2 mb-0"><li>New User Signup: During the account registration process, an OTP can be used to verify the user’s contact details (mobile number or email), ensuring that the user is genuine and the contact information is valid.
+                </li></ul>
+                </div>
               </li>
                 </ul>
                 

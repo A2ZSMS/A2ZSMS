@@ -97,7 +97,7 @@ const Services = () => {
                   }}
                   onClick={() => setSelectedService(service)}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={service.icon}
                     alt={service.title}
                     width="24px"

@@ -23,7 +23,7 @@ export const metadata = {
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/Images/1.png",
+        url: "/Images/og/1.jpg",
         width: 1200,
         height: 630,
         alt: "WhatsApp API Service by A2ZSMS",
@@ -38,7 +38,7 @@ export const metadata = {
       "WhatsApp API Service - Bulk Messaging & Automation | A2ZSMS",
     description:
       "Official WhatsApp Business API provider. Send bulk messages, automate notifications, and integrate chatbots. Starting at Rs 2999.",
-    images: ["/Images/1.png"],
+    images: ["/Images/og/1.jpg"],
   },
   robots: "noindex, follow",
   alternates: {

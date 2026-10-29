@@ -8,7 +8,7 @@ const Jan10 = () => {
     <p>In the fast-paced world of digital marketing, businesses need innovative ways to capture their audience’s attention and foster meaningful engagement. Traditional forms of communication like emails and text messages have their place, but they often lack the personal touch that drives real connections. Enter voice calls, a powerful marketing tool that combines the directness of a phone call with the convenience and automation of digital platforms.</p>
     <p>A2Z SMS, a leading provider of communication solutions, leverages voice calls as a game-changer for businesses seeking to enhance their marketing strategies. In this blog, we’ll explore how A2Z SMS <a href="https://www.a2zsms.in/voice-call/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "none", color: "blue" }} >Voice call Services</a> can transform your marketing efforts, increase customer engagement, and ultimately drive higher conversion rates.</p>
     <div>
-                          <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Choose Voice Calls for Marketing Success (2).jpg" alt="Descriptive alt text" />
+                          <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Choose Voice Calls for Marketing Success (2).webp" alt="Descriptive alt text" />
                         </div>
     <div data-aos="fade-left">
             <h2 className="fw-bold mt-5">
@@ -109,7 +109,7 @@ const Jan10 = () => {
               </li>
                 </ul>
                 <div>
-                                      <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Choose Voice Calls for Marketing Success (3).jpg" alt="Descriptive alt text" />
+                                      <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Choose Voice Calls for Marketing Success (3).webp" alt="Descriptive alt text" />
                                     </div>
             </div>
             <div data-aos="fade-right">
@@ -201,7 +201,7 @@ const Jan10 = () => {
             <p>When using voice calls for marketing, it’s essential to maintain transparency with your customers. Always ensure that customers are aware of the purpose of the call and have opted in to receive voice-based communication. Obtaining explicit consent from your recipients not only helps you stay compliant with various regulations but also builds trust and credibility for your brand.</p>
             <p>Transparency also extends to the content of your message. Be clear about what the call is regarding and how the recipient can act on the information provided. For example, if you’re calling to offer a limited-time discount, ensure that the terms and conditions are clearly stated, so customers know exactly what to expect.</p>
             <div>
-                                  <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Choose Voice Calls for Marketing Success (4).jpg" alt="Descriptive alt text" />
+                                  <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Why Choose Voice Calls for Marketing Success (4).webp" alt="Descriptive alt text" />
                                 </div>
             <h2 className="fw-bold mt-5">
             Wrapping Up: The Power of  {" "}

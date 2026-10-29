@@ -1,15 +1,6 @@
 "use client"; // Important for Next.js app directory
 
-import AOS from "aos";
-import { useEffect } from "react";
-
 const Home = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200, // Animation duration
-      once: true, // Animation runs only once
-    });
-  }, []);
   return (
     <>
       <section className="py-5 bg2">
@@ -59,7 +50,7 @@ const Home = () => {
             <div className="col-md-6 text-center aos" data-aos="fade-left">
               <img
               fetchPriority="high"
-                src="/image/Solutions/Estate.png"
+                src="/image/Solutions/Estate.webp"
                 alt="Real Estate SMS Services"
                 width={1600}
                 height={1600}

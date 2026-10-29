@@ -30,11 +30,11 @@ const sliderSettings = {
 };
 
 const images = [
-  "/image/motherhood.png",
+  "/image/motherhood.webp",
   "/image/naidum.jpeg",
-  "/image/nite.png",
+  "/image/nite.webp",
   "/image/ping4sms-client1.webp",
-  "/image/saishishirtours.png",
+  "/image/saishishirtours.webp",
   "/image/Groavy.png",
   "/image/isk.png",
 ];

@@ -44,7 +44,7 @@ const Nov19 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/lat2.png"
+            src="/Images/lat2.webp"
             alt="Best RCS Service Providers in Bangalore"
           />
         </div>
@@ -252,7 +252,7 @@ const Nov19 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
@@ -517,11 +517,11 @@ const Nov19 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Mar12(2).png"
+          src="/Images/Mar12(2).webp"
           alt="Professional RCS Messaging Implementation Process"
         />
 
@@ -968,11 +968,11 @@ const Nov19 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/Mar12(3).png"
+          src="/Images/Mar12(3).webp"
           alt="RCS Messaging Success Stories in Bangalore"
         />
 

@@ -108,7 +108,7 @@ const WebDesignServices = () => {
             data-aos="fade-left"
           >
             <div className="position-relative">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/image/product/website.webp"
                 alt="Professional Website Design Services"
                 className="img-fluid rounded-4 shadow-lg"

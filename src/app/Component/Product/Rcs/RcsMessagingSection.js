@@ -9,9 +9,9 @@ const RcsMessagingSection = () => {
 
           <div className="row align-items-center mb-5 aos">
             <div className="col-md-6 text-center" data-aos="fade-right">
-              <img
+              <img loading="lazy" decoding="async"
                 className="img-fluid rounded"
-                src="/image/product/rcs2.png"
+                src="/image/product/rcs2.webp"
                 alt="RCS rich card with product images and a Purchase Now button"
               />
             </div>
@@ -50,9 +50,9 @@ const RcsMessagingSection = () => {
               </ul>
             </div>
             <div className="col-md-6 text-center" data-aos="fade-in">
-              <img
+              <img loading="lazy" decoding="async"
                 className="img-fluid rounded"
-                src="/image/product/rcs3.png"
+                src="/image/product/rcs3.webp"
                 alt="RCS message from a verified brand with suggested-reply buttons"
               />
             </div>

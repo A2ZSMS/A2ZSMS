@@ -11,7 +11,7 @@ export const MediaAndEntertainment = {
         "Offer real-time updates on show timings, ticket availability, and special announcements.",
         "Interact directly with fans through personalized messages, polls, and audience feedback forms."
       ],
-      image: "/image/Solutions/Media1.png", // Replace with the actual path
+      image: "/image/Solutions/Media1.webp", // Replace with the actual path
     },
     {
       title: "Streamline Promotions with Interactive WhatsApp Templates",
@@ -22,7 +22,7 @@ export const MediaAndEntertainment = {
         "Send exclusive early-bird offers and personalized content to keep your audience excited and engaged.",
         "Easily track engagement and conversion rates through campaign analytics, improving future promotions."
       ],
-      image: '/image/Solutions/Media2.png', // Replace with the actual path
+      image: '/image/Solutions/Media2.webp', // Replace with the actual path
     },
     {
       title: "Ensure Security with WhatsApp-Based OTP Authentication",
@@ -33,7 +33,7 @@ export const MediaAndEntertainment = {
         "Provide automated voice call reminders for event participation or VIP offers to ensure a personalized experience.",
         "Build trust with end-to-end encryption and real-time notifications for secure and seamless communication."
       ],
-      image: '/image/Solutions/Media3.png', // Replace with the actual path
+      image: '/image/Solutions/Media3.webp', // Replace with the actual path
     },
   ],
 };

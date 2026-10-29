@@ -225,11 +225,11 @@ const Sep2 = () => {
             secret lies in creating seamless, interactive experiences that feel
             natural and helpful rather than pushy or salesy.
           </p>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/8.png"
+            src="/Images/8.webp"
             alt="WhatsApp Marketing Secrets for Business Growth"
           />
 
@@ -446,11 +446,11 @@ const Sep2 = () => {
             ordinary messages into powerful conversion tools that customers
             actually look forward to receiving.
           </p>
-          <img
+          <img loading="lazy" decoding="async"
             className="mt-3 py-4"
             width="100%"
             height="auto"
-            src="/Images/6.png"
+            src="/Images/6.webp"
             alt="WhatsApp Marketing Secrets for Business Growth"
           />
           <h3>Content Types That Drive WhatsApp Engagement</h3>

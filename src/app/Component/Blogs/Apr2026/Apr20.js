@@ -311,7 +311,7 @@ const Apr20 = () => {
         </section>
 
         <div className="mb-4">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/Rcs(2)Apr20.webp"
@@ -546,10 +546,10 @@ const Apr20 = () => {
         </section>
 
         <div className="mb-4">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
-            src="/Images/Rcs(3)Apr20.jpeg"
+            src="/Images/Rcs(3)Apr20.webp"
             alt="RCS campaign automation strategy - A2ZSMS"
           />
         </div>

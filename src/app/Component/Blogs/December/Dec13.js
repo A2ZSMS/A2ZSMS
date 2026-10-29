@@ -3,7 +3,7 @@ const Dec13 = () => {
   return (
     <>
     <div className='container aos para-color3'>
-      <h1 class="text-primary fw-bold">
+      <h1 className="text-primary fw-bold">
          Customer Support for Indian SMEs with WhatsApp Chatbots
       </h1>
  
@@ -16,7 +16,7 @@ const Dec13 = () => {
         <a href="https://www.a2zsms.in/whatsapp-api/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "none", color: "blue" }} > WhatsApp chatbots </a> Finding the best free chatbot for WhatsApp ensures seamless automation without high costs. A chatbot WhatsApp Business is ideal for managing customer interactions, while a WhatsApp bot for business helps in lead generation and support. Many providers offer a WhatsApp bot free, enabling SMEs to automate responses without investment. Whether you're a startup or an established business, leveraging chatbots can enhance engagement, boost efficiency, and improve customer satisfaction, making them a vital tool in today’s digital landscape.
         </p>
         <div>
-        <img className='w-100 mt-3' width="px" height={"auto"} src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs.jpg" alt="Descriptive alt text" />
+        <img className='w-100 mt-3' width="px" height={"auto"} src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs.webp" alt="Descriptive alt text" />
       </div>
       </section>
  
@@ -128,7 +128,7 @@ const Dec13 = () => {
             </li>
           </ul>
           <div>
-        <img className='w-100 mt-3' width="px" height={"auto"}  src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (2).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className='w-100 mt-3' width="px" height={"auto"}  src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (2).webp" alt="Descriptive alt text" />
       </div>
         </div>
         <p className="para-color"></p>
@@ -181,7 +181,7 @@ const Dec13 = () => {
           </li>
         </ul>
         <div>
-        <img className='w-100 mt-3' width="px" height={"auto"}  src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (3).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className='w-100 mt-3' width="px" height={"auto"}  src="/Images/How WhatsApp Chatbots Can Revolutionize Customer Support for Indian SMEs (3).webp" alt="Descriptive alt text" />
       </div>
       </section>
  

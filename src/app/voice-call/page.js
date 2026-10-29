@@ -19,7 +19,7 @@ export const metadata = {
     siteName: "Bulk Voice Call Services",
     images: [
       {
-        url: "/Images/3.png",
+        url: "/Images/og/3.jpg",
         width: 1200,
         height: 630,
         alt: "Best Bulk Voice Call Service Provider in Bangalore | India",
@@ -33,7 +33,7 @@ export const metadata = {
     title: "Best Bulk Voice Call Service Provider in Bangalore | India",
     description:
       "Top Bulk Voice Call provider in Bangalore, India. Services include promotional, transactional, and business voice calls for enterprises and marketing campaigns.",
-    images: ["/Images/3.png"],
+    images: ["/Images/og/3.jpg"],
 
   },
   robots:

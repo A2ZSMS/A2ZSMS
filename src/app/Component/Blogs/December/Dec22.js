@@ -30,7 +30,7 @@ const Dec22 = () => {
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/WhatsApp Business API Integration_ Essential Tools and Platforms (3).jpg"
+              src="/Images/WhatsApp Business API Integration_ Essential Tools and Platforms (3).webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -129,11 +129,11 @@ const Dec22 = () => {
             </ul>
 
             <div>
-              <img
+              <img loading="lazy" decoding="async"
                 className=" mt-3"
                 width="100%"
                 height={"auto"}
-                src="/Images/WhatsApp Business API Integration_ Essential Tools and Platforms (2).jpg"
+                src="/Images/WhatsApp Business API Integration_ Essential Tools and Platforms (2).webp"
                 alt="Descriptive alt text"
               />
             </div>
@@ -201,11 +201,11 @@ const Dec22 = () => {
             </ul>
           </div>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/WhatsApp Business API Integration_ Essential Tools and Platforms (3).jpg"
+              src="/Images/WhatsApp Business API Integration_ Essential Tools and Platforms (3).webp"
               alt="Descriptive alt text"
             />
           </div>

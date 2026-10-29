@@ -55,7 +55,7 @@ const Footer = () => {
             <div className="col-lg-4 col-md-6">
               <div className="footer-brand">
                 <img
-                  src="/image/logo.png"
+                  src="/image/logo.webp"
                   alt="A2ZSMS"
                   width="80"
                   height="80"

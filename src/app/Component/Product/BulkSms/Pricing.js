@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import AOS from "aos";
 import "./pricing.css";
 import Link from "next/link";
 
 const PricingTabs = () => {
   const [activeTab, setActiveTab] = useState("transactional");
-
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);

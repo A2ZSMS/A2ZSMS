@@ -11,7 +11,7 @@ const Jan1 = () => {
        <p>What are all above-the-crowd repetitive questions or even complex processes that are likely to meet the <a href="https://www.a2zsms.in/blogs/how-whatsApp-chatbots-drive-lead-generation-for-indian-startups/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > WhatsApp chatbot </a>? There is a platform for everything. Unfortunately, although it is amazing, most of these platforms do not work in the same way. Suppose there are specialized ones for startups. Well, others just have enterprises with high-volume transactions in consideration.</p>
        <p>Through this article, we focus on the best 5 platforms in the chatbot world regarding their importance to developers who want to create bots for WhatsApp Business API. This type of channel makes bot creation easier, provides smooth intersection with different media, and equips developers with AI-enabled tools that help bring out the best conversational experience.</p>
        <div>
-               <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Top 5 Chatbot Platforms for WhatsApp Business API Developers (2).jpg" alt="Descriptive alt text" />
+               <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Top 5 Chatbot Platforms for WhatsApp Business API Developers (2).webp" alt="Descriptive alt text" />
              </div>
        <div data-aos="fade-right">
             <h2 className="fw-bold mt-5">
@@ -125,7 +125,7 @@ const Jan1 = () => {
             <p><i className="bi bi-check-circle-fill text-primary me-1"></i> This is the best case for companies that are looking for a definite developer-oriented program on a large scale using WhatsApp chatbots.</p>
             <p><i className="bi bi-check-circle-fill text-primary me-1"></i> Requires technical expertise. </p>
             <div>
-                    <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Top 5 Chatbot Platforms for WhatsApp Business API Developers (3).jpg" alt="Descriptive alt text" />
+                    <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Top 5 Chatbot Platforms for WhatsApp Business API Developers (3).webp" alt="Descriptive alt text" />
                   </div>
             </div>
             <div  data-aos="fade-right">
@@ -280,7 +280,7 @@ const Jan1 = () => {
             <p><i className="bi bi-check-circle-fill text-primary me-1"></i> Not designed to handle complex workflow requirements</p>
             <p><i className="bi bi-check-circle-fill text-primary me-1"></i> Limited functionality for operation on an enterprise level. </p>
             <div>
-                    <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Top 5 Chatbot Platforms for WhatsApp Business API Developers (4).jpg" alt="Descriptive alt text" />
+                    <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Top 5 Chatbot Platforms for WhatsApp Business API Developers (4).webp" alt="Descriptive alt text" />
                   </div>
             </div>
             <div data-aos="fade-right">

@@ -178,7 +178,7 @@ const StickyMiniNav = memo(() => {
     >
       <div className="container d-flex align-items-center justify-content-between aos">
         <a href="/" className={styles.miniNavLogo}>
-          <img src="/image/logo1.png" alt="A2ZSMS" />
+          <img src="/image/logo1.webp" alt="A2ZSMS" />
         </a>
         <div className="d-flex align-items-center gap-3">
           <div className={styles.miniNavSpotsWrap}>
@@ -339,8 +339,8 @@ const HeroSection = () => (
         <div className="col-lg-6" data-aos="fade-right">
           {/* Logo */}
           <div className={styles.heroLogoWrap}>
-            <img
-              src="/image/logo1.png"
+            <img loading="lazy" decoding="async"
+              src="/image/logo1.webp"
               alt="A2ZSMS"
               className={styles.heroLogo}
             />
@@ -785,8 +785,8 @@ const FeaturesSection = ({ activeTab, setActiveTab }) => (
             <img
               src={
                 activeTab === "promotional"
-                  ? "/image/product/promotional.png"
-                  : "/image/product/transactional.png"
+                  ? "/image/product/promotional.webp"
+                  : "/image/product/transactional.webp"
               }
               alt={
                 activeTab === "promotional"

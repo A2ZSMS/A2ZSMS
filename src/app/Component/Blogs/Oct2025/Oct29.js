@@ -268,7 +268,7 @@ const Oct29 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
@@ -520,7 +520,7 @@ const Oct29 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
@@ -934,11 +934,11 @@ const Oct29 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/oct8.png"
+          src="/Images/oct8.webp"
           alt="Website Development Client Success Stories"
         />
 

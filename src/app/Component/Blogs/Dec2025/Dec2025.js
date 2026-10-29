@@ -172,7 +172,7 @@ const Dec2025 = () => {
         </section>
         {/* Hero Image */}
         <div className="mb-5">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/Dec2025(2).webp"
@@ -307,7 +307,7 @@ const Dec2025 = () => {
         </section>
         {/* Hero Image */}
         <div className="mb-5">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/Dec2025(3).webp"

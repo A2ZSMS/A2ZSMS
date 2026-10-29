@@ -284,7 +284,7 @@ const Feb02 = () => {
         </section>
 
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/feb02(1).webp"
@@ -537,7 +537,7 @@ const Feb02 = () => {
         </section>
 
         <div className="mb-3">
-          <img
+          <img loading="lazy" decoding="async"
             width="100%"
             height="auto"
             src="/Images/feb02(2).webp"

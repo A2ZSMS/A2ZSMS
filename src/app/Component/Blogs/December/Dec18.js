@@ -12,7 +12,7 @@ const Dec18 = () => {
             <p>  <a href="https://www.a2zsms.in/whatsapp-api/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > WhatsApp Business API  </a> is a great tool for business to optimize their customer communication, but even better is integrating the API with your existing customer relationship management (CRM) system. This integrates everything into one system, automating workflows, monitoring data, and personalizing experiences. So irrespective of the system that you currently employ-whether Salesforce, Zoho, HubSpot, or else-it can be paid timely support in managing conversations with anyone in your business. </p>
             <p>In this article, you will learn about step-by-step methods for an easy <a href="https://www.a2zsms.in/whatsapp-api/"target="_blank"  rel="noopener noreferrer" style={{ textDecoration: "underline", color: "blue" }} > WhatsApp Business API integration </a>  with your CRM. </p>
             <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Step-by-Step Guide to Integrating WhatsApp Business API with Your CRM.jpg" alt="Descriptive alt text" />
+        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Step-by-Step Guide to Integrating WhatsApp Business API with Your CRM.webp" alt="Descriptive alt text" />
       </div>
              <div className="" data-aos="fade-left">           
              <h5 className='fw-bold'>What to do: </h5>
@@ -60,7 +60,7 @@ const Dec18 = () => {
                 <p>Want to integrate WhatsApp Business API with your CRM? Start now at the best time for transforming the way you communicate with your audience!</p>
                 <p>Suitable for whom?</p>
                 <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Step-by-Step Guide to Integrating WhatsApp Business API with Your CRM (3).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Step-by-Step Guide to Integrating WhatsApp Business API with Your CRM (3).webp" alt="Descriptive alt text" />
       </div>
                </div>
                <div data-aos="fade-left">
@@ -83,7 +83,7 @@ const Dec18 = () => {
             <p><i className="bi bi-check-circle-fill text-primary me-1"></i> The features/products/integrations are not too advanced for you.  </p>
             <p><i className="bi bi-check-circle-fill text-primary me-1"></i> You just want a quick way to reach out to customers.   </p>
             <div>
-        <img className=' mt-3' width="100%" height={"auto"}  src="/Images/Step-by-Step Guide to Integrating WhatsApp Business API with Your CRM (2).jpg" alt="Descriptive alt text" />
+        <img loading="lazy" decoding="async" className=' mt-3' width="100%" height={"auto"}  src="/Images/Step-by-Step Guide to Integrating WhatsApp Business API with Your CRM (2).webp" alt="Descriptive alt text" />
       </div>
                </div>
                <div data-aos="fade-right">

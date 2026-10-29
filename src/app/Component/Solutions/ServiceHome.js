@@ -33,7 +33,7 @@ const ServiceHome = ({ data }) => {
 
                 {/* Image Section */}
                 <div className="col-md-6 text-center" data-aos="zoom-in-left">
-                  <img src={item.image} alt={item.title} className="w-75" />
+                  <img loading="lazy" decoding="async" src={item.image} alt={item.title} className="w-75" />
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "RCS Messaging Services",
     images: [
       {
-        url: "/Images/2.png",
+        url: "/Images/og/2.jpg",
         width: 1200,
         height: 630,
         alt: "Best RCS Messaging Provider in Bangalore | India",
@@ -34,7 +34,7 @@ export const metadata = {
     title: "Best RCS Messaging Provider in Bangalore | India",
     description:
       "Top RCS messaging services in Bangalore, India. Enterprise RCS provider for rich communication, customer engagement, and business messaging.",
-    images: ["/Images/2.png"],
+    images: ["/Images/og/2.jpg"],
   },
 
   robots:

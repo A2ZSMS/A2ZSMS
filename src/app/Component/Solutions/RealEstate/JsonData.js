@@ -12,7 +12,7 @@ export const RealEstate = {
         "Send personalized property recommendations and offers tailored to buyers’ preferences.",
         "Facilitate real-time communication for inquiries, ensuring faster responses and better customer satisfaction. WhatsApp Business API for Real Estate Leads",
       ],
-      image: "/image/Solutions/Estate1.png", // ✅ Corrected image path
+      image: "/image/Solutions/Estate1.webp", // ✅ Corrected image path
     },
 
     {
@@ -25,7 +25,7 @@ export const RealEstate = {
         "Segment contacts based on property interests and send targeted messages for better engagement.",
         "Improve response rates by using WhatsApp broadcasts for exclusive offers and new listings.",
       ],
-      image: "/image/Solutions/Estate2.png",
+      image: "/image/Solutions/Estate2.webp",
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export const RealEstate = {
         "Use WhatsApp quick replies and templates to streamline client interactions and maintain professionalism.",
         "Enhance customer support with interactive FAQs and instant response automation.",
       ],
-      image: "/image/Solutions/Estate3.png",
+      image: "/image/Solutions/Estate3.webp",
     },
   ],
 };

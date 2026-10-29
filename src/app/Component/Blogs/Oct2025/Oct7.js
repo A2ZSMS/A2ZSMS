@@ -40,7 +40,7 @@ const oct7 = () => {
             className="mt-3"
             width="100%"
             height="auto"
-            src="/Images/oct8.png"
+            src="/Images/oct8.webp"
             alt="WhatsApp Business Cloud API Service Providers in Bangalore"
           />
         </div>
@@ -243,7 +243,7 @@ const oct7 = () => {
           </div>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
@@ -492,11 +492,11 @@ const oct7 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/6.png"
+          src="/Images/6.webp"
           alt="Professional WhatsApp Business Cloud API Implementation"
         />
 
@@ -928,11 +928,11 @@ const oct7 = () => {
           </ul>
         </div>
 
-        <img
+        <img loading="lazy" decoding="async"
           className="mt-3 py-4"
           width="100%"
           height="auto"
-          src="/Images/8.png"
+          src="/Images/8.webp"
           alt="WhatsApp Business Cloud API Success Stories in Bangalore"
         />
 

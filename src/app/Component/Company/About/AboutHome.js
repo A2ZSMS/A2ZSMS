@@ -21,8 +21,8 @@ const AboutHome = () => {
           <div className="row align-items-center aos">
             <div className="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
               <div className="who-img-wrap">
-                <img
-                  src="/image/about-choose.jpeg"
+                <img loading="lazy" decoding="async"
+                  src="/image/about-choose.webp"
                   alt="Who We Are"
                   className="img-fluid"
                 />

@@ -27,7 +27,7 @@ const Mar12 = () => {
             className=" mt-3"
             width="100%"
             height={"auto"}
-            src="/Images/Mar12(1).png"
+            src="/Images/Mar12(1).webp"
             alt="Descriptive alt text"
           />
         </div>
@@ -260,11 +260,11 @@ const Mar12 = () => {
             messaging solutions that drive engagement and business growth.
           </p>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/Mar12(2).png"
+              src="/Images/Mar12(2).webp"
               alt="Descriptive alt text"
             />
           </div>
@@ -395,11 +395,11 @@ const Mar12 = () => {
             engagement with Android users.
           </p>
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               className=" mt-3"
               width="100%"
               height={"auto"}
-              src="/Images/Mar12(3).png"
+              src="/Images/Mar12(3).webp"
               alt="Descriptive alt text"
             />
           </div>
