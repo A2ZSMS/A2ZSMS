@@ -1,23 +1,38 @@
 "use client";
 import { useEffect } from "react";
-import ReactGA from "react-ga4";
 
+// Google Ads (AW-17957140915) and its conversion tags are loaded by the GTM container,
+// so the separate direct gtag.js load for Ads was removed (duplicate script).
+// GA4 is NOT in the GTM container, so it is loaded once here. It used to go through
+// react-ga4, whose initialize() + send("pageview") recorded every page view twice.
 const GA_MEASUREMENT_ID = "G-9EGHVP6W24";
 const GTM_ID = "GTM-WW8X2SDK";
-const GOOGLE_ADS_ID = "AW-17957140915";
 
 const GoogleTracking = () => {
   useEffect(() => {
-    // Initialize Google Analytics (GA4) Once
-    if (typeof window !== "undefined" && !window.gaInitialized) {
-      ReactGA.initialize(GA_MEASUREMENT_ID);
-      ReactGA.send("pageview");
-      window.gaInitialized = true;
-    }
-
     // Initialize dataLayer once (shared by GTM and Google Ads)
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
+      // gtag() is still used by gtag_report_conversion() in the lead forms. The
+      // Google tag that GTM loads processes these dataLayer commands.
+      if (!window.gtag) {
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+      }
+    }
+
+    // Google Analytics 4: one config = one page_view per page load
+    if (typeof window !== "undefined" && !window.gaInitialized) {
+      window.gtag("js", new Date());
+      window.gtag("config", GA_MEASUREMENT_ID);
+
+      const gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      document.head.appendChild(gaScript);
+
+      window.gaInitialized = true;
     }
 
     // Inject Google Tag Manager (GTM) Script Dynamically
@@ -40,25 +55,6 @@ const GoogleTracking = () => {
       }
 
       window.gtmScriptAdded = true;
-    }
-
-    // Inject Google Ads (gtag.js) Script Dynamically
-    if (typeof window !== "undefined" && !window.gadsScriptAdded) {
-      // Define gtag function before loading the script
-      if (!window.gtag) {
-        window.gtag = function () {
-          window.dataLayer.push(arguments);
-        };
-      }
-      window.gtag("js", new Date());
-      window.gtag("config", GOOGLE_ADS_ID);
-
-      const gtagScript = document.createElement("script");
-      gtagScript.async = true;
-      gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
-      document.head.appendChild(gtagScript);
-
-      window.gadsScriptAdded = true;
     }
   }, []);
 

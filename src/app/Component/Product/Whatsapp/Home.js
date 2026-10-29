@@ -1,11 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button, Form, Input, Space, Typography } from "antd";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
-
-const { Text } = Typography;
+import "./TestMessageForm.css";
 
 // ── TESTING FLAG ──────────────────────────────────────────────
 // true  → only TeleCRM fires; Make.com/Web3Forms/gtag + msgmaker are SKIPPED
@@ -170,11 +168,43 @@ function fireMakeAndW3F(name, phone) {
   }).catch((e) => console.error('[Web3Forms] error:', e));
 }
 
+// Same rules and messages as the previous antd field rules, in the same order
+const NAME_PATTERN = /^[A-Za-z][A-Za-z .'-]{1,59}$/;
+function validateName(value) {
+  if (!value || !value.trim()) return "Please enter your name.";
+  if (value.length < 3) return "At least 3 characters";
+  if (!NAME_PATTERN.test(value)) return "Letters and spaces only";
+  return "";
+}
+function validateMobile(value) {
+  if (!value) return "Please enter your mobile number.";
+  const digits = value.replace(/\D/g, "");
+  if (!/^[6-9]\d{9}$/.test(digits)) return "Enter a valid 10-digit Indian mobile.";
+  if (FAKE_PHONE_BLOCKLIST.has(digits)) return "Enter a real mobile number.";
+  return "";
+}
+
+const STATUS_COLORS = {
+  secondary: "rgba(0, 0, 0, 0.45)",
+  success: "#52c41a",
+  danger: "#ff4d4f",
+};
+
+// Hero "Test WhatsApp Message" form is hidden (code kept intact)
+const SHOW_TEST_FORM = false;
+
 const Home = () => {
   const [statusMessage, setStatusMessage] = useState("");
   const [statusType, setStatusType] = useState("secondary");
   const [isSending, setIsSending] = useState(false);
-  const [form] = Form.useForm();
+  const [values, setValues] = useState({ name: "", mobile: "" });
+  const [fieldErrors, setFieldErrors] = useState({ name: false, mobile: false });
+  const form = {
+    resetFields: () => {
+      setValues({ name: "", mobile: "" });
+      setFieldErrors({ name: false, mobile: false });
+    },
+  };
   const compactWrapperStyle = {
     maxWidth: 520,
     width: "100%",
@@ -305,6 +335,29 @@ const Home = () => {
     }
   };
 
+  const handleFieldChange = (field, raw) => {
+    // mobile keeps digits only, max 10 (same as the old `normalize`)
+    const value = field === "mobile" ? raw.replace(/\D/g, "").slice(0, 10) : raw;
+    setValues((v) => ({ ...v, [field]: value }));
+    setFieldErrors((e) => ({ ...e, [field]: false }));
+    handleValuesChange();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSending) return;
+    const nameError = validateName(values.name);
+    const mobileError = validateMobile(values.mobile);
+    if (nameError || mobileError) {
+      setFieldErrors({ name: !!nameError, mobile: !!mobileError });
+      handleFinishFailed({
+        errorFields: [nameError && { errors: [nameError] }, mobileError && { errors: [mobileError] }].filter(Boolean),
+      });
+      return;
+    }
+    handleFinish({ name: values.name, mobile: values.mobile });
+  };
+
   return (
     <section className="py-5 bg2">
       <div className="container aos">
@@ -366,6 +419,8 @@ const Home = () => {
                 Request Demo
               </a>
             </div>
+            {/* Test message form hidden on request; set SHOW_TEST_FORM to true to bring it back */}
+            {SHOW_TEST_FORM && (
             <div style={formCardStyle}>
               <div className="mb-2">
                 <h5 className="mb-1 fw-semibold">Test WhatsApp Message</h5>
@@ -373,12 +428,7 @@ const Home = () => {
                   Send a sample template to your number in seconds.
                 </p>
               </div>
-              <Form
-                form={form}
-                onFinish={handleFinish}
-                onFinishFailed={handleFinishFailed}
-                onValuesChange={handleValuesChange}
-              >
+              <form className="wa-test-form" onSubmit={handleSubmit} noValidate>
                 {/* Honeypot — hidden from real users, bots fill it */}
                 <input
                   type="text"
@@ -391,89 +441,64 @@ const Home = () => {
                 />
                 <div style={compactWrapperStyle}>
                   <div className="d-flex flex-column gap-2">
-                    <Space.Compact
-                      block
-                      size="middle"
-                      style={{ width: "100%" }}
-                    >
-                      <Form.Item
+                    <div className="wa-test-row">
+                      <input
+                        type="text"
+                        id="name"
                         name="name"
-                        rules={[
-                          {
-                            required: true,
-                            whitespace: true,
-                            message: "Please enter your name.",
-                          },
-                          { min: 3, message: "At least 3 characters" },
-                          {
-                            pattern: /^[A-Za-z][A-Za-z .'-]{1,59}$/,
-                            message: "Letters and spaces only",
-                          },
-                        ]}
-                        noStyle
-                      >
-                        <Input
-                          placeholder="Enter your name"
-                          aria-label="Name"
-                          style={inputStyle}
-                        />
-                      </Form.Item>
-                      <Form.Item
+                        placeholder="Enter your name"
+                        aria-label="Name"
+                        aria-required="true"
+                        aria-invalid={fieldErrors.name || undefined}
+                        className={`wa-test-input${fieldErrors.name ? " is-error" : ""}`}
+                        value={values.name}
+                        onChange={(e) => handleFieldChange("name", e.target.value)}
+                        style={inputStyle}
+                      />
+                      <input
+                        type="text"
+                        id="mobile"
                         name="mobile"
-                        rules={[
-                          { required: true, message: "Please enter your mobile number." },
-                          {
-                            validator: (_, value) => {
-                              const digits = (value || "").replace(/\D/g, "");
-                              if (!/^[6-9]\d{9}$/.test(digits)) {
-                                return Promise.reject(
-                                  new Error("Enter a valid 10-digit Indian mobile."),
-                                );
-                              }
-                              if (FAKE_PHONE_BLOCKLIST.has(digits)) {
-                                return Promise.reject(
-                                  new Error("Enter a real mobile number."),
-                                );
-                              }
-                              return Promise.resolve();
-                            },
-                          },
-                        ]}
-                        normalize={(value) =>
-                          (value || "").replace(/\D/g, "").slice(0, 10)
-                        }
-                        noStyle
-                      >
-                        <Input
-                          placeholder="Enter 10 digit mobile number"
-                          aria-label="Mobile number"
-                          className="ms-3"
-                          inputMode="numeric"
-                          maxLength={10}
-                          style={inputStyle}
-                        />
-                      </Form.Item>
-                    </Space.Compact>
+                        placeholder="Enter 10 digit mobile number"
+                        aria-label="Mobile number"
+                        aria-required="true"
+                        aria-invalid={fieldErrors.mobile || undefined}
+                        className={`wa-test-input ms-3${fieldErrors.mobile ? " is-error" : ""}`}
+                        inputMode="numeric"
+                        maxLength={10}
+                        value={values.mobile}
+                        onChange={(e) => handleFieldChange("mobile", e.target.value)}
+                        style={inputStyle}
+                      />
+                    </div>
                     <div className="d-flex justify-content-center">
-                      <Button
-                        type="primary"
-                        htmlType="submit"
-                        loading={isSending}
+                      <button
+                        type="submit"
+                        disabled={isSending}
+                        aria-busy={isSending || undefined}
                         style={buttonStyle}
-                        className="px-5"
+                        className={`wa-test-btn px-5${isSending ? " is-loading" : ""}`}
                       >
-                        Send
-                      </Button>
+                        {isSending ? (
+                          <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        ) : null}
+                        <span>Send</span>
+                      </button>
                     </div>
                   </div>
                 </div>
                 {statusMessage ? (
-                  <Text type={statusType} className="d-block mt-2 small">
+                  <span
+                    className="d-block mt-2 small"
+                    role={statusType === "danger" ? "alert" : "status"}
+                    style={{ color: STATUS_COLORS[statusType] || STATUS_COLORS.secondary }}
+                  >
                     {statusMessage}
-                  </Text>
+                  </span>
                 ) : null}
-              </Form>
+              </form>
             </div>
+            )}
           </div>
 
           {/* Right Image Section */}

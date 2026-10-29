@@ -1,66 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Button, Form, Input, Space, Typography } from "antd";
-
-const { Text } = Typography;
-
+// The "Test RCS Message" form below is switched off (commented out). Its antd
+// imports and handlers were removed so the page no longer loads antd (~288KB);
+// restore them together with the form if it is ever re-enabled.
 const Home = () => {
-  const [statusMessage, setStatusMessage] = useState("");
-  const [statusType, setStatusType] = useState("secondary");
-  const [isSending, setIsSending] = useState(false);
-  const [form] = Form.useForm();
-  const compactWrapperStyle = {
-    maxWidth: 520,
-    width: "100%",
-  };
-  const formCardStyle = {
-    marginTop: 16,
-    padding: "16px 18px",
-    backgroundColor: "#f7fbff",
-    border: "1px solid rgba(13, 202, 240, 0.25)",
-    borderRadius: 16,
-  };
-  const inputStyle = {
-    height: 46,
-    borderRadius: 999,
-    paddingInline: 18,
-    fontSize: 15,
-    fontFamily: "inherit",
-  };
-  const buttonStyle = {
-    height: 46,
-    borderRadius: 999,
-    paddingInline: 28,
-    backgroundColor: "#0dcaf0",
-    borderColor: "#0dcaf0",
-    fontWeight: 600,
-    fontSize: 14,
-    fontFamily: "inherit",
-  };
-
-  const handleFinish = () => {
-    setStatusMessage("Sample RCS message request received.");
-    setStatusType("success");
-    setIsSending(false);
-    form.resetFields();
-  };
-
-  const handleFinishFailed = (info) => {
-    const firstError = info?.errorFields?.[0]?.errors?.[0];
-    if (firstError) {
-      setStatusMessage(firstError);
-      setStatusType("danger");
-    }
-  };
-
-  const handleValuesChange = () => {
-    if (statusMessage) {
-      setStatusMessage("");
-      setStatusType("secondary");
-    }
-  };
-
   return (
     <section className="bg2">
       <div className="container">

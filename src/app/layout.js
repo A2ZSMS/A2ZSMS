@@ -10,6 +10,7 @@ import "./globals.css";
 import Headerdrop from "./Component/Header/Headerdrop";
 import Footer from "./Component/Header/Footer";
 import ScrollToTop from "./Component/Scroll/ScrollToTop";
+import IntercomLauncher from "./Component/Scroll/IntercomLauncher";
 import GoogleTracking from "./GoogleTracking";
 import SchemaMarkup from "./Component/schemaMarkup";
 import ClientRuntime from "./ClientRuntime";
@@ -161,25 +162,7 @@ export default function RootLayout({ children }) {
         </Script>
         {/* End A2ZSMS Attribution Capture */}
 
-        {/* Intercom Code */}
-        <Script id="intercom-settings" strategy="lazyOnload">
-          {`
-            window.intercomSettings = {
-              api_base: "https://api-iam.intercom.io",
-              app_id: "a5mrjdl9"
-            };
-          `}
-        </Script>
-        {/* Intercom chat widget (~1s of main-thread work on mobile) is fetched on the
-            visitor's first interaction (scroll/tap/key/mouse move) or after 6s idle,
-            instead of during page load, so it no longer competes with LCP/INP.
-            window.Intercom is still stubbed immediately, so early calls are queued. */}
-        <Script id="intercom-widget" strategy="lazyOnload">
-          {`
-            (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var done=false;var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];var l=function(){if(done)return;done=true;evs.forEach(function(e){w.removeEventListener(e,l,true);});clearTimeout(t);var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/a5mrjdl9';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};evs.forEach(function(e){w.addEventListener(e,l,{capture:true,passive:true,once:true});});var t=setTimeout(l,6000);}})();
-          `}
-        </Script>
-        {/* End Intercom Code */}
+        {/* Intercom chat: loaded on click by <IntercomLauncher /> (see Component/Scroll) */}
       </head>
       <body>
         <ClientRuntime />
@@ -187,6 +170,7 @@ export default function RootLayout({ children }) {
         <GoogleTracking />
         <Headerdrop />
         <ScrollToTop />
+        <IntercomLauncher />
         <SchemaMarkup />
         {children}
         <Footer />

@@ -1,0 +1,61 @@
+/* "Test WhatsApp Message" hero form — plain inputs styled like the previous antd
+   Input/Button (same colours, borders, focus ring), without loading antd (~288KB). */
+.wa-test-form {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.88);
+}
+.wa-test-row {
+  display: flex;
+  width: 100%;
+}
+.wa-test-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding-block: 4px;
+  color: rgba(0, 0, 0, 0.88);
+  line-height: 1.5714;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.wa-test-input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+.wa-test-input:hover {
+  border-color: #4096ff;
+}
+.wa-test-input:focus {
+  border-color: #4096ff;
+  box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+}
+.wa-test-input.is-error {
+  border-color: #ff4d4f;
+}
+.wa-test-input.is-error:hover {
+  border-color: #ffa39e;
+}
+.wa-test-input.is-error:focus {
+  border-color: #ff7875;
+  box-shadow: 0 0 0 2px rgba(255, 38, 5, 0.06);
+}
+.wa-test-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+  line-height: 22px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.wa-test-btn.is-loading {
+  opacity: 0.65;
+  cursor: default;
+}

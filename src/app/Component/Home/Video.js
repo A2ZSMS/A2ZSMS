@@ -17,7 +17,10 @@ const Video = () => {
         preload="metadata"
         poster="/video/video-poster.webp"
       >
-        <source src="/video/video.mp4" type="video/mp4" />
+        {/* Re-encoded without the unused audio track: 640px (~320KB) for phones,
+            1280px (~650KB) for larger screens; original video.mp4 was 1.1MB */}
+        <source src="/video/hero-640.mp4" type="video/mp4" media="(max-width: 767.98px)" />
+        <source src="/video/hero-1280.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay"></div>
 
