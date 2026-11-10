@@ -5,7 +5,7 @@ export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
   title: "Thank You – A2ZSMS | We'll Be in Touch Soon",
   description:
-    "Thank you for reaching out to A2ZSMS. Our team will contact you within 2 hours to get you started with Bulk SMS service.",
+    "Thank you for reaching out to A2ZSMS. Our team will call you within 30 minutes to get you started with Bulk SMS service.",
   robots: "noindex, nofollow",
 };
 
@@ -28,8 +28,8 @@ const ThankYouPage = () => {
           {/* Heading */}
           <h1 className={styles.title}>Thank You!</h1>
           <p className={styles.sub}>
-            Your request has been submitted successfully. Our team will contact
-            you within <strong>2 hours</strong> to get you started with Bulk SMS.
+            Your request has been submitted successfully. Our team will call
+            you within <strong>30 minutes</strong> to get you started with Bulk SMS.
           </p>
 
           {/* What happens next */}
@@ -47,8 +47,8 @@ const ThankYouPage = () => {
             <div className={styles.step}>
               <div className={styles.stepNum}>2</div>
               <div className={styles.stepText}>
-                <strong>We&apos;ll call / WhatsApp you</strong>
-                <span>Expect a response within 2 hours on a business day</span>
+                <strong>We&apos;ll call you</strong>
+                <span>Keep your phone handy — expect our call within 30 minutes</span>
               </div>
             </div>
 
@@ -66,13 +66,8 @@ const ThankYouPage = () => {
             <Link prefetch={false} href="/" className={styles.btnPrimary}>
               <i className="bi bi-house-fill me-2"></i>Back to Home
             </Link>
-            <a
-              href="https://wa.me/918431086185?text=Hi%2C%20I%20just%20filled%20the%20form%20on%20your%20website%20for%20Bulk%20SMS%20service."
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.btnWa}
-            >
-              <i className="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+            <a href="tel:+918431086185" className={styles.btnWa}>
+              <i className="bi bi-telephone-fill me-2"></i>Call +91 84310 86185
             </a>
           </div>
 
@@ -85,7 +80,7 @@ const ThankYouPage = () => {
               <i className="bi bi-patch-check-fill"></i> TRAI Compliant
             </span>
             <span>
-              <i className="bi bi-star-fill"></i> 4.9/5 Rated
+              <i className="bi bi-geo-alt-fill"></i> Bengaluru-based support
             </span>
           </div>
         </div>

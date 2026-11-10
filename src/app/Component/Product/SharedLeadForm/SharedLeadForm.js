@@ -211,6 +211,14 @@ const CountdownTimer = ({ styles }) => {
  *   urgencyText    {string}   Optional urgency strip text
  *   submitLabel    {string}   Submit button label
  *   trustItems     {object[]} Array of { icon, label } for the trust strip
+ *
+ * Optional (defaults keep the original behaviour on every other page):
+ *   showCountdown  {boolean}  Render the countdown timer        (default true)
+ *   showUrgency    {boolean}  Render the urgency + response strip (default true)
+ *   showMessage    {boolean}  Render the "Your Requirement" box  (default true)
+ *   formTitle      {string}   Heading above the fields
+ *   formSubtitle   {string}   Line under the heading
+ *   errorContact   {string}   Fallback contact shown if every send fails
  */
 const SharedLeadForm = ({
   styles,
@@ -225,6 +233,12 @@ const SharedLeadForm = ({
     { icon: "bi-patch-check-fill", label: "Google Partner" },
     { icon: "bi-clock-fill",       label: "Reply in 2 hrs" },
   ],
+  showCountdown = true,
+  showUrgency = true,
+  showMessage = true,
+  formTitle = "Claim Your Free Demo & Pricing",
+  formSubtitle = "Takes 30 seconds · No credit card · Our expert calls you back",
+  errorContact = "Please WhatsApp us directly at +91 84310 86185 or try again.",
 }) => {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "",
@@ -448,9 +462,7 @@ const SharedLeadForm = ({
         const [makeOk, w3fOk] = await Promise.all([tryMake(), tryW3F()]);
         console.info(`[Form] Make.com=${makeOk} | Web3Forms=${w3fOk} | pageId=${pageId}`);
         if (!makeOk && !w3fOk) {
-          setSubmitError(
-            "Submission failed. Please WhatsApp us directly at +91 84310 86185 or try again.",
-          );
+          setSubmitError(`Submission failed. ${errorContact}`);
           setLoading(false);
           isSubmitting.current = false;
           return;
@@ -471,26 +483,28 @@ const SharedLeadForm = ({
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
     <div className={styles.formCard} id={formId}>
-      <CountdownTimer styles={styles} />
+      {showCountdown && <CountdownTimer styles={styles} />}
 
-      {/* Urgency strip */}
-      <div className={styles.formUrgencyStrip}>
-        <span className={styles.formUrgencyDot}></span>
-        <span>
-          <strong>{urgencyText}</strong> — grab yours before they&apos;re gone
-        </span>
-        <span style={{ marginLeft: 6 }}>🔥</span>
-      </div>
+      {showUrgency && (
+        <>
+          {/* Urgency strip */}
+          <div className={styles.formUrgencyStrip}>
+            <span className={styles.formUrgencyDot}></span>
+            <span>
+              <strong>{urgencyText}</strong> — grab yours before they&apos;re gone
+            </span>
+            <span style={{ marginLeft: 6 }}>🔥</span>
+          </div>
 
-      <div className={styles.formResponseTime}>
-        <span className={styles.formResponseDot}></span>
-        Average response time: <strong>under 2 hours</strong>
-      </div>
+          <div className={styles.formResponseTime}>
+            <span className={styles.formResponseDot}></span>
+            Average response time: <strong>under 2 hours</strong>
+          </div>
+        </>
+      )}
 
-      <h4 className={styles.formTitle}>Claim Your Free Demo &amp; Pricing</h4>
-      <p className={styles.formSub}>
-        Takes 30 seconds · No credit card · Our expert calls you back
-      </p>
+      <h4 className={styles.formTitle}>{formTitle}</h4>
+      <p className={styles.formSub}>{formSubtitle}</p>
 
       <form onSubmit={handleSubmit} noValidate>
         {/* Honeypot — hidden from real users */}
@@ -648,6 +662,7 @@ const SharedLeadForm = ({
           </div>
 
           {/* Message */}
+          {showMessage && (
           <div className="col-12">
             <label className={styles.formLabel} htmlFor={`message_${formId}`}>
               Your Requirement
@@ -664,6 +679,7 @@ const SharedLeadForm = ({
               maxLength={1000}
             />
           </div>
+          )}
 
           {/* Privacy & Terms checkbox */}
           <div className="col-12">
