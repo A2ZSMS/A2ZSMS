@@ -28,8 +28,9 @@ export default function RootLayout({ children }) {
         {/* Main body font, self-hosted: start downloading it before the CSS is parsed */}
         <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
-        {/* Meta Pixel Code */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+        {/* Meta Pixel Code — lazyOnload: loads once the page is idle so it does not
+            compete with the page on phones (PageView still fires). */}
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -54,21 +55,9 @@ export default function RootLayout({ children }) {
         </noscript>
         {/* End Meta Pixel Code */}
 
-        {/* OpenAI Ads Measurement Pixel */}
-        <Script id="openai-ads-pixel" strategy="afterInteractive">
-          {`
-            window.oaiq = window.oaiq || function () {
-              (window.oaiq.q = window.oaiq.q || []).push(arguments);
-            };
-            oaiq("init", { pixelId: "9YNGvhAjh1Y9MHjxeA8EyS" });
-          `}
-        </Script>
-        <Script
-          id="openai-ads-sdk"
-          src="https://bzrcdn.openai.com/sdk/oaiq.min.js"
-          strategy="afterInteractive"
-        />
-        {/* End OpenAI Ads Measurement Pixel */}
+        {/* OpenAI Ads Measurement Pixel removed 2026-11-18 at the owner's request (not used;
+            saves ~40 KB of scripts). The forms' window.oaiq(...) calls are guarded and now
+            simply do nothing. Pixel ID was 9YNGvhAjh1Y9MHjxeA8EyS if it is ever needed again. */}
 
         {/* A2ZSMS Attribution Capture — reads UTM params + AI referrer on first landing
             of the session, stores in sessionStorage for form submissions to read back

@@ -1,11 +1,16 @@
 /* Bootstrap Icons v1.11.3 (MIT) - subset generated from bootstrap-icons/font/bootstrap-icons.css.
  * Only icons referenced in src/ are included to cut ~80KB of render-blocking CSS.
- * To add an icon: copy its ".bi-NAME::before" rule from node_modules/bootstrap-icons/font/bootstrap-icons.css. */
+ * To add an icon: copy its ".bi-NAME::before" rule from node_modules/bootstrap-icons/font/bootstrap-icons.css.
+ *
+ * The font file is also a subset (public/fonts/bootstrap-icons-subset.woff2, 28 KB instead of 130 KB):
+ * it holds only the glyphs listed in this file. After adding an icon here, regenerate it with fonttools:
+ *   pyftsubset node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2 --flavor=woff2 \
+ *     --unicodes=<the \fXXX codepoints from this file> --output-file=public/fonts/bootstrap-icons-subset.woff2
+ * (until then a newly added icon shows as a blank square). */
 @font-face {
   font-display: block;
   font-family: "bootstrap-icons";
-  src: url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6") format("woff2"),
-url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?dd67030699838ea613ee6dbda90effa6") format("woff");
+  src: url("/fonts/bootstrap-icons-subset.woff2") format("woff2");
 }
 .bi::before,
 [class^="bi-"]::before,
@@ -405,3 +410,6 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?dd670306
 .bi-database::before{content:"\f8c4"}
 .bi-person-vcard-fill::before{content:"\f8c8"}
 .bi-person-raised-hand::before{content:"\f8f7"}
+.bi-arrow-return-left::before { content: "\f131"; }
+.bi-envelope-paper-fill::before { content: "\f73a"; }
+.bi-reception-4::before { content: "\f514"; }
