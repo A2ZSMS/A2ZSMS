@@ -1,6 +1,7 @@
 "use client";
 import "./Header.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -45,6 +46,9 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const pathname = usePathname();
+  if (pathname.replace(/\/$/, "") === "/bulk-sms-service") return null;
+
   return (
     <footer className="site-footer">
       {/* Main Footer */}

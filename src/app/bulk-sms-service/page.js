@@ -2,9 +2,9 @@ import BulkSmsLanding from "../Component/Product/BulkSmsLanding/BulkSmsLanding";
 
 export const metadata = {
   metadataBase: new URL("https://www.a2zsms.in"),
-  title: "Bulk SMS Service - Send SMS to Millions Instantly | A2ZSMS",
+  title: "Bulk SMS Service Provider in India | Panel, API & SMPP | A2ZSMS",
   description:
-    "India's most trusted Bulk SMS service provider. Send OTP, promotional & transactional SMS with 99.9% delivery rate. DLT compliant, TRAI regulated. Starting at affordable rates.",
+    "Bulk SMS service provider in India. Send promotional, transactional and OTP SMS through our own panel, API and SMPP. Book a free 10-minute demo.",
   keywords:
     "Bulk SMS Service, Bulk SMS Provider India, Promotional SMS, Transactional SMS, OTP SMS, Bulk SMS API, SMS Marketing, SMS Gateway India, Bulk SMS Bangalore",
   authors: [
@@ -14,16 +14,16 @@ export const metadata = {
     },
   ],
   openGraph: {
-    title: "Bulk SMS Service - Send SMS to Millions Instantly | A2ZSMS",
+    title: "Bulk SMS Service Provider in India | Panel, API & SMPP | A2ZSMS",
     description:
-      "Send Bulk SMS with 99.9% delivery rate. OTP, promotional & transactional SMS. Trusted by 1000+ businesses across India. DLT compliant & TRAI regulated.",
+      "See our SMS platform, discuss your messaging needs and explore panel, API or SMPP connectivity in a free 10-minute guided demo.",
     url: "https://www.a2zsms.in/bulk-sms-service/",
     siteName: "A2ZSMS",
     images: [
       {
-        url: "/Images/og/1.jpg",
-        width: 1200,
-        height: 630,
+        url: "/image/bulk-sms-landing/business-messaging-v2.webp",
+        width: 1536,
+        height: 1024,
         alt: "Bulk SMS Service by A2ZSMS",
       },
     ],
@@ -34,8 +34,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Bulk SMS Service - OTP, Promotional & Transactional SMS | A2ZSMS",
     description:
-      "India's leading Bulk SMS provider. Send millions of SMS instantly with 99.9% delivery rate. DLT compliant, developer-friendly API.",
-    images: ["/Images/og/1.jpg"],
+      "Business SMS through our own panel, API or SMPP. Book a free 10-minute guided demo of the A2ZSMS platform.",
+    images: ["/image/bulk-sms-landing/business-messaging-v2.webp"],
   },
   robots: "noindex, follow",
   alternates: {
@@ -49,7 +49,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1.0,
-  themeColor: "#0d6efd",
+  themeColor: "#087bb9",
 };
 
 const page = () => {

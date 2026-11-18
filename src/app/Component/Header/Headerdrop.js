@@ -10,6 +10,7 @@ import "./Header.css";
 
 const HeaderDrop = () => {
   const pathname = usePathname();
+  const isBulkSmsLanding = pathname.replace(/\/$/, "") === "/bulk-sms-service";
   const isHomePage = pathname === "/";
 
   const [navClass, setNavClass] = useState(
@@ -22,6 +23,7 @@ const HeaderDrop = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
+    if (isBulkSmsLanding) return;
     const updateNavClass = () => {
       if (isHomePage) {
         if (window.scrollY > 50) {
@@ -55,7 +57,7 @@ const HeaderDrop = () => {
     // Always add the scroll listener, regardless of page
     window.addEventListener("scroll", updateNavClass);
     return () => window.removeEventListener("scroll", updateNavClass);
-  }, [isHomePage, pathname]);
+  }, [isHomePage, pathname, isBulkSmsLanding]);
 
   const closeDropdown = () => {
     setDropdownOpen(false);
@@ -67,6 +69,8 @@ const HeaderDrop = () => {
     }
     return "nav-link dropdown-toggle fw-bold text-dark poda";
   };
+
+  if (isBulkSmsLanding) return null;
 
   return (
     <>

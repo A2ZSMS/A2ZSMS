@@ -219,6 +219,7 @@ const CountdownTimer = ({ styles }) => {
  *   formTitle      {string}   Heading above the fields
  *   formSubtitle   {string}   Line under the heading
  *   errorContact   {string}   Fallback contact shown if every send fails
+ *   privacyFooter  {string}   Optional display-only text below the privacy note
  */
 const SharedLeadForm = ({
   styles,
@@ -238,6 +239,7 @@ const SharedLeadForm = ({
   showMessage = true,
   formTitle = "Claim Your Free Demo & Pricing",
   formSubtitle = "Takes 30 seconds · No credit card · Our expert calls you back",
+  privacyFooter = "",
   errorContact = "Please WhatsApp us directly at +91 84310 86185 or try again.",
 }) => {
   const [form, setForm] = useState({
@@ -785,6 +787,10 @@ const SharedLeadForm = ({
               <i className="bi bi-lock-fill"></i> We never share your details.
               Your information is 100% secure.
             </p>
+
+            {privacyFooter && (
+              <p className={styles.formTrustLocation}>{privacyFooter}</p>
+            )}
 
             <div className={styles.formTrust}>
               {trustItems.map((item) => (
