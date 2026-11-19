@@ -6,6 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import { gtag_report_conversion } from "../../GoogleTracking";
 import { checkLead } from "../../../lib/leadQuality";
+import { normalizeIndianMobile } from "../../../lib/phone";
 
 const { Option } = Select;
 
@@ -367,6 +368,7 @@ const FormComponent = ({ title, buttonText }) => {
                 className="form-field"
                 label="Phone Number"
                 name="phone"
+                normalize={(v) => normalizeIndianMobile(v)}
                 rules={[
                   { required: true, message: "Please enter your phone number" },
                   {
@@ -384,7 +386,7 @@ const FormComponent = ({ title, buttonText }) => {
                 <Input
                   addonBefore="+91"
                   placeholder="10-digit mobile number"
-                  maxLength={10}
+                  maxLength={16}
                 />
               </Form.Item>
 

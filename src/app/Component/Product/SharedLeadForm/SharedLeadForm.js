@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
+import { normalizeIndianMobile } from "../../../../lib/phone";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -315,7 +316,7 @@ const SharedLeadForm = ({
     const { name, value } = e.target;
     setForm((p) => ({
       ...p,
-      [name]: name === "phone" ? value.replace(/\D/g, "").slice(0, 10) : value,
+      [name]: name === "phone" ? normalizeIndianMobile(value) : value,
     }));
     if (errors[name])  setErrors((p) => ({ ...p, [name]: "" }));
     if (submitError)   setSubmitError("");
@@ -611,7 +612,7 @@ const SharedLeadForm = ({
                 autoComplete="tel-national"
                 inputMode="numeric"
                 pattern="[6-9][0-9]{9}"
-                maxLength={10}
+                maxLength={16}
               />
             </div>
             {errors.phone && <p className={styles.formError}>{errors.phone}</p>}

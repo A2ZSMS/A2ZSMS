@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
+import { normalizeIndianMobile } from "../../../../lib/phone";
 
 // ── TESTING FLAG ──────────────────────────────────────────────
 // true  → only TeleCRM fires; Make.com/Web3Forms/gtag are SKIPPED
@@ -162,7 +163,7 @@ const ContactForm = () => {
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (name === "phone") {
-      setFormData((prev) => ({ ...prev, [name]: value.replace(/\D/g, "") }));
+      setFormData((prev) => ({ ...prev, [name]: normalizeIndianMobile(value) }));
     } else {
       setFormData((prev) => ({
         ...prev,
@@ -441,7 +442,7 @@ const ContactForm = () => {
                 }}
                 value={formData.phone}
                 onChange={handleInputChange}
-                maxLength={10}
+                maxLength={16}
               />
             </div>
             {errors.phone && <p style={styles.errorText}>{errors.phone}</p>}
