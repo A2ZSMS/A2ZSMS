@@ -58,6 +58,8 @@ const LeadForm = ({ formId = "get-started" }) => (
     showMessage={false}
     privacyFooter="DLT registered · Bengaluru, Karnataka"
     errorContact="Please call us at +91 84310 86185 or try again."
+    requireEmail={false}
+    showCompany={false}
   />
 );
 
@@ -792,7 +794,7 @@ const BottomForm = () => (
 // Google Ads conversion for taps on "Call". Paste the real value when it exists in
 // Google Ads, e.g. "AW-17957140915/AbCdEfGhIjk". While empty, a "call_click" event is
 // still pushed to the dataLayer (usable as a GTM trigger) and the call opens normally.
-const ADS_CALL_CONVERSION = "";
+const ADS_CALL_CONVERSION = "AW-17957140915/FXvGCJz36b0dELPz0PJC"; // "Call tap - Bulk SMS landing" (Secondary), created 2026-11-23
 
 // Record the tap, then dial. 300 ms fallback so the call always opens.
 const handleCallClick = (e) => {

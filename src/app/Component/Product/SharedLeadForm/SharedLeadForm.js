@@ -223,6 +223,8 @@ const CountdownTimer = ({ styles }) => {
  *   formSubtitle   {string}   Line under the heading
  *   errorContact   {string}   Fallback contact shown if every send fails
  *   privacyFooter  {string}   Optional display-only text below the privacy note
+ *   requireEmail   {boolean}  Email is required; when false it is optional  (default true)
+ *   showCompany    {boolean}  Render the Company Name field                 (default true)
  */
 const SharedLeadForm = ({
   styles,
@@ -244,6 +246,8 @@ const SharedLeadForm = ({
   formSubtitle = "Takes 30 seconds · No credit card · Our expert calls you back",
   privacyFooter = "",
   errorContact = "Please WhatsApp us directly at +91 84310 86185 or try again.",
+  requireEmail = true,
+  showCompany = true,
 }) => {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "",
@@ -280,7 +284,9 @@ const SharedLeadForm = ({
     else if (/(.)\1{4,}/.test(name))       errs.name = "Enter your real name";
 
     const email = form.email.trim().toLowerCase();
-    if (!email)                            errs.email = "Email is required";
+    if (!email) {
+      if (requireEmail)                    errs.email = "Email is required";
+    }
     else if (!EMAIL_RE.test(email))        errs.email = "Enter a valid email";
     else {
       const [prefix, domain] = email.split("@");
@@ -296,8 +302,10 @@ const SharedLeadForm = ({
     else if (/(.)\1{6,}/.test(phone))      errs.phone = "Enter a real mobile number";
 
     const company = form.company.trim();
-    if (!company)                          errs.company = "Company name is required";
-    else if (company.length < 2)           errs.company = "At least 2 characters";
+    if (showCompany) {
+      if (!company)                        errs.company = "Company name is required";
+      else if (company.length < 2)         errs.company = "At least 2 characters";
+    }
 
     if (!form.service)                     errs.service = "Please select a service";
 
@@ -568,7 +576,10 @@ const SharedLeadForm = ({
           {/* Email */}
           <div className="col-md-6">
             <label className={styles.formLabel} htmlFor={`email_${formId}`}>
-              Email <span className={styles.formRequired}>*</span>
+              Email{" "}
+              {requireEmail
+                ? <span className={styles.formRequired}>*</span>
+                : <span style={{ fontWeight: 400, color: "#888" }}>(optional)</span>}
             </label>
             <div className={styles.formInputWrap}>
               <i className={`bi bi-envelope ${styles.formInputIcon}`}></i>
@@ -613,6 +624,7 @@ const SharedLeadForm = ({
           </div>
 
           {/* Company */}
+          {showCompany && (
           <div className="col-md-6">
             <label className={styles.formLabel} htmlFor={`company_${formId}`}>
               Company Name <span className={styles.formRequired}>*</span>
@@ -633,9 +645,10 @@ const SharedLeadForm = ({
             </div>
             {errors.company && <p className={styles.formError}>{errors.company}</p>}
           </div>
+          )}
 
           {/* Service */}
-          <div className="col-md-6">
+          <div className={showCompany ? "col-md-6" : "col-12"}>
             <label className={styles.formLabel} htmlFor={`service_${formId}`}>
               Service <span className={styles.formRequired}>*</span>
             </label>
