@@ -6,6 +6,7 @@ import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
 import { normalizeIndianMobile } from "../../../../lib/phone";
 import { LEAD_WEBHOOK_URL } from "../../../../lib/leadWebhook";
+import { getLeadContext } from "../../../../lib/leadAttribution";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -263,16 +264,8 @@ const SharedLeadForm = ({
   // Capture UTM / gclid / referrer once on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const p = new URLSearchParams(window.location.search);
-    utmRef.current = {
-      gclid:        p.get("gclid")        || "",
-      utm_source:   p.get("utm_source")   || "",
-      utm_medium:   p.get("utm_medium")   || "",
-      utm_campaign: p.get("utm_campaign") || "",
-      utm_term:     p.get("utm_term")     || "",
-      utm_content:  p.get("utm_content")  || "",
-      referrer:     document.referrer      || "",
-    };
+    // URL first, then the first-touch attribution saved in layout.js
+    utmRef.current = getLeadContext(pageId);
   }, []);
 
   // ── Validation ──────────────────────────────────────────────────────────────

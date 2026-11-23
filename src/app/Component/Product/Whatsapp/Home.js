@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
 import { LEAD_WEBHOOK_URL } from "../../../../lib/leadWebhook";
+import { getLeadContext } from "../../../../lib/leadAttribution";
 import "./TestMessageForm.css";
 
 // ── TESTING FLAG ──────────────────────────────────────────────
@@ -152,6 +153,7 @@ function fireMakeAndW3F(name, phone) {
     service: 'WhatsApp Test Message',
     message: 'Lead from Test WhatsApp Widget on /whatsapp-api',
     timestamp,
+    ...getLeadContext('whatsapp-test-widget'),
   };
   fetch(MAKE_WEBHOOK_URL, {
     method: 'POST',
