@@ -7,6 +7,7 @@ import axios from "axios";
 import { gtag_report_conversion } from "../../GoogleTracking";
 import { checkLead } from "../../../lib/leadQuality";
 import { normalizeIndianMobile } from "../../../lib/phone";
+import { LEAD_WEBHOOK_URL } from "../../../lib/leadWebhook";
 
 const { Option } = Select;
 
@@ -24,8 +25,7 @@ const OJIVA_SMS_ENDPOINT = '/api/send-sms.php';
 // ──────────────────────────────────────────────────────────────
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
-const MAKE_WEBHOOK_URL =
-  "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const MAKE_WEBHOOK_URL = LEAD_WEBHOOK_URL; // n8n (was Make.com)
 const FAKE_PHONE_BLOCKLIST = new Set([
   "9999999999", "8888888888", "7777777777", "6666666666", "1234567890",
   "9876543210", "0000000000", "1111111111", "9090909090", "9123456789",
