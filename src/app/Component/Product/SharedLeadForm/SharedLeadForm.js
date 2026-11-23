@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
 import { normalizeIndianMobile } from "../../../../lib/phone";
+import { LEAD_WEBHOOK_URL } from "../../../../lib/leadWebhook";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -45,7 +46,7 @@ const OJIVA_SMS_ENDPOINT = '/api/send-sms.php';
 // ──────────────────────────────────────────────────────────────
 
 // ── All constants BEFORE any function that references them ────────────────────
-const MAKE_URL      = "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const MAKE_URL      = LEAD_WEBHOOK_URL; // n8n (was Make.com)
 const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
 const FETCH_TIMEOUT = 7000;            // 7s per endpoint attempt
 

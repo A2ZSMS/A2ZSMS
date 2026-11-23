@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
+import { LEAD_WEBHOOK_URL } from "../../../../lib/leadWebhook";
 import "./TestMessageForm.css";
 
 // ── TESTING FLAG ──────────────────────────────────────────────
@@ -18,7 +19,7 @@ const SMS_ONLY_TEST = false;
 const OJIVA_SMS_ENDPOINT = '/api/send-sms.php';
 // ──────────────────────────────────────────────────────────────
 
-const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const MAKE_WEBHOOK_URL = LEAD_WEBHOOK_URL; // n8n (was Make.com)
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
 const FAKE_PHONE_BLOCKLIST = new Set([
