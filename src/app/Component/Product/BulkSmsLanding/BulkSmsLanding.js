@@ -59,7 +59,6 @@ const LeadForm = ({ formId = "get-started" }) => (
     privacyFooter="DLT registered · Bengaluru, Karnataka"
     errorContact="Please call us at +91 84310 86185 or try again."
     requireEmail={false}
-    showCompany={false}
   />
 );
 
