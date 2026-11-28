@@ -3,8 +3,11 @@
 /*
  * Google Ads landing page: /bulk-sms-service/
  *
- * Goal: more form leads through a free 10-minute guided demo. The website form (SharedLeadForm) is the main lead source;
- * all enquiry CTAs lead to the form. No public call buttons, prices or popups.
+ * Goal: turn ad clicks into form leads. Clarity (Nov 2026) showed visitors scroll ~40% and stay
+ * ~30 seconds, so the first screen carries everything: a headline that matches the search keyword,
+ * a "get today's price" offer (prices are given on request, not shown), trust points and the form.
+ * Below it: pricing cards, how it works, panel preview, FAQ and a second form. One goal only:
+ * the form or the Call button. No popups.
  *
  * The form itself (fields, validation, TeleCRM/Make webhook, thank-you redirect) lives in
  * SharedLeadForm. This page turns off its countdown, urgency strip and message box
@@ -38,7 +41,7 @@ const SMS_SERVICES = [
 const FORM_NOTE = [
   {
     icon: "bi-telephone-fill",
-    label: "Our team will contact you to arrange your demo",
+    label: "Our team calls you back with your price",
   },
 ];
 
@@ -50,20 +53,21 @@ const LeadForm = ({ formId = "get-started" }) => (
     trustItems={FORM_NOTE}
     pageId="bulk-sms-landing"
     formId={formId}
-    submitLabel="Book Free Demo"
-    formTitle="Let’s show you how it works."
-    formSubtitle="Book a free 10-minute demo of our SMS platform."
+    submitLabel="Get My Price"
+    formTitle="Get today’s SMS price."
+    formSubtitle="Tell us what you need. Our team calls you back with your price. A free demo is included."
     showCountdown={false}
     showUrgency={false}
     showMessage={false}
     privacyFooter="DLT registered · Bengaluru, Karnataka"
     errorContact="Please call us at +91 84310 86185 or try again."
+    requireEmail={false}
   />
 );
 
 const DemoButton = ({ light = false }) => (
   <a href="#get-started" className={light ? styles.ctaBtnLight : styles.ctaBtn}>
-    Book Free Demo <i className="bi bi-arrow-right"></i>
+    Get My Price <i className="bi bi-arrow-right"></i>
   </a>
 );
 
@@ -83,10 +87,10 @@ const TopBar = () => (
       </div>
       <div className={styles.headerActions}>
         <span className={styles.headerDemoNote}>
-          <i className="bi bi-clock" /> Free 10-minute demo
+          <i className="bi bi-tag" /> Free quote · Free demo
         </span>
         <a className={styles.headerDemo} href="#get-started">
-          Book a Free Demo <i className="bi bi-arrow-up-right" />
+          Get Price <i className="bi bi-arrow-up-right" />
         </a>
       </div>
     </div>
@@ -106,7 +110,37 @@ const CLIENTS = [
   { src: "/image/clients/groavy.webp", alt: "Groavy" },
 ];
 
-const Hero = () => (
+// Headline that matches what the visitor searched for (utm_term from the Google Ads link,
+// or the first-touch attribution saved by src/app/layout.js). The default is in the static
+// HTML; the swap happens once after load and keeps the same two-line shape.
+const HEADLINES = [
+  { test: /otp|verification|2fa|two factor/i, line1: "OTP SMS Service.", line2: "Fast and", em: "reliable." },
+  { test: /gateway|api|smpp|integration/i, line1: "SMS Gateway & API.", line2: "Panel, API and", em: "SMPP." },
+  { test: /transactional/i, line1: "Transactional SMS.", line2: "Alerts that", em: "arrive on time." },
+  { test: /promotional|marketing|campaign/i, line1: "Promotional SMS.", line2: "Reach customers", em: "in seconds." },
+  { test: /sender|send/i, line1: "Bulk SMS Sender.", line2: "Made for", em: "your business." },
+];
+const DEFAULT_HEADLINE = { line1: "Bulk SMS Service.", line2: "Made for", em: "your business." };
+
+const useSearchHeadline = () => {
+  const [h, setH] = useState(DEFAULT_HEADLINE);
+  useEffect(() => {
+    try {
+      let term = new URLSearchParams(window.location.search).get("utm_term") || "";
+      if (!term) {
+        const saved = JSON.parse(sessionStorage.getItem("a2z_attribution") || "{}");
+        term = saved.utm_term || "";
+      }
+      const match = HEADLINES.find((x) => x.test.test(term));
+      if (match) setH(match);
+    } catch (_) {}
+  }, []);
+  return h;
+};
+
+const Hero = () => {
+  const h = useSearchHeadline();
+  return (
   <section className={styles.hero}>
     <div className="container">
       <div className={styles.heroGrid}>
@@ -115,21 +149,32 @@ const Hero = () => (
             <span /> BULK SMS SERVICE PROVIDER · INDIA
           </span>
           <h1 className={styles.heroTitle}>
-            Bulk SMS Service.
+            {h.line1}
             <br />
-            Made for <em>your business.</em>
+            {h.line2} <em>{h.em}</em>
           </h1>
-          <p className={styles.heroSub}>
-            Send offers, order updates and OTPs from one SMS platform. Use our
-            own panel, connect through API or SMPP, and get support from our
-            team. A bulk SMS sender and SMS gateway built for Indian businesses,
-            with DLT setup support.
+          <p className={styles.heroPrice}>
+            <i className="bi bi-tag-fill" />
+            <span>
+              Get today’s SMS price for your volume,{" "}
+              <strong>free and with no obligation.</strong>
+            </span>
           </p>
-          <div className={styles.heroPills}>
-            <span>Promotional SMS</span>
-            <span>Transactional SMS</span>
-            <span>OTP &amp; verification</span>
-          </div>
+          <p className={styles.heroSub}>
+            Promotional, transactional and OTP SMS from one platform. Use our
+            own panel, API or SMPP, with DLT setup help from our team.
+          </p>
+          <ul className={styles.heroTrust}>
+            <li>
+              <i className="bi bi-check-circle-fill" /> DLT registration help
+            </li>
+            <li>
+              <i className="bi bi-check-circle-fill" /> Own panel, API &amp; SMPP
+            </li>
+            <li>
+              <i className="bi bi-check-circle-fill" /> Bengaluru support team
+            </li>
+          </ul>
           <a href="#panel-walkthrough" className={styles.heroVideoLink}>
             <i className="bi bi-bar-chart-line-fill" /> See the SMS panel{" "}
             <span>quick overview</span>
@@ -160,22 +205,21 @@ const Hero = () => (
         <div className={styles.heroForm}>
           <div className={styles.formRibbon}>
             <span>
-              <i className="bi bi-camera-video" /> FREE GUIDED DEMO
+              <i className="bi bi-tag" /> FREE PRICE QUOTE
             </span>
-            <strong>10 MINUTES</strong>
+            <strong>NO OBLIGATION</strong>
           </div>
           <LeadForm />
           <div className={styles.demoAgenda}>
-            <span>YOUR DEMO, MADE USEFUL</span>
+            <span>WHAT YOU GET</span>
             <p>
-              <i className="bi bi-check2" /> See the SMS panel in action
+              <i className="bi bi-check2" /> Your SMS price for your volume
             </p>
             <p>
-              <i className="bi bi-check2" /> Discuss your SMS or SMPP
-              requirement
+              <i className="bi bi-check2" /> Help with DLT registration
             </p>
             <p>
-              <i className="bi bi-check2" /> Get guidance on your next steps
+              <i className="bi bi-check2" /> A free demo of the SMS panel
             </p>
           </div>
         </div>
@@ -193,7 +237,8 @@ const Hero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const CustomerStrip = () => (
   <section className={styles.customerStrip} aria-label="Our customers">
@@ -213,6 +258,60 @@ const CustomerStrip = () => (
             height={56}
             loading="lazy"
           />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const PLANS = [
+  {
+    icon: "bi-megaphone-fill",
+    title: "Promotional SMS",
+    use: "Offers, sales and announcements to your customers.",
+    points: ["Sent to non-DND numbers", "Campaign scheduling", "Delivery reports"],
+  },
+  {
+    icon: "bi-bell-fill",
+    title: "Transactional SMS",
+    use: "Order updates, alerts and reminders, 24×7.",
+    points: ["Delivered to DND numbers", "Your own sender ID", "API & SMPP"],
+  },
+  {
+    icon: "bi-shield-lock-fill",
+    title: "OTP SMS",
+    use: "Login and verification codes for apps and websites.",
+    points: ["Fast delivery route", "API integration help", "DLT template setup"],
+  },
+];
+
+const Pricing = () => (
+  <section className={styles.section} aria-labelledby="pricing-title">
+    <div className="container">
+      <span className={styles.eyebrow}>SIMPLE PRICING</span>
+      <h2 id="pricing-title" className={styles.sectionTitle}>
+        Pay for what you send. Higher volume, lower rate.
+      </h2>
+      <div className={styles.priceGrid}>
+        {PLANS.map((p) => (
+          <div key={p.title} className={styles.priceCard}>
+            <i className={`bi ${p.icon} ${styles.priceIcon}`} />
+            <h3 className={styles.cardTitle}>{p.title}</h3>
+            <p className={styles.cardText}>{p.use}</p>
+            <p className={styles.priceTag}>
+              Price on request <small>· based on your volume</small>
+            </p>
+            <ul className={styles.priceList}>
+              {p.points.map((x) => (
+                <li key={x}>
+                  <i className="bi bi-check2" /> {x}
+                </li>
+              ))}
+            </ul>
+            <a href="#get-started" className={styles.ctaBtn}>
+              Get exact price <i className="bi bi-arrow-right"></i>
+            </a>
+          </div>
         ))}
       </div>
     </div>
@@ -325,352 +424,30 @@ const PanelWalkthrough = () => {
   );
 };
 
-const Platform = () => (
-  <section className={styles.platformSection}>
-    <div className="container">
-      <div className={styles.sectionIntro}>
-        <div>
-          <span className={styles.eyebrow}>
-            ONE PLATFORM. THREE WAYS TO CONNECT.
-          </span>
-          <h2 className={styles.sectionTitle}>
-            Your panel.
-            <br />
-            Your way to send SMS.
-          </h2>
-        </div>
-        <p>
-          Run campaigns from a panel or connect SMS to the tools your business
-          already uses. We’ll walk you through the right approach in your demo.
-        </p>
-      </div>
-      <div className={styles.platformGrid}>
-        <article className={styles.platformFeature}>
-          <span className={styles.featureNumber}>01 / SMS PANEL</span>
-          <i className="bi bi-window-desktop" />
-          <h3>
-            A workspace for
-            <br />
-            your campaigns.
-          </h3>
-          <p>
-            Upload recipient lists, select approved templates, preview your
-            message and send now or schedule for later. Review delivery activity
-            and export reports from the panel.
-          </p>
-          <a href="#get-started">
-            Explore in your demo <i className="bi bi-arrow-up-right" />
-          </a>
-        </article>
-        <article className={styles.platformFeature}>
-          <span className={styles.featureNumber}>02 / SMS API</span>
-          <i className="bi bi-code-slash" />
-          <h3>
-            Make messaging part
-            <br />
-            of your application.
-          </h3>
-          <p>
-            Connect SMS to your website, app or CRM through our API. Talk
-            through your OTP and customer notification requirements with our
-            team.
-          </p>
-          <a href="#get-started">
-            Discuss your integration <i className="bi bi-arrow-up-right" />
-          </a>
-        </article>
-        <article className={styles.platformFeature}>
-          <span className={styles.featureNumber}>03 / SMPP PLATFORM</span>
-          <i className="bi bi-hdd-network" />
-          <h3>
-            Connect your
-            <br />
-            messaging systems.
-          </h3>
-          <p>
-            Have an SMPP requirement? See our SMPP panel and discuss
-            connectivity, your messaging workflow and onboarding with our team.
-          </p>
-          <a href="#get-started">
-            Talk about SMPP <i className="bi bi-arrow-up-right" />
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-);
-
-// Fill these three slots only with real testimonials. Incomplete slots stay hidden.
-const CUSTOMER_TESTIMONIALS = [
-  { quote: "", name: "", designation: "", company: "" },
-  { quote: "", name: "", designation: "", company: "" },
-  { quote: "", name: "", designation: "", company: "" },
-];
-
-const Testimonials = () => {
-  const testimonials = CUSTOMER_TESTIMONIALS.filter((item) =>
-    [item.quote, item.name, item.designation, item.company].every((value) =>
-      value.trim(),
-    ),
-  );
-  if (testimonials.length === 0) return null;
-  return (
-    <section
-      className={styles.testimonialsSection}
-      aria-labelledby="customer-review-title"
-    >
-      <div className="container">
-        <div className={styles.testimonialsHeading}>
-          <div>
-            <span className={styles.eyebrow}>FROM OUR CUSTOMERS</span>
-            <h2 id="customer-review-title" className={styles.sectionTitle}>
-              What our customers say.
-            </h2>
-          </div>
-        </div>
-        <div className={styles.testimonialsGrid}>
-          {testimonials.map((item, index) => (
-            <figure
-              className={styles.testimonialCard}
-              key={`${item.name}-${index}`}
-            >
-              <blockquote>“{item.quote}”</blockquote>
-              <figcaption>
-                <span>
-                  <strong>{item.name}</strong>
-                  <small>
-                    {item.designation} · {item.company}
-                  </small>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Infrastructure = () => (
-  <section className={styles.infrastructure}>
-    <div className={`container ${styles.infrastructureGrid}`}>
-      <figure className={styles.serverPhoto}>
-        <img
-          src="/image/bulk-sms-landing/messaging-infrastructure-v2-1000.webp"
-          srcSet="/image/bulk-sms-landing/messaging-infrastructure-v2-640.webp 640w, /image/bulk-sms-landing/messaging-infrastructure-v2-1000.webp 1000w"
-          sizes="(max-width: 991px) calc(100vw - 40px), 560px"
-          alt="Illustrative photograph of server racks in a modern data centre"
-          width={1000}
-          height={667}
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>
-          <i className="bi bi-cloud-check-fill" /> AWS-HOSTED PLATFORM{" "}
-          <span>Illustrative infrastructure image</span>
-        </figcaption>
-      </figure>
-      <div className={styles.infrastructureCopy}>
-        <span className={styles.eyebrow}>
-          OUR TECHNOLOGY. YOUR CONNECTIONS.
-        </span>
-        <h2 className={styles.sectionTitle}>
-          The platform behind
-          <br />
-          your business messages.
-        </h2>
-        <p>
-          We operate our own SMS and SMPP panels on AWS infrastructure. Your
-          team gets a way to manage campaigns, connect applications and review
-          message delivery.
-        </p>
-        <div className={styles.infraFacts}>
-          <div>
-            <i className="bi bi-window-desktop" />
-            <span>
-              <strong>Our own SMS &amp; SMPP panels</strong>
-              <small>
-                Explore the platform with the team that supports it.
-              </small>
-            </span>
-          </div>
-          <div>
-            <i className="bi bi-code-slash" />
-            <span>
-              <strong>Connect with API or SMPP</strong>
-              <small>
-                Discuss the right integration for your existing systems.
-              </small>
-            </span>
-          </div>
-          <div>
-            <i className="bi bi-headset" />
-            <span>
-              <strong>People to help you get started</strong>
-              <small>Guidance on requirements, DLT and onboarding.</small>
-            </span>
-          </div>
-        </div>
-        <a href="#get-started" className={styles.textLink}>
-          Meet your messaging platform <i className="bi bi-arrow-up-right" />
-        </a>
-      </div>
-    </div>
-  </section>
-);
-
-/* ═══════════════════════════════════════════════════
-   CONTENT SECTIONS
-   ═══════════════════════════════════════════════════ */
-const MESSAGE_TYPES = [
-  {
-    label: "Promotional SMS",
-    icon: "bi-megaphone",
-    title: "Turn an offer into a reason to return.",
-    text: "Keep your audience in the loop with relevant offers, new launches and upcoming events.",
-    tags: "RETAIL OFFERS / NEW ARRIVALS / EVENTS",
-    message:
-      "Something new for your weekend. Explore our latest collection in store this Saturday. Visit us to find your next favourite.",
-    sender: "YOUR BRAND",
-  },
-  {
-    label: "Transactional SMS",
-    icon: "bi-receipt",
-    title: "Keep customers informed at every step.",
-    text: "Share useful updates when customers place an order, make a payment or need to know what happens next.",
-    tags: "ORDER UPDATES / PAYMENT ALERTS / NOTIFICATIONS",
-    message:
-      "Your order #4821 is confirmed. We’ll notify you when it is dispatched. Thank you for shopping with us.",
-    sender: "YOUR BUSINESS",
-  },
-  {
-    label: "OTP & verification",
-    icon: "bi-shield-check",
-    title: "A small message. An essential moment.",
-    text: "Connect verification messages to your sign-up, login and transaction workflows through your application.",
-    tags: "SIGN-UP / LOGIN / VERIFICATION",
-    message:
-      "Your verification code is 482916. Use this code to complete your sign-in. Please do not share it with anyone.",
-    sender: "YOUR APP",
-  },
-];
-
-const MessageExamples = () => {
-  const [active, setActive] = useState(0);
-  const message = MESSAGE_TYPES[active];
-  return (
-    <section className={styles.messageSection}>
-      <div className="container">
-        <div className={styles.centerIntro}>
-          <span className={styles.eyebrow}>EVERY MESSAGE HAS A JOB TO DO</span>
-          <h2 className={styles.sectionTitle}>
-            The right message.
-            <br />
-            At the right moment.
-          </h2>
-          <p>
-            From a timely offer to an essential update. Find the SMS service
-            that fits.
-          </p>
-        </div>
-        <div
-          className={styles.messageTabs}
-          role="tablist"
-          aria-label="SMS message types"
-        >
-          {MESSAGE_TYPES.map((item, i) => (
-            <button
-              key={item.label}
-              id={`sms-tab-${i}`}
-              role="tab"
-              aria-selected={active === i}
-              aria-controls="sms-example"
-              tabIndex={active === i ? 0 : -1}
-              className={active === i ? styles.messageTabActive : ""}
-              onClick={() => setActive(i)}
-              onKeyDown={(event) => {
-                const next =
-                  event.key === "ArrowRight"
-                    ? (i + 1) % MESSAGE_TYPES.length
-                    : event.key === "ArrowLeft"
-                      ? (i + MESSAGE_TYPES.length - 1) % MESSAGE_TYPES.length
-                      : event.key === "Home"
-                        ? 0
-                        : event.key === "End"
-                          ? MESSAGE_TYPES.length - 1
-                          : null;
-                if (next !== null) {
-                  event.preventDefault();
-                  setActive(next);
-                  document.getElementById(`sms-tab-${next}`)?.focus();
-                }
-              }}
-            >
-              <i className={`bi ${item.icon}`} />
-              {item.label}
-            </button>
-          ))}
-        </div>
-        <div
-          className={styles.messagePanel}
-          id="sms-example"
-          role="tabpanel"
-          aria-labelledby={`sms-tab-${active}`}
-        >
-          <div className={styles.messageCopy}>
-            <span className={styles.featureNumber}>{message.tags}</span>
-            <h3>{message.title}</h3>
-            <p>{message.text}</p>
-            <a className={styles.textLink} href="#get-started">
-              Let’s discuss your use case <i className="bi bi-arrow-up-right" />
-            </a>
-          </div>
-          <div className={styles.phonePreview}>
-            <div className={styles.phoneTop}>
-              <span />
-              <i className="bi bi-reception-4" />
-            </div>
-            <div className={styles.phoneSender}>
-              <span>
-                <i className="bi bi-chat-dots" />
-              </span>
-              <strong>{message.sender}</strong>
-              <small>SMS message</small>
-            </div>
-            <span className={styles.messageTime}>Today, 10:30 AM</span>
-            <div className={styles.messageBubble}>{message.message}</div>
-            <p>Illustrative message</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const STEPS = [
   {
     icon: "bi-pencil-square",
-    title: "Explore the SMS panel",
-    text: "See how the panel works, from preparing a message to reviewing delivery reports.",
+    title: "Share your requirement",
+    text: "Fill in the form or call us. Tell us the SMS type and roughly how many messages you send.",
   },
   {
     icon: "bi-patch-check-fill",
-    title: "Discuss your use case",
-    text: "Tell us about your campaigns, customer updates or OTP workflow. We’ll talk through the suitable service.",
+    title: "Get your price and DLT help",
+    text: "Our team calls you back with your price and helps with DLT registration, sender ID and templates.",
   },
   {
     icon: "bi-rocket-takeoff-fill",
-    title: "Understand your next steps",
-    text: "Ask about API or SMPP connectivity, DLT requirements and the support available for getting started.",
+    title: "Start sending",
+    text: "Send from our panel, or connect through API or SMPP. A free demo of the panel is included.",
   },
 ];
 
 const HowItWorks = () => (
   <section className={styles.section}>
     <div className="container">
-      <span className={styles.eyebrow}>KNOW WHAT YOU’RE BOOKING</span>
+      <span className={styles.eyebrow}>HOW IT WORKS</span>
       <h2 className={styles.sectionTitle}>
-        A useful demo. In just 10 minutes.
+        From enquiry to sending SMS in three steps.
       </h2>
       <ol className={styles.steps}>
         {STEPS.map((s, i) => (
@@ -689,12 +466,16 @@ const HowItWorks = () => (
 
 const FAQS = [
   {
+    q: "How much does bulk SMS cost?",
+    a: "The price per SMS depends on the type (promotional, transactional or OTP) and how many messages you send each month. Higher volume means a lower rate. Fill in the form and our team calls you back with your exact price.",
+  },
+  {
     q: "What is DLT?",
     a: "DLT (Distributed Ledger Technology) registration is mandatory in India under TRAI rules for every business that sends commercial SMS. Your company, sender ID and message templates are registered on an operator's DLT portal. We do this registration for you.",
   },
   {
     q: "How fast is setup?",
-    a: "Setup depends on your requirements and the readiness of your DLT registration, sender ID and message templates. Our team will explain the onboarding steps during your demo.",
+    a: "Setup depends on your requirements and the readiness of your DLT registration, sender ID and message templates. Our team explains the onboarding steps when they call you.",
   },
   {
     q: "Do you provide an API?",
@@ -702,11 +483,11 @@ const FAQS = [
   },
   {
     q: "Can I use SMS for OTPs?",
-    a: "Yes. We support OTP messaging for application workflows. Discuss your integration and delivery requirements with our team during the demo.",
+    a: "Yes. We support OTP messaging for application workflows. Share your integration and delivery requirements in the form and our team will advise you.",
   },
   {
     q: "Do you give a free demo?",
-    a: "Yes. Fill in the form to arrange a free 10-minute guided demonstration. Our team will show you the platform and discuss your requirements.",
+    a: "Yes. When our team calls you with your price, they can also show you the SMS panel in a free 10-minute demo.",
   },
 ];
 
@@ -755,11 +536,11 @@ const BottomForm = () => (
       <div className={styles.bottomGrid}>
         <div>
           <h2 className={styles.bottomTitle}>
-            Your next customer connection starts here.
+            Get your SMS price today.
           </h2>
           <p className={styles.bottomText}>
-            Spend 10 minutes with our team. See the platform, ask your questions
-            and discover how it fits your business. The guided demo is free.
+            Tell us what you need and our team calls you back with your price.
+            It’s free, with no obligation, and a demo of the panel is included.
           </p>
           <ul className={styles.bottomList}>
             <li>
@@ -776,8 +557,8 @@ const BottomForm = () => (
             </li>
           </ul>
           <p className={styles.demoFollowup}>
-            Submit your details and our team will contact you to arrange your
-            demo.
+            Submit your details and our team will call you back with your
+            price.
           </p>
         </div>
         <LeadForm formId="get-started-bottom" />
@@ -787,12 +568,12 @@ const BottomForm = () => (
 );
 
 /* ═══════════════════════════════════════════════════
-   STICKY MOBILE BAR — Book Free Demo
+   STICKY MOBILE BAR — Call / Get My Price
    ═══════════════════════════════════════════════════ */
 // Google Ads conversion for taps on "Call". Paste the real value when it exists in
 // Google Ads, e.g. "AW-17957140915/AbCdEfGhIjk". While empty, a "call_click" event is
 // still pushed to the dataLayer (usable as a GTM trigger) and the call opens normally.
-const ADS_CALL_CONVERSION = "";
+const ADS_CALL_CONVERSION = "AW-17957140915/FXvGCJz36b0dELPz0PJC"; // "Call tap - Bulk SMS landing" (Secondary), created 2026-11-23
 
 // Record the tap, then dial. 300 ms fallback so the call always opens.
 const handleCallClick = (e) => {
@@ -832,7 +613,7 @@ const MobileBar = () => (
       <i className="bi bi-telephone-fill"></i> Call
     </a>
     <a href="#get-started" className={styles.mobileBarQuote}>
-      Book Free Demo <i className="bi bi-arrow-right"></i>
+      Get My Price <i className="bi bi-arrow-right"></i>
     </a>
   </div>
 );
@@ -849,9 +630,6 @@ const LandingFooter = () => (
         </address>
       </div>
       <nav className={styles.footerLinks} aria-label="Landing page footer">
-        <Link href="/contact/" prefetch={false}>
-          Contact
-        </Link>
         <Link href="/privacy/" prefetch={false}>
           Privacy Policy
         </Link>
@@ -891,12 +669,9 @@ const BulkSmsLanding = () => {
         <main>
           <Hero />
           <CustomerStrip />
-          <PanelWalkthrough />
-          <MessageExamples />
-          <Platform />
-          <Infrastructure />
+          <Pricing />
           <HowItWorks />
-          <Testimonials />
+          <PanelWalkthrough />
           <Faq />
           <BottomForm />
         </main>

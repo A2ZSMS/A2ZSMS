@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { gtag_report_conversion } from "../../GoogleTracking";
 import { checkLead } from "../../../lib/leadQuality";
 import { normalizeIndianMobile } from "../../../lib/phone";
+import { LEAD_WEBHOOK_URL } from "../../../lib/leadWebhook";
+import { getLeadContext } from "../../../lib/leadAttribution";
 
 // ── TESTING FLAG ──────────────────────────────────────────────
 // true  → only TeleCRM fires; Make.com/Web3Forms/gtag are SKIPPED
@@ -266,6 +268,7 @@ const PopupForm = () => {
           service: formData.subject,
           message: formData.message,
           timestamp: timestamp,
+          ...getLeadContext(),
         };
 
         const web3FormsData = {
@@ -279,7 +282,7 @@ const PopupForm = () => {
         };
 
         const results = await Promise.allSettled([
-          fetch("https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so", {
+          fetch(LEAD_WEBHOOK_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(makeWebhookData),

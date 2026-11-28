@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { gtag_report_conversion } from "../../../GoogleTracking";
 import { checkLead } from "../../../../lib/leadQuality";
 import { normalizeIndianMobile } from "../../../../lib/phone";
+import { LEAD_WEBHOOK_URL } from "../../../../lib/leadWebhook";
+import { getLeadContext } from "../../../../lib/leadAttribution";
 
 // ── Blocklists (also enforced server-side in Make.com scenario) ──────────────
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
@@ -45,7 +47,7 @@ const OJIVA_SMS_ENDPOINT = '/api/send-sms.php';
 // ──────────────────────────────────────────────────────────────
 
 // ── All constants BEFORE any function that references them ────────────────────
-const MAKE_URL      = "https://hook.eu1.make.com/hwd03miuvndwrthjyd3txxx1ya4792so";
+const MAKE_URL      = LEAD_WEBHOOK_URL; // n8n (was Make.com)
 const W3F_KEY       = "f51b2c3b-8f16-4d07-b40d-ec3d342fa530";
 const FETCH_TIMEOUT = 7000;            // 7s per endpoint attempt
 
@@ -221,6 +223,8 @@ const CountdownTimer = ({ styles }) => {
  *   formSubtitle   {string}   Line under the heading
  *   errorContact   {string}   Fallback contact shown if every send fails
  *   privacyFooter  {string}   Optional display-only text below the privacy note
+ *   requireEmail   {boolean}  Email is required; when false it is optional  (default true)
+ *   showCompany    {boolean}  Render the Company Name field                 (default true)
  */
 const SharedLeadForm = ({
   styles,
@@ -242,6 +246,8 @@ const SharedLeadForm = ({
   formSubtitle = "Takes 30 seconds · No credit card · Our expert calls you back",
   privacyFooter = "",
   errorContact = "Please WhatsApp us directly at +91 84310 86185 or try again.",
+  requireEmail = true,
+  showCompany = true,
 }) => {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "",
@@ -262,16 +268,8 @@ const SharedLeadForm = ({
   // Capture UTM / gclid / referrer once on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const p = new URLSearchParams(window.location.search);
-    utmRef.current = {
-      gclid:        p.get("gclid")        || "",
-      utm_source:   p.get("utm_source")   || "",
-      utm_medium:   p.get("utm_medium")   || "",
-      utm_campaign: p.get("utm_campaign") || "",
-      utm_term:     p.get("utm_term")     || "",
-      utm_content:  p.get("utm_content")  || "",
-      referrer:     document.referrer      || "",
-    };
+    // URL first, then the first-touch attribution saved in layout.js
+    utmRef.current = getLeadContext(pageId);
   }, []);
 
   // ── Validation ──────────────────────────────────────────────────────────────
@@ -286,7 +284,9 @@ const SharedLeadForm = ({
     else if (/(.)\1{4,}/.test(name))       errs.name = "Enter your real name";
 
     const email = form.email.trim().toLowerCase();
-    if (!email)                            errs.email = "Email is required";
+    if (!email) {
+      if (requireEmail)                    errs.email = "Email is required";
+    }
     else if (!EMAIL_RE.test(email))        errs.email = "Enter a valid email";
     else {
       const [prefix, domain] = email.split("@");
@@ -302,8 +302,10 @@ const SharedLeadForm = ({
     else if (/(.)\1{6,}/.test(phone))      errs.phone = "Enter a real mobile number";
 
     const company = form.company.trim();
-    if (!company)                          errs.company = "Company name is required";
-    else if (company.length < 2)           errs.company = "At least 2 characters";
+    if (showCompany) {
+      if (!company)                        errs.company = "Company name is required";
+      else if (company.length < 2)         errs.company = "At least 2 characters";
+    }
 
     if (!form.service)                     errs.service = "Please select a service";
 
@@ -574,7 +576,10 @@ const SharedLeadForm = ({
           {/* Email */}
           <div className="col-md-6">
             <label className={styles.formLabel} htmlFor={`email_${formId}`}>
-              Email <span className={styles.formRequired}>*</span>
+              Email{" "}
+              {requireEmail
+                ? <span className={styles.formRequired}>*</span>
+                : <span style={{ fontWeight: 400, color: "#888" }}>(optional)</span>}
             </label>
             <div className={styles.formInputWrap}>
               <i className={`bi bi-envelope ${styles.formInputIcon}`}></i>
@@ -619,6 +624,7 @@ const SharedLeadForm = ({
           </div>
 
           {/* Company */}
+          {showCompany && (
           <div className="col-md-6">
             <label className={styles.formLabel} htmlFor={`company_${formId}`}>
               Company Name <span className={styles.formRequired}>*</span>
@@ -639,9 +645,10 @@ const SharedLeadForm = ({
             </div>
             {errors.company && <p className={styles.formError}>{errors.company}</p>}
           </div>
+          )}
 
           {/* Service */}
-          <div className="col-md-6">
+          <div className={showCompany ? "col-md-6" : "col-12"}>
             <label className={styles.formLabel} htmlFor={`service_${formId}`}>
               Service <span className={styles.formRequired}>*</span>
             </label>
